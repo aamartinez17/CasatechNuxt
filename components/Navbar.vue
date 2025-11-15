@@ -116,25 +116,24 @@ function handleClickOutside(event) {
   }
 }
 
-onMounted(() => {
-  if (process.client && window.bootstrap && navbarCollapseRef.value) {
-    // 4. Get 'Collapse' from the global 'bootstrap' object
-    bsCollapse = new window.bootstrap.Collapse(navbarCollapseRef.value, {
-      toggle: false
-    });
-  }
-  // 5. NEW: Add the global event listener
-  if (process.client) {
+if (process.client) {
+  
+  onMounted(() => {
+    // We must wait for the component to mount AND for the
+    // global 'bootstrap' object to be ready
+    if (window.bootstrap && navbarCollapseRef.value) {
+      bsCollapse = new window.bootstrap.Collapse(navbarCollapseRef.value, {
+        toggle: false
+      });
+    }
     document.addEventListener('click', handleClickOutside);
-  }
-});
+  });
 
-// 6. NEW: Add the cleanup
-onUnmounted(() => {
-  if (process.client) {
+  onUnmounted(() => {
     document.removeEventListener('click', handleClickOutside);
-  }
-});
+  });
+
+}
 
 </script>
 
