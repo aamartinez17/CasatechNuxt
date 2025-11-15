@@ -19,6 +19,19 @@ export function usePageMeta(pageData) {
     const canonicalUrl = isSpanish ? esUrl : enUrl;
     const ogImage = data.image ? `${baseUrl}${data.image}` : `${baseUrl}/images/casatechllc-og-image.png`;
 
+    const organizationSchema = {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Casatech LLC",
+      "url": "https://casatechllc.com/",
+      "logo": "https://casatechllc.com/logos/casatech-transparent-bg.png",
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+1-540-746-5700",
+        "contactType": "Customer Service"
+      }
+    };
+
     return {
       // 1. Target the 'title' tag by its ID
       title: data.title,
@@ -53,6 +66,13 @@ export function usePageMeta(pageData) {
         { rel: 'alternate', hreflang: 'en', href: enUrl },
         { rel: 'alternate', hreflang: 'es', href: esUrl },
         { rel: 'alternate', hreflang: 'x-default', href: enUrl }
+      ],
+      script: [
+        {
+          type: 'application/ld+json',
+          // This injects the Organization data into your page <head>
+          children: JSON.stringify(organizationSchema)
+        }
       ]
     };
   });
