@@ -116,7 +116,7 @@
               <a href="https://linkedin.com/company/casatech-llc" target="_blank" class="social-icon me-3" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a href="https://www.facebook.com/casatechllc/" class="social-icon" aria-label="Facebook">
+              <a href="https://www.facebook.com/casatechllc/" target="_blank" class="social-icon me-3" aria-label="Facebook">
                 <i class="fab fa-facebook"></i>
               </a>
               <a href="https://www.yelp.com/biz/casatech-new-haven" target="_blank" class="social-icon me-3" aria-label="Yelp">
