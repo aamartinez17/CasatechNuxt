@@ -36,7 +36,7 @@
               <i class="fas fa-map-marker-alt me-2"></i>{{ t('footer.location') }}
             </li>
             <li class="mb-2">
-              <a href="tel:+12038848244" class="footer-link">
+              <a href="tel:2038848244" class="footer-link">
                 <i class="fas fa-phone me-2"></i>(203) 884-8244
               </a>
             </li>
@@ -48,20 +48,20 @@
           </ul>
         </div>
 
-        <!-- <div class="col-lg-3 col-md-6">
+        <div class="col-lg-3 col-md-6">
           <h5 class="footer-heading">{{ t('footer.follow') }}</h5>
           <div class="social-icons">
-            <a href="#" class="social-icon me-3" aria-label="LinkedIn">
+            <a href="https://linkedin.com/company/casatech-llc" class="social-icon me-3" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
             </a>
-            <a href="#" class="social-icon me-3" aria-label="Instagram">
+            <!-- <a href="#" class="social-icon me-3" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a>
             <a href="#" class="social-icon" aria-label="Facebook">
               <i class="fab fa-facebook"></i>
-            </a>
+            </a> -->
           </div>
-        </div> -->
+        </div>
       </div>
 
       <hr class="footer-divider mt-4 mb-3">

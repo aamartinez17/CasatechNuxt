@@ -99,7 +99,7 @@
             <ul class="list-unstyled contact-info-list">
               <li>
                 <i class="fas fa-phone fa-fw"></i>
-                <a href="tel:+12038848244">(203) 884-8244</a>
+                <a href="tel:2038848244">(203) 884-8244</a>
               </li>
               <li>
                 <i class="fas fa-envelope fa-fw"></i>
@@ -113,7 +113,7 @@
 
             <h4 class="social-heading mt-5">{{ t('contact.info.social') }}</h4>
             <div class="social-icons-contact">
-              <a href="https://www.linkedin.com/in/alex-martinez1711" target="_blank" class="social-icon me-3" aria-label="LinkedIn">
+              <a href="https://linkedin.com/company/casatech-llc" target="_blank" class="social-icon me-3" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
               </a>
               <a href="https://github.com/aamartinez17" target="_blank" class="social-icon me-3" aria-label="GitHub">

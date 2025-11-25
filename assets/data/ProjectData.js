@@ -65,4 +65,14 @@ export const allProjects = [
     imageUrl: '/images/project-bluestone-hills-ts.png',
     projectUrl: 'https://bluestonehillstreet.netlify.app/'
   },
+  { 
+    id: 7, // Make sure this ID is unique
+    title: 'Casatech LLC Official Website', 
+    title_es: 'Sitio Web Oficial de Casatech LLC',
+    category: 'web', 
+    description: 'A high-performance, fully bilingual (EN/ES) website built with Nuxt.js and Vue 3. Features include Static Site Generation (SSG) for maximum speed and SEO, dynamic meta-tag management, and a secure serverless contact form.', 
+    description_es: 'Un sitio web bilingüe (EN/ES) de alto rendimiento construido con Nuxt.js y Vue 3. Incluye Generación de Sitio Estático (SSG) para velocidad, gestión dinámica de SEO y un formulario de contacto seguro sin servidor.',
+    imageUrl: '/images/project-casatechllc.png', // Using your existing header image
+    projectUrl: 'https://casatechllc.com/'
+  },
 ];
