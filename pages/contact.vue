@@ -99,7 +99,7 @@
             <ul class="list-unstyled contact-info-list">
               <li>
                 <i class="fas fa-phone fa-fw"></i>
-                <a href="tel:540-746-5700">(540) 746-5700</a>
+                <a href="tel:+12038848244">(203) 884-8244</a>
               </li>
               <li>
                 <i class="fas fa-envelope fa-fw"></i>

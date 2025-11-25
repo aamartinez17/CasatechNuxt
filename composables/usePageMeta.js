@@ -27,7 +27,7 @@ export function usePageMeta(pageData) {
       "logo": "https://casatechllc.com/logos/casatech-transparent-bg.png",
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+1-540-746-5700",
+        "telephone": "+1-203-884-8244",
         "contactType": "Customer Service"
       }
     };

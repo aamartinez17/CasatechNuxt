@@ -33,8 +33,8 @@
           </li>
         </ul>
         <div class="d-flex align-items-center navbar-cta-group">
-          <a class="btn btn-brand-secondary me-3" href="tel:540-746-5700" role="button">
-            (540) 746-5700
+          <a class="btn btn-brand-secondary me-3" href="tel:+12038848244" role="button">
+            (203) 884-8244
           </a>
           <button class="btn btn-language-toggle" @click="toggleLocale" :aria-label="languageButtonText">
             {{ languageButtonText }}

@@ -36,8 +36,8 @@
               <i class="fas fa-map-marker-alt me-2"></i>{{ t('footer.location') }}
             </li>
             <li class="mb-2">
-              <a href="tel:540-746-5700" class="footer-link">
-                <i class="fas fa-phone me-2"></i>(540) 746-5700
+              <a href="tel:+12038848244" class="footer-link">
+                <i class="fas fa-phone me-2"></i>(203) 884-8244
               </a>
             </li>
             <li class="mb-2">
