@@ -116,9 +116,12 @@
               <a href="https://linkedin.com/company/casatech-llc" target="_blank" class="social-icon me-3" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
               </a>
-              <a href="https://github.com/aamartinez17" target="_blank" class="social-icon me-3" aria-label="GitHub">
-                <i class="fab fa-github"></i>
+              <a href="https://www.facebook.com/casatechllc/" class="social-icon" aria-label="Facebook">
+                <i class="fab fa-facebook"></i>
               </a>
+              <!-- <a href="https://github.com/aamartinez17" target="_blank" class="social-icon me-3" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+              </a> -->
             </div>
           </div>
           </div>

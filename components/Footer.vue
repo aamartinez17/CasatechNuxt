@@ -3,7 +3,7 @@
     <div class="container">
       <div class="row">
         
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
           <router-link :to="homePath" class="footer-logo-link mb-3">
             <img src="/logos/casatech-logo-white-bg.png" alt="Casatech LLC logo" class="footer-logo">
           </router-link>
@@ -11,7 +11,7 @@
           <p class="footer-text">{{ t('footer.tagline') }}</p>
           <p class="fw-bold text-accent">{{ t('footer.language') }}</p>
         </div>
-        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
           <h5 class="footer-heading">{{ t('footer.links') }}</h5>
           <ul class="list-unstyled">
             <div class="row">
@@ -29,7 +29,7 @@
           </ul>
         </div>
 
-        <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
+        <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
           <h5 class="footer-heading">{{ t('footer.contact') }}</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
@@ -56,10 +56,10 @@
             </a>
             <!-- <a href="#" class="social-icon me-3" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
-            </a>
-            <a href="#" class="social-icon" aria-label="Facebook">
-              <i class="fab fa-facebook"></i>
             </a> -->
+            <a href="https://www.facebook.com/casatechllc/" class="social-icon" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
           </div>
         </div>
       </div>
