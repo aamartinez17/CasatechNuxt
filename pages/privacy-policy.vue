@@ -3,6 +3,7 @@
     <PageHeader 
       title="Privacy Policy" 
       subtitle="How we protect your data and your rights."
+      backgroundImage="/images/servicesview-header.png" 
     />
 
     <section class="page-section">
@@ -33,21 +34,24 @@
               <h3>4. SMS/Text Messaging Terms & Conditions</h3>
               <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us. <strong>Message frequency varies</strong> based on your interactions with us.</p>
               
-              <p><strong>Message Types:</strong> You may receive account alerts, promotional offers, and customer service messages regarding your projects or inquiries.</p>
+              <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, <strong>Marketing</strong>, and <strong>Delivery Notifications</strong>.</p>
               <ul>
-                <li><strong>Account Notifications:</strong> Project milestones and support ticket updates.</li>
-                <li><strong>Customer Care:</strong> Answers to questions and technical support.</li>
-                <li><strong>Marketing:</strong> Promotions and special offers.</li>
-                <li><strong>Delivery Notifications:</strong> Updates on completed digital assets.</li>
+                <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
+                <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
+                <li><strong>Marketing:</strong> Occasional promotions for new services or discounts.</li>
+                <li><strong>Delivery Notifications:</strong> Updates on the completion and delivery of digital assets.</li>
                 </ul>
                 <ul>
-                    <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text "STOP" to the short code. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
-                    
-                    <li><strong>Help:</strong> Text <strong>HELP</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at info@casatechllc.com.</li>
-                    
-                    <li><strong>Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
-                    <li><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</li>
-                </ul>
+                <li><strong>Opt-In:</strong> You can opt-in to this service at any time by texting <strong>START</strong>, <strong>SUBSCRIBE</strong>, or <strong>YES</strong>.</li>
+                
+                <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text <strong>STOP</strong>, <strong>CANCEL</strong>, <strong>UNSUBSCRIBE</strong>, or <strong>QUIT</strong>. After you send one of these messages to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
+                
+                <li><strong>Help:</strong> Text <strong>HELP</strong>, <strong>INFO</strong>, or <strong>SUPPORT</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at info@casatechllc.com.</li>
+                
+                <li><strong>Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+                <li><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</li>
+              </ul>
+
               <div class="alert alert-secondary mt-4">
                 <strong><i class="fas fa-shield-alt me-2"></i> Privacy of Mobile Information</strong><br>
                 We do not transfer any consumer data to external organizations under any circumstances. Your mobile information will not be shared with third parties/affiliates for marketing/promotional purposes.
@@ -64,8 +68,7 @@
               <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. All information you provide to us is stored on secure servers behind firewalls.</p>
 
               <h3>7. Contact Information</h3>
-              <p>If you have any questions or wish to contact us regarding your information or this policy, please email us at info@casatechllc.com or call (203) 884-8244.</p>
-
+              <p>If you have any questions or wish to contact us regarding your SMS registration or privacy concerns, please contact us at:</p>
               <p>
                 <strong>Casatech LLC</strong><br>
                 Email: <a href="mailto:info@casatechllc.com">info@casatechllc.com</a><br>
