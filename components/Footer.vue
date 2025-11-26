@@ -70,10 +70,16 @@
 
       <hr class="footer-divider mt-4 mb-3">
       <div class="row">
-        <div class="col-12 text-center">
-          <p class="small mb-0">&copy; {{ new Date().getFullYear() }} Casatech LLC. {{ t('footer.rights') }}</p>
-        </div>
+      <div class="col-12 text-center">
+        <p class="small mb-0">
+          &copy; {{ new Date().getFullYear() }} Casatech LLC. {{ t('footer.rights') }}
+          <span class="mx-2">|</span>
+          <router-link to="/privacy-policy" class="footer-link small">Privacy Policy</router-link>
+          <span class="mx-2">|</span>
+            <a href="/sitemap.xml" target="_blank" class="footer-link small">Sitemap</a>
+        </p>
       </div>
+    </div>
     </div>
   </footer>
 </template>

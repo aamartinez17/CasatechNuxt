@@ -89,7 +89,7 @@
                 </span>
                 <h4 class="my-3">{{ t('home.services.card2.title') }}</h4>
                 <p class="text-muted">{{ t('home.services.card2.desc') }}</p>
-                <router-link :to="servicesPath" class="btn btn-link">{{ t('home.services.learnMore') }}</router-link>
+                <router-link :to="startupTechPath" class="btn btn-link">{{ t('home.services.learnMore') }}</router-link>
               </div>
             </div>
           </div>
@@ -325,6 +325,7 @@ const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/
 const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
 const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
 const blogPath = computed(() => (locale.value === 'es' ? '/es/blog' : '/blog'));
+const startupTechPath = computed(() => (locale.value === 'es' ? '/es/services/startup-tech' : '/services/startup-tech'));
 
 
 // === NEW: Logic for "Se Habla Español" button ===

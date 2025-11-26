@@ -16,8 +16,8 @@
           <div class="col-lg-8">
             <div v-for="post in paginatedPosts" :key="post.id" class="card blog-post-card mb-4" data-aos="fade-up">
               <div class="row">
-              <img :src="post.imageLink" class="card-img-top col-md-6 my-md-auto ps-md-4" :alt="locale === 'es' ? post.title_es : post.title_en">
-              <div class="card-body col-md-6">
+              <img :src="post.imageLink" class="card-img-top col-md-4 my-md-auto ps-md-4" :alt="locale === 'es' ? post.title_es : post.title_en">
+              <div class="card-body col-md-8">
                 <h2 class="card-title">{{ locale === 'es' ? post.title_es : post.title_en }}</h2>
                 <p class="text-muted">{{ formatDate(post.date) }}</p>
                 <p class="card-text">{{ locale === 'es' ? post.subtitle_es : post.subtitle_en }}</p>

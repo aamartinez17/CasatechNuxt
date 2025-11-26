@@ -1,5 +1,8 @@
 <template>
-  <section class="page-header" :style="{ backgroundImage: `url(${backgroundImage})` }">
+  <section 
+    class="page-header" 
+    :style="backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {}"
+  >
     <div class="header-overlay">
       <div class="container text-center" data-aos="fade-in">
         <h1 class="display-3 fw-bold">{{ title }}</h1>
@@ -26,7 +29,8 @@ defineProps({
   },
   backgroundImage: {
     type: String,
-    required: true
+    required: false,
+    default: ''      
   }
 });
 
