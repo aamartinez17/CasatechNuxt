@@ -30,8 +30,16 @@
                 <li>To notify you about changes to our services.</li>
               </ul>
 
-              <h3>4. SMS/Text Messaging Terms (Grasshopper/VoIP)</h3>
-              <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us regarding your inquiries, project updates, or support tickets. Message and data rates may apply.</p>
+              <h3>4. SMS/Text Messaging Terms & Conditions</h3>
+            <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us. <strong>Message frequency varies</strong> based on your interactions with us.</p>
+            <p><strong>Message Types:</strong> We send messages regarding:</p>
+            <ul>
+                <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
+                <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
+                <li><strong>Marketing:</strong> Occasional promotions for new services or discounts.</li>
+                <li><strong>Delivery Notifications:</strong> Updates on the completion and delivery of digital assets.</li>
+            </ul>
+            <p><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</p>
               <ul>
                 <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text "STOP" to the short code. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
                 <li><strong>Help:</strong> If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at info@casatechllc.com.</li>
