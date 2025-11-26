@@ -10,7 +10,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="privacy-content">
-              <p class="text-muted mb-4">Last Updated: November 25, 2025</p>
+              <p class="text-muted mb-4">Last Updated: November 26, 2025</p>
 
               <h3>1. Introduction</h3>
               <p>Casatech LLC ("we," "us," or "our") respects your privacy and is committed to protecting it through our compliance with this policy. This policy describes the types of information we may collect from you or that you may provide when you visit the website <strong>casatechllc.com</strong> and our practices for collecting, using, maintaining, protected, and disclosing that information.</p>
@@ -31,24 +31,27 @@
               </ul>
 
               <h3>4. SMS/Text Messaging Terms & Conditions</h3>
-            <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us. <strong>Message frequency varies</strong> based on your interactions with us.</p>
-            <p><strong>Message Types:</strong> We send messages regarding:</p>
-            <ul>
+              <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us. <strong>Message frequency varies</strong> based on your interactions with us.</p>
+              
+              <p><strong>Message Types:</strong> You may receive account alerts, promotional offers, and customer service messages regarding your projects or inquiries.</p>
+              <ul>
                 <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
                 <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
                 <li><strong>Marketing:</strong> Occasional promotions for new services or discounts.</li>
                 <li><strong>Delivery Notifications:</strong> Updates on the completion and delivery of digital assets.</li>
-            </ul>
-            <p><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</p>
+                </ul>
               <ul>
                 <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text "STOP" to the short code. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
-                <li><strong>Help:</strong> If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at info@casatechllc.com.</li>
+                
+                <li><strong>Help:</strong> Text <strong>HELP</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at info@casatechllc.com.</li>
+                
                 <li><strong>Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
+                <li><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</li>
               </ul>
 
               <div class="alert alert-secondary mt-4">
                 <strong><i class="fas fa-shield-alt me-2"></i> Privacy of Mobile Information</strong><br>
-                No mobile information will be shared with third parties/affiliates for marketing/promotional purposes. All the above categories exclude text messaging originator opt-in data and consent; this information will not be shared with any third parties.
+                We do not transfer any consumer data to external organizations under any circumstances. Your mobile information will not be shared with third parties/affiliates for marketing/promotional purposes.
               </div>
 
               <h3>5. Cookies and Tracking Technologies</h3>
@@ -62,7 +65,7 @@
               <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. All information you provide to us is stored on secure servers behind firewalls.</p>
 
               <h3>7. Contact Information</h3>
-              <p>To ask questions or comment about this privacy policy and our privacy practices, contact us at:</p>
+              <p>If you have any questions or wish to contact us regarding your SMS registration or privacy concerns, please contact us at:</p>
               <p>
                 <strong>Casatech LLC</strong><br>
                 Email: <a href="mailto:info@casatechllc.com">info@casatechllc.com</a><br>
