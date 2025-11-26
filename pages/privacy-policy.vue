@@ -35,12 +35,12 @@
               
               <p><strong>Message Types:</strong> You may receive account alerts, promotional offers, and customer service messages regarding your projects or inquiries.</p>
               <ul>
-                <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
-                <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
-                <li><strong>Marketing:</strong> Occasional promotions for new services or discounts.</li>
-                <li><strong>Delivery Notifications:</strong> Updates on the completion and delivery of digital assets.</li>
+                <li><strong>Account Notifications:</strong> Project milestones and support ticket updates.</li>
+                <li><strong>Customer Care:</strong> Answers to questions and technical support.</li>
+                <li><strong>Marketing:</strong> Promotions and special offers.</li>
+                <li><strong>Delivery Notifications:</strong> Updates on completed digital assets.</li>
                 </ul>
-              <ul>
+                <ul>
                 <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text "STOP" to the short code. After you send the SMS message "STOP" to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
                 
                 <li><strong>Help:</strong> Text <strong>HELP</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword HELP for more assistance, or you can get help directly at info@casatechllc.com.</li>
