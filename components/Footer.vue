@@ -57,12 +57,13 @@
             <!-- <a href="#" class="social-icon me-3" aria-label="Instagram">
               <i class="fab fa-instagram"></i>
             </a> -->
+            <a href="https://www.facebook.com/casatechllc/" class="social-icon me-3" aria-label="Facebook">
+              <i class="fab fa-facebook"></i>
+            </a>
             <a href="https://www.yelp.com/biz/casatech-new-haven" target="_blank" class="social-icon me-3" aria-label="Yelp">
               <i class="fab fa-yelp"></i>
             </a>
-            <a href="https://www.facebook.com/casatechllc/" class="social-icon" aria-label="Facebook">
-              <i class="fab fa-facebook"></i>
-            </a>
+            
           </div>
         </div>
       </div>
