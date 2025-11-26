@@ -34,7 +34,7 @@
               <h3>4. SMS/Text Messaging Terms & Conditions</h3>
               <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us. <strong>Message frequency varies</strong> based on your interactions with us.</p>
               
-              <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, <strong>Marketing</strong>, and <strong>Delivery Notifications</strong>. You may receive account <strong>alerts</strong>, <strong>promotional offers</strong>, and <strong>customer service</strong> messages.</p>
+              <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, <strong>Marketing</strong>, and <strong>Delivery Notifications</strong>. You may receive <strong>account alerts</strong>, <strong>promotional offers</strong>, and <strong>customer service</strong> messages.</p>
               <ul>
                 <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
                 <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
@@ -68,7 +68,7 @@
               <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. All information you provide to us is stored on secure servers behind firewalls.</p>
 
               <h3>7. Contact Information</h3>
-              <p>If you have any questions or wish to contact us regarding your SMS registration or privacy concerns, please contact us at:</p>
+              <p>If you have any questions or wish to contact us regarding your information or this policy, please email us at info@casatechllc.com or call (203) 884-8244.</p>
               <p>
                 <strong>Casatech LLC</strong><br>
                 Email: <a href="mailto:info@casatechllc.com">info@casatechllc.com</a><br>
