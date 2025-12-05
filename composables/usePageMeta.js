@@ -12,10 +12,18 @@ export function usePageMeta(pageData) {
       return { title: 'Loading... | Casatech LLC' };
     }
 
-    const isSpanish = locale.value === 'es';
+    const isUrlSpanish = route.path.startsWith('/es');
+    const isSpanish = isUrlSpanish || locale.value === 'es';
+    // === END FIX ===
+
     const baseUrl = 'https://casatechllc.com';
-    const enUrl = `${baseUrl}${data.path}`;
-    const esUrl = `${baseUrl}/es${data.path}`;
+    
+    // Helper to prevent double "/es/es/" paths
+    const cleanPath = data.path.startsWith('/es') ? data.path.substring(3) : data.path;
+    
+    const enUrl = `${baseUrl}${cleanPath}`;
+    const esUrl = `${baseUrl}/es${cleanPath}`;
+
     const canonicalUrl = isSpanish ? esUrl : enUrl;
     const ogImage = data.image ? `${baseUrl}${data.image}` : `${baseUrl}/images/casatechllc-og-image.png`;
 
