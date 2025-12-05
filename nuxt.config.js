@@ -1,6 +1,5 @@
 import { fileURLToPath, URL } from 'node:url'
-import { defineConfig } from 'vite'
-// === THIS IS THE FIX ===
+// import { defineConfig } from 'vite'
 import { allPosts } from './assets/data/BlogData.js' // Use relative path
 
 const blogRoutes = allPosts.map(post => `/blog/${post.slug}`)
