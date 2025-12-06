@@ -377,6 +377,7 @@
       "title": "Send Us a Message",
       "name": "Your Name",
       "email": "Email Address",
+      "phone": "Phone Number",
       "subject": "Subject (Optional)",
       "message": "Your Message",
       "button": "Send Message",

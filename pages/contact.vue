@@ -26,6 +26,10 @@
                 <label for="email" class="form-label">{{ t('contact.form.email') }}</label>
                 <input v-model="formData.email" type="email" class="form-control" id="email" name="email" required :disabled="isSubmitting">
               </div>
+              <div class="mb-3">
+                <label for="phone" class="form-label">{{ t('contact.form.phone') }}</label>
+                <input v-model="formData.phone" type="tel" class="form-control" id="phone" name="phone" required :disabled="isSubmitting">
+              </div>
 
               <div class="mb-3">
                 <label for="subject" class="form-label">{{ t('contact.form.subject') }}</label>
@@ -164,6 +168,7 @@ const recaptchaWidgetId = ref(null);
 const formData = reactive({
   name: '',
   email: '',
+  phone: '',
   subject: '',
   message: '',
   consent: false 
