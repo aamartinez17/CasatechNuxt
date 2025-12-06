@@ -46,7 +46,7 @@
                 <ul>
                 <li><strong>Opt-In:</strong> You can opt-in to this service at any time by texting <strong>START</strong>, <strong>SUBSCRIBE</strong>, or <strong>YES</strong>.</li>
                 
-                <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text <strong>STOP</strong> or <strong>UNSUBSCRIBE</strong>. After you send one of these messages to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
+                <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text <strong>STOP</strong>, <strong>CANCEL</strong>, or <strong>UNSUBSCRIBE</strong>. After you send one of these messages to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
                 
                 <li><strong>Help Instructions:</strong> Text <strong>HELP</strong>, <strong>INFO</strong>, or <strong>SUPPORT</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword <strong>HELP</strong> for more assistance, or you can get help directly at info@casatechllc.com.</li>
                 
