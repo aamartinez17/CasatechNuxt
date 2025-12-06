@@ -58,15 +58,12 @@
               </div>
 
               <h3>5. Data Sharing</h3>
-              <p>
-                By providing your phone number and agreeing to receive texts, you consent to receive text messages from Casatech LLC, from 203-884-8244 regarding account notification, customer care, delivery notification, marketing. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at 203-884-8244 or info@casatechllc.com. Mobile opt-in information is never shared with third parties.
-              </p>
               <ul>
                 <li>
-                  Customer data is not shared with 3rd parties for promotional or marketing purposes
+                  <strong>Customer data is not shared with 3rd parties</strong> for promotional or marketing purposes
                 </li>
                 <li>
-                  Mobile opt-in and consent are never shared with anyone for any purpose. Any information sharing that may be mentioned elsewhere in this policy excludes mobile opt-in data.
+                  Mobile opt-in and consent are <strong>never shared</strong> with anyone for any purpose. Any information sharing that may be mentioned elsewhere in this policy excludes mobile opt-in data.
                 </li>
               </ul>
 
