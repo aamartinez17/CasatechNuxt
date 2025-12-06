@@ -377,7 +377,7 @@
       "button": "Enviar Mensaje",
       "sending": "Enviando...",
       "recaptchaError": "Por favor, verifique que no es un robot.",
-      "consent": "Entiendo y acepto ser contactado por Casatech LLC por teléfono, mensaje de texto o correo electrónico con respecto a mi consulta.",
+      "consent": "Acepto ser contactado por Casatech LLC por teléfono, correo electrónico y SMS con respecto a mi consulta, hitos del proyecto y tickets de soporte. Doy mi consentimiento para recibir mensajes de coordinación, soporte técnico y ofertas promocionales. Pueden aplicarse tarifas de mensajes y datos.",
       "cookieGate": "Por favor, acepte las cookies de nuestro sitio para habilitar y ver el formulario de contacto."
     },
     "info": {

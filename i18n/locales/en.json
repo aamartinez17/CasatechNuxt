@@ -382,7 +382,7 @@
       "button": "Send Message",
       "sending": "Sending...",
       "recaptchaError": "Please verify that you are not a robot.",
-      "consent": "I understand and agree to be contacted by Casatech LLC via phone, text, or email regarding my inquiry.",
+      "consent": "I agree to be contacted by Casatech LLC via phone, email, and SMS regarding my inquiry, project milestones, and support tickets. I consent to receiving messages for coordination, technical support, and promotional offers. Message and data rates may apply.",
       "cookieGate": "Please accept our site cookies to enable and view the contact form."
     },
     "info": {
