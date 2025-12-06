@@ -32,7 +32,9 @@
               </ul>
 
               <h3>4. SMS/Text Messaging Terms & Conditions</h3>
-              <p>By providing your phone number to Casatech LLC, you expressly consent to receive text messages from us. <strong>Message frequency varies</strong> based on your interactions with us.</p>
+              <p>
+                By providing your phone number and agreeing to receive texts, you consent to receive text messages from Casatech LLC, from 203-884-8244 regarding account notification, customer care, delivery notification, marketing. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at 203-884-8244 or info@casatechllc.com. Mobile opt-in information is never shared with third parties.
+              </p>
               
               <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, <strong>Marketing</strong>, and <strong>Delivery Notifications</strong>. You may receive <strong>account alerts</strong>, <strong>promotional offers</strong>, and <strong>customer service</strong> messages.</p>
               <ul>
