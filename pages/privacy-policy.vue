@@ -57,17 +57,30 @@
                 We do not transfer any consumer data to external organizations under any circumstances. Your mobile information will not be shared with third parties/affiliates for marketing/promotional purposes.
               </div>
 
-              <h3>5. Cookies and Tracking Technologies</h3>
+              <h3>5. Data Sharing</h3>
+              <p>
+                By providing your phone number and agreeing to receive texts, you consent to receive text messages from Casatech LLC, from 203-884-8244 regarding account notification, customer care, delivery notification, marketing. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at 203-884-8244 or info@casatechllc.com. Mobile opt-in information is never shared with third parties.
+              </p>
+              <ul>
+                <li>
+                  Customer data is not shared with 3rd parties for promotional or marketing purposes
+                </li>
+                <li>
+                  Mobile opt-in and consent are never shared with anyone for any purpose. Any information sharing that may be mentioned elsewhere in this policy excludes mobile opt-in data.
+                </li>
+              </ul>
+
+              <h3>6. Cookies and Tracking Technologies</h3>
               <p>We use cookies and similar tracking technologies to track the activity on our service and hold certain information.</p>
               <ul>
                 <li><strong>Essential Cookies:</strong> We use local storage to save your language preference (English/Spanish) and your cookie consent status.</li>
                 <li><strong>Security Cookies:</strong> We use Google reCAPTCHA to protect our forms from spam. Google reCAPTCHA sets a necessary cookie to function.</li>
               </ul>
 
-              <h3>6. Data Security</h3>
+              <h3>7. Data Security</h3>
               <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. All information you provide to us is stored on secure servers behind firewalls.</p>
 
-              <h3>7. Contact Information</h3>
+              <h3>8. Contact Information</h3>
               <p>If you have any questions or wish to contact us regarding your information or this policy, please email us at info@casatechllc.com or call (203) 884-8244.</p>
               <p>
                 <strong>Casatech LLC</strong><br>
