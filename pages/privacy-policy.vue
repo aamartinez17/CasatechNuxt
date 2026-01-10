@@ -33,22 +33,21 @@
 
               <h3>4. SMS/Text Messaging Terms & Conditions</h3>
               <p>
-                By providing your phone number and agreeing to receive texts, you consent to receive text messages from Casatech LLC, from 203-884-8244 regarding account notification, customer care, delivery notification, marketing. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at 540-746-5700 or info@casatechllc.com. Mobile opt-in information is never shared with third parties.
+                By providing your phone number and agreeing to receive texts, you consent to receive text messages from Casatech LLC, from 203-884-8244 regarding account notification, customer care, delivery notification. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at 540-746-5700 or info@casatechllc.com. Mobile opt-in information is never shared with third parties.
               </p>
               
-              <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, <strong>Marketing</strong>, and <strong>Delivery Notifications</strong>. You may receive <strong>account alerts</strong>, <strong>promotional offers</strong>, and <strong>customer service</strong> messages.</p>
+              <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, and <strong>Delivery Notifications</strong>. You may receive <strong>account alerts</strong>, <strong>promotional offers</strong>, and <strong>customer service</strong> messages.</p>
               <ul>
                 <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
                 <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
-                <li><strong>Marketing:</strong> Occasional promotions for new services or discounts.</li>
                 <li><strong>Delivery Notifications:</strong> Updates on the completion and delivery of digital assets.</li>
                 </ul>
                 <ul>
-                <li><strong>Opt-In:</strong> You can opt-in to this service at any time by texting <strong>START</strong>, <strong>SUBSCRIBE</strong>, or <strong>YES</strong>.</li>
+                <li><strong>Opt-In:</strong> You can opt-in to this service at any time by texting <strong>START</strong>.</li>
                 
-                <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text <strong>STOP</strong>, <strong>CANCEL</strong>, or <strong>UNSUBSCRIBE</strong>. After you send one of these messages to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
+                <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text <strong>STOP</strong> or <strong>CANCEL</strong>. After you send one of these messages to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
                 
-                <li><strong>Help Instructions:</strong> Text <strong>HELP</strong>, <strong>INFO</strong>, or <strong>SUPPORT</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword <strong>HELP</strong> for more assistance, or you can get help directly at info@casatechllc.com.</li>
+                <li><strong>Help Instructions:</strong> Text <strong>HELP</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword <strong>HELP</strong> for more assistance, or you can get help directly at info@casatechllc.com.</li>
                 
                 <li><strong>Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
                 <li><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</li>
