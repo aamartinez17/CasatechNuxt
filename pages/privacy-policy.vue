@@ -11,7 +11,7 @@
         <div class="row justify-content-center">
           <div class="col-lg-10">
             <div class="privacy-content">
-              <p class="text-muted mb-4">Last Updated: November 26, 2025</p>
+              <p class="text-muted mb-4">Last Updated: January 10, 2026</p>
 
               <h3>1. Introduction</h3>
               <p>Casatech LLC ("we," "us," or "our") respects your privacy and is committed to protecting it through our compliance with this policy. This policy describes the types of information we may collect from you or that you may provide when you visit the website <strong>casatechllc.com</strong> and our practices for collecting, using, maintaining, protected, and disclosing that information.</p>
