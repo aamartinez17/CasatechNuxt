@@ -7,8 +7,8 @@
             <h1 class="display-3 fw-bold" data-aos="fade-right">Modern Websites for Your Local Business</h1>
             <p class="lead my-4" data-aos="fade-right" data-aos-delay="600">Bilingual, tech-focused solutions for small businesses, startups, and the Latin community in New Haven and beyond.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <router-link to="contact" class="btn btn-brand-secondary btn-lg px-4 me-md-2" data-aos="fade-right" data-aos-delay="800">Get in Touch</router-link>
-              <router-link to="services" class="btn btn-outline-light btn-lg px-4" data-aos="fade-right" data-aos-delay="1000">Our Services</router-link>
+              <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-4 me-md-2" data-aos="fade-right" data-aos-delay="800">Get in Touch</router-link>
+              <router-link to="/services" class="btn btn-outline-light btn-lg px-4" data-aos="fade-right" data-aos-delay="1000">Our Services</router-link>
             </div>
             <!-- <div class="mt-4" data-aos="fade-right" data-aos-delay="1200">
               <a href="#" @click.prevent="toggleLocale" class="btn btn-accent btn-lg px-4 pulse-animation">
@@ -49,7 +49,7 @@
                   </li>
                 </ul>
 
-                <router-link to="contact" class="btn btn-brand-secondary btn-lg px-5 mt-4">
+                <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-5 mt-4">
                   Claim This Offer
                 </router-link>
               </div>
@@ -76,7 +76,7 @@
                 </span>
                 <h4 class="my-3">Website Design</h4>
                 <p class="text-muted">Vibrant, modern, and responsive websites built with Vue.js and Bootstrap.</p>
-                <router-link to="services" class="btn btn-link">Learn More</router-link>
+                <router-link to="/services" class="btn btn-link">Learn More</router-link>
               </div>
             </div>
           </div>
@@ -102,7 +102,7 @@
                 </span>
                 <h4 class="my-3">IT Services</h4>
                 <p class="text-muted">On-demand tech support and consultation to keep you running smoothly.</p>
-                <router-link to="services" class="btn btn-link">Learn More</router-link>
+                <router-link to="/services" class="btn btn-link">Learn More</router-link>
               </div>
             </div>
           </div>
@@ -133,7 +133,7 @@
             <h2 class="section-heading mt-3">Your Local Tech Partner</h2>
             <p class="text-muted">Born in Harrisonburg, VA, and now based in New Haven, CT. I'm a one-man team dedicated to providing personal, high-quality tech services.</p>
             <p class="text-muted">I'm passionate about empowering the local Latin and small business community with the technology they need to succeed.</p>
-            <router-link to="about" class="btn btn-brand-primary">More About Me</router-link>
+            <router-link to="/about" class="btn btn-brand-primary">More About Me</router-link>
           </div>
         </div>
       </div>
@@ -194,7 +194,7 @@
 
         <!-- New "View All" button -->
         <div class="text-center" data-aos="fade-up">
-          <router-link to="portfolio" class="btn btn-brand-secondary btn-lg px-5">
+          <router-link to="/portfolio" class="btn btn-brand-secondary btn-lg px-5">
             View All Projects
           </router-link>
         </div>
@@ -225,7 +225,7 @@
           <router-link :to="seoArticleLink" class="btn btn-accent btn-lg px-5 me-3 mb-3">
             Read Our SEO Guide <i class="fas fa-arrow-right ms-2"></i>
           </router-link>
-          <router-link to="blog" class="btn btn-outline-light btn-lg px-5 mb-3">
+          <router-link to="/blog" class="btn btn-outline-light btn-lg px-5 mb-3">
             Visit the Blog <i class="fas fa-book-open ms-2"></i>
           </router-link>
         </div>
@@ -274,7 +274,7 @@
       <div class="container text-center" data-aos="fade-up">
         <h2 class="display-5 fw-bold">Ready to Start Your Project?</h2>
         <p class="lead my-4">Let's build something great together. Get your free, no-obligation quote.</p>
-        <router-link to="contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
+        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
       </div>
     </section>
   </div>

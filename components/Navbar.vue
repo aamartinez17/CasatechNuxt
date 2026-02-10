@@ -17,19 +17,19 @@
             <router-link class="nav-link" to="/" @click="closeMenu">Home</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="about" @click="closeMenu">About</router-link>
+            <router-link class="nav-link" to="/about" @click="closeMenu">About</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="services" @click="closeMenu">Services</router-link>
+            <router-link class="nav-link" to="/services" @click="closeMenu">Services</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="portfolio" @click="closeMenu">Portfolio</router-link>
+            <router-link class="nav-link" to="/portfolio" @click="closeMenu">Portfolio</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="blog" @click="closeMenu">Blog</router-link>
+            <router-link class="nav-link" to="/blog" @click="closeMenu">Blog</router-link>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="contact" @click="closeMenu">Contact</router-link>
+            <router-link class="nav-link" to="/contact" @click="closeMenu">Contact</router-link>
           </li>
         </ul>
         <div class="d-flex align-items-center navbar-cta-group">
@@ -44,12 +44,12 @@
 
 <script setup>
 // 2. Import onUnmounted
-import { ref, onMounted, onUnmounted, computed } from 'vue';
+import { ref, onMounted, onUnmounted} from 'vue';
 // import { Collapse } from 'bootstrap';
-import { useRouter, useRoute } from 'vue-router';
+// import { useRouter, useRoute } from 'vue-router';
 
-const router = useRouter(); // Get the router
-const route = useRoute(); // Get the current route
+// const router = useRouter(); // Get the router
+// const route = useRoute(); // Get the current route
 
 // --- Menu Collapse Logic ---
 

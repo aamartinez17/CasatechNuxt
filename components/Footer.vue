@@ -17,13 +17,13 @@
             <div class="row">
             <div class="col-4">
             <li class="mb-2"><router-link to="/" class="footer-link">Home</router-link></li>
-            <li class="mb-2"><router-link to="about" class="footer-link">About</router-link></li>
-            <li class="mb-2"><router-link to="services" class="footer-link">Services</router-link></li>
+            <li class="mb-2"><router-link to="/about" class="footer-link">About</router-link></li>
+            <li class="mb-2"><router-link to="/services" class="footer-link">Services</router-link></li>
             </div>
             <div class="col-4">
-            <li class="mb-2"><router-link to="portfolio" class="footer-link">Portfolio</router-link></li>
-            <li class="mb-2"><router-link to="blog" class="footer-link">Blog</router-link></li>
-            <li class="mb-2"><router-link to="contact" class="footer-link">Contact</router-link></li>
+            <li class="mb-2"><router-link to="/portfolio" class="footer-link">Portfolio</router-link></li>
+            <li class="mb-2"><router-link to="/blog" class="footer-link">Blog</router-link></li>
+            <li class="mb-2"><router-link to="/contact" class="footer-link">Contact</router-link></li>
             </div>
             </div>
           </ul>
@@ -86,7 +86,7 @@
 
 <script setup>
 import { useI18n } from 'vue-i18n';
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 
 // DYNAMIC PATHS (like in Navbar)
 // const homePath = computed(() => (locale.value === 'es' ? '/es/' : '/'));
