@@ -282,7 +282,7 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 // import { useRouter, useRoute } from 'vue-router';
 
 // Import Swiper
@@ -299,7 +299,7 @@ import { allFAQs as faqData } from '@/assets/data/FAQData.js';
 import { allPosts as blogData } from '@/assets/data/BlogData.js';
 
 // Get i18n functions
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 // const router = useRouter(); // Get router
 // const route = useRoute(); // Get route
 
@@ -320,12 +320,12 @@ const clientLogos = ref(logoData);
 const faqs = ref(faqData);
 
 // DYNAMIC PATHS (like in Navbar)
-const contactPath = computed(() => ('/contact'));
-const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
-const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
-const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
+// const contactPath = computed(() => ('/contact'));
+// const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
+// const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
+// const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
 const blogPath = computed(() => ('/blog'));
-const startupTechPath = computed(() => (locale.value === 'es' ? '/es/services/startup-tech' : '/services/startup-tech'));
+// const startupTechPath = computed(() => (locale.value === 'es' ? '/es/services/startup-tech' : '/services/startup-tech'));
 
 
 // === NEW: Logic for "Se Habla Español" button ===
