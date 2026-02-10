@@ -4,17 +4,17 @@
       <div class="container">
         <div class="row align-items-center">
           <div class="col-lg-7">
-            <h1 class="display-3 fw-bold" data-aos="fade-right">{{ t('home.hero.title') }}</h1>
-            <p class="lead my-4" data-aos="fade-right" data-aos-delay="600">{{ t('home.hero.subtitle') }}</p>
+            <h1 class="display-3 fw-bold" data-aos="fade-right">Modern Websites for Your Local Business</h1>
+            <p class="lead my-4" data-aos="fade-right" data-aos-delay="600">Bilingual, tech-focused solutions for small businesses, startups, and the Latin community in New Haven and beyond.</p>
             <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-              <router-link :to="contactPath" class="btn btn-brand-secondary btn-lg px-4 me-md-2" data-aos="fade-right" data-aos-delay="800">{{ t('home.hero.ctaContact') }}</router-link>
-              <router-link :to="servicesPath" class="btn btn-outline-light btn-lg px-4" data-aos="fade-right" data-aos-delay="1000">{{ t('home.hero.ctaServices') }}</router-link>
+              <router-link to="contact" class="btn btn-brand-secondary btn-lg px-4 me-md-2" data-aos="fade-right" data-aos-delay="800">Get in Touch</router-link>
+              <router-link to="services" class="btn btn-outline-light btn-lg px-4" data-aos="fade-right" data-aos-delay="1000">Our Services</router-link>
             </div>
-            <div class="mt-4" data-aos="fade-right" data-aos-delay="1200">
+            <!-- <div class="mt-4" data-aos="fade-right" data-aos-delay="1200">
               <a href="#" @click.prevent="toggleLocale" class="btn btn-accent btn-lg px-4 pulse-animation">
                 {{ languageButtonText }} <i class="fas fa-comments ms-2"></i>
               </a>
-            </div>
+            </div> -->
           </div>
           </div>
       </div>
@@ -26,31 +26,31 @@
           <div class="col-lg-10 col-xl-8 mx-auto">
             <div class="card pricing-ad-card shadow-lg border-0">
               <div class="card-body p-4 p-md-5">
-                <h2 class="pricing-ad-title">{{ t('home.pricing.title') }}</h2>
-                <p class="lead text-muted mb-4">{{ t('home.pricing.subtitle') }}</p>
+                <h2 class="pricing-ad-title">Limited Time Startup Offer</h2>
+                <p class="lead text-muted mb-4">Get your professional website off the ground.</p>
 
                 <div class="price-display mb-4">
-                  <span class="price-old">{{ t('home.pricing.oldPrice') }}</span>
-                  <span class="price-new">{{ t('home.pricing.newPrice') }}</span>
+                  <span class="price-old">$900</span>
+                  <span class="price-new">$500</span>
                 </div>
 
                 <ul class="list-unstyled feature-list text-start w-75 mx-auto">
                   <li>
                     <i class="fas fa-check-circle"></i>
-                    <span>{{ t('home.pricing.point1') }}</span>
+                    <span>No Monthly Subscription Fees</span>
                   </li>
                   <li>
                     <i class="fas fa-check-circle"></i>
-                    <span>{{ t('home.pricing.point2') }}</span>
+                    <span>You Own 100% of Your Code</span>
                   </li>
                   <li>
                     <i class="fas fa-check-circle"></i>
-                    <span>{{ t('home.pricing.point3') }}</span>
+                    <span>Fully Responsive & Mobile-Ready</span>
                   </li>
                 </ul>
 
-                <router-link :to="contactPath" class="btn btn-brand-secondary btn-lg px-5 mt-4">
-                  {{ t('home.pricing.cta') }}
+                <router-link to="contact" class="btn btn-brand-secondary btn-lg px-5 mt-4">
+                  Claim This Offer
                 </router-link>
               </div>
             </div>
@@ -63,8 +63,8 @@
     <section class="page-section services-section bg-light py-5" id="services">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('home.services.title') }}</h2>
-          <p class="text-muted mb-5">{{ t('home.services.subtitle') }}</p>
+          <h2 class="section-heading">Our Services</h2>
+          <p class="text-muted mb-5">Tailored tech solutions to help your business grow.</p>
         </div>
         <div class="row text-center">
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
@@ -74,9 +74,9 @@
                   <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
                   <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">{{ t('home.services.card1.title') }}</h4>
-                <p class="text-muted">{{ t('home.services.card1.desc') }}</p>
-                <router-link :to="servicesPath" class="btn btn-link">{{ t('home.services.learnMore') }}</router-link>
+                <h4 class="my-3">Website Design</h4>
+                <p class="text-muted">Vibrant, modern, and responsive websites built with Vue.js and Bootstrap.</p>
+                <router-link to="services" class="btn btn-link">Learn More</router-link>
               </div>
             </div>
           </div>
@@ -87,9 +87,9 @@
                   <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
                   <i class="fas fa-briefcase fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">{{ t('home.services.card2.title') }}</h4>
-                <p class="text-muted">{{ t('home.services.card2.desc') }}</p>
-                <router-link :to="startupTechPath" class="btn btn-link">{{ t('home.services.learnMore') }}</router-link>
+                <h4 class="my-3">Small Business Tech</h4>
+                <p class="text-muted">Get the right tech stack. From email (Google Workspace) to VoIP phones.</p>
+                <router-link to="/services/startup-tech" class="btn btn-link">Learn More</router-link>
               </div>
             </div>
           </div>
@@ -100,9 +100,9 @@
                   <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
                   <i class="fas fa-headset fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">{{ t('home.services.card3.title') }}</h4>
-                <p class="text-muted">{{ t('home.services.card3.desc') }}</p>
-                <router-link :to="servicesPath" class="btn btn-link">{{ t('home.services.learnMore') }}</router-link>
+                <h4 class="my-3">IT Services</h4>
+                <p class="text-muted">On-demand tech support and consultation to keep you running smoothly.</p>
+                <router-link to="services" class="btn btn-link">Learn More</router-link>
               </div>
             </div>
           </div>
@@ -113,8 +113,8 @@
     <section class="page-section py-5" id="client-logos">
   <div class="container">
     <div class="text-center" data-aos="fade-up">
-      <h2 class="section-heading">{{ t('home.clients.title') }}</h2>
-      <p class="text-muted lead mb-5">{{ t('home.clients.subtitle') }}</p>
+      <h2 class="section-heading">Local Partners</h2>
+      <p class="text-muted lead mb-5">I'm proud to have provided solutions for a diverse range of local businesses and clients.</p>
     </div>
     
     <LogoCarousel :logos="clientLogos" data-aos="fade-up" />
@@ -129,73 +129,73 @@
             <img src="/images/homeview-about-brief.png" class="img-fluid rounded-3 shadow" alt="Tech Consultant in New Haven">
           </div>
           <div class="pt-5 col-lg-6 ps-lg-5" data-aos="fade-left" data-aos-delay="100">
-            <span class="badge-espanol">{{ t('home.about.badge') }}</span>
-            <h2 class="section-heading mt-3">{{ t('home.about.title') }}</h2>
-            <p class="text-muted">{{ t('home.about.p1') }}</p>
-            <p class="text-muted">{{ t('home.about.p2') }}</p>
-            <router-link :to="aboutPath" class="btn btn-brand-primary">{{ t('home.about.button') }}</router-link>
+            <span class="badge-espanol">Se Habla Español</span>
+            <h2 class="section-heading mt-3">Your Local Tech Partner</h2>
+            <p class="text-muted">Born in Harrisonburg, VA, and now based in New Haven, CT. I'm a one-man team dedicated to providing personal, high-quality tech services.</p>
+            <p class="text-muted">I'm passionate about empowering the local Latin and small business community with the technology they need to succeed.</p>
+            <router-link to="about" class="btn btn-brand-primary">More About Me</router-link>
           </div>
         </div>
       </div>
     </section>
 
-<section class="page-section portfolio-section my-5" id="portfolio">
+    <section class="page-section portfolio-section my-5" id="portfolio">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('home.portfolio.title') }}</h2>
-          <p class="text-muted mb-5">{{ t('home.portfolio.subtitle') }}</p>
+          <h2 class="section-heading">Recent Work</h2>
+          <p class="text-muted mb-5">A look at some of the projects I'm proud of</p>
         </div>
         
         <ClientOnly>
-        <swiper
-          :modules="swiperModules"
-          :slides-per-view="1"
-          :space-between="30"
-          :navigation="true"
-          :pagination="{ clickable: true }"
-          :breakpoints="{
-            '768': { slidesPerView: 2 },
-            '992': { slidesPerView: 3 }
-          }"
-          data-aos="zoom-in"
-          class="pb-5"
-        >
-          <!-- Loop over the new homeProjects ref -->
+          <swiper
+            :modules="swiperModules"
+            :slides-per-view="1"
+            :space-between="30"
+            :navigation="true"
+            :pagination="{ clickable: true }"
+            :breakpoints="{
+              '768': { slidesPerView: 2 },
+              '992': { slidesPerView: 3 }
+            }"
+            data-aos="zoom-in"
+            class="pb-5"
+          >
+            <!-- Loop over the new homeProjects ref -->
           
-          <swiper-slide v-for="project in homeProjects" :key="project.id">
-            <div class="portfolio-item card h-100">
-              <!-- Image is now clickable -->
-              <img 
-                :src="project.imageUrl" 
-                class="card-img-top" 
-                :alt="locale === 'es' ? project.title_es : project.title_en"
-                @click="openModal(project.imageUrl)"
-                style="cursor: zoom-in;"
-              >
-              <div class="card-body d-flex flex-column">
-                <h5 class="card-title">{{ locale === 'es' ? project.title_es : project.title_en }}</h5>
-                <p class="card-text text-muted">{{ locale === 'es' ? project.category_es : project.category_en }}</p>
-                
-                <!-- New "View Site" button -->
-                <a 
-                  v-if="project.projectUrl"
-                  :href="project.projectUrl" 
-                  target="_blank" 
-                  rel="noopener noreferrer" 
-                  class="btn btn-brand-primary mt-auto"
+            <swiper-slide v-for="project in homeProjects" :key="project.id">
+              <div class="portfolio-item card h-100">
+                <!-- Image is now clickable -->
+                <img 
+                  :src="project.imageUrl" 
+                  class="card-img-top" 
+                  :alt="project.title_en"
+                  @click="openModal(project.imageUrl)"
+                  style="cursor: zoom-in;"
                 >
-                  {{ t('home.portfolio.viewWebsite') }} <i class="fas fa-external-link-alt ms-1"></i>
-                </a>
+                <div class="card-body d-flex flex-column">
+                  <h5 class="card-title">{{ project.title_en }}</h5>
+                  <p class="card-text text-muted">{{ project.category_en }}</p>
+                  
+                  <!-- New "View Site" button -->
+                  <a 
+                    v-if="project.projectUrl"
+                    :href="project.projectUrl" 
+                    target="_blank" 
+                    rel="noopener noreferrer" 
+                    class="btn btn-brand-primary mt-auto"
+                  >
+                    Visit Site <i class="fas fa-external-link-alt ms-1"></i>
+                  </a>
+                </div>
               </div>
-            </div>
-          </swiper-slide>
+            </swiper-slide>
         </swiper>
         </ClientOnly>
 
         <!-- New "View All" button -->
         <div class="text-center" data-aos="fade-up">
-          <router-link :to="portfolioPath" class="btn btn-brand-secondary btn-lg px-5">
-            {{ t('home.portfolio.viewAll') }}
+          <router-link to="portfolio" class="btn btn-brand-secondary btn-lg px-5">
+            View All Projects
           </router-link>
         </div>
       </div>
@@ -212,21 +212,21 @@
 
     <section class="page-section blog-cta-section text-white text-center">
       <div class="container" data-aos="zoom-in">
-        <h2 class="section-heading-white">{{ t('home.blogCta.title') }}</h2>
-        <p class="lead my-4">{{ t('home.blogCta.subtitle') }}</p>
+        <h2 class="section-heading-white">Boost Your Online Presence</h2>
+        <p class="lead my-4">Discover practical tips and expert insights on SEO, web design, and IT solutions for your business.</p>
 
         <div class="article-preview mb-4">
-          <h5 class="article-preview-title">{{ t('home.blogCta.featuredArticle') }}</h5>
+          <h5 class="article-preview-title">Featured Article: SEO Essentials</h5>
           <blockquote class="article-preview-quote">
             "{{ seoArticleSubtitle }}"
           </blockquote>
         </div>
         <div class="mb-2">
           <router-link :to="seoArticleLink" class="btn btn-accent btn-lg px-5 me-3 mb-3">
-            {{ t('home.blogCta.articleButton') }} <i class="fas fa-arrow-right ms-2"></i>
+            Read Our SEO Guide <i class="fas fa-arrow-right ms-2"></i>
           </router-link>
-          <router-link :to="blogPath" class="btn btn-outline-light btn-lg px-5 mb-3">
-            {{ t('home.blogCta.blogButton') }} <i class="fas fa-book-open ms-2"></i>
+          <router-link to="blog" class="btn btn-outline-light btn-lg px-5 mb-3">
+            Visit the Blog <i class="fas fa-book-open ms-2"></i>
           </router-link>
         </div>
       </div>
@@ -235,8 +235,8 @@
     <section class="page-section bg-light py-5" id="faq">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('home.faq.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('home.faq.subtitle') }}</p>
+          <h2 class="section-heading">Frequently Asked Questions</h2>
+          <p class="text-muted lead mb-5">Common questions we get from small business owners.</p>
         </div>
         <div class="row">
           <div class="col-lg-10 mx-auto" data-aos="fade-up">
@@ -251,7 +251,7 @@
                     :data-bs-target="`#collapse-${item.id}`" 
                     :aria-expanded="index === 0 ? 'true' : 'false'" 
                     :aria-controls="`collapse-${item.id}`">
-                    {{ locale === 'es' ? item.q_es : item.q_en }}
+                    {{ item.q_en }}
                   </button>
                 </h2>
                 <div 
@@ -260,7 +260,7 @@
                   :class="{ 'show': index === 0 }"
                   :aria-labelledby="`heading-${item.id}`" 
                   data-bs-parent="#faqAccordion">
-                  <div class="accordion-body" v-html="locale === 'es' ? item.a_es : item.a_en">
+                  <div class="accordion-body" v-html="item.a_en">
                   </div>
                 </div>
               </div>
@@ -272,9 +272,9 @@
 
     <section class="cta-section">
       <div class="container text-center" data-aos="fade-up">
-        <h2 class="display-5 fw-bold">{{ t('home.cta.title') }}</h2>
-        <p class="lead my-4">{{ t('home.cta.subtitle') }}</p>
-        <router-link :to="contactPath" class="btn btn-brand-primary btn-lg px-5 py-3">{{ t('home.cta.button') }}</router-link>
+        <h2 class="display-5 fw-bold">Ready to Start Your Project?</h2>
+        <p class="lead my-4">Let's build something great together. Get your free, no-obligation quote.</p>
+        <router-link to="contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
       </div>
     </section>
   </div>
@@ -283,7 +283,7 @@
 <script setup>
 import { ref, computed } from 'vue';
 import { useI18n } from 'vue-i18n';
-import { useRouter, useRoute } from 'vue-router';
+// import { useRouter, useRoute } from 'vue-router';
 
 // Import Swiper
 import { Swiper, SwiperSlide } from 'swiper/vue';
@@ -300,12 +300,12 @@ import { allPosts as blogData } from '@/assets/data/BlogData.js';
 
 // Get i18n functions
 const { t, locale } = useI18n();
-const router = useRouter(); // Get router
-const route = useRoute(); // Get route
+// const router = useRouter(); // Get router
+// const route = useRoute(); // Get route
 
 const pageMeta = computed(() => ({
-  title: t('home.hero.title'),
-  description: t('home.hero.subtitle'),
+  title: "Modern Websites for Your Local Business",
+  description: "Bilingual, tech-focused solutions for small businesses, startups, and the Latin community in New Haven and beyond.",
   path: '/', // The base (English) path
   image: '/images/casatechllc-og-image.png' // The specific image for this page
 }));
@@ -320,35 +320,35 @@ const clientLogos = ref(logoData);
 const faqs = ref(faqData);
 
 // DYNAMIC PATHS (like in Navbar)
-const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
+const contactPath = computed(() => ('/contact'));
 const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
 const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
 const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
-const blogPath = computed(() => (locale.value === 'es' ? '/es/blog' : '/blog'));
+const blogPath = computed(() => ('/blog'));
 const startupTechPath = computed(() => (locale.value === 'es' ? '/es/services/startup-tech' : '/services/startup-tech'));
 
 
 // === NEW: Logic for "Se Habla Español" button ===
-const toggleLocale = () => {
-  const newLocale = locale.value === 'en' ? 'es' : 'en';
+// const toggleLocale = () => {
+//   const newLocale = locale.value === 'en' ? 'es' : 'en';
 
-  if (newLocale === 'es') {
-    const newPath = `/es${route.path}`;
-    router.push(newPath);
-  } else {
-    const newPath = route.path.startsWith('/es') 
-      ? route.path.substring(3) || '/' 
-      : route.path;
-    router.push(newPath);
-  }
-};
+//   if (newLocale === 'es') {
+//     const newPath = `/es${route.path}`;
+//     router.push(newPath);
+//   } else {
+//     const newPath = route.path.startsWith('/es') 
+//       ? route.path.substring(3) || '/' 
+//       : route.path;
+//     router.push(newPath);
+//   }
+// };
 
-const languageButtonText = computed(() => {
-  return t('home.hero.spanishButton');
-  // return locale.value === 'en'
-  //   ? t('home.hero.spanishButton') // Shows "Se Habla Español"
-  //   : t('home.about.badge');       // Shows "We Speak English"
-});
+// const languageButtonText = computed(() => {
+//   return t('home.hero.spanishButton');
+//   // return locale.value === 'en'
+//   //   ? t('home.hero.spanishButton') // Shows "Se Habla Español"
+//   //   : t('home.about.badge');       // Shows "We Speak English"
+// });
 
 // --- UPDATED: Blog CTA Logic ---
 const seoArticle = computed(() => {
@@ -359,18 +359,14 @@ const seoArticle = computed(() => {
 // FIX BILINGUAL BLOG LINKS
 const seoArticleLink = computed(() => {
   if (!seoArticle.value) return blogPath.value; // Fallback to main blog page
-  return locale.value === 'es'
-    ? `/es/blog/${seoArticle.value.slug}`
-    : `/blog/${seoArticle.value.slug}`;
+  return `/blog/${seoArticle.value.slug}`;
 });
 
 
 // NEW: Get the subtitle in the correct language
 const seoArticleSubtitle = computed(() => {
   if (!seoArticle.value) return '';
-  return locale.value === 'es' 
-    ? seoArticle.value.subtitle_es 
-    : seoArticle.value.subtitle_en;
+  return seoArticle.value.subtitle_en;
 });
 
 // Modal (Lightbox) Logic
@@ -389,33 +385,32 @@ const homeProjects = ref([
   {
     id: 1,
     title_en: 'Cardoso Cleaning Services LLC',
-    title_es: 'Cardoso Cleaning Services LLC',
+    // title_es: 'Cardoso Cleaning Services LLC',
     category_en: 'Web Design for Local Business',
-    category_es: 'Diseño Web para Negocio Local',
+    // category_es: 'Diseño Web para Negocio Local',
     imageUrl: '/images/project-cardoso-cs.png',
     projectUrl: 'https://cardosocleaningservicesllc.netlify.app/' // Example URL
   },
   {
     id: 2,
     title_en: 'White Glove Assembly Co',
-    title_es: 'White Glove Assembly Co',
+    // title_es: 'White Glove Assembly Co',
     category_en: 'Commercial Website',
-    category_es: 'Sitio Web Comercial',
+    // category_es: 'Sitio Web Comercial',
     imageUrl: '/images/project-whiteglove-assembly.png',
     projectUrl: 'https://www.whitegloveassembly.co' // Example URL
   },
   {
     id: 3,
     title_en: 'Omar\'s Barbershop and Hair Salon',
-    title_es: 'Omar\'s Barbershop and Hair Salon',
+    // title_es: 'Omar\'s Barbershop and Hair Salon',
     category_en: 'Web Design for Local Business',
-    category_es: 'Diseño Web para Negocio Local',
+    // category_es: 'Diseño Web para Negocio Local',
     imageUrl: '/images/project-omars-bas.png',
     projectUrl: 'https://omarsbarbershop.netlify.app/'
   }
 ]);
 </script>
-
 <style scoped>
 @import '@/assets/_variables.css';
 

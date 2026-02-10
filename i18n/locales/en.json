@@ -1,90 +1,5 @@
 {
-  "nav": {
-    "home": "Home",
-    "about": "About",
-    "services": "Services",
-    "portfolio": "Portfolio",
-    "blog": "Blog",
-    "faq": "FAQ",
-    "contact": "Contact"
-  },
-  "navbar": {
-    "toggleLang": "Español",
-    "ariaToggle": "Toggle language to Spanish"
-  },
-
-
-
-
   "home": {
-    "hero": {
-      "title": "Modern Websites for Your Local Business",
-      "subtitle": "Bilingual, tech-focused solutions for small businesses, startups, and the Latin community in New Haven and beyond.",
-      "ctaContact": "Get in Touch",
-      "ctaServices": "Our Services",
-      "spanishButton": "Se Habla Español"
-    },
-    "pricing": {
-      "title": "Limited Time Startup Offer",
-      "subtitle": "Get your professional website off the ground.",
-      "oldPrice": "$900",
-      "newPrice": "$500",
-      "point1": "No Monthly Subscription Fees",
-      "point2": "You Own 100% of Your Code",
-      "point3": "Fully Responsive & Mobile-Ready",
-      "cta": "Claim This Offer"
-    },
-    "services": {
-      "title": "Our Services",
-      "subtitle": "Tailored tech solutions to help your business grow.",
-      "card1": {
-        "title": "Website Design",
-        "desc": "Vibrant, modern, and responsive websites built with Vue.js and Bootstrap."
-      },
-      "card2": {
-        "title": "Small Business Tech",
-        "desc": "Get the right tech stack. From email (Google Workspace) to VoIP phones."
-      },
-      "card3": {
-        "title": "IT Services",
-        "desc": "On-demand tech support and consultation to keep you running smoothly."
-      },
-      "learnMore": "Learn More"
-    },
-    "clients": {
-      "title": "Local Partners",
-      "subtitle": "I'm proud to have provided solutions for a diverse range of local businesses and clients."
-    },
-    "about": {
-      "badge": "Se Habla Español",
-      "title": "Your Local Tech Partner",
-      "p1": "Born in Harrisonburg, VA, and now based in New Haven, CT. I'm a one-man team dedicated to providing personal, high-quality tech services.",
-      "p2": "I'm passionate about empowering the local Latin and small business community with the technology they need to succeed.",
-      "button": "More About Me"
-    },
-    "portfolio": {
-      "title": "Recent Work",
-      "subtitle": "A look at some of the projects I'm proud of.",
-      "project1": "Cardoso Cleaning Services LLC",
-      "category1": "Web Design",
-      "project2": "White Glove Assembly Co",
-      "category2": "Web Design",
-      "project3": "Omar's Barbershop and Hair Salon",
-      "category3": "Web Design",
-      "viewAll": "View All Projects",
-      "viewWebsite": "Visit Site"
-    },
-    "blogCta": {
-      "title": "Boost Your Online Presence",
-      "subtitle": "Discover practical tips and expert insights on SEO, web design, and IT solutions for your business.",
-      "featuredArticle": "Featured Article: SEO Essentials",
-      "articleButton": "Read Our SEO Guide",
-      "blogButton": "Visit the Blog"
-    },
-    "faq": {
-      "title": "Frequently Asked Questions",
-      "subtitle": "Common questions we get from small business owners."
-    },
     "cta": {
       "title": "Ready to Start Your Project?",
       "subtitle": "Let's build something great together. Get your free, no-obligation quote.",
@@ -400,17 +315,6 @@
   },
 
 
-
-
-  "footer": {
-    "tagline": "Modern tech solutions for local business.",
-    "language": "Se Habla Español",
-    "links": "Quick Links",
-    "contact": "Contact Us",
-    "location": "New Haven, CT & Harrisonburg, VA",
-    "follow": "Follow Us",
-    "rights": "All Rights Reserved."
-  },
 
 
 

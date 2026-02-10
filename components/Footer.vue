@@ -4,36 +4,36 @@
       <div class="row">
         
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-          <router-link :to="homePath" class="footer-logo-link mb-3">
+          <router-link to="/" class="footer-logo-link mb-3">
             <img src="/logos/casatech-logo-white-bg.png" alt="Casatech LLC logo" class="footer-logo">
           </router-link>
           
-          <p class="footer-text">{{ t('footer.tagline') }}</p>
-          <p class="fw-bold text-accent">{{ t('footer.language') }}</p>
+          <p class="footer-text">Modern tech solutions for local business.</p>
+          <p class="fw-bold text-accent">Se Habla Español</p>
         </div>
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-          <h5 class="footer-heading">{{ t('footer.links') }}</h5>
+          <h5 class="footer-heading">Quick Links</h5>
           <ul class="list-unstyled">
             <div class="row">
             <div class="col-4">
-            <li class="mb-2"><router-link :to="homePath" class="footer-link">{{ t('nav.home') }}</router-link></li>
-            <li class="mb-2"><router-link :to="aboutPath" class="footer-link">{{ t('nav.about') }}</router-link></li>
-            <li class="mb-2"><router-link :to="servicesPath" class="footer-link">{{ t('nav.services') }}</router-link></li>
+            <li class="mb-2"><router-link to="/" class="footer-link">Home</router-link></li>
+            <li class="mb-2"><router-link to="about" class="footer-link">About</router-link></li>
+            <li class="mb-2"><router-link to="services" class="footer-link">Services</router-link></li>
             </div>
             <div class="col-4">
-            <li class="mb-2"><router-link :to="portfolioPath" class="footer-link">{{ t('nav.portfolio') }}</router-link></li>
-            <li class="mb-2"><router-link :to="blogPath" class="footer-link">{{ t('nav.blog') }}</router-link></li>
-            <li class="mb-2"><router-link :to="contactPath" class="footer-link">{{ t('nav.contact') }}</router-link></li>
+            <li class="mb-2"><router-link to="portfolio" class="footer-link">Portfolio</router-link></li>
+            <li class="mb-2"><router-link to="blog" class="footer-link">Blog</router-link></li>
+            <li class="mb-2"><router-link to="contact" class="footer-link">Contact</router-link></li>
             </div>
             </div>
           </ul>
         </div>
 
         <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-          <h5 class="footer-heading">{{ t('footer.contact') }}</h5>
+          <h5 class="footer-heading">Contact Us</h5>
           <ul class="list-unstyled">
             <li class="mb-2">
-              <i class="fas fa-map-marker-alt me-2"></i>{{ t('footer.location') }}
+              <i class="fas fa-map-marker-alt me-2"></i>New Haven, CT & Harrisonburg, VA
             </li>
             <li class="mb-2">
               <a href="tel:2038848244" class="footer-link">
@@ -49,7 +49,7 @@
         </div>
 
         <div class="col-lg-3 col-md-6">
-          <h5 class="footer-heading">{{ t('footer.follow') }}</h5>
+          <h5 class="footer-heading">Follow Us</h5>
           <div class="social-icons">
             <a href="https://linkedin.com/company/casatech-llc" class="social-icon me-3" aria-label="LinkedIn">
               <i class="fab fa-linkedin"></i>
@@ -72,7 +72,7 @@
       <div class="row">
       <div class="col-12 text-center">
         <p class="small mb-0">
-          &copy; {{ new Date().getFullYear() }} Casatech LLC. {{ t('footer.rights') }}
+          &copy; {{ new Date().getFullYear() }} Casatech LLC. All Rights Reserved.
           <span class="mx-2">|</span>
           <router-link to="/privacy-policy" class="footer-link small">Privacy Policy</router-link>
           <span class="mx-2">|</span>
@@ -89,12 +89,12 @@ import { useI18n } from 'vue-i18n';
 const { t, locale } = useI18n();
 
 // DYNAMIC PATHS (like in Navbar)
-const homePath = computed(() => (locale.value === 'es' ? '/es/' : '/'));
-const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
-const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
-const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
-const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
-const blogPath = computed(() => (locale.value === 'es' ? '/es/blog' : '/blog'));
+// const homePath = computed(() => (locale.value === 'es' ? '/es/' : '/'));
+// const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
+// const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
+// const aboutPath = computed(() => (locale.value === 'es' ? '/es/about' : '/about'));
+// const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
+// const blogPath = computed(() => (locale.value === 'es' ? '/es/blog' : '/blog'));
 
 </script>
 
