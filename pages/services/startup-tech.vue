@@ -4,9 +4,9 @@
       <div class="container" data-aos="fade-in">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
-            <h1 class="display-3 fw-bold">{{ t('startup.hero.title') }}</h1>
-            <p class="lead my-4">{{ t('startup.hero.subtitle') }}</p>
-            <router-link :to="contactPath" class="btn btn-brand-secondary btn-lg px-4">{{ t('startup.hero.cta') }}</router-link>
+            <h1 class="display-3 fw-bold">Startup Tech Essentials</h1>
+            <p class="lead my-4">Get your new business set up for success from day one. We build your professional tech foundation so you can focus on growing.</p>
+            <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-4">Get a Free Consultation</router-link>
           </div>
         </div>
       </div>
@@ -16,9 +16,9 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
-            <h2 class="section-heading">{{ t('startup.problem.title') }}</h2>
-            <p class="lead text-muted">{{ t('startup.problem.p1', ['@gmail.com'])  }}</p>
-            <p class="lead text-muted">{{ t('startup.problem.p2') }}</p>
+            <h2 class="section-heading">Don't Use Your Personal Email for Business</h2>
+            <p class="lead text-muted">Starting a new business is hard. It's tempting to cut corners with a @gmail.com address or your personal cell phone. This looks unprofessional and is harder to manage as you grow.</p>
+            <p class="lead text-muted">We get you set up correctly, affordably, and quickly.</p>
           </div>
         </div>
       </div>
@@ -27,8 +27,8 @@
     <section class="page-section bg-light" id="offerings">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('startup.offerings.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('startup.offerings.subtitle') }}</p>
+          <h2 class="section-heading">The Startup Tech Package</h2>
+          <p class="text-muted lead mb-5">Everything you need to operate like a professional business.</p>
         </div>
         <div class="row">
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -36,8 +36,8 @@
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-envelope"></i>
               </div>
-              <h4 class="mt-3">{{ t('startup.offerings.card1.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card1.desc', ['@'])  }}</p>
+              <h4 class="mt-3">Professional Email</h4>
+              <p class="text-muted">We'll set up Google Workspace so you can have email at your-name@your-business.com.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
@@ -45,8 +45,8 @@
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-phone-alt"></i>
               </div>
-              <h4 class="mt-3">{{ t('startup.offerings.card2.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card2.desc') }}</p>
+              <h4 class="mt-3">Business Phone (VoIP)</h4>
+              <p class="text-muted">A professional phone number and virtual phone system that can forward calls to your cell.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
@@ -54,8 +54,8 @@
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-wifi"></i>
               </div>
-              <h4 class="mt-3">{{ t('startup.offerings.card3.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card3.desc') }}</p>
+              <h4 class="mt-3">Network & Wi-Fi</h4>
+              <p class="text-muted">Ensuring your office or home office has fast, reliable, and secure internet.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
@@ -63,8 +63,8 @@
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-globe"></i>
               </div>
-              <h4 class="mt-3">{{ t('startup.offerings.card4.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card4.desc') }}</p>
+              <h4 class="mt-3">Domain & Hosting</h4>
+              <p class="text-muted">We'll secure your '.com' domain name and set up the foundation for your future website.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
@@ -72,8 +72,8 @@
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-laptop"></i>
               </div>
-              <h4 class="mt-3">{{ t('startup.offerings.card5.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card5.desc') }}</p>
+              <h4 class="mt-3">Hardware Setup</h4>
+              <p class="text-muted">Recommendations and setup for the right laptops, printers, and other gear.</p>
             </div>
           </div>
           <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
@@ -81,8 +81,8 @@
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-comments"></i>
               </div>
-              <h4 class="mt-3">{{ t('startup.offerings.card6.title') }}</h4>
-              <p class="text-muted">{{ t('startup.offerings.card6.desc') }}</p>
+              <h4 class="mt-3">Ongoing Consulting</h4>
+              <p class="text-muted">As your business grows, we'll be your on-call tech partner to help you scale.</p>
             </div>
           </div>
         </div>
@@ -92,8 +92,8 @@
     <section class="page-section" id="process">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('startup.process.title') }}</h2>
-          <p class="text-muted lead mb-5">{{ t('startup.process.subtitle') }}</p>
+          <h2 class="section-heading">Our 3-Step Process</h2>
+          <p class="text-muted lead mb-5">We make it simple.</p>
         </div>
         <div class="row text-center">
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
@@ -101,24 +101,24 @@
               <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
               <i class="fas fa-search fa-stack-1x fa-inverse"></i>
             </span>
-            <h4 class="my-3">{{ t('startup.process.step1.title') }}</h4>
-            <p class="text-muted">{{ t('startup.process.step1.desc') }}</p>
+            <h4 class="my-3">1. Discovery & Plan</h4>
+            <p class="text-muted">We learn about your business, your needs, and your budget.</p>
           </div>
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
             <span class="fa-stack fa-4x mb-4">
               <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
               <i class="fas fa-cogs fa-stack-1x fa-inverse"></i>
             </span>
-            <h4 class="my-3">{{ t('startup.process.step2.title') }}</h4>
-            <p class="text-muted">{{ t('startup.process.step2.desc') }}</p>
+            <h4 class="my-3">2. Setup & Implementation</h4>
+            <p class="text-muted">We do all the technical work: setting up accounts, configuring hardware, and securing your network.</p>
           </div>
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
             <span class="fa-stack fa-4x mb-4">
               <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
               <i class="fas fa-headset fa-stack-1x fa-inverse"></i>
             </span>
-            <h4 class="my-3">{{ t('startup.process.step3.title') }}</h4>
-            <p class="text-muted">{{ t('startup.process.step3.desc') }}</p>
+            <h4 class="my-3">3. Hand-off & Support</h4>
+            <p class="text-muted">We train you on your new tools and remain available for ongoing support.</p>
           </div>
         </div>
       </div>
@@ -126,9 +126,9 @@
 
     <section class="cta-section">
       <div class="container text-center" data-aos="fade-up">
-        <h2 class="display-5 fw-bold">{{ t('startup.cta.title') }}</h2>
-        <p class="lead my-4">{{ t('startup.cta.subtitle') }}</p>
-        <router-link :to="contactPath" class="btn btn-brand-primary btn-lg px-5 py-3">{{ t('startup.cta.button') }}</router-link>
+        <h2 class="display-5 fw-bold">Ready to Launch?</h2>
+        <p class="lead my-4">Let's build your professional foundation. Contact us for a free consultation.</p>
+        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
       </div>
     </section>
 
@@ -137,13 +137,13 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 
 const pageMeta = computed(() => ({
-  title: t('startup.hero.title'),
-  description: t('startup.hero.subtitle'),
+  title: "Startup Tech Essentials",
+  description: "Get your new business set up for success from day one. We build your professional tech foundation so you can focus on growing.",
   path: '/services/startup-tech', // The base (English) path
   image: '/images/servicesview-header.png' // The specific image for this page
 }));
@@ -151,7 +151,7 @@ const pageMeta = computed(() => ({
 usePageMeta(pageMeta);
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
+// const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
 
 </script>
 
