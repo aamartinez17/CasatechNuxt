@@ -1,8 +1,8 @@
 <template>
   <div class="about-view">
     <PageHeader 
-      :title="t('about.hero.title')"
-      :subtitle="t('about.hero.subtitle')"
+      title="About Casatech LLC"
+      subtitle="We're a one-man team with a big mission: to provide professional, innovative, and personal tech solutions to our local community."
       backgroundImage="/images/aboutview-header.png" 
     />
 
@@ -13,18 +13,18 @@
             <img src="/images/aboutview-story.png" class="img-fluid shadow-lg" alt="Alex Martinez, Founder of Casatech LLC">
             </div>
           <div class="pt-5 col-lg-7" data-aos="fade-left" data-aos-delay="100">
-            <span class="badge-espanol">{{ t('about.story.badge') }}</span>
-            <h2 class="section-heading mt-3">{{ t('about.story.title') }}</h2>
-            <h4 class="text-muted fw-light">{{ t('about.story.subtitle') }}</h4>
-            <p class="lead">{{ t('about.story.p1') }}</p>
-            <p>{{ t('about.story.p2') }}</p>
-            <p>{{ t('about.story.p3') }}</p>
+            <span class="badge-espanol">Se Habla Español</span>
+            <h2 class="section-heading mt-3">Meet Our Founder, Alex Martinez</h2>
+            <h4 class="text-muted fw-light">Tech Consultant & Full-Stack Developer</h4>
+            <p class="lead">Hi, I'm Alex. As the founder of Casatech LLC, my goal is simple: to be your personal, local tech partner. Born and raised in Harrisonburg, VA, and now living in New Haven, CT, I'm passionate about helping small businesses and the Latin community thrive.</p>
+            <p>With over 8 years of technical problem-solving, software support, and IT management experience, I started Casatech to bridge the gap between high-end technology and local business needs. I'm not just a developer; I'm a consultant dedicated to finding the right solution for you.</p>
+            <p>Whether you need a modern website, help setting up your small business tech, or reliable IT support, I'm here to help. I'm a quick learner dedicated to developing high-quality code and contributing to innovative projects for my clients.</p>
             <div class="social-links-about mt-4">
               <a href="https://www.linkedin.com/in/alex-martinez1711" target="_blank" class="social-icon-about me-3" aria-label="LinkedIn">
-                <i class="fab fa-linkedin"></i> {{ t('about.story.linkedin') }}
+                <i class="fab fa-linkedin"></i> Find me on LinkedIn
               </a>
               <a href="https://github.com/aamartinez17" target="_blank" class="social-icon-about" aria-label="GitHub">
-                <i class="fab fa-github"></i> {{ t('about.story.github') }}
+                <i class="fab fa-github"></i> See my code on GitHub
               </a>
             </div>
           </div>
@@ -35,8 +35,8 @@
     <section class="page-section philosophy-section" id="philosophy">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('about.philosophy.title') }}</h2>
-          <p class="text-muted mb-5">{{ t('about.philosophy.subtitle') }}</p>
+          <h2 class="section-heading">Our Philosophy</h2>
+          <p class="text-muted mb-5">We operate on three core principles.</p>
         </div>
         <div class="row text-center">
           <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
@@ -46,8 +46,8 @@
                   <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
                   <i class="fas fa-users fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">{{ t('about.philosophy.card1.title') }}</h4>
-                <p class="text-muted">{{ t('about.philosophy.card1.desc') }}</p>
+                <h4 class="my-3">Local Focus</h4>
+                <p class="text-muted">We're not a faceless agency. We're part of your community, dedicated to empowering local businesses and self-promoters.</p>
               </div>
             </div>
           </div>
@@ -58,8 +58,8 @@
                   <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
                   <i class="fas fa-laptop-code fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">{{ t('about.philosophy.card2.title') }}</h4>
-                <p class="text-muted">{{ t('about.philosophy.card2.desc') }}</p>
+                <h4 class="my-3">Innovative Solutions</h4>
+                <p class="text-muted">We use modern, reliable technology (like Vue.js and Bootstrap) to build high-quality, tech-focused solutions that last.</p>
               </div>
             </div>
           </div>
@@ -70,8 +70,8 @@
                   <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
                   <i class="fas fa-handshake-angle fa-stack-1x fa-inverse"></i>
                 </span>
-                <h4 class="my-3">{{ t('about.philosophy.card3.title') }}</h4>
-                <p class="text-muted">{{ t('about.philosophy.card3.desc') }}</p>
+                <h4 class="my-3">Personal Partnership</h4>
+                <p class="text-muted">As a 'one-man team', you work directly with me. I'm committed to understanding your goals and becoming a long-term partner.</p>
               </div>
             </div>
           </div>
@@ -82,12 +82,12 @@
     <section class="page-section" id="skills">
       <div class="container">
         <div class="text-center" data-aos="fade-up">
-          <h2 class="section-heading">{{ t('about.skills.title') }}</h2>
-          <p class="text-muted mb-5">{{ t('about.skills.subtitle') }}</p>
+          <h2 class="section-heading">Our Technology Stack</h2>
+          <p class="text-muted mb-5">We use the best tools for the job to build efficient, scalable, and modern applications.</p>
         </div>
         
         <div class="mb-4" data-aos="fade-up">
-          <h5 class="skill-category">{{ t('about.skills.cat1') }}</h5>
+          <h5 class="skill-category">Web Development</h5>
           <span class="skill-badge">Vue.js</span>
           <span class="skill-badge">JavaScript</span>
           <span class="skill-badge">Node.js</span>
@@ -98,7 +98,7 @@
         </div>
         
         <div class="mb-4" data-aos="fade-up" data-aos-delay="100">
-          <h5 class="skill-category">{{ t('about.skills.cat2') }}</h5>
+          <h5 class="skill-category">Databases</h5>
           <span class="skill-badge">SQL</span>
           <span class="skill-badge">MySQL</span>
           <span class="skill-badge">MS SQL Server</span>
@@ -106,7 +106,7 @@
         </div>
 
         <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-          <h5 class="skill-category">{{ t('about.skills.cat3') }}</h5>
+          <h5 class="skill-category">Programming</h5>
           <span class="skill-badge">Java</span>
           <span class="skill-badge">Python</span>
           <span class="skill-badge">C++</span>
@@ -114,7 +114,7 @@
         </div>
 
         <div data-aos="fade-up" data-aos-delay="300">
-          <h5 class="skill-category">{{ t('about.skills.cat4') }}</h5>
+          <h5 class="skill-category">Tools & Methods</h5>
           <span class="skill-badge">Git & GitHub</span>
           <span class="skill-badge">REST APIs</span>
           <span class="skill-badge">Agile Methodologies</span>
@@ -128,36 +128,36 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6" data-aos="fade-right">
-            <h3 class="section-heading-sm mb-4">{{ t('about.experience.title') }}</h3>
+            <h3 class="section-heading-sm mb-4">Professional Experience</h3>
             <ul class="list-unstyled">
               <li class="mb-3">
-                <strong>{{ t('about.experience.job1') }}</strong>
-                <span class="text-muted d-block">{{ t('about.experience.job1comp') }}</span>
+                <strong>Software Support Specialist</strong>
+                <span class="text-muted d-block">Quality Data Service</span>
               </li>
               <li class="mb-3">
-                <strong>{{ t('about.experience.job2') }}</strong>
-                <span class="text-muted d-block">{{ t('about.experience.job2comp') }}</span>
+                <strong>IT Specialist</strong>
+                <span class="text-muted d-block">Fixify Solutions</span>
               </li>
               <li class="mb-3">
-                <strong>{{ t('about.experience.job3') }}</strong>
-                <span class="text-muted d-block">{{ t('about.experience.job3comp') }}</span>
+                <strong>IT Technician</strong>
+                <span class="text-muted d-block">Nexus Services</span>
               </li>
             </ul>
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
-            <h3 class="section-heading-sm mb-4">{{ t('about.education.title') }}</h3>
+            <h3 class="section-heading-sm mb-4">Education & Certifications</h3>
             <ul class="list-unstyled">
               <li class="mb-3">
-                <strong>{{ t('about.education.deg1') }}</strong>
-                <span class="text-muted d-block">{{ t('about.education.deg1school') }}</span>
+                <strong>B.S. in Computer Science</strong>
+                <span class="text-muted d-block">University of New Haven (Expected 2026, 3.97 GPA)</span>
               </li>
               <li class="mb-3">
-                <strong>{{ t('about.education.deg2') }}</strong>
-                <span class="text-muted d-block">{{ t('about.education.deg2school') }}</span>
+                <strong>A.S. in General Engineering</strong>
+                <span class="text-muted d-block">Blue Ridge Community College (Grad. 2018)</span>
               </li>
               <li class="mb-3">
-                <strong>{{ t('about.education.cert1') }}</strong>
-                <span class="text-muted d-block">{{ t('about.education.cert1issuer') }}</span>
+                <strong>CompTIA A+ Certified</strong>
+                <span class="text-muted d-block">CompTIA</span>
               </li>
             </ul>
           </div>
@@ -167,9 +167,9 @@
 
     <section class="cta-section">
       <div class="container text-center" data-aos="fade-up">
-        <h2 class="display-5 fw-bold">{{ t('about.cta.title') }}</h2>
-        <p class="lead my-4">{{ t('about.cta.subtitle') }}</p>
-        <router-link :to="contactPath" class="btn btn-brand-primary btn-lg px-5 py-3">{{ t('about.cta.button') }}</router-link>
+        <h2 class="display-5 fw-bold">Let's Talk About Your Business</h2>
+        <p class="lead my-4">See how our experience can help your business grow.</p>
+        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Contact Us Today</router-link>
       </div>
     </section>
   </div>
@@ -177,15 +177,15 @@
 
 <script setup>
 import { computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 // Note: 'aos/dist/aos.css' is already imported in HomeView.vue
 // If App.vue imports both, it might be better to import it once in main.js or App.vue
 
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 
 const pageMeta = computed(() => ({
-  title: t('about.hero.title'),
-  description: t('about.hero.subtitle'),
+  title: "About Casatech LLC",
+  description: "We're a one-man team with a big mission: to provide professional, innovative, and personal tech solutions to our local community.",
   path: '/about', // The base (English) path
   image: '/images/aboutview-header.png' // The specific image for this page
 }));
@@ -193,7 +193,7 @@ const pageMeta = computed(() => ({
 usePageMeta(pageMeta);
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
+// const contactPath = computed(() => ('/contact'));
 
 
 </script>
