@@ -4,9 +4,9 @@
       <div class="row">
         
         <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
-          <router-link to="/" class="footer-logo-link mb-3">
+          <NuxtLink to="/" class="footer-logo-link mb-3">
             <img src="/logos/casatech-logo-white-bg.png" alt="Casatech LLC logo" class="footer-logo">
-          </router-link>
+          </NuxtLink>
           
           <p class="footer-text">Modern tech solutions for local business.</p>
           <p class="fw-bold text-accent">Se Habla Español</p>
@@ -16,14 +16,14 @@
           <ul class="list-unstyled">
             <div class="row">
             <div class="col-4">
-            <li class="mb-2"><router-link to="/" class="footer-link">Home</router-link></li>
-            <li class="mb-2"><router-link to="/about" class="footer-link">About</router-link></li>
-            <li class="mb-2"><router-link to="/services" class="footer-link">Services</router-link></li>
+            <li class="mb-2"><NuxtLink to="/" class="footer-link">Home</NuxtLink></li>
+            <li class="mb-2"><NuxtLink to="/about" class="footer-link">About</NuxtLink></li>
+            <li class="mb-2"><NuxtLink to="/services" class="footer-link">Services</NuxtLink></li>
             </div>
             <div class="col-4">
-            <li class="mb-2"><router-link to="/portfolio" class="footer-link">Portfolio</router-link></li>
-            <li class="mb-2"><router-link to="/blog" class="footer-link">Blog</router-link></li>
-            <li class="mb-2"><router-link to="/contact" class="footer-link">Contact</router-link></li>
+            <li class="mb-2"><NuxtLink to="/portfolio" class="footer-link">Portfolio</NuxtLink></li>
+            <li class="mb-2"><NuxtLink to="/blog" class="footer-link">Blog</NuxtLink></li>
+            <li class="mb-2"><NuxtLink to="/contact" class="footer-link">Contact</NuxtLink></li>
             </div>
             </div>
           </ul>
@@ -74,7 +74,7 @@
         <p class="small mb-0">
           &copy; {{ new Date().getFullYear() }} Casatech LLC. All Rights Reserved.
           <span class="mx-2">|</span>
-          <router-link to="/privacy-policy" class="footer-link small">Privacy Policy</router-link>
+          <NuxtLink to="/privacy-policy" class="footer-link small">Privacy Policy</NuxtLink>
           <span class="mx-2">|</span>
             <a href="/sitemap.xml" target="_blank" class="footer-link small">Sitemap</a>
         </p>

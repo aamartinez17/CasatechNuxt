@@ -9,10 +9,10 @@
     <section class="page-section text-center">
       <div class="container">
         <p class="lead">I'll be in touch with you as soon as possible.</p>
-        <router-link :to="homePath" class="btn btn-brand-primary btn-lg mt-4">
+        <NuxtLink :to="homePath" class="btn btn-brand-primary btn-lg mt-4">
           <i class="fas fa-home me-2"></i>
           Return to Home Page
-        </router-link>
+        </NuxtLink>
       </div>
     </section>
     </div>

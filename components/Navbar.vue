@@ -1,9 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" ref="navbarRef">
     <div class="container-fluid">
-      <router-link class="navbar-brand" to="/">
+      <NuxtLink class="navbar-brand" to="/">
         <img src="/logos/casatech-logo-white-bg.png" alt="casatech llc logo" class="navbar-logo">
-      </router-link>
+      </NuxtLink>
 
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
         aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
@@ -14,22 +14,22 @@
         
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link class="nav-link" to="/" @click="closeMenu">Home</router-link>
+            <NuxtLink class="nav-link" to="/" @click="closeMenu">Home</NuxtLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/about" @click="closeMenu">About</router-link>
+            <NuxtLink class="nav-link" to="/about" @click="closeMenu">About</NuxtLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/services" @click="closeMenu">Services</router-link>
+            <NuxtLink class="nav-link" to="/services" @click="closeMenu">Services</NuxtLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/portfolio" @click="closeMenu">Portfolio</router-link>
+            <NuxtLink class="nav-link" to="/portfolio" @click="closeMenu">Portfolio</NuxtLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/blog" @click="closeMenu">Blog</router-link>
+            <NuxtLink class="nav-link" to="/blog" @click="closeMenu">Blog</NuxtLink>
           </li>
           <li class="nav-item">
-            <router-link class="nav-link" to="/contact" @click="closeMenu">Contact</router-link>
+            <NuxtLink class="nav-link" to="/contact" @click="closeMenu">Contact</NuxtLink>
           </li>
         </ul>
         <div class="d-flex align-items-center navbar-cta-group">
@@ -147,7 +147,7 @@ if (process.client) {
   border-bottom-color: transparent;
 }
 
-.nav-link.router-link-exact-active {
+.nav-link.NuxtLink-exact-active {
   color: var(--color-text-light);
   font-weight: var(--font-weight-bold);
   border-bottom-color: var(--color-secondary);
@@ -204,7 +204,7 @@ if (process.client) {
     border-bottom: none;
   }
 
-  .nav-link.router-link--active {
+  .nav-link.NuxtLink--active {
     color: var(--color-secondary);
     border-bottom: none;
   }

@@ -41,9 +41,9 @@
               <li><i class="fas fa-check-circle"></i>Hardware & Software Recommendations</li>
             </ul>
             
-            <router-link :to="startupTechPath" class="btn btn-brand-primary mt-3">
+            <NuxtLink :to="startupTechPath" class="btn btn-brand-primary mt-3">
               See Startup Tech Details
-            </router-link>
+            </NuxtLink>
             </div>
           <div class="pt-5 col-lg-6" data-aos="fade-left">
             <img src="/images/servicesview-business-tech.png" class="img-fluid rounded-3 shadow-lg" alt="Small Business Tech Stack">
@@ -110,7 +110,7 @@
         </div>
         <div class="text-center mt-5" data-aos="fade-up">
           <p class="lead">The best way to get an accurate cost is to talk to us.</p>
-          <router-link to="/contact" class="btn btn-brand-primary btn-lg">Get a Free Quote</router-link>
+          <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg">Get a Free Quote</NuxtLink>
         </div>
       </div>
     </section>
@@ -129,9 +129,9 @@
               <div class="card-body">
                 <h5 class="card-title">The 5 Tech Essentials for Day One of Your Business</h5>
                 <p class="card-text text-muted">Don't start your business with a @gmail.com address. Here's what you need to look professional from day one.</p>
-                <router-link :to="techEssentialsPath" class="btn btn-link p-0">
+                <NuxtLink :to="techEssentialsPath" class="btn btn-link p-0">
                   Read More &rarr;
-                </router-link>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -141,9 +141,9 @@
               <div class="card-body">
                 <h5 class="card-title">What is VoIP and Why Your Startup Needs It</h5>
                 <p class="card-text text-muted">Hint: It separates your work life from your personal life, and it saves you money.</p>
-                <router-link :to="voipPath" class="btn btn-link p-0">
+                <NuxtLink :to="voipPath" class="btn btn-link p-0">
                   Read More &rarr;
-                </router-link>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -153,9 +153,9 @@
               <div class="card-body">
                 <h5 class="card-title">Why Google Workspace is a Non-Negotiable for Your Business</h5>
                 <p class="card-text text-muted">It's not just about email. It's the entire operating system for your business.</p>
-                <router-link :to="workspacePath" class="btn btn-link p-0">
+                <NuxtLink :to="workspacePath" class="btn btn-link p-0">
                   Read More &rarr;
-                </router-link>
+                </NuxtLink>
               </div>
             </div>
           </div>
@@ -167,7 +167,7 @@
       <div class="container text-center" data-aos="fade-up">
         <h2 class="display-5 fw-bold">Ready to Start?</h2>
         <p class="lead my-4">Let's discuss your project and find the right solution for you.</p>
-        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get in Touch</router-link>
+        <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get in Touch</NuxtLink>
       </div>
     </section>
 

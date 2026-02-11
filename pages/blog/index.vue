@@ -21,9 +21,9 @@
                 <h2 class="card-title">{{ post.title_en }}</h2>
                 <p class="text-muted">{{ formatDate(post.date) }}</p>
                 <p class="card-text">{{ post.subtitle_en }}</p>
-                <router-link :to="`/blog/${post.slug}`" class="btn btn-brand-primary">
+                <NuxtLink :to="`/blog/${post.slug}`" class="btn btn-brand-primary">
                   Read More
-                </router-link>
+                </NuxtLink>
               </div>
               </div>
             </div>
@@ -49,10 +49,10 @@
               <ul class="list-unstyled">
                 <!-- We'll feature the 3 new articles here -->
                 <li v-for="post in featuredPosts" :key="post.id" class="mb-3">
-                  <router-link :to="`/blog/${post.slug}`" class="featured-link">
+                  <NuxtLink :to="`/blog/${post.slug}`" class="featured-link">
                     <span class="d-block fw-bold">{{ post.title_en }}</span>
                     <span class="small text-muted">{{ formatDate(post.date) }}</span>
-                  </router-link>
+                  </NuxtLink>
                 </li>
               </ul>
             </div>
@@ -60,9 +60,9 @@
             <div class="sidebar-widget mt-4">
               <h4 class="widget-title">Categories</h4>
               <ul class="list-unstyled">
-                <li><router-link :to="portfolioPath" class="featured-link">Web Design</router-link></li>
-                <li><router-link :to="startupTechPath" class="featured-link">Small Business Tech</router-link></li>
-                <li><router-link :to="servicesPath" class="featured-link">IT Services</router-link></li>
+                <li><NuxtLink :to="portfolioPath" class="featured-link">Web Design</NuxtLink></li>
+                <li><NuxtLink :to="startupTechPath" class="featured-link">Small Business Tech</NuxtLink></li>
+                <li><NuxtLink :to="servicesPath" class="featured-link">IT Services</NuxtLink></li>
               </ul>
             </div>
           </div>

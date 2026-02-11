@@ -32,7 +32,7 @@
             <hr class="my-5">
             
             <!-- Back to Blog Button -->
-            <router-link :to="blogPath" class="btn btn-brand-primary">&larr; Back to Blog</router-link>
+            <NuxtLink :to="blogPath" class="btn btn-brand-primary">&larr; Back to Blog</NuxtLink>
           </div>
         </div>
       </div>

@@ -56,7 +56,7 @@
       <div class="container text-center" data-aos="fade-up">
         <h2 class="display-5 fw-bold">See Your Project Here</h2>
         <p class="lead my-4">Let's work together to build something amazing.</p>
-        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
+        <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</NuxtLink>
       </div>
     </section>
   </div>

@@ -1,31 +1,28 @@
-// import { useI18n } from 'vue-i18n';
+import { useHead } from '@unhead/vue'; // Make sure to import this if not auto-imported
 import { useRoute } from 'vue-router';
 
 export function usePageMeta(pageData) {
-  // const { locale } = useI18n();
   const route = useRoute();
 
   useHead(() => {
+    // 1. Get the data or use an empty object to prevent errors
+    const data = pageData.value || {};
     
-    const data = pageData.value;
-    if (!data) {
-      return { title: 'Loading... | Casatech LLC' };
-    }
-
-    // const isUrlSpanish = route.path.startsWith('/es');
-    // const isSpanish = isUrlSpanish || locale.value === 'es';
-    // === END FIX ===
-
     const baseUrl = 'https://casatechllc.com';
     
-    // Helper to prevent double "/es/es/" paths
-    const cleanPath = data.path;
+    // 2. Define Defaults (The Safety Net)
+    // If specific data is missing, these will be used instead.
+    const title = data.title || 'Casatech LLC | Web Design & IT Services';
+    const description = data.description || 'Bilingual, tech-focused solutions for small businesses in New Haven and beyond.';
     
-    const enUrl = `${baseUrl}${cleanPath}`;
-    // const esUrl = `${baseUrl}/es${cleanPath}`;
+    // 3. Image Logic
+    // If data.image exists, use it. Otherwise, force the default OG image.
+    const ogImage = data.image 
+      ? `${baseUrl}${data.image}` 
+      : `${baseUrl}/images/casatechllc-og-image.png`;
 
-    const canonicalUrl = enUrl;
-    const ogImage = data.image ? `${baseUrl}${data.image}` : `${baseUrl}/images/casatechllc-og-image.png`;
+    const cleanPath = data.path || route.path;
+    const canonicalUrl = `${baseUrl}${cleanPath}`;
 
     const organizationSchema = {
       "@context": "https://schema.org",
@@ -41,44 +38,34 @@ export function usePageMeta(pageData) {
     };
 
     return {
-      // 1. Target the 'title' tag by its ID
-      title: data.title,
+      title: title,
       htmlAttrs: {
         lang: 'en'
       },
-      // 2. Add 'id' to all meta tags
       meta: [
-        { name: 'description', content: data.description },
-        // Open Graph
-        { property: 'og:title', content: data.title },
-        { property: 'og:description', content: data.description },
+        { name: 'description', content: description },
+        // Open Graph (Used by iMessage, Android, Facebook, LinkedIn)
+        { property: 'og:title', content: title },
+        { property: 'og:description', content: description },
         { property: 'og:url', content: canonicalUrl },
         { property: 'og:image', content: ogImage },
         { property: 'og:type', content: 'website' },
-        { 
-          property: 'og:locale', 
-          content: 'en_US' 
-        },
-        // Twitter
+        { property: 'og:locale', content: 'en_US' },
+        
+        // Twitter (Used by X/Twitter and some other apps)
         { name: 'twitter:card', content: 'summary_large_image' },
-        { name: 'twitter:title', content: data.title },
-        { name: 'twitter:description', content: data.description },
+        { name: 'twitter:title', content: title },
+        { name: 'twitter:description', content: description },
         { name: 'twitter:image', content: ogImage }
       ],
       link: [
-        { 
-          rel: 'canonical', 
-          href: canonicalUrl 
-        },
-        // hreflang links
-        { rel: 'alternate', hreflang: 'en', href: enUrl },
-        // { rel: 'alternate', hreflang: 'es', href: esUrl },
-        { rel: 'alternate', hreflang: 'x-default', href: enUrl }
+        { rel: 'canonical', href: canonicalUrl },
+        { rel: 'alternate', hreflang: 'en', href: canonicalUrl },
+        { rel: 'alternate', hreflang: 'x-default', href: canonicalUrl }
       ],
       script: [
         {
           type: 'application/ld+json',
-          // This injects the Organization data into your page <head>
           children: JSON.stringify(organizationSchema)
         }
       ]

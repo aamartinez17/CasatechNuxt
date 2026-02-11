@@ -169,7 +169,7 @@
       <div class="container text-center" data-aos="fade-up">
         <h2 class="display-5 fw-bold">Let's Talk About Your Business</h2>
         <p class="lead my-4">See how our experience can help your business grow.</p>
-        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Contact Us Today</router-link>
+        <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Contact Us Today</NuxtLink>
       </div>
     </section>
   </div>

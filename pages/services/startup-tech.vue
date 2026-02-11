@@ -6,7 +6,7 @@
           <div class="col-lg-8 mx-auto text-center">
             <h1 class="display-3 fw-bold">Startup Tech Essentials</h1>
             <p class="lead my-4">Get your new business set up for success from day one. We build your professional tech foundation so you can focus on growing.</p>
-            <router-link to="/contact" class="btn btn-brand-secondary btn-lg px-4">Get a Free Consultation</router-link>
+            <NuxtLink to="/contact" class="btn btn-brand-secondary btn-lg px-4">Get a Free Consultation</NuxtLink>
           </div>
         </div>
       </div>
@@ -128,7 +128,7 @@
       <div class="container text-center" data-aos="fade-up">
         <h2 class="display-5 fw-bold">Ready to Launch?</h2>
         <p class="lead my-4">Let's build your professional foundation. Contact us for a free consultation.</p>
-        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
+        <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</NuxtLink>
       </div>
     </section>
 
