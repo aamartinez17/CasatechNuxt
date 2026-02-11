@@ -1,52 +1,14 @@
 {
 
-  "portfolio": {
-    "hero": {
-      "title": "Our Portfolio",
-      "subtitle": "A selection of projects that showcase our commitment to quality, design, and technical expertise."
-    },
-    "categories": {
-      "web": "Web Design",
-      "smb": "Small Business Tech",
-      "it": "IT Services"
-    },
-    "visitSite": "Visit Site",
-    "clients": {
-      "title": "Local Partners",
-      "subtitle": "I'm proud to have provided solutions for a diverse range of local businesses and clients."
-    },
-    "cta": {
-      "title": "See Your Project Here",
-      "subtitle": "Let's work together to build something amazing.",
-      "button": "Get a Free Quote"
-    }
-  },
-
-
-
-
   "blog": {
     "hero": {
       "title": "Casatech Blog",
       "subtitle": "Tech tips, industry insights, and guides for small businesses and startups."
     },
-    "readMore": "Read More",
-    "previous": "Previous",
-    "next": "Next",
-    "page": "Page",
-    "of": "of",
-    "postedOn": "Posted on",
-    "references": "References",
     "back": "Back to Blog",
     "loading": "Loading post...",
     "featured": {
       "title": "Featured Posts"
-    },
-    "categories": {
-      "title": "Categories",
-      "web": "Web Design",
-      "smb": "Small Business Tech",
-      "it": "IT Services"
     },
     "article1": {
       "title": "The 5 Tech Essentials for Day One of Your Business",

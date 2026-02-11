@@ -4,9 +4,9 @@
     <section class="post-header text-white text-center" :style="{ backgroundImage: `url(${post.imageLink})` }">
       <div class="header-overlay">
         <div class="container" data-aos="fade-in">
-          <h1 class="display-4 fw-bold">{{ locale === 'es' ? post.title_es : post.title_en }}</h1>
-          <p class="lead">{{ locale === 'es' ? post.subtitle_es : post.subtitle_en }}</p>
-          <p class="text-muted"><small>{{ t('blog.postedOn') }} {{ formatDate(post.date) }}</small></p>
+          <h1 class="display-4 fw-bold">{{ post.title_en }}</h1>
+          <p class="lead">{{ post.subtitle_en }}</p>
+          <p class="text-muted"><small>Posted on {{ formatDate(post.date) }}</small></p>
         </div>
       </div>
     </section>
@@ -17,11 +17,11 @@
         <div class="row">
           <div class="col-lg-8 mx-auto">
             <!-- v-html is used to render the HTML from our BlogData.js -->
-            <div class="post-body" v-html="locale === 'es' ? post.body_es : post.body_en"></div>
+            <div class="post-body" v-html="post.body_en"></div>
 
             <!-- References -->
             <div v-if="post.links && post.links.length > 0" class="mt-5">
-              <h4 class="reference-title">{{ t('blog.references') }}</h4>
+              <h4 class="reference-title">References</h4>
               <ul class="list-unstyled">
                 <li v-for="link in post.links" :key="link.url">
                   <a :href="link.url" target="_blank" rel="noopener noreferrer">{{ link.name }}</a>
@@ -32,24 +32,24 @@
             <hr class="my-5">
             
             <!-- Back to Blog Button -->
-            <router-link :to="blogPath" class="btn btn-brand-primary">&larr; {{ t('blog.back') }}</router-link>
+            <router-link :to="blogPath" class="btn btn-brand-primary">&larr; Back to Blog</router-link>
           </div>
         </div>
       </div>
     </section>
   </div>
   <div v-else class="page-section text-center">
-    <p>{{ t('blog.loading') }}</p>
+    <p>Loading post...</p>
   </div>
 </template>
 
 <script setup>
 import { computed, onMounted } from 'vue'; // We don't even need 'computed' or 'watch'
 import { useRoute } from 'vue-router';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 import { allPosts } from '@/assets/data/BlogData.js';
 
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 const route = useRoute();
 // const post = ref(null);
 
@@ -71,11 +71,11 @@ const formatDate = (dateString) => {
     day: 'numeric', 
     timeZone: 'UTC'
   };
-  return new Date(dateString).toLocaleDateString(locale.value, options);
+  return new Date(dateString).toDateString(options);
 };
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const blogPath = computed(() => (locale.value === 'es' ? '/es/blog' : '/blog'));
+const blogPath = computed(() => ('/blog'));
 
 
 // === THE "GETTER FUNCTION" PATTERN ===
@@ -93,9 +93,9 @@ useHead(() => {
   }
 
   // Define all language-specific variables
-  const isSpanish = locale.value === 'es';
-  const postTitle = isSpanish ? post.value.title_es : post.value.title_en;
-  const postDescription = isSpanish ? post.value.subtitle_es : post.value.subtitle_en;
+  // const isSpanish = locale.value === 'es';
+  const postTitle = post.value.title_en;
+  const postDescription = post.value.subtitle_en;
   const postImage = `https://casatechllc.com${post.value.imageLink}`;
   
   // Create correct URLs
@@ -103,13 +103,13 @@ useHead(() => {
   const esUrl = `https://casatechllc.com/es/blog/${post.value.slug}`;
   
   // Set the canonical URL to the *current* page's language version
-  const canonicalUrl = isSpanish ? esUrl : enUrl;
+  const canonicalUrl = enUrl;
 
   return {
     title: postTitle,
     // Add 'lang' attribute to the <html> tag
     htmlAttrs: {
-      lang: isSpanish ? 'es' : 'en'
+      lang: 'en'
     },
     // Add all meta tags
     meta: [
@@ -121,8 +121,7 @@ useHead(() => {
       { property: 'og:url', content: canonicalUrl },
       { property: 'og:type', content: 'article' },
       { 
-        property: 'og:locale', 
-        content: isSpanish ? 'es_MX' : 'en_US' 
+        content: 'en_US' 
       },
       // Twitter
       { name: 'twitter:card', content: 'summary_large_image' },
@@ -142,7 +141,6 @@ useHead(() => {
       },
       // Tell Google about the other language versions
       { rel: 'alternate', hreflang: 'en', href: enUrl },
-      { rel: 'alternate', hreflang: 'es', href: esUrl },
       { rel: 'alternate', hreflang: 'x-default', href: enUrl } // Default to English
     ]
   };

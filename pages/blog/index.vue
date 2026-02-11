@@ -2,8 +2,8 @@
   <div class="blog-view">
     <!-- 1. Hero Section -->
     <PageHeader 
-      :title="t('blog.hero.title')"
-      :subtitle="t('blog.hero.subtitle')"
+      title="Casatech Blog"
+      subtitle="Tech tips, industry insights, and guides for small businesses and startups."
       backgroundImage="/images/blogview-header.png" 
     />
 
@@ -16,13 +16,13 @@
           <div class="col-lg-8">
             <div v-for="post in paginatedPosts" :key="post.id" class="card blog-post-card mb-4" data-aos="fade-up">
               <div class="row">
-              <img :src="post.imageLink" class="card-img-top col-md-4 my-md-auto ps-md-4" :alt="locale === 'es' ? post.title_es : post.title_en">
+              <img :src="post.imageLink" class="card-img-top col-md-4 my-md-auto ps-md-4" :alt="post.title_en">
               <div class="card-body col-md-8">
-                <h2 class="card-title">{{ locale === 'es' ? post.title_es : post.title_en }}</h2>
+                <h2 class="card-title">{{ post.title_en }}</h2>
                 <p class="text-muted">{{ formatDate(post.date) }}</p>
-                <p class="card-text">{{ locale === 'es' ? post.subtitle_es : post.subtitle_en }}</p>
-                <router-link :to="locale === 'es' ? `/es/blog/${post.slug}` : `/blog/${post.slug}`" class="btn btn-brand-primary">
-                  {{ t('blog.readMore') }}
+                <p class="card-text">{{ post.subtitle_en }}</p>
+                <router-link :to="`/blog/${post.slug}`" class="btn btn-brand-primary">
+                  Read More
                 </router-link>
               </div>
               </div>
@@ -32,25 +32,25 @@
             <nav class="pagination-nav mt-5" aria-label="Blog pagination">
               <ul class="pagination justify-content-center">
                 <li class="page-item" :class="{ 'disabled': currentPage === 1 }">
-                  <button class="page-link" @click="changePage(currentPage - 1)">{{ t('blog.previous') }}</button>
+                  <button class="page-link" @click="changePage(currentPage - 1)">Previous</button>
                 </li>
                 <li class="page-item" :class="{ 'disabled': currentPage === totalPages }">
-                  <button class="page-link" @click="changePage(currentPage + 1)">{{ t('blog.next') }}</button>
+                  <button class="page-link" @click="changePage(currentPage + 1)">Next</button>
                 </li>
               </ul>
-              <p class="text-center text-muted">{{ t('blog.page') }} {{ currentPage }} {{ t('blog.of') }} {{ totalPages }}</p>
+              <p class="text-center text-muted">Page {{ currentPage }} of {{ totalPages }}</p>
             </nav>
           </div>
 
           <!-- Sidebar Column (4) -->
           <div class="col-lg-4" data-aos="fade-left">
             <div class="sidebar-widget">
-              <h4 class="widget-title">{{ t('blog.featured.title') }}</h4>
+              <h4 class="widget-title">Featured Posts</h4>
               <ul class="list-unstyled">
                 <!-- We'll feature the 3 new articles here -->
                 <li v-for="post in featuredPosts" :key="post.id" class="mb-3">
-                  <router-link :to="locale === 'es' ? `/es/blog/${post.slug}` : `/blog/${post.slug}`" class="featured-link">
-                    <span class="d-block fw-bold">{{ locale === 'es' ? post.title_es : post.title_en }}</span>
+                  <router-link :to="`/blog/${post.slug}`" class="featured-link">
+                    <span class="d-block fw-bold">{{ post.title_en }}</span>
                     <span class="small text-muted">{{ formatDate(post.date) }}</span>
                   </router-link>
                 </li>
@@ -58,11 +58,11 @@
             </div>
             
             <div class="sidebar-widget mt-4">
-              <h4 class="widget-title">{{ t('blog.categories.title') }}</h4>
+              <h4 class="widget-title">Categories</h4>
               <ul class="list-unstyled">
-                <li><router-link :to="portfolioPath" class="featured-link">{{ t('blog.categories.web') }}</router-link></li>
-                <li><router-link :to="startupTechPath" class="featured-link">{{ t('blog.categories.smb') }}</router-link></li>
-                <li><router-link :to="servicesPath" class="featured-link">{{ t('blog.categories.it') }}</router-link></li>
+                <li><router-link :to="portfolioPath" class="featured-link">Web Design</router-link></li>
+                <li><router-link :to="startupTechPath" class="featured-link">Small Business Tech</router-link></li>
+                <li><router-link :to="servicesPath" class="featured-link">IT Services</router-link></li>
               </ul>
             </div>
           </div>
@@ -76,14 +76,14 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 import { allPosts } from '@/assets/data/BlogData.js';
 
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 
 const pageMeta = computed(() => ({
-  title: t('blog.hero.title'),
-  description: t('blog.hero.subtitle'),
+  title: "Casatech Blog",
+  description: "Tech tips, industry insights, and guides for small businesses and startups.",
   path: '/blog', // The base (English) path
   image: '/images/blogview-header.png' // The specific image for this page
 }));
@@ -128,14 +128,14 @@ const formatDate = (dateString) => {
     day: 'numeric', 
     timeZone: 'UTC' // <-- ADD THIS LINE
   };
-  return new Date(dateString).toLocaleDateString(locale.value, options);
+  return new Date(dateString).toDateString(options);
 };
 
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const portfolioPath = computed(() => (locale.value === 'es' ? '/es/portfolio' : '/portfolio'));
-const servicesPath = computed(() => (locale.value === 'es' ? '/es/services' : '/services'));
-const startupTechPath = computed(() => (locale.value === 'es' ? '/es/services/startup-tech' : '/services/startup-tech'));
+const portfolioPath = computed(() => ('/portfolio'));
+const servicesPath = computed(() => ('/services'));
+const startupTechPath = computed(() => ('/services/startup-tech'));
 
 </script>
 
