@@ -1,35 +1,9 @@
 {
-  "startup": {
-    "hero": {
-      "title": "Startup Tech Essentials",
-      "subtitle": "Get your new business set up for success from day one. We build your professional tech foundation so you can focus on growing.",
-      "cta": "Get a Free Consultation"
-    },
-    "reading": {
-      "title": "Further Reading",
-      "subtitle": "Learn more about the core technologies we recommend for startups."
-    },
-    "cta": {
-      "title": "Ready to Launch?",
-      "subtitle": "Let's build your professional foundation. Contact us for a free consultation.",
-      "button": "Get a Free Quote"
-    }
-  },
-
-
-
-
 
   "portfolio": {
     "hero": {
       "title": "Our Portfolio",
       "subtitle": "A selection of projects that showcase our commitment to quality, design, and technical expertise."
-    },
-    "filter": {
-      "all": "All Projects",
-      "web": "Web Design",
-      "smb": "Small Business Tech",
-      "it": "IT Services"
     },
     "categories": {
       "web": "Web Design",

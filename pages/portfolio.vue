@@ -1,8 +1,8 @@
 <template>
   <div class="portfolio-view">
     <PageHeader 
-      :title="t('portfolio.hero.title')"
-      :subtitle="t('portfolio.hero.subtitle')"
+      title="Our Portfolio"
+      subtitle="A selection of projects that showcase our commitment to quality, design, and technical expertise."
       backgroundImage="/images/portfolioview-header.png" 
     />
 
@@ -10,10 +10,10 @@
       <div class="container">
         <!-- <div class="row" data-aos="fade-up">
           <div class="col-lg-12 text-center mb-5">
-            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'all' }" @click="setFilter('all')">{{ t('portfolio.filter.all') }}</button>
-            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'web' }" @click="setFilter('web')">{{ t('portfolio.filter.web') }}</button>
-            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'smb' }" @click="setFilter('smb')">{{ t('portfolio.filter.smb') }}</button>
-            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'it' }" @click="setFilter('it')">{{ t('portfolio.filter.it') }}</button>
+            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'all' }" @click="setFilter('all')">All Projects</button>
+            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'web' }" @click="setFilter('web')">Web Design</button>
+            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'smb' }" @click="setFilter('smb')">Small Business Tech</button>
+            <button class="btn btn-filter" :class="{ 'active': activeFilter === 'it' }" @click="setFilter('it')">IT Services</button>
           </div>
         </div> -->
 
@@ -22,16 +22,16 @@
             <div class="card portfolio-card h-100">
               <img :src="project.imageUrl" class="card-img-top" :alt="project.title">
               <div class="card-body d-flex flex-column">
-                <h5 class="card-title">{{ locale === 'es' ? project.title_es : project.title }}</h5>
-                <p class="card-text text-muted">{{ locale === 'es' ? project.description_es : project.description }}</p>
-                <span class="badge bg-primary-badge mb-3">{{ t(`portfolio.categories.${project.category}`) }}</span>
+                <h5 class="card-title">{{ project.title }}</h5>
+                <p class="card-text text-muted">{{ project.description }}</p>
+                <!-- <span class="badge bg-primary-badge mb-3">{{ project.category }}</span> -->
                 
                 <a v-if="project.projectUrl" 
                    :href="project.projectUrl" 
                    target="_blank" 
                    rel="noopener noreferrer" 
                    class="btn btn-brand-primary mt-auto">
-                   {{ t('portfolio.visitSite') }} <i class="fas fa-external-link-alt ms-1"></i>
+                   Visit Site <i class="fas fa-external-link-alt ms-1"></i>
                 </a>
               </div>
             </div>
@@ -43,8 +43,8 @@
     <section class="page-section bg-light" id="client-logos">
         <div class="container">
             <div class="text-center" data-aos="fade-up">
-            <h2 class="section-heading">{{ t('portfolio.clients.title') }}</h2>
-            <p class="text-muted lead mb-5">{{ t('portfolio.clients.subtitle') }}</p>
+            <h2 class="section-heading">Local Partners</h2>
+            <p class="text-muted lead mb-5">I'm proud to have provided solutions for a diverse range of local businesses and clients.</p>
             </div>
             
             <LogoCarousel :logos="clientLogos" data-aos="fade-up" />
@@ -54,9 +54,9 @@
 
     <section class="cta-section">
       <div class="container text-center" data-aos="fade-up">
-        <h2 class="display-5 fw-bold">{{ t('portfolio.cta.title') }}</h2>
-        <p class="lead my-4">{{ t('portfolio.cta.subtitle') }}</p>
-        <router-link :to="contactPath" class="btn btn-brand-primary btn-lg px-5 py-3">{{ t('portfolio.cta.button') }}</router-link>
+        <h2 class="display-5 fw-bold">See Your Project Here</h2>
+        <p class="lead my-4">Let's work together to build something amazing.</p>
+        <router-link to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</router-link>
       </div>
     </section>
   </div>
@@ -64,17 +64,17 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 
 // === UPDATED IMPORT PATHS ===
 import { allProjects as projectData } from '@/assets/data/ProjectData.js';
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
 
-const { t, locale } = useI18n();
+// const { t, locale } = useI18n();
 
 const pageMeta = computed(() => ({
-  title: t('portfolio.hero.title'),
-  description: t('portfolio.hero.subtitle'),
+  title: "Our Portfolio",
+  description: "A selection of projects that showcase our commitment to quality, design, and technical expertise.",
   path: '/portfolio', // The base (English) path
   image: '/images/portfolioview-header.png' // The specific image for this page
 }));
@@ -98,7 +98,7 @@ const filteredProjects = computed(() => {
 });
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const contactPath = computed(() => (locale.value === 'es' ? '/es/contact' : '/contact'));
+// const contactPath = computed('/contact');
 
 
 </script>
