@@ -1,8 +1,8 @@
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 import { useRoute } from 'vue-router';
 
 export function usePageMeta(pageData) {
-  const { locale } = useI18n();
+  // const { locale } = useI18n();
   const route = useRoute();
 
   useHead(() => {
@@ -12,19 +12,19 @@ export function usePageMeta(pageData) {
       return { title: 'Loading... | Casatech LLC' };
     }
 
-    const isUrlSpanish = route.path.startsWith('/es');
-    const isSpanish = isUrlSpanish || locale.value === 'es';
+    // const isUrlSpanish = route.path.startsWith('/es');
+    // const isSpanish = isUrlSpanish || locale.value === 'es';
     // === END FIX ===
 
     const baseUrl = 'https://casatechllc.com';
     
     // Helper to prevent double "/es/es/" paths
-    const cleanPath = data.path.startsWith('/es') ? data.path.substring(3) : data.path;
+    const cleanPath = data.path;
     
     const enUrl = `${baseUrl}${cleanPath}`;
-    const esUrl = `${baseUrl}/es${cleanPath}`;
+    // const esUrl = `${baseUrl}/es${cleanPath}`;
 
-    const canonicalUrl = isSpanish ? esUrl : enUrl;
+    const canonicalUrl = enUrl;
     const ogImage = data.image ? `${baseUrl}${data.image}` : `${baseUrl}/images/casatechllc-og-image.png`;
 
     const organizationSchema = {
@@ -44,7 +44,7 @@ export function usePageMeta(pageData) {
       // 1. Target the 'title' tag by its ID
       title: data.title,
       htmlAttrs: {
-        lang: isSpanish ? 'es' : 'en'
+        lang: 'en'
       },
       // 2. Add 'id' to all meta tags
       meta: [
@@ -57,7 +57,7 @@ export function usePageMeta(pageData) {
         { property: 'og:type', content: 'website' },
         { 
           property: 'og:locale', 
-          content: isSpanish ? 'es_MX' : 'en_US' 
+          content: 'en_US' 
         },
         // Twitter
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -72,7 +72,7 @@ export function usePageMeta(pageData) {
         },
         // hreflang links
         { rel: 'alternate', hreflang: 'en', href: enUrl },
-        { rel: 'alternate', hreflang: 'es', href: esUrl },
+        // { rel: 'alternate', hreflang: 'es', href: esUrl },
         { rel: 'alternate', hreflang: 'x-default', href: enUrl }
       ],
       script: [

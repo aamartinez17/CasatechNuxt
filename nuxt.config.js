@@ -41,24 +41,8 @@ export default defineNuxtConfig({
   },
 
   modules: [
-    '@nuxtjs/i18n',
     '@nuxtjs/sitemap',
   ],
-
-  i18n: {
-    locales: [
-      { code: 'en', iso: 'en-US', file: 'en.json' },
-      { code: 'es', iso: 'es-MX', file: 'es.json' }
-    ],
-    langDir: 'locales/',
-    defaultLocale: 'en',
-    strategy: 'prefix_except_default',
-    detectBrowserLanguage: {
-      useCookie: true,
-      cookieKey: 'i18n_redirected',
-      redirectOn: 'root',
-    }
-  },
 
   features: {
     inlineStyles: false
