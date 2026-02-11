@@ -2,12 +2,12 @@
   <div v-if="!hasConsented" class="cookie-banner-overlay">
     <div class="cookie-banner" data-aos="fade-up">
       <div class="cookie-text">
-        <p class="mb-1">{{ t('cookie.message') }}</p>
-        <p class="small mb-0">{{ t('cookie.submessage') }}</p>
+        <p class="mb-1">We use essential cookies to ensure our site works.</p>
+        <p class="small mb-0">This includes Google reCAPTCHA for form security and saving your language preference. By clicking 'Accept', you agree to this.</p>
       </div>
       <div class="cookie-actions">
         <button class="btn btn-brand-primary btn-sm" @click="acceptCookies">
-          {{ t('cookie.accept') }}
+          Accept
         </button>
       </div>
     </div>
@@ -15,11 +15,11 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 // 2. Remove 'ref' and 'onMounted', as they are no longer needed
 import { useCookieConsent } from '@/composables/useCookieConsent.js';
 
-const { t } = useI18n();
+// const { t } = useI18n();
 
 // 3. Remove the local 'isVisible' ref
 // const isVisible = ref(false); 

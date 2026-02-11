@@ -1,8 +1,8 @@
 <template>
   <div class="contact-view">
     <PageHeader 
-      :title="t('contact.hero.title')"
-      :subtitle="t('contact.hero.subtitle')"
+      title="Get in Touch"
+      subtitle="Ready to start your project? We're here to help. Send us a message for a free, no-obligation consultation."
       backgroundImage="/images/contactview-header.png" 
     />
 
@@ -11,33 +11,33 @@
         <div class="row">
           
           <div class="col-lg-7" data-aos="fade-right">
-            <h2 class="section-heading mb-4">{{ t('contact.form.title') }}</h2>
+            <h2 class="section-heading mb-4">Send Us a Message</h2>
 
             <form 
               name="contact" 
               @submit.prevent="handleSubmit"
             >
               <div class="mb-3">
-                <label for="name" class="form-label">{{ t('contact.form.name') }}</label>
+                <label for="name" class="form-label">Your Name</label>
                 <input v-model="formData.name" type="text" class="form-control" id="name" name="name" required :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
-                <label for="email" class="form-label">{{ t('contact.form.email') }}</label>
+                <label for="email" class="form-label">Email Address</label>
                 <input v-model="formData.email" type="email" class="form-control" id="email" name="email" required :disabled="isSubmitting">
               </div>
               <div class="mb-3">
-                <label for="phone" class="form-label">{{ t('contact.form.phone') }}</label>
+                <label for="phone" class="form-label">Phone Number</label>
                 <input v-model="formData.phone" type="tel" class="form-control" id="phone" name="phone" required :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
-                <label for="subject" class="form-label">{{ t('contact.form.subject') }}</label>
+                <label for="subject" class="form-label">Subject (Optional)</label>
                 <input v-model="formData.subject" type="text" class="form-control" id="subject" name="subject" :disabled="isSubmitting">
               </div>
 
               <div class="mb-3">
-                <label for="message" class="form-label">{{ t('contact.form.message') }}</label>
+                <label for="message" class="form-label">Your Message</label>
                 <textarea v-model="formData.message" class="form-control" id="message" name="message" rows="5" required :disabled="isSubmitting"></textarea>
               </div>
 
@@ -50,7 +50,7 @@
                   required
                 >
                 <label class="form-check-label" for="consentCheck">
-                  {{ t('contact.form.consent') }}
+                  I agree to be contacted by Casatech LLC via phone, email, and SMS regarding my inquiry, project milestones, and support tickets. I consent to receiving messages for coordination, technical support, and promotional offers. Message and data rates may apply.
                 </label>
               </div>
 
@@ -69,7 +69,7 @@
                   </ClientOnly>
                 </div>
                 <div v-else class="recaptcha-consent-gate">
-                  <p>{{ t('contact.form.cookieGate') }}</p>
+                  <p>Please accept our site cookies to enable and view the contact form.</p>
                 </div>  
               </div>
 
@@ -81,7 +81,7 @@
                 :disabled="isSubmitting || !hasConsented"
               >
                 <span v-if="isSubmitting" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
-                {{ isSubmitting ? t('contact.form.sending') : t('contact.form.button') }}
+                {{ isSubmitting ? "Sending..." : "Send Message" }}
               </button>
 
 
@@ -98,7 +98,7 @@
 
 
           <div class="col-lg-5" data-aos="fade-left" data-aos-delay="100">
-            <h2 class="section-heading mb-4">{{ t('contact.info.title') }}</h2>
+            <h2 class="section-heading mb-4">Contact Info</h2>
             
             <ul class="list-unstyled contact-info-list">
               <li>
@@ -111,11 +111,11 @@
               </li>
               <li>
                 <i class="fas fa-map-marker-alt fa-fw"></i>
-                <span>{{ t('contact.info.area') }}<br>New Haven, CT & Harrisonburg, VA</span>
+                <span>Service Area<br>New Haven, CT & Harrisonburg, VA</span>
               </li>
             </ul>
 
-            <h4 class="social-heading mt-5">{{ t('contact.info.social') }}</h4>
+            <h4 class="social-heading mt-5">Follow Us</h4>
             <div class="social-icons-contact">
               <a href="https://linkedin.com/company/casatech-llc" target="_blank" class="social-icon me-3" aria-label="LinkedIn">
                 <i class="fab fa-linkedin"></i>
@@ -139,16 +139,16 @@
 
 <script setup>
 import { ref, reactive, onUnmounted, computed } from 'vue';
-import { useI18n } from 'vue-i18n';
+// import { useI18n } from 'vue-i18n';
 import { useRouter } from 'vue-router';
 import { RecaptchaV2, useRecaptcha } from 'vue3-recaptcha-v2';
 
-const { t } = useI18n();
+// const { t } = useI18n();
 const router = useRouter();
 
 const pageMeta = computed(() => ({
-  title: t('contact.hero.title'),
-  description: t('contact.hero.subtitle'),
+  title: "Get in Touch",
+  description: "Ready to start your project? We're here to help. Send us a message for a free, no-obligation consultation.",
   path: '/contact', // The base (English) path
   image: '/images/contactview-header.png' // The specific image for this page
 }));
@@ -202,7 +202,7 @@ const handleSubmit = async () => {
   if (recaptchaWidgetId.value === null) {
     // console.log("Submit failed: reCAPTCHA widget ID is not set.");
     formError.value = true;
-    formMessage.value = t('contact.form.recaptchaError');
+    formMessage.value = "Please verify that you are not a robot.";
     isSubmitting.value = false;
     return;
   }
@@ -214,7 +214,7 @@ const handleSubmit = async () => {
   if (!token) {
     // console.log("Submit failed: Token is null or empty.");
     formError.value = true;
-    formMessage.value = t('contact.form.recaptchaError'); // Use translated error
+    formMessage.value = "Please verify that you are not a robot."; // Use translated error
     isSubmitting.value = false;
     return;
   }
@@ -243,7 +243,7 @@ const handleSubmit = async () => {
       }
       const result = await response.json();
       if (result.message === 'RECAPTCHA_FAILED') {
-        throw new Error(t('contact.form.recaptchaError'));
+        throw new Error("Please verify that you are not a robot.");
       } else {
         throw new Error(result.message || 'Server error, please try again later.');
       }

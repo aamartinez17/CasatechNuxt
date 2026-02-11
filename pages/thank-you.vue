@@ -1,17 +1,17 @@
 <template>
   <div class="thank-you-view">
     <PageHeader 
-      :title="t('contact.thanks.title')"
-      :subtitle="t('contact.thanks.subtitle')"
+      title="Thank You!"
+      subtitle="Your message has been sent. We'll be in touch soon."
       backgroundImage="/" 
     />
 
     <section class="page-section text-center">
       <div class="container">
-        <p class="lead">{{ t('contact.thanks.message') }}</p>
+        <p class="lead">I'll be in touch with you as soon as possible.</p>
         <router-link :to="homePath" class="btn btn-brand-primary btn-lg mt-4">
           <i class="fas fa-home me-2"></i>
-          {{ t('contact.thanks.button') }}
+          Return to Home Page
         </router-link>
       </div>
     </section>
@@ -19,11 +19,11 @@
 </template>
 
 <script setup>
-import { useI18n } from 'vue-i18n';
-const { t, locale } = useI18n();
+// import { useI18n } from 'vue-i18n';
+// const { t, locale } = useI18n();
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const homePath = computed(() => (locale.value === 'es' ? '/es/' : '/'));
+const homePath = computed(() => ('/'));
 
 </script>
 
