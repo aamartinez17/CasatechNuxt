@@ -57,15 +57,15 @@
           <ul class="space-y-3 mb-8 flex-grow">
             <li class="flex items-start">
               <span class="text-success mr-3 mt-1">✔</span>
-              <span class="text-text-main font-medium">24/7 Network Monitoring</span>
+              <span class="text-main font-medium">24/7 Network Monitoring</span>
             </li>
             <li class="flex items-start">
               <span class="text-success mr-3 mt-1">✔</span>
-              <span class="text-text-main font-medium">Bilingual Helpdesk (English/Español)</span>
+              <span class="text-main font-medium">Bilingual Helpdesk (English/Español)</span>
             </li>
             <li class="flex items-start">
               <span class="text-success mr-3 mt-1">✔</span>
-              <span class="text-text-main font-medium">Cloud Migration & Compliance</span>
+              <span class="text-main font-medium">Cloud Migration & Compliance</span>
             </li>
           </ul>
 
@@ -100,15 +100,15 @@
           <ul class="space-y-3 mb-8 flex-grow">
             <li class="flex items-start">
               <span class="text-success mr-3 mt-1">✔</span>
-              <span class="text-text-main font-medium">Vue.js / Nuxt 3 App Development</span>
+              <span class="text-main font-medium">Vue.js / Nuxt 3 App Development</span>
             </li>
             <li class="flex items-start">
               <span class="text-success mr-3 mt-1">✔</span>
-              <span class="text-text-main font-medium">Conversion Rate Optimization (CRO)</span>
+              <span class="text-main font-medium">Conversion Rate Optimization (CRO)</span>
             </li>
             <li class="flex items-start">
               <span class="text-success mr-3 mt-1">✔</span>
-              <span class="text-text-main font-medium">Technical B2B SEO</span>
+              <span class="text-main font-medium">Technical B2B SEO</span>
             </li>
           </ul>
 

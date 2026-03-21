@@ -1,15 +1,15 @@
 <template>
-  <article class="pt-24 pb-16 bg-bg-light lg:mt-12 overflow-hidden">
+  <article class="pt-28 pb-16 bg-bg-light lg:mt-12 overflow-hidden">
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20" 
              v-motion-fade-visible>
       <span class="text-cta font-heading font-bold tracking-widest uppercase text-sm mb-4 block">
         Our Mission
       </span>
-      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-text-heading mb-6 leading-tight">
+      <h1 class="text-4xl md:text-5xl lg:text-6xl font-heading font-extrabold text-heading mb-6 leading-tight">
         Leveling the Digital Playing Field <br class="hidden md:block" /> 
         for <span class="text-secondary font-bold">Growing Businesses.</span>
       </h1>
-      <p class="max-w-3xl mx-auto text-lg md:text-xl text-text-secondary leading-relaxed">
+      <p class="max-w-3xl mx-auto text-lg md:text-xl text-secondary leading-relaxed">
         We bridge the technological gap between massive corporations and local SMEs by delivering 
         enterprise-grade IT infrastructure and custom Vue.js web solutions.
       </p>
@@ -18,23 +18,23 @@
     <section class="bg-white py-20 border-y border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
         <div v-motion-slide-visible-left>
-          <h2 class="text-3xl font-heading font-bold text-text-heading mb-6">
+          <h2 class="text-3xl font-heading font-bold text-heading mb-6">
             The Digital Monopoly Ends Here
           </h2>
-          <p class="text-text-body mb-4 leading-relaxed">
+          <p class="text-body mb-4 leading-relaxed">
             For too long, top-tier technology has been the exclusive domain of global corporations with 
             unlimited budgets. This creates a critical "Tech Divide," leaving local Connecticut businesses 
             and Hispanic-owned enterprises struggling to compete in an increasingly digital economy.
           </p>
-          <p class="text-text-body leading-relaxed">
-            At Casatech, we believe that <strong class="text-text-primary">Enterprise Web Development for SMEs</strong> 
+          <p class="text-body leading-relaxed">
+            At Casatech, we believe that <strong class="text-primary">Enterprise Web Development for SMEs</strong> 
             shouldn't be a luxury—it's a requirement for survival. We specialize in accelerating tech adoption 
             within the Latin community, ensuring cultural relevance is never sacrificed for technical performance.
           </p>
         </div>
         <aside class="bg-bg-light p-8 md:p-12 border-l-4 border-secondary rounded-r-lg shadow-sm"
                v-motion-slide-visible-right>
-          <blockquote class="text-2xl md:text-3xl font-heading font-medium italic text-text-heading leading-snug">
+          <blockquote class="text-2xl md:text-3xl font-heading font-medium italic text-heading leading-snug">
             "Technology should be the great equalizer, not the barrier to entry for the businesses that 
             drive our local economy."
           </blockquote>
@@ -63,10 +63,10 @@
           <div class="inline-flex items-center space-x-2 text-secondary font-bold text-sm uppercase tracking-wider">
             <span>Direct Access to Senior Expertise</span>
           </div>
-          <h2 class="text-4xl font-heading font-bold text-text-heading">Alex Martinez</h2>
-          <h3 class="text-xl text-text-secondary font-medium italic -mt-2">Founder & Lead Technical Consultant</h3>
+          <h2 class="text-4xl font-heading font-bold text-heading">Alex Martinez</h2>
+          <h3 class="text-xl text-secondary font-medium italic -mt-2">Founder & Lead Technical Consultant</h3>
           
-          <div class="prose prose-slate max-w-none text-text-body space-y-4">
+          <div class="prose prose-slate max-w-none text-body space-y-4">
             <p>
               Born in Harrisonburg, VA, and now deeply rooted in New Haven, Alex is a first-generation 
               Mexican-American who recognized a critical market failure: smaller businesses adopt technology 
@@ -138,8 +138,8 @@
     <section class="bg-white py-24 mt-12 border-t border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-16">
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-text-heading mb-4">Our Operating Philosophy</h2>
-          <p class="text-text-secondary max-w-2xl mx-auto">How we deliver corporate-grade reliability with small-business agility.</p>
+          <h2 class="text-3xl md:text-4xl font-heading font-bold text-heading mb-4">Our Operating Philosophy</h2>
+          <p class="text-secondary max-w-2xl mx-auto">How we deliver corporate-grade reliability with small-business agility.</p>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -149,8 +149,8 @@
             <div class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center mb-6 text-primary">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-heading mb-3">Zero Technical Jargon</h3>
-            <p class="text-text-body text-sm leading-relaxed">We translate complex infrastructure and Vue.js architecture into clear business outcomes. No fluff, just results.</p>
+            <h3 class="text-xl font-bold text-heading mb-3">Zero Technical Jargon</h3>
+            <p class="text-body text-sm leading-relaxed">We translate complex infrastructure and Vue.js architecture into clear business outcomes. No fluff, just results.</p>
           </div>
 
           <!-- Value 2 -->
@@ -159,8 +159,8 @@
             <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center mb-6 text-secondary">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-heading mb-3">Local Accountability</h3>
-            <p class="text-text-body text-sm leading-relaxed">Proudly serving New Haven, CT with the dedication of an in-house partner, not a faceless outsourced vendor.</p>
+            <h3 class="text-xl font-bold text-heading mb-3">Local Accountability</h3>
+            <p class="text-body text-sm leading-relaxed">Proudly serving New Haven, CT with the dedication of an in-house partner, not a faceless outsourced vendor.</p>
           </div>
 
           <!-- Value 3 -->
@@ -169,8 +169,8 @@
             <div class="w-12 h-12 bg-cta/10 rounded-lg flex items-center justify-center mb-6 text-cta">
               <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <h3 class="text-xl font-bold text-text-heading mb-3">Agile Execution</h3>
-            <p class="text-text-body text-sm leading-relaxed">Eliminating enterprise bloat to deliver rapid, high-performance digital solutions tailored to SME timelines.</p>
+            <h3 class="text-xl font-bold text-heading mb-3">Agile Execution</h3>
+            <p class="text-body text-sm leading-relaxed">Eliminating enterprise bloat to deliver rapid, high-performance digital solutions tailored to SME timelines.</p>
           </div>
         </div>
       </div>
@@ -178,7 +178,7 @@
 
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-5 relative z-10">
       <div class="bg-bg-dark rounded-3xl p-12 text-center shadow-2xl">
-        <h2 class="text-3xl font-heading font-bold text-white mb-6 text-text-light">Ready to upgrade your infrastructure?</h2>
+        <h2 class="text-3xl font-heading font-bold text-white mb-6 text-light">Ready to upgrade your infrastructure?</h2>
         <NuxtLink to="/contact" class="inline-block bg-cta hover:bg-cta-hover text-white font-heading font-bold py-4 px-10 rounded-lg transition-all duration-300">
           Book a Technical Audit with Alex
         </NuxtLink>

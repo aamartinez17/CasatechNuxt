@@ -68,14 +68,14 @@
         <div class="flex p-1 bg-bg-light rounded-xl mb-12">
           <button 
             @click="activeTab = 'calendar'"
-            :class="activeTab === 'calendar' ? 'bg-white shadow-sm text-primary font-bold' : 'text-text-secondary'"
+            :class="activeTab === 'calendar' ? 'bg-white shadow-sm text-primary font-bold' : 'text-secondary'"
             class="flex-1 py-3 text-sm rounded-lg transition-all outline-none focus-visible:ring-2 focus-visible:ring-cta"
           >
             Schedule a Call
           </button>
           <button 
             @click="activeTab = 'message'"
-            :class="activeTab === 'message' ? 'bg-white shadow-sm text-primary font-bold' : 'text-text-secondary'"
+            :class="activeTab === 'message' ? 'bg-white shadow-sm text-primary font-bold' : 'text-secondary'"
             class="flex-1 py-3 text-sm rounded-lg transition-all outline-none focus-visible:ring-2 focus-visible:ring-cta"
           >
             Send a Message
@@ -85,8 +85,8 @@
         <!-- TAB 1: Calendar Embed -->
         <div v-if="activeTab === 'calendar'" v-motion-fade class="space-y-6">
           <div class="text-center mb-8">
-            <h2 class="text-2xl font-heading font-bold text-text-heading">Choose a Time for Your Audit</h2>
-            <p class="text-text-secondary">Direct access to a senior consultant's schedule.</p>
+            <h2 class="text-2xl font-heading font-bold text-heading">Choose a Time for Your Audit</h2>
+            <p class="text-secondary">Direct access to a senior consultant's schedule.</p>
           </div>
           <!-- Placeholder for Calendly/Scheduling Widget -->
           <div id="calendly-embed-placeholder" class="h-[600px] w-full bg-slate-50 border border-dashed border-slate-300 rounded-2xl flex flex-col items-center justify-center text-slate-400 p-8">
@@ -103,14 +103,14 @@
               class="space-y-6">
           
           <div class="text-center mb-8">
-            <h2 class="text-2xl font-heading font-bold text-text-heading">Request Information</h2>
-            <p class="text-text-secondary">We typically respond within 1 business hour.</p>
+            <h2 class="text-2xl font-heading font-bold text-heading">Request Information</h2>
+            <p class="text-secondary">We typically respond within 1 business hour.</p>
           </div>
 
           <!-- Semantic Accessibility: ID/For Mapping + Focus Rings -->
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
-              <label for="full_name" class="text-sm font-bold text-text-heading">Full Name</label>
+              <label for="full_name" class="text-sm font-bold text-heading">Full Name</label>
               <input 
                 id="full_name" 
                 v-model="formData.name" 
@@ -121,7 +121,7 @@
               />
             </div>
             <div class="space-y-2">
-              <label for="company_email" class="text-sm font-bold text-text-heading">Company Email</label>
+              <label for="company_email" class="text-sm font-bold text-heading">Company Email</label>
               <input 
                 id="company_email" 
                 v-model="formData.email" 
@@ -134,7 +134,7 @@
           </div>
 
           <div class="space-y-2">
-            <label for="company_name" class="text-sm font-bold text-text-heading">Company Name</label>
+            <label for="company_name" class="text-sm font-bold text-heading">Company Name</label>
             <input 
               id="company_name" 
               v-model="formData.company" 
@@ -146,7 +146,7 @@
           </div>
 
           <div class="space-y-2">
-            <label for="interest" class="text-sm font-bold text-text-heading">Primary Interest</label>
+            <label for="interest" class="text-sm font-bold text-heading">Primary Interest</label>
             <select 
               id="interest" 
               v-model="formData.interest"
@@ -160,7 +160,7 @@
           </div>
 
           <div class="space-y-2">
-            <label for="message" class="text-sm font-bold text-text-heading">Message</label>
+            <label for="message" class="text-sm font-bold text-heading">Message</label>
             <textarea 
               id="message" 
               v-model="formData.message" 
@@ -178,7 +178,7 @@
             {{ isSubmitting ? 'Sending Request...' : 'Send Message' }}
           </button>
           
-          <p class="text-xs text-center text-text-muted italic">
+          <p class="text-xs text-center text-muted italic">
             Your data is protected. By submitting, you agree to our 
             <NuxtLink to="/terms" class="underline">Privacy Policy</NuxtLink>.
           </p>

@@ -2,7 +2,7 @@
   <article class="pt-32 pb-24 bg-bg-light min-h-screen">
     <!-- Handle 404 Case -->
     <div v-if="!article" class="max-w-3xl mx-auto px-4 text-center py-20">
-      <h1 class="text-2xl font-bold text-text-heading">Article Not Found</h1>
+      <h1 class="text-2xl font-bold text-heading">Article Not Found</h1>
       <NuxtLink to="/insights" class="text-secondary mt-4 block underline">Return to Insights</NuxtLink>
     </div>
 
@@ -16,7 +16,7 @@
           </NuxtLink>
         </nav>
 
-        <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-text-heading mb-8 leading-tight">
+        <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-heading mb-8 leading-tight">
           {{ article.title }}
         </h1>
 
@@ -30,8 +30,8 @@
             />
           </div>
           <div class="flex flex-col">
-            <span class="text-text-primary font-bold">Alex Martinez</span>
-            <span class="text-text-secondary text-sm">
+            <span class="text-primary font-bold">Alex Martinez</span>
+            <span class="text-secondary text-sm">
               Lead Technical Consultant | {{ formatDate(article.date) }}
             </span>
           </div>
@@ -47,7 +47,7 @@
         </div>
       </header>
 
-      <section class="max-w-3xl mx-auto px-4 prose prose-slate prose-lg md:prose-xl prose-links:text-secondary prose-headings:text-text-heading prose-headings:font-heading prose-headings:font-bold">
+      <section class="max-w-3xl mx-auto px-4 prose prose-slate prose-lg md:prose-xl prose-links:text-secondary prose-headings:text-heading prose-headings:font-heading prose-headings:font-bold">
         <!-- Render the HTML body from ArticleData -->
         <div v-html="article.body"></div>
 
@@ -76,7 +76,7 @@
         </footer>
         <!-- Render Optional Reference Links -->
         <div v-if="article.links && article.links.length > 0" class="mt-12 p-6 bg-white rounded-xl border border-gray-200">
-          <h4 class="text-sm uppercase tracking-widest text-text-secondary mb-4 font-bold">Reference Links</h4>
+          <h4 class="text-sm uppercase tracking-widest text-secondary mb-4 font-bold">Reference Links</h4>
           <ul class="list-none p-0 m-0 flex flex-wrap gap-4">
             <li v-for="link in article.links" :key="link.url">
               <a :href="link.url" target="_blank" rel="noopener noreferrer" class="text-secondary font-bold hover:underline no-underline">

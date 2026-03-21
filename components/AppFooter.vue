@@ -32,22 +32,22 @@
           </h5>
           <ul class="space-y-4">
             <li>
-              <NuxtLink to="/services" class="text-sm text-muted hover:text-secondary transition-fast">
+              <NuxtLink to="/managed-it-infrastructure" class="text-sm text-muted hover:text-secondary transition-fast">
                 Managed IT & Cybersecurity
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/services" class="text-sm text-muted hover:text-secondary transition-fast">
+              <NuxtLink to="/web-applications" class="text-sm text-muted hover:text-secondary transition-fast">
                 Custom Web Development
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/services" class="text-sm text-muted hover:text-secondary transition-fast">
+              <NuxtLink to="/managed-it-infrastructure" class="text-sm text-muted hover:text-secondary transition-fast">
                 Cloud Integrations
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/article" class="text-sm text-muted hover:text-secondary transition-fast">
+              <NuxtLink to="/insights" class="text-sm text-muted hover:text-secondary transition-fast">
                 B2B Local SEO
               </NuxtLink>
             </li>
@@ -61,8 +61,8 @@
           </h5>
           <ul class="space-y-4">
             <li><NuxtLink to="/about" class="text-sm text-muted hover:text-secondary transition-fast">About Casatech</NuxtLink></li>
-            <li><NuxtLink to="/portfolio" class="text-sm text-muted hover:text-secondary transition-fast">Client Success Stories</NuxtLink></li>
-            <li><NuxtLink to="/blog" class="text-sm text-muted hover:text-secondary transition-fast">Executive Insights</NuxtLink></li>
+            <!-- <li><NuxtLink to="/portfolio" class="text-sm text-muted hover:text-secondary transition-fast">Client Success Stories</NuxtLink></li> -->
+            <li><NuxtLink to="/insights" class="text-sm text-muted hover:text-secondary transition-fast">Executive Insights</NuxtLink></li>
             <li><NuxtLink to="/contact" class="text-sm text-muted hover:text-secondary transition-fast">Book an Audit</NuxtLink></li>
           </ul>
         </nav>

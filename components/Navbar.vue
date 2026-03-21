@@ -29,26 +29,31 @@
              class="h-10 w-auto rounded-md shadow-sm p-1 bg-white">
       </NuxtLink>
 
-      <!-- Desktop Links -->
-      <ul class="hidden lg:flex space-x-8 items-center m-0 p-0">
+      <!-- Desktop Links (Optimized spacing for more items) -->
+      <ul class="hidden lg:flex space-x-6 xl:space-x-8 items-center m-0 p-0">
         <li>
-          <NuxtLink to="/web-design" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+          <NuxtLink to="/web-design" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
             Web Design
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/managed-it-infrastructure" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            Managed IT & Infrastructure
+          <NuxtLink to="/managed-it-infrastructure" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            Managed IT
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/web-applications" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+          <NuxtLink to="/web-applications" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
             Custom Web Apps
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/about" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            About Casatech
+          <NuxtLink to="/insights" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            Insights
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/about" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            About
           </NuxtLink>
         </li>
       </ul>
@@ -56,7 +61,7 @@
       <!-- Desktop CTA -->
       <div class="hidden lg:block">
         <NuxtLink to="/contact" 
-                  class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-2.5 px-6 rounded shadow-soft transition-fast">
+                  class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-2.5 px-5 rounded shadow-soft transition-fast">
           Book an IT Audit
         </NuxtLink>
       </div>
@@ -64,7 +69,7 @@
       <!-- Mobile Hamburger Toggle -->
       <button @click.stop="toggleMenu"
               type="button" 
-              class="lg:hidden text-text-main hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded p-2"
+              class="lg:hidden text-main hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded p-2"
               aria-controls="mobile-menu" 
               :aria-expanded="isMenuOpen.toString()">
         <span class="sr-only">Open main menu</span>
@@ -77,15 +82,14 @@
       </button>
     </nav>
 
-    <!-- Mobile Menu Drawer (FIXED NESTING) -->
-     
+    <!-- Mobile Menu Drawer -->
     <ClientOnly>
       <div v-if="isMenuOpen" 
           v-motion="'slide-in-top'"
           id="mobile-menu"
           class="lg:hidden origin-top bg-bg-light border-b border-gray-200 shadow-hover absolute w-full top-full left-0 flex flex-col z-40">
           <div class="p-4 border-b border-gray-200 bg-gray-50 flex flex-col gap-3">
-            <a href="tel:2038848244" class="text-text-heading font-bold text-lg text-center py-2 border border-gray-300 rounded hover:bg-gray-100 transition-fast">
+            <a href="tel:2038848244" class="text-heading font-bold text-lg text-center py-2 border border-gray-300 rounded hover:bg-gray-100 transition-fast">
               📞 (203) 884-8244
             </a>
             <NuxtLink to="/contact" @click="closeMenu" class="bg-cta hover:bg-cta-hover text-white text-center font-heading font-bold py-3 rounded shadow-soft transition-fast">
@@ -95,22 +99,27 @@
 
           <ul class="flex flex-col px-4 py-2 space-y-1 m-0">
             <li>
-              <NuxtLink to="/web-design" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
+              <NuxtLink to="/web-design" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
                 Web Design
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/managed-it-infrastructure" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
-                Managed IT & Infrastructure
+              <NuxtLink to="/managed-it-infrastructure" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
+                Managed IT
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/web-applications" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
+              <NuxtLink to="/web-applications" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
                 Custom Web Apps
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/about" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary">
+              <NuxtLink to="/insights" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
+                Insights
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/about" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary">
                 About Casatech
               </NuxtLink>
             </li>

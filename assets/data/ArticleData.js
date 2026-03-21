@@ -13,10 +13,133 @@
 
 export const allPosts = [
   {
+    id: 4,
+    slug: 'local-seo-generative-engine-optimization',
+    imageLink: '/images/insights/article-seo-essentials.png',
+    date: '2026-03-21',
+    category: 'Digital Growth & SEO',
+    title: 'Beyond the Map Pack: Dominating Local SEO and Generative Search',
+    subtitle: 'Google is no longer just a search engine; it is an Answer Engine. Learn how to architect your digital presence for AI Overviews and high-intent local leads.',
+    body: `
+      <section class="prose prose-slate max-w-none">
+        <p class="lead text-xl text-secondary mb-8">
+          For established enterprises in Connecticut, "being found" is no longer about simple keyword matching. 
+          As search behavior shifts toward AI-driven queries and zero-click results, the traditional SEO playbook has become obsolete.
+        </p>
+
+        <p>
+          To maintain a competitive edge, mid-sized organizations must transition to a dual-threat strategy: 
+          <strong>Local SEO in Connecticut</strong> for immediate geographic dominance, and 
+          <strong>Generative Engine Optimization (GEO) in New Haven</strong> to ensure visibility within AI Overviews and LLMs.
+        </p>
+
+        <p>
+          At Casatech LLC, we move beyond basic optimizations. We architect technical digital infrastructures that 
+          prove topical authority to both human users and the sophisticated algorithms that now govern the B2B sales cycle.
+        </p>
+
+        <h2 class="text-heading font-bold mt-12 mb-6">Strategic Shift: Legacy SEO vs. Modern Search Visibility</h2>
+        
+        <div class="overflow-x-auto my-8">
+          <table class="min-w-full border-collapse border border-slate-200 shadow-soft rounded-lg">
+            <thead class="bg-slate-900 text-white text-sm">
+              <tr>
+                <th class="p-4 border border-slate-300 text-left">Category</th>
+                <th class="p-4 border border-slate-300 text-left">Legacy Website SEO</th>
+                <th class="p-4 border border-slate-300 text-left">Modern Local & GEO</th>
+              </tr>
+            </thead>
+            <tbody class="text-body text-sm">
+              <tr class="bg-white">
+                <td class="p-4 border border-slate-300 font-bold">Traffic Goals</td>
+                <td class="p-4 border border-slate-300">Raw Clicks & Page Views</td>
+                <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">High-Intent Leads & AI Citations</td>
+              </tr>
+              <tr class="bg-slate-50">
+                <td class="p-4 border border-slate-300 font-bold">Keyword Strategy</td>
+                <td class="p-4 border border-slate-300">Exact Match & Repetition</td>
+                <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Semantic Clarity & Intent Mapping</td>
+              </tr>
+              <tr class="bg-white">
+                <td class="p-4 border border-slate-300 font-bold">Map Pack Focus</td>
+                <td class="p-4 border border-slate-300">Address Verification Only</td>
+                <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Advanced Category & Service Optimization</td>
+              </tr>
+              <tr class="bg-slate-50">
+                <td class="p-4 border border-slate-300 font-bold">AI Readiness</td>
+                <td class="p-4 border border-slate-300 text-red-600">None (Static Content)</td>
+                <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Schema.org (JSON-LD) Architected</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h2 class="text-heading font-bold mt-12 mb-4">1. From Keyword Stuffing to Generative Engine Optimization (GEO)</h2>
+        <p>
+          Google’s evolution into an "Answer Engine" means that your content is now being read by Large Language Models (LLMs) 
+          before it ever reaches a human. <strong>Generative Engine Optimization</strong> is the process of making your data 
+          highly "consumable" for these models.
+        </p>
+        <p>
+          We achieve this through precise semantic clarity and the implementation of advanced <strong>Schema.org markup (JSON-LD)</strong>. 
+          By providing search engines with structured, non-ambiguous data about your services, original data, and executive expertise, 
+          we ensure that AI Overviews recommend your business as the definitive solution for local inquiries.
+        </p>
+
+        
+
+        <h2 class="text-heading font-bold mt-12 mb-4">2. Dominating the Local Pack (Google Business Profile)</h2>
+        <p>
+          The "Map Pack" is the single most valuable piece of digital real estate for any service-based enterprise. 
+          Statistically, 60-70% of local clicks go to the top 3 positions within the <strong>Google Business Profile (GBP)</strong> results.
+        </p>
+        <p>
+          Our <strong>Google Business Profile Management in CT</strong> goes significantly deeper than basic contact info. 
+          We optimize up to 10 secondary categories, load 20+ granular services with targeted descriptions, and utilize 
+          AI-driven review management strategies to maintain high velocity and sentiment. This comprehensive approach is 
+          designed to push our clients into the "Top 3" and keep them there.
+        </p>
+
+        <h2 class="text-heading font-bold mt-12 mb-4">3. The "Core 30" Website Architecture & Bilingual Reach</h2>
+        <p>
+          Topical authority is proven through a highly structured website hierarchy. An enterprise-grade site requires 
+          a logical flow: <strong>Homepage → Category Pages → Specialized Service Pages</strong>. 
+        </p>
+        <p>
+          Furthermore, we leverage <strong>Bilingual Technical SEO</strong> to capture the massive, high-intent Hispanic
+          market in Connecticut. By deploying this architecture in both English and Español, we allow our clients to 
+          connect with a demographic that their competitors are currently ignoring. 
+        </p>
+        <p>
+          This architecture is standard in every <a href="/web-applications" class="text-secondary font-bold underline">Custom Web & Digital Solution</a> we build.
+        </p>
+
+        <h2 class="text-heading font-bold mt-12 mb-4">4. Building Unshakable Local Authority (Backlinks)</h2>
+        <p>
+          Generic, "bought" backlinks are a liability. True <strong>Local SEO in Connecticut</strong> requires "Local Authority Links"—digital 
+          signals that prove to Google you are a trusted, real-world community anchor.
+        </p>
+        <p>
+          We focus on high-value acquisitions: joining regional Chambers of Commerce, sponsoring local events, 
+          and securing targeted digital PR within Connecticut business journals. These signals create a 
+          "geofence" of authority around your domain, making it the most logical result for local searches.
+        </p>
+      </section>
+    `,
+      ctaTitle: 'Stop Losing Leads to the Competition.',
+      ctaSubtitle: 'Your website should be your most productive sales asset. Book a comprehensive <strong>Technical SEO & Search Visibility Audit</strong> with Casatech LLC to uncover the gaps in your digital infrastructure.',
+      links: [
+        { name: 'Google Business Profile Management', url: 'https://www.google.com/business/' },
+        { name: 'Understanding Schema.org', url: 'https://schema.org/' },
+        { name: 'Web Solutions & SEO', url: '/web-applications' }
+      ]
+  },
+  {
     id: 1,
     slug: '5-tech-essentials-for-scaling-startups',
     imageLink: '/images/insights/article-5-tech-essentials.png',
     date: '2026-03-21',
+    category: 'Startup Foundations',
     title: 'The 5 Tech Essentials for Scaling Your Digital Infrastructure',
     subtitle: 'Move beyond chaotic internal processes. Here is the framework for enterprise-grade operations from day one.',
     body: `
@@ -121,11 +244,12 @@ export const allPosts = [
   slug: 'enterprise-voip-cloud-telephony',
   imageLink: '/images/insights/article-what-is-voip.png',
   date: '2026-03-21',
+  category: "IT Infrastructure & Security",
   title: 'Retiring the Legacy PBX: The Executive Guide to Enterprise Cloud Telephony',
   subtitle: 'Modernize your communication infrastructure, eliminate maintenance overhead, and empower a hybrid workforce with Cloud VoIP.',
   body: `
     <section class="prose prose-slate max-w-none">
-      <p class="lead text-xl text-text-secondary mb-8">
+      <p class="lead text-xl text-secondary mb-8">
         For scaling organizations in Connecticut, the traditional "phone closet" has become a significant operational bottleneck. 
         As hybrid work becomes the standard, relying on on-premise PBX hardware creates fragmented communication and ballooning maintenance costs.
       </p>
@@ -141,7 +265,7 @@ export const allPosts = [
         with high-performance, software-driven architecture designed for the modern enterprise.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-6">Comparative Analysis: Legacy PBX vs. Cloud VoIP</h2>
+      <h2 class="text-heading font-bold mt-12 mb-6">Comparative Analysis: Legacy PBX vs. Cloud VoIP</h2>
       
       <div class="overflow-x-auto my-8">
         <table class="min-w-full border-collapse border border-slate-200 shadow-soft rounded-lg">
@@ -152,7 +276,7 @@ export const allPosts = [
               <th class="p-4 border border-slate-300 text-left">Enterprise Cloud VoIP</th>
             </tr>
           </thead>
-          <tbody class="text-text-body text-sm">
+          <tbody class="text-body text-sm">
             <tr class="bg-white">
               <td class="p-4 border border-slate-300 font-bold">Capital Expenditure</td>
               <td class="p-4 border border-slate-300">High Upfront (Hardware & Wiring)</td>
@@ -177,7 +301,7 @@ export const allPosts = [
         </table>
       </div>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">1. Intelligent Routing & The Bilingual Advantage</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">1. Intelligent Routing & The Bilingual Advantage</h2>
       <p>
         Professionalism in a diverse market like New Haven requires more than just a clear connection. 
         Modern <strong>VoIP Services in New Haven</strong> utilize advanced Interactive Voice Response (IVR) 
@@ -190,7 +314,7 @@ export const allPosts = [
         improving the "first-call resolution" metric.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">2. Unifying the Hybrid Workforce</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">2. Unifying the Hybrid Workforce</h2>
       <p>
         Legacy systems anchor your staff to their desks. In contrast, Cloud VoIP functions as a 
         <strong>Unified Communications (UCaaS)</strong> hub. Whether your team is in an office in 
@@ -205,7 +329,7 @@ export const allPosts = [
         Integrating these systems is a core component of our <a href="/services/managed-it-infrastructure" class="text-secondary font-bold underline">Managed IT & Infrastructure</a> roadmap.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">3. Instant Provisioning & Massive Scalability</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">3. Instant Provisioning & Massive Scalability</h2>
       <p>
         The era of waiting for a telecommunications provider to visit your facility to install 
         "new lines" is over. Cloud-based infrastructure allows for <strong>Instant Provisioning</strong>.
@@ -217,7 +341,7 @@ export const allPosts = [
         physical infrastructure changes or capital investment.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">4. Slashing CapEx & CRM Integration</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">4. Slashing CapEx & CRM Integration</h2>
       <p>
         By moving to the cloud, businesses can shift their telecommunications budget from 
         unpredictable <strong>Capital Expenditure (CapEx)</strong> for hardware repairs to a 
@@ -243,17 +367,18 @@ export const allPosts = [
   slug: 'google-workspace-vs-gmail-startup-guide',
   imageLink: '/images/insights/article-google-workspace.png',
   date: '2026-03-21',
+  category: 'Startup Foundations',
   title: 'Startup Tech Foundations: Why Google Workspace is Your Businesses Operating System',
   subtitle: 'Don’t build your future on a @gmail.com address. Learn why professional cloud infrastructure is a non-negotiable for CT startups.',
   body: `
     <section class="prose prose-slate max-w-none">
-      <p class="lead text-xl text-text-secondary mb-8">
+      <p class="lead text-xl text-secondary mb-8">
         This guide is tailored specifically for <strong>startups and small businesses</strong> in the process of laying their 
         digital foundation. In the early days of a venture, every decision counts—especially the ones involving your 
         data, your brand, and your team's ability to collaborate.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">The Chaos of the Startup Phase (And How to Fix It)</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">The Chaos of the Startup Phase (And How to Fix It)</h2>
       <p>
         Starting a business in Connecticut is an exhilarating, often chaotic journey. Founders are wearing ten hats 
         at once, and it is incredibly tempting to cut corners on <strong>Startup Tech Support in New Haven</strong> 
@@ -269,7 +394,7 @@ export const allPosts = [
         A <strong>Small Business IT Setup in Connecticut</strong> begins with a unified, secure workspace.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-6">Comparative Analysis: Free Gmail vs. Professional Google Workspace</h2>
+      <h2 class="text-heading font-bold mt-12 mb-6">Comparative Analysis: Free Gmail vs. Professional Google Workspace</h2>
       
       
 
@@ -282,7 +407,7 @@ export const allPosts = [
               <th class="p-4 border border-slate-300 text-left">Google Workspace (Business)</th>
             </tr>
           </thead>
-          <tbody class="text-text-body text-sm">
+          <tbody class="text-body text-sm">
             <tr class="bg-white">
               <td class="p-4 border border-slate-300 font-bold">Client Perception</td>
               <td class="p-4 border border-slate-300 text-red-600 font-medium">"Hobbyist" / Unestablished</td>
@@ -307,7 +432,7 @@ export const allPosts = [
         </table>
       </div>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">1. Instant Professionalism and Client Trust</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">1. Instant Professionalism and Client Trust</h2>
       <p>
         In the B2B world, first impressions are digital. When a potential client receives a proposal from 
         <code>alex@mybusiness.com</code>, they see an established entity. When it comes from 
@@ -320,7 +445,7 @@ export const allPosts = [
         fully staffed department from day one.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">2. Protecting Your Earliest Intellectual Property</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">2. Protecting Your Earliest Intellectual Property</h2>
       <p>
         Your most valuable asset as a startup is your information. Many founders make the mistake of 
         allowing early freelancers or employees to save work to their personal Google Drives.
@@ -331,7 +456,7 @@ export const allPosts = [
         This ensures that your early intellectual property stays exactly where it belongs: with the founder.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">3. Seamless Scaling and Bilingual Team Growth</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">3. Seamless Scaling and Bilingual Team Growth</h2>
       <p>
         Your tech foundation should be built for the team you <em>will</em> have, not just the one you have today. 
         Google Workspace makes it incredibly easy to provision new accounts as you hire your first team members.
@@ -346,7 +471,7 @@ export const allPosts = [
         This is a core part of our specialized <a href="/services/managed-it-infrastructure" class="text-secondary font-bold underline">Small Business Tech Setup</a> methodology.
       </p>
 
-      <h2 class="text-text-heading font-bold mt-12 mb-4">4. Built-In Security and Reliability</h2>
+      <h2 class="text-heading font-bold mt-12 mb-4">4. Built-In Security and Reliability</h2>
       <p>
         Startups are prime targets for phishing and ransomware because attackers assume their security 
         is weak. Google Workspace provides enterprise-level protection that monitors for suspicious logins 
@@ -364,126 +489,5 @@ export const allPosts = [
     { name: 'Google Workspace for Startups', url: 'https://workspace.google.com/solutions/startups/' },
     { name: 'Managed IT for Small Businesses', url: '/services/managed-it-infrastructure' }
   ]
-},
- {
-  id: 4,
-  slug: 'local-seo-generative-engine-optimization',
-  imageLink: '/images/insights/article-seo-essentials.png',
-  date: '2026-03-21',
-  title: 'Beyond the Map Pack: Dominating Local SEO and Generative Search',
-  subtitle: 'Google is no longer just a search engine; it is an Answer Engine. Learn how to architect your digital presence for AI Overviews and high-intent local leads.',
-  body: `
-    <section class="prose prose-slate max-w-none">
-      <p class="lead text-xl text-text-secondary mb-8">
-        For established enterprises in Connecticut, "being found" is no longer about simple keyword matching. 
-        As search behavior shifts toward AI-driven queries and zero-click results, the traditional SEO playbook has become obsolete.
-      </p>
-
-      <p>
-        To maintain a competitive edge, mid-sized organizations must transition to a dual-threat strategy: 
-        <strong>Local SEO in Connecticut</strong> for immediate geographic dominance, and 
-        <strong>Generative Engine Optimization (GEO) in New Haven</strong> to ensure visibility within AI Overviews and LLMs.
-      </p>
-
-      <p>
-        At Casatech LLC, we move beyond basic optimizations. We architect technical digital infrastructures that 
-        prove topical authority to both human users and the sophisticated algorithms that now govern the B2B sales cycle.
-      </p>
-
-      <h2 class="text-text-heading font-bold mt-12 mb-6">Strategic Shift: Legacy SEO vs. Modern Search Visibility</h2>
-      
-      <div class="overflow-x-auto my-8">
-        <table class="min-w-full border-collapse border border-slate-200 shadow-soft rounded-lg">
-          <thead class="bg-slate-900 text-white text-sm">
-            <tr>
-              <th class="p-4 border border-slate-300 text-left">Category</th>
-              <th class="p-4 border border-slate-300 text-left">Legacy Website SEO</th>
-              <th class="p-4 border border-slate-300 text-left">Modern Local & GEO</th>
-            </tr>
-          </thead>
-          <tbody class="text-text-body text-sm">
-            <tr class="bg-white">
-              <td class="p-4 border border-slate-300 font-bold">Traffic Goals</td>
-              <td class="p-4 border border-slate-300">Raw Clicks & Page Views</td>
-              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">High-Intent Leads & AI Citations</td>
-            </tr>
-            <tr class="bg-slate-50">
-              <td class="p-4 border border-slate-300 font-bold">Keyword Strategy</td>
-              <td class="p-4 border border-slate-300">Exact Match & Repetition</td>
-              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Semantic Clarity & Intent Mapping</td>
-            </tr>
-            <tr class="bg-white">
-              <td class="p-4 border border-slate-300 font-bold">Map Pack Focus</td>
-              <td class="p-4 border border-slate-300">Address Verification Only</td>
-              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Advanced Category & Service Optimization</td>
-            </tr>
-            <tr class="bg-slate-50">
-              <td class="p-4 border border-slate-300 font-bold">AI Readiness</td>
-              <td class="p-4 border border-slate-300 text-red-600">None (Static Content)</td>
-              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Schema.org (JSON-LD) Architected</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-
-      <h2 class="text-text-heading font-bold mt-12 mb-4">1. From Keyword Stuffing to Generative Engine Optimization (GEO)</h2>
-      <p>
-        Google’s evolution into an "Answer Engine" means that your content is now being read by Large Language Models (LLMs) 
-        before it ever reaches a human. <strong>Generative Engine Optimization</strong> is the process of making your data 
-        highly "consumable" for these models.
-      </p>
-      <p>
-        We achieve this through precise semantic clarity and the implementation of advanced <strong>Schema.org markup (JSON-LD)</strong>. 
-        By providing search engines with structured, non-ambiguous data about your services, original data, and executive expertise, 
-        we ensure that AI Overviews recommend your business as the definitive solution for local inquiries.
-      </p>
-
-      
-
-      <h2 class="text-text-heading font-bold mt-12 mb-4">2. Dominating the Local Pack (Google Business Profile)</h2>
-      <p>
-        The "Map Pack" is the single most valuable piece of digital real estate for any service-based enterprise. 
-        Statistically, 60-70% of local clicks go to the top 3 positions within the <strong>Google Business Profile (GBP)</strong> results.
-      </p>
-      <p>
-        Our <strong>Google Business Profile Management in CT</strong> goes significantly deeper than basic contact info. 
-        We optimize up to 10 secondary categories, load 20+ granular services with targeted descriptions, and utilize 
-        AI-driven review management strategies to maintain high velocity and sentiment. This comprehensive approach is 
-        designed to push our clients into the "Top 3" and keep them there.
-      </p>
-
-      <h2 class="text-text-heading font-bold mt-12 mb-4">3. The "Core 30" Website Architecture & Bilingual Reach</h2>
-      <p>
-        Topical authority is proven through a highly structured website hierarchy. An enterprise-grade site requires 
-        a logical flow: <strong>Homepage → Category Pages → Specialized Service Pages</strong>. 
-      </p>
-      <p>
-        Furthermore, we leverage <strong>Bilingual Technical SEO</strong> to capture the massive, high-intent Hispanic
-        market in Connecticut. By deploying this architecture in both English and Español, we allow our clients to 
-        connect with a demographic that their competitors are currently ignoring. 
-      </p>
-      <p>
-        This architecture is standard in every <a href="/web-applications" class="text-secondary font-bold underline">Custom Web & Digital Solution</a> we build.
-      </p>
-
-      <h2 class="text-text-heading font-bold mt-12 mb-4">4. Building Unshakable Local Authority (Backlinks)</h2>
-      <p>
-        Generic, "bought" backlinks are a liability. True <strong>Local SEO in Connecticut</strong> requires "Local Authority Links"—digital 
-        signals that prove to Google you are a trusted, real-world community anchor.
-      </p>
-      <p>
-        We focus on high-value acquisitions: joining regional Chambers of Commerce, sponsoring local events, 
-        and securing targeted digital PR within Connecticut business journals. These signals create a 
-        "geofence" of authority around your domain, making it the most logical result for local searches.
-      </p>
-    </section>
-  `,
-    ctaTitle: 'Stop Losing Leads to the Competition.',
-    ctaSubtitle: 'Your website should be your most productive sales asset. Book a comprehensive <strong>Technical SEO & Search Visibility Audit</strong> with Casatech LLC to uncover the gaps in your digital infrastructure.',
-    links: [
-      { name: 'Google Business Profile Management', url: 'https://www.google.com/business/' },
-      { name: 'Understanding Schema.org', url: 'https://schema.org/' },
-      { name: 'Web Solutions & SEO', url: '/web-applications' }
-    ]
 },
 ];

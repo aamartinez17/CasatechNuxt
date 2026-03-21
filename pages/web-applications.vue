@@ -6,11 +6,11 @@
         <span class="text-cta font-heading font-bold tracking-widest uppercase text-sm px-4 py-2 bg-cta/5 rounded-full border border-cta/10 inline-block">
           Enterprise Vue.js Developer & AI Specialist
         </span>
-        <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-text-heading leading-tight tracking-tight">
+        <h1 class="text-4xl md:text-6xl lg:text-7xl font-heading font-extrabold text-heading leading-tight tracking-tight">
           Custom Web Apps & AI <br class="hidden md:block" />
           <span class="text-secondary italic">Automation That Scale.</span>
         </h1>
-        <p class="max-w-3xl mx-auto text-lg md:text-xl text-text-secondary leading-relaxed">
+        <p class="max-w-3xl mx-auto text-lg md:text-xl text-secondary leading-relaxed">
           Stop settling for bloated, off-the-shelf templates. We build high-performance Nuxt 3 applications, 
           automate manual workflows with AI, and dominate search results with <strong>B2B SEO Expert CT</strong> strategies.
         </p>
@@ -25,7 +25,7 @@
     <!-- SECTION 2: THE PROBLEM (Attacking Bloated Builders) -->
     <section class="bg-white py-20 border-y border-gray-100">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <h2 class="text-2xl md:text-3xl font-heading font-bold text-text-heading mb-8">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-heading mb-8">
           Why "Standard" Websites Fail Growing Businesses
         </h2>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-12 text-left">
@@ -34,21 +34,21 @@
               <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3"/></svg>
               Slow & Bloated
             </div>
-            <p class="text-text-body text-sm leading-relaxed">Most local agencies use WordPress or Wix templates that load hundreds of unnecessary scripts, killing your SEO and user experience.</p>
+            <p class="text-body text-sm leading-relaxed">Most local agencies use WordPress or Wix templates that load hundreds of unnecessary scripts, killing your SEO and user experience.</p>
           </div>
           <div class="space-y-4 border-x border-gray-100 px-0 md:px-8">
             <div class="text-error font-bold text-xl flex items-center">
               <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3"/></svg>
               Manual Bottlenecks
             </div>
-            <p class="text-text-body text-sm leading-relaxed">If your team is still copy-pasting data across spreadsheets, your website isn't working for you. You're working for your website.</p>
+            <p class="text-body text-sm leading-relaxed">If your team is still copy-pasting data across spreadsheets, your website isn't working for you. You're working for your website.</p>
           </div>
           <div class="space-y-4">
             <div class="text-error font-bold text-xl flex items-center">
               <svg class="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M6 18L18 6M6 6l12 12" stroke-width="3"/></svg>
               Zero Lead Intelligence
             </div>
-            <p class="text-text-body text-sm leading-relaxed">A brochure site is a static expense. A Casatech App is a lead-generation engine powered by Technical SEO and high-intent CRO.</p>
+            <p class="text-body text-sm leading-relaxed">A brochure site is a static expense. A Casatech App is a lead-generation engine powered by Technical SEO and high-intent CRO.</p>
           </div>
         </div>
       </div>
@@ -63,13 +63,13 @@
             <div class="w-14 h-14 bg-secondary/10 rounded-xl flex items-center justify-center mb-8 text-secondary">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/></svg>
             </div>
-            <h3 class="text-2xl font-heading font-bold text-text-heading mb-4">High-Performance Web & Mobile Apps</h3>
-            <p class="text-text-body text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-heading font-bold text-heading mb-4">High-Performance Web & Mobile Apps</h3>
+            <p class="text-body text-sm leading-relaxed mb-6">
               Using <strong>Vue.js and Nuxt 3</strong>, we build ultra-fast client portals, internal dashboards, 
               and custom SaaS products. Expect zero latency, offline support, and seamless mobile responsiveness.
             </p>
           </div>
-          <ul class="space-y-2 text-xs font-bold text-text-secondary uppercase tracking-wider">
+          <ul class="space-y-2 text-xs font-bold text-secondary uppercase tracking-wider">
             <li>✓ Custom Client Portals</li>
             <li>✓ Enterprise Dashboards</li>
             <li>✓ Real-time Data Sync</li>
@@ -82,13 +82,13 @@
             <div class="w-14 h-14 bg-cta/10 rounded-xl flex items-center justify-center mb-8 text-cta">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/></svg>
             </div>
-            <h3 class="text-2xl font-heading font-bold text-text-heading mb-4">AI & Workflow Automation Services</h3>
-            <p class="text-text-body text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-heading font-bold text-heading mb-4">AI & Workflow Automation Services</h3>
+            <p class="text-body text-sm leading-relaxed mb-6">
               Eliminate manual data entry with <strong>AI Workflow Automation</strong>. We build custom Python scripts 
               and LLM-powered chatbots that handle customer inquiries and backend processing 24/7.
             </p>
           </div>
-          <ul class="space-y-2 text-xs font-bold text-text-secondary uppercase tracking-wider">
+          <ul class="space-y-2 text-xs font-bold text-secondary uppercase tracking-wider">
             <li>✓ LLM & Chatbot Integration</li>
             <li>✓ Python Data Scraping</li>
             <li>✓ Manual Task Elimination</li>
@@ -101,13 +101,13 @@
             <div class="w-14 h-14 bg-primary/10 rounded-xl flex items-center justify-center mb-8 text-primary">
               <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
             </div>
-            <h3 class="text-2xl font-heading font-bold text-text-heading mb-4">Search Visibility & Demand Gen</h3>
-            <p class="text-text-body text-sm leading-relaxed mb-6">
+            <h3 class="text-2xl font-heading font-bold text-heading mb-4">Search Visibility & Demand Gen</h3>
+            <p class="text-body text-sm leading-relaxed mb-6">
               Being a <strong>B2B SEO Expert in CT</strong> means more than keywords. We optimize your technical 
               architecture for Google, manage high-ROI Ads, and implement conversion science (CRO) to turn visitors into leads.
             </p>
           </div>
-          <ul class="space-y-2 text-xs font-bold text-text-secondary uppercase tracking-wider">
+          <ul class="space-y-2 text-xs font-bold text-secondary uppercase tracking-wider">
             <li>✓ Technical SEO Audits</li>
             <li>✓ High-Intent Google Ads</li>
             <li>✓ Landing Page Optimization</li>
@@ -121,18 +121,18 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
           <div v-motion-slide-visible-left>
-            <h2 class="text-4xl font-heading font-bold text-text-heading mb-6">Enterprise-Grade Architecture <br /> for Local Businesses.</h2>
-            <p class="text-text-body mb-6 leading-relaxed">
+            <h2 class="text-4xl font-heading font-bold text-heading mb-6">Enterprise-Grade Architecture <br /> for Local Businesses.</h2>
+            <p class="text-body mb-6 leading-relaxed">
               We don't rely on fragile plugins or third-party builders. We custom-engineer your solution using the same 
               tech stack favored by global leaders like <strong>TikTok, OpenAI, and Google.</strong>
             </p>
-            <p class="text-text-body leading-relaxed mb-8">
+            <p class="text-body leading-relaxed mb-8">
               By utilizing a server-side rendered (SSR) framework like Nuxt 3, we guarantee the fastest possible load times—which 
               is a primary ranking factor for local B2B SEO.
             </p>
             <!-- TECH STACK LABELS -->
             <div class="flex flex-wrap gap-3">
-              <span v-for="tech in ['Vue.js', 'Nuxt 3', 'Node.js', 'Python', 'AWS', 'Tailwind CSS']" :key="tech" class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-bold text-text-secondary shadow-sm">
+              <span v-for="tech in ['Vue.js', 'Nuxt 3', 'Node.js', 'Python', 'AWS', 'Tailwind CSS']" :key="tech" class="px-4 py-2 bg-white border border-gray-200 rounded-full text-sm font-bold text-secondary shadow-sm">
                 {{ tech }}
               </span>
             </div>
@@ -173,14 +173,14 @@
 
     <!-- SECTION 6: FAQ SECTION -->
     <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <h2 class="text-3xl font-heading font-bold text-text-heading text-center mb-12">Common Technical Questions</h2>
+      <h2 class="text-3xl font-heading font-bold text-heading text-center mb-12">Common Technical Questions</h2>
       <div class="space-y-4">
         <div v-for="(faq, index) in faqs" :key="index" class="border border-gray-200 rounded-xl overflow-hidden">
           <button @click="faq.open = !faq.open" class="w-full p-6 text-left flex justify-between items-center bg-white hover:bg-gray-50 transition-colors">
-            <span class="font-bold text-text-heading">{{ faq.question }}</span>
+            <span class="font-bold text-heading">{{ faq.question }}</span>
             <svg class="w-5 h-5 transition-transform" :class="faq.open ? 'rotate-180' : ''" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
           </button>
-          <div v-show="faq.open" class="p-6 bg-bg-light text-text-body text-sm leading-relaxed border-t border-gray-100">
+          <div v-show="faq.open" class="p-6 bg-bg-light text-body text-sm leading-relaxed border-t border-gray-100">
             {{ faq.answer }}
           </div>
         </div>
@@ -272,6 +272,6 @@ useHead({
 .shadow-soft {
   box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
-.text-text-heading { color: var(--color-text-heading); }
-.text-text-body { color: var(--color-text-body); }
+.text-heading { color: var(--color-text-heading); }
+.text-body { color: var(--color-text-body); }
 </style>

@@ -10,17 +10,14 @@ export default {
   theme: {
     extend: {
       colors: {
-        primary: 'var(--color-primary)',
-        secondary: 'var(--color-secondary)',
-        cta: 'var(--color-cta)',
+        primary: 'rgb(var(--color-primary-rgb) / <alpha-value>)',
+        secondary: 'rgb(var(--color-secondary-rgb) / <alpha-value>)',
+        cta: 'rgb(var(--color-cta-rgb) / <alpha-value>)',
         'cta-hover': 'var(--color-cta-hover)',
         'bg-light': 'var(--color-bg-light)',
         'bg-dark': 'var(--color-bg-dark)',
       },
       textColor: {
-        // Your brand new Slate B2B hierarchy
-        primary: 'var(--text-primary)',
-        secondary: 'var(--text-secondary)',
         body: 'var(--text-body)',
         muted: 'var(--text-muted)',
         interactive: 'var(--text-interactive)',
@@ -32,7 +29,7 @@ export default {
         
         // Kept your original ones here so your Navbar doesn't break!
         main: 'var(--color-text-main)',
-        heading: 'var(--color-text-heading)',
+        heading: 'var(--text-heading)',
         light: 'var(--color-text-light)',
       },
       fontFamily: {
@@ -47,12 +44,11 @@ export default {
         '2xl': 'var(--font-size-2xl)',
       },
       transitionProperty: {
-        'fast': 'all var(--transition-fast)',
-      }
+        'fast': '200ms',
+      },
     },
   },
   safelist: [
-    'border-gray-300',
     'bg-orange-500',
     'hover:bg-orange-600',
     'text-slate-300',

@@ -9,18 +9,24 @@
 @layer base {
   :root {
     /* Core Brand Colors */
-    --color-primary: #0B3954; 
-    --color-secondary: #0077B6; 
+
+    --color-primary-rgb: 11 57 84;     /* #0B3954 */
+    --color-secondary-rgb: 0 119 182;  /* #0077B6 */
+    --color-cta-rgb: 249 115 22;      /* #F97316 */
+    --text-on-dark-rgb: 248 250 252;  /* #F8FAFC */
+
+    --color-primary: rgb(var(--color-primary-rgb)); 
+    --color-secondary: rgb(var(--color-secondary-rgb)); 
     
     /* Conversion Color */
-    --color-cta: #F97316; 
+    --color-cta: rgb(var(--color-cta-rgb)); 
     --color-cta-hover: #EA580C;
     
     /* Neutral Palette */
-    --color-bg-light: #F8FAFC; 
-    --color-bg-dark: #0F172A; 
-    --color-text-main: #334155; 
-    --color-text-heading: #0F172A; 
+    --color-bg-dark: #0F172A;
+    --color-bg-light: #F8FAFC;
+    --color-text-main: #334155;
+    --color-text-heading: #0F172A;
     --color-text-light: #F8FAFC; 
 
     /* Core Text Hierarchy (Slate Scale for Cognitive Ease) */
@@ -28,11 +34,12 @@
     --text-secondary: #475569; /* Medium Slate: For subheadings, form labels, and metadata. */
     --text-body: #334155;      /* Base Slate: For all paragraph text. Reduces eye strain compared to pure black. */
     --text-muted: #94A3B8;     /* Light Slate: For placeholders, footer links, and disabled states. */
+    --text-heading: #0F172A;
     
     /* Interactive & State Text */
-    --text-interactive: var(--color-secondary); /* Maps to your #0077B6 Cyan for inline links. */
+    --text-interactive: rgb(var(--color-secondary-rgb)); /* Maps to your #0077B6 Cyan for inline links. */
     --text-interactive-hover: var(--color-primary); /* Maps to Deep Navy for hover states. */
-    --text-on-dark: #F8FAFC;   /* Crisp Off-White: For text sitting on Deep Navy backgrounds. */
+    --text-on-dark: rgb(var(--text-on-dark-rgb));   /* Crisp Off-White: For text sitting on Deep Navy backgrounds. */
     --text-on-cta: #FFFFFF;    /* Pure White: For text inside your Orange conversion buttons. */
 
     /* Functional Text (Crucial for B2B Forms & Trust) */
