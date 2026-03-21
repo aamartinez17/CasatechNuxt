@@ -4,7 +4,7 @@
     :style="backgroundImage ? { backgroundImage: `url(${backgroundImage})` } : {}"
   >
     <div class="header-overlay">
-      <div class="container text-center" data-aos="fade-in">
+      <div class="container text-center">
         <h1 class="display-3 fw-bold">{{ title }}</h1>
         <p v-if="subtitle" class="lead my-4">{{ subtitle }}</p>
       </div>
@@ -13,8 +13,6 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue';
-import AOS from 'aos';
 
 // Define the props this component accepts
 defineProps({
@@ -33,18 +31,9 @@ defineProps({
     default: ''      
   }
 });
-
-// Initialize AOS when the component mounts
-onMounted(() => {
-  AOS.init({
-    duration: 800,
-    once: true,
-  });
-});
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 .page-header {
   position: relative;

@@ -8,7 +8,7 @@
 
     <section class="page-section" id="portfolio-gallery">
       <div class="container">
-        <!-- <div class="row" data-aos="fade-up">
+        <!-- <div class="row">
           <div class="col-lg-12 text-center mb-5">
             <button class="btn btn-filter" :class="{ 'active': activeFilter === 'all' }" @click="setFilter('all')">All Projects</button>
             <button class="btn btn-filter" :class="{ 'active': activeFilter === 'web' }" @click="setFilter('web')">Web Design</button>
@@ -18,7 +18,7 @@
         </div> -->
 
         <div class="row">
-          <div v-for="project in filteredProjects" :key="project.id" class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div v-for="project in filteredProjects" :key="project.id" class="col-md-6 col-lg-4 mb-4">
             <div class="card portfolio-card h-100">
               <img :src="project.imageUrl" class="card-img-top" :alt="project.title">
               <div class="card-body d-flex flex-column">
@@ -42,18 +42,18 @@
 
     <section class="page-section bg-light" id="client-logos">
         <div class="container">
-            <div class="text-center" data-aos="fade-up">
+            <div class="text-center">
             <h2 class="section-heading">Local Partners</h2>
             <p class="text-muted lead mb-5">I'm proud to have provided solutions for a diverse range of local businesses and clients.</p>
             </div>
             
-            <LogoCarousel :logos="clientLogos" data-aos="fade-up" />
+            <LogoCarousel :logos="clientLogos" />
             
         </div>
     </section>
 
     <section class="cta-section">
-      <div class="container text-center" data-aos="fade-up">
+      <div class="container text-center">
         <h2 class="display-5 fw-bold">See Your Project Here</h2>
         <p class="lead my-4">Let's work together to build something amazing.</p>
         <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</NuxtLink>
@@ -104,7 +104,6 @@ const filteredProjects = computed(() => {
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 /* General Page Styling */
 .page-section {

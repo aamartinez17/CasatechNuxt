@@ -1,5 +1,11 @@
-// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  compatibilityDate: '2025-07-15',
-  devtools: { enabled: true }
+  // 1. Tell Nuxt to load the Tailwind module
+  modules: [
+    '@nuxtjs/tailwindcss'
+  ],
+  // 2. Tell Nuxt where your global CSS file lives
+  css: [
+    '~/assets/css/main.css'
+  ],
+  // ... any other config you had (like build ID, etc.)
 })

@@ -28,7 +28,6 @@ const homePath = computed(() => ('/'));
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 .page-section {
   padding: var(--spacing-xl) 0;

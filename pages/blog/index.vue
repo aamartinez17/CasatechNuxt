@@ -14,7 +14,7 @@
           
           <!-- Blog Posts Column (8) -->
           <div class="col-lg-8">
-            <div v-for="post in paginatedPosts" :key="post.id" class="card blog-post-card mb-4" data-aos="fade-up">
+            <div v-for="post in paginatedPosts" :key="post.id" class="card blog-post-card mb-4">
               <div class="row">
               <img :src="post.imageLink" class="card-img-top col-md-4 my-md-auto ps-md-4" :alt="post.title_en">
               <div class="card-body col-md-8">
@@ -43,7 +43,7 @@
           </div>
 
           <!-- Sidebar Column (4) -->
-          <div class="col-lg-4" data-aos="fade-left">
+          <div class="col-lg-4">
             <div class="sidebar-widget">
               <h4 class="widget-title">Featured Posts</h4>
               <ul class="list-unstyled">
@@ -140,7 +140,6 @@ const startupTechPath = computed(() => ('/services/startup-tech'));
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 /* Hero */
 /* Page */

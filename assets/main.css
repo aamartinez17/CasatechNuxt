@@ -1,49 +1,80 @@
-/* src/main.css */
+/* assets/css/main.css */
 
-@import './_variables.css';
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Montserrat:wght@500;700&display=swap');
 
-/*
- * 1. Set the FLUID font size on the HTML element.
- * This makes 1rem = var(--font-size-base),
- * so all 'rem' units (used by Bootstrap) will
- * now scale proportionally with the screen.
- */
-html {
-  font-size: var(--font-size-base);
-  overflow-x: hidden;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
-/*
- * 2. FIX: Use 'padding-top' on BODY, not 'margin-top'.
- * 'padding-top' fixes the navbar overlap.
- * 'margin-top' just creates a white gap.
- */
-body {
-  background-color: var(--color-background);
-  color: var(--color-text-dark); /* Switched to var for body text */
-  font-family: var(--font-family-body);
-  padding-top: var(--spacing-top); /* This is the correct fix */
-}
+@layer base {
+  :root {
+    /* Core Brand Colors */
+    --color-primary: #0B3954; 
+    --color-secondary: #0077B6; 
+    
+    /* Conversion Color */
+    --color-cta: #F97316; 
+    --color-cta-hover: #EA580C;
+    
+    /* Neutral Palette */
+    --color-bg-light: #F8FAFC; 
+    --color-bg-dark: #0F172A; 
+    --color-text-main: #334155; 
+    --color-text-heading: #0F172A; 
+    --color-text-light: #F8FAFC; 
 
-/*
- * 3. Set a base size for paragraphs.
- * '1em' means "1 times the parent's font size".
- * Since the <html> size is fluid, the 'p' size
- * will now also be fluid (scaling from 16px to 18px).
- */
-p {
-  font-size: 1em;
-  line-height: var(--line-height-base);
-}
+    /* Core Text Hierarchy (Slate Scale for Cognitive Ease) */
+    --text-primary: #0F172A;   /* Deep Slate: For H1-H6 headings. Commands immediate attention. */
+    --text-secondary: #475569; /* Medium Slate: For subheadings, form labels, and metadata. */
+    --text-body: #334155;      /* Base Slate: For all paragraph text. Reduces eye strain compared to pure black. */
+    --text-muted: #94A3B8;     /* Light Slate: For placeholders, footer links, and disabled states. */
+    
+    /* Interactive & State Text */
+    --text-interactive: var(--color-secondary); /* Maps to your #0077B6 Cyan for inline links. */
+    --text-interactive-hover: var(--color-primary); /* Maps to Deep Navy for hover states. */
+    --text-on-dark: #F8FAFC;   /* Crisp Off-White: For text sitting on Deep Navy backgrounds. */
+    --text-on-cta: #FFFFFF;    /* Pure White: For text inside your Orange conversion buttons. */
 
-h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-family-headings);
-  /* color: var(--color-primary); */
-  line-height: 1.3;
-}
+    /* Functional Text (Crucial for B2B Forms & Trust) */
+    --text-error: #DC2626;     /* Accessible Red: For form validation and required fields. */
+    --text-success: #16A34A;   /* Accessible Green: For successful form submissions and system status. */
 
-section {
-  overflow: hidden;
-  width: 100%;
+    /* Typography System */
+    --font-family-body: 'Inter', system-ui, -apple-system, sans-serif;
+    --font-family-headings: 'Montserrat', var(--font-family-body);
+    
+    /* Fluid Typography */
+    --font-size-base: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
+    --font-size-sm: 0.875rem;
+    --font-size-lg: clamp(1.125rem, 1.05rem + 0.38vw, 1.25rem);
+    --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+    --font-size-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
+    
+    /* Spacing & UI */
+    --transition-fast: 0.2s ease-in-out;
+  }
+
+  /* Apply Global Typography & Backgrounds */
+  body {
+    background-color: var(--color-bg-light);
+    color: var(--color-text-main);
+    font-family: var(--font-family-body);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    color: var(--color-text-heading);
+    font-weight: 700; 
+    font-family: var(--font-family-headings);
+    line-height: 1.2;
+  }
+
+  /* WCAG Keyboard Accessibility Focus States */
+  *:focus-visible {
+    outline: 2px solid var(--color-cta);
+    outline-offset: 2px;
+    transition: outline var(--transition-fast);
+  }
 }

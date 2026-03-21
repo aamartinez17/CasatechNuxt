@@ -9,10 +9,10 @@
     <section class="page-section" id="web-design">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right">
+          <div class="col-lg-6">
             <img src="/images/servicesview-web-development.png" class="img-fluid rounded-3 shadow-lg" alt="Modern Website Design">
           </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="col-lg-6">
             <h2 class="section-heading">Website Design & Development</h2>
             <p class="lead">We build vibrant, modern, and high-performance websites that look great on any device. Your website is your digital storefront, and we make sure it's a great one.</p>
             <h5 class="mt-4 mb-3 fw-bold">What's Included:</h5>
@@ -30,7 +30,7 @@
     <section class="page-section bg-light" id="smb-tech">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right" data-aos-delay="100">
+          <div class="col-lg-6">
             <h2 class="section-heading">Small Business Tech Setup</h2>
             <p class="lead">Stop guessing what tech you need. We'll get your business set up professionally from day one, from your email to your phones.</p>
             <h5 class="mt-4 mb-3 fw-bold">We'll Handle:</h5>
@@ -45,7 +45,7 @@
               See Startup Tech Details
             </NuxtLink>
             </div>
-          <div class="pt-5 col-lg-6" data-aos="fade-left">
+          <div class="pt-5 col-lg-6">
             <img src="/images/servicesview-business-tech.png" class="img-fluid rounded-3 shadow-lg" alt="Small Business Tech Stack">
           </div>
         </div>
@@ -55,10 +55,10 @@
     <section class="page-section" id="it-services">
       <div class="container">
         <div class="row align-items-center">
-          <div class="col-lg-6" data-aos="fade-right">
+          <div class="col-lg-6">
             <img src="/images/servicesview-it.png" class="img-fluid rounded-3 shadow-lg" alt="IT Services and Support">
           </div>
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="100">
+          <div class="col-lg-6">
             <h2 class="section-heading">IT Services & Consulting</h2>
             <p class="lead">As your local tech partner, we're here when you need us. We provide on-demand support and long-term consulting to keep your operations running smoothly.</p>
             <h5 class="mt-4 mb-3 fw-bold">Our Support Includes:</h5>
@@ -75,12 +75,12 @@
 
     <section class="page-section pricing-section bg-light" id="pricing">
       <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
           <h2 class="section-heading">Pricing Models</h2>
           <p class="text-muted lead mb-5">We offer flexible pricing to match your needs. Every project is unique.</p>
         </div>
         <div class="row">
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-lg-4">
             <div class="card h-100 shadow-sm text-center p-4">
               <div class="icon-wrapper">
                 <i class="fas fa-box"></i>
@@ -89,7 +89,7 @@
               <p class="text-muted">A fixed price for a well-defined project (like a new website). You'll know the full cost upfront.</p>
             </div>
           </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-lg-4">
             <div class="card h-100 shadow-sm text-center p-4">
               <div class="icon-wrapper">
                 <i class="fas fa-calendar-alt"></i>
@@ -98,7 +98,7 @@
               <p class="text-muted">Ideal for ongoing IT support or website maintenance. A set number of hours per month.</p>
             </div>
           </div>
-          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-lg-4">
             <div class="card h-100 shadow-sm text-center p-4">
               <div class="icon-wrapper">
                 <i class="fas fa-clock"></i>
@@ -108,7 +108,7 @@
             </div>
           </div>
         </div>
-        <div class="text-center mt-5" data-aos="fade-up">
+        <div class="text-center mt-5">
           <p class="lead">The best way to get an accurate cost is to talk to us.</p>
           <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg">Get a Free Quote</NuxtLink>
         </div>
@@ -118,13 +118,13 @@
     <!-- === NEW SECTION (5) === -->
     <section class="page-section bg-light" id="further-reading">
       <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
           <h2 class="section-heading">Further Reading</h2>
           <p class="text-muted lead mb-5">Learn more about the core technologies we recommend for startups.</p>
         </div>
         <div class="row">
           <!-- Link to Article 1 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-4">
             <div class="card blog-link-card h-100">
               <div class="card-body">
                 <h5 class="card-title">The 5 Tech Essentials for Day One of Your Business</h5>
@@ -136,7 +136,7 @@
             </div>
           </div>
           <!-- Link to Article 2 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-4">
             <div class="card blog-link-card h-100">
               <div class="card-body">
                 <h5 class="card-title">What is VoIP and Why Your Startup Needs It</h5>
@@ -148,7 +148,7 @@
             </div>
           </div>
           <!-- Link to Article 3 -->
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-4">
             <div class="card blog-link-card h-100">
               <div class="card-body">
                 <h5 class="card-title">Why Google Workspace is a Non-Negotiable for Your Business</h5>
@@ -164,7 +164,7 @@
     </section>
 
     <section class="cta-section">
-      <div class="container text-center" data-aos="fade-up">
+      <div class="container text-center">
         <h2 class="display-5 fw-bold">Ready to Start?</h2>
         <p class="lead my-4">Let's discuss your project and find the right solution for you.</p>
         <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get in Touch</NuxtLink>
@@ -199,7 +199,6 @@ const startupTechPath = computed(() => ('/services/startup-tech'));
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 /* General Page Styling */
 .page-section {

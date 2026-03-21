@@ -1,14 +1,12 @@
 <template>
-  <div v-if="!hasConsented" class="cookie-banner-overlay">
-    <div class="cookie-banner" data-aos="fade-up">
+  <div v-if="!consentStore.hasConsented" class="cookie-banner-overlay">
+    <div class="cookie-banner">
       <div class="cookie-text">
         <p class="mb-1">We use essential cookies to ensure our site works.</p>
         <p class="small mb-0">This includes Google reCAPTCHA for form security and saving your language preference. By clicking 'Accept', you agree to this.</p>
       </div>
       <div class="cookie-actions">
-        <button class="btn btn-brand-primary btn-sm" @click="acceptCookies">
-          Accept
-        </button>
+        <button @click="consentStore.acceptCookies">Accept</button>
       </div>
     </div>
   </div>
@@ -26,13 +24,11 @@ import { useCookieConsent } from '@/composables/useCookieConsent.js';
 
 // 4. Get the global state. This is all you need!
 // Your composable already checks localStorage.
-const { hasConsented, acceptCookies } = useCookieConsent();
-
+const consentStore = useCookieConsent();
 </script>
 
 <style scoped>
 /* Your styles are all 100% correct. No changes needed here. */
-@import '@/assets/_variables.css';
 
 .cookie-banner-overlay {
   position: fixed;

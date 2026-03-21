@@ -3,7 +3,7 @@
     <!-- 1. Post Header with Image -->
     <section class="post-header text-white text-center" :style="{ backgroundImage: `url(${post.imageLink})` }">
       <div class="header-overlay">
-        <div class="container" data-aos="fade-in">
+        <div class="container">
           <h1 class="display-4 fw-bold">{{ post.title_en }}</h1>
           <p class="lead">{{ post.subtitle_en }}</p>
           <p class="text-muted"><small>Posted on {{ formatDate(post.date) }}</small></p>
@@ -148,7 +148,6 @@ useHead(() => {
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 .page-section {
   padding: var(--spacing-xl) 0;

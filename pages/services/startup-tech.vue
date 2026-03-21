@@ -1,7 +1,7 @@
 <template>
   <div class="startup-tech-view">
     <section class="hero-section text-white">
-      <div class="container" data-aos="fade-in">
+      <div class="container">
         <div class="row">
           <div class="col-lg-8 mx-auto text-center">
             <h1 class="display-3 fw-bold">Startup Tech Essentials</h1>
@@ -15,7 +15,7 @@
     <section class="page-section" id="problem">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 mx-auto text-center" data-aos="fade-up">
+          <div class="col-lg-8 mx-auto text-center">
             <h2 class="section-heading">Don't Use Your Personal Email for Business</h2>
             <p class="lead text-muted">Starting a new business is hard. It's tempting to cut corners with a @gmail.com address or your personal cell phone. This looks unprofessional and is harder to manage as you grow.</p>
             <p class="lead text-muted">We get you set up correctly, affordably, and quickly.</p>
@@ -26,12 +26,12 @@
 
     <section class="page-section bg-light" id="offerings">
       <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
           <h2 class="section-heading">The Startup Tech Package</h2>
           <p class="text-muted lead mb-5">Everything you need to operate like a professional business.</p>
         </div>
         <div class="row">
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm border-0 text-center p-4">
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-envelope"></i>
@@ -40,7 +40,7 @@
               <p class="text-muted">We'll set up Google Workspace so you can have email at your-name@your-business.com.</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm border-0 text-center p-4">
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-phone-alt"></i>
@@ -49,7 +49,7 @@
               <p class="text-muted">A professional phone number and virtual phone system that can forward calls to your cell.</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm border-0 text-center p-4">
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-wifi"></i>
@@ -58,7 +58,7 @@
               <p class="text-muted">Ensuring your office or home office has fast, reliable, and secure internet.</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm border-0 text-center p-4">
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-globe"></i>
@@ -67,7 +67,7 @@
               <p class="text-muted">We'll secure your '.com' domain name and set up the foundation for your future website.</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm border-0 text-center p-4">
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-laptop"></i>
@@ -76,7 +76,7 @@
               <p class="text-muted">Recommendations and setup for the right laptops, printers, and other gear.</p>
             </div>
           </div>
-          <div class="col-md-6 col-lg-4 mb-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-6 col-lg-4 mb-4">
             <div class="card h-100 shadow-sm border-0 text-center p-4">
               <div class="icon-wrapper-secondary">
                 <i class="fas fa-comments"></i>
@@ -91,12 +91,12 @@
 
     <section class="page-section" id="process">
       <div class="container">
-        <div class="text-center" data-aos="fade-up">
+        <div class="text-center">
           <h2 class="section-heading">Our 3-Step Process</h2>
           <p class="text-muted lead mb-5">We make it simple.</p>
         </div>
         <div class="row text-center">
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="col-md-4">
             <span class="fa-stack fa-4x mb-4">
               <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
               <i class="fas fa-search fa-stack-1x fa-inverse"></i>
@@ -104,7 +104,7 @@
             <h4 class="my-3">1. Discovery & Plan</h4>
             <p class="text-muted">We learn about your business, your needs, and your budget.</p>
           </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+          <div class="col-md-4">
             <span class="fa-stack fa-4x mb-4">
               <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
               <i class="fas fa-cogs fa-stack-1x fa-inverse"></i>
@@ -112,7 +112,7 @@
             <h4 class="my-3">2. Setup & Implementation</h4>
             <p class="text-muted">We do all the technical work: setting up accounts, configuring hardware, and securing your network.</p>
           </div>
-          <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+          <div class="col-md-4">
             <span class="fa-stack fa-4x mb-4">
               <i class="fas fa-circle fa-stack-2x text-primary-icon"></i>
               <i class="fas fa-headset fa-stack-1x fa-inverse"></i>
@@ -125,7 +125,7 @@
     </section>
 
     <section class="cta-section">
-      <div class="container text-center" data-aos="fade-up">
+      <div class="container text-center">
         <h2 class="display-5 fw-bold">Ready to Launch?</h2>
         <p class="lead my-4">Let's build your professional foundation. Contact us for a free consultation.</p>
         <NuxtLink to="/contact" class="btn btn-brand-primary btn-lg px-5 py-3">Get a Free Quote</NuxtLink>
@@ -156,7 +156,6 @@ usePageMeta(pageMeta);
 </script>
 
 <style scoped>
-@import '@/assets/_variables.css';
 
 /* General Page Styling */
 .page-section {

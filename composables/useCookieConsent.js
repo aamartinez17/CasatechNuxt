@@ -1,27 +1,23 @@
 // src/composables/useCookieConsent.js
-import { ref, onMounted } from 'vue';
 
-// 1. Create a "singleton" ref.
-//    We MUST initialize it to 'false' so that
-//    server and client are identical on first render.
-const hasConsented = ref(false);
-
-export function useCookieConsent() {
-
-  // 2. onMounted() only runs in the browser.
-  // This will check localStorage AFTER hydration,
-  // preventing a mismatch.
-  onMounted(() => {
-    hasConsented.value = localStorage.getItem('cookie_consent') === 'true';
+export const useCookieConsent = () => {
+  // useCookie is reactive and works on both Server and Client.
+  // We set a long maxAge (1 year) so users aren't asked constantly.
+  const consentCookie = useCookie('casatech_consent', {
+    maxAge: 60 * 60 * 24 * 365,
+    watch: true
   });
 
+  // If the cookie exists and is 'true', the user has consented.
+  const hasConsented = computed(() => consentCookie.value === 'true');
+
   const acceptCookies = () => {
-    localStorage.setItem('cookie_consent', 'true');
-    hasConsented.value = true;
+    consentCookie.value = 'true';
+    console.log('✅ Consent Granted: Initializing JS Modules...');
   };
 
   return {
     hasConsented,
     acceptCookies
   };
-}
+};

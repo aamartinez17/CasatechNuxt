@@ -1,212 +1,159 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top" ref="navbarRef">
-    <div class="container-fluid">
-      <NuxtLink class="navbar-brand" to="/">
-        <img src="/logos/casatech-logo-white-bg.png" alt="casatech llc logo" class="navbar-logo">
-      </NuxtLink>
-
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMain"
-        aria-controls="navbarMain" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarMain" ref="navbarCollapseRef">
-        
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <NuxtLink class="nav-link" to="/" @click="closeMenu">Home</NuxtLink>
-          </li>
-          <li class="nav-item">
-            <NuxtLink class="nav-link" to="/about" @click="closeMenu">About</NuxtLink>
-          </li>
-          <li class="nav-item">
-            <NuxtLink class="nav-link" to="/services" @click="closeMenu">Services</NuxtLink>
-          </li>
-          <li class="nav-item">
-            <NuxtLink class="nav-link" to="/portfolio" @click="closeMenu">Portfolio</NuxtLink>
-          </li>
-          <li class="nav-item">
-            <NuxtLink class="nav-link" to="/blog" @click="closeMenu">Blog</NuxtLink>
-          </li>
-          <li class="nav-item">
-            <NuxtLink class="nav-link" to="/contact" @click="closeMenu">Contact</NuxtLink>
-          </li>
-        </ul>
-        <div class="d-flex align-items-center navbar-cta-group">
-          <a class="btn btn-brand-secondary me-3" href="tel:2038848244" role="button">
-            (203) 884-8244
-          </a>
-        </div>
+  <!-- Semantic HTML5 header for SEO -->
+  <header class="fixed top-0 w-full z-50 flex flex-col shadow-soft bg-bg-light">
+    
+    <!-- Top Bar (Eyebrow) -->
+    <div class="bg-bg-dark text-slate-400 text-sm py-2 px-4 sm:px-6 lg:px-8 hidden sm:flex justify-between items-center">
+      <div class="font-body font-medium tracking-wide">
+        Bilingual IT Support: English/Español | Serving New Haven & Beyond
+      </div>
+      <div class="flex items-center space-x-4">
+        <a href="tel:2038848244" 
+           class="font-bold hover:text-secondary transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
+           title="New Haven, CT Tech Support">
+          (203) 884-8244
+        </a>
       </div>
     </div>
-  </nav>
+
+    <!-- Main Navigation -->
+    <nav ref="navbarRef" class="bg-bg-light px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center border-b border-gray-200">
+      
+      <!-- Logo -->
+      <NuxtLink to="/" 
+                class="flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
+                title="Casatech LLC - Enterprise Web Development"
+                @click="closeMenu">
+        <img src="/logos/casatech-logo-white-bg.png" 
+             alt="Casatech LLC - Managed IT Services New Haven" 
+             class="h-10 w-auto rounded-md shadow-sm p-1 bg-white">
+      </NuxtLink>
+
+      <!-- Desktop Links -->
+      <ul class="hidden lg:flex space-x-8 items-center m-0 p-0">
+        <li>
+          <NuxtLink to="/web-design" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            Web Design
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/managed-it-infrastructure" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            Managed IT & Infrastructure
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/web-app" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            Custom Web Apps
+          </NuxtLink>
+        </li>
+        <li>
+          <NuxtLink to="/about" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+            About Casatech
+          </NuxtLink>
+        </li>
+      </ul>
+
+      <!-- Desktop CTA -->
+      <div class="hidden lg:block">
+        <NuxtLink to="/contact" 
+                  class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-2.5 px-6 rounded shadow-soft transition-fast">
+          Book an IT Audit
+        </NuxtLink>
+      </div>
+
+      <!-- Mobile Hamburger Toggle -->
+      <button @click.stop="toggleMenu"
+              type="button" 
+              class="lg:hidden text-text-main hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded p-2"
+              aria-controls="mobile-menu" 
+              :aria-expanded="isMenuOpen.toString()">
+        <span class="sr-only">Open main menu</span>
+        <svg v-if="!isMenuOpen" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg v-else class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </nav>
+
+    <!-- Mobile Menu Drawer (FIXED NESTING) -->
+     
+    <ClientOnly>
+      <div v-if="isMenuOpen" 
+          v-motion="'slide-in-top'"
+          id="mobile-menu"
+          class="lg:hidden origin-top bg-bg-light border-b border-gray-200 shadow-hover absolute w-full top-full left-0 flex flex-col z-40">
+          <div class="p-4 border-b border-gray-200 bg-gray-50 flex flex-col gap-3">
+            <a href="tel:2038848244" class="text-text-heading font-bold text-lg text-center py-2 border border-gray-300 rounded hover:bg-gray-100 transition-fast">
+              📞 (203) 884-8244
+            </a>
+            <NuxtLink to="/contact" @click="closeMenu" class="bg-cta hover:bg-cta-hover text-white text-center font-heading font-bold py-3 rounded shadow-soft transition-fast">
+              Book an IT Audit
+            </NuxtLink>
+          </div>
+
+          <ul class="flex flex-col px-4 py-2 space-y-1 m-0">
+            <li>
+              <NuxtLink to="/web-design" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
+                Web Design
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/managed-it-infrastructure" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
+                Managed IT & Infrastructure
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/web-app" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
+                Custom Web Apps
+              </NuxtLink>
+            </li>
+            <li>
+              <NuxtLink to="/about" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary">
+                About Casatech
+              </NuxtLink>
+            </li>
+          </ul>
+        </div>
+    </ClientOnly>
+  </header>
 </template>
 
 <script setup>
-// 2. Import onUnmounted
-import { ref, onMounted, onUnmounted} from 'vue';
-// import { Collapse } from 'bootstrap';
-// import { useRouter, useRoute } from 'vue-router';
+import { ref, onMounted, onUnmounted } from 'vue';
 
-// const router = useRouter(); // Get the router
-// const route = useRoute(); // Get the current route
-
-// --- Menu Collapse Logic ---
-
-// 3. Add a ref for the whole navbar element
+const isMenuOpen = ref(false);
 const navbarRef = ref(null);
-const navbarCollapseRef = ref(null);
-let bsCollapse = null;
 
-// Function to hide the menu when a link is clicked
-function closeMenu() {
-  if (bsCollapse) {
-    bsCollapse.hide();
+const toggleMenu = () => {
+  isMenuOpen.value = !isMenuOpen.value;
+};
+
+const closeMenu = () => {
+  isMenuOpen.value = false;
+};
+
+const handleClickOutside = (event) => {
+  if (!isMenuOpen.value) return;
+  const nav = navbarRef.value;
+  const menu = document.getElementById('mobile-menu');
+  if (nav && !nav.contains(event.target) && (!menu || !menu.contains(event.target))) {
+    closeMenu();
   }
-}
+};
 
-// 4. NEW: Function to handle clicks outside the navbar
-function handleClickOutside(event) {
-  // If the navbar exists AND the click was NOT inside the navbar
-  if (navbarRef.value && !navbarRef.value.contains(event.target)) {
-    // And the menu is currently open...
-    if (navbarCollapseRef.value.classList.contains('show')) {
-      bsCollapse.hide();
-    }
-  }
-}
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside);
+});
 
-if (process.client) {
-  
-  onMounted(() => {
-    // We must wait for the component to mount AND for the
-    // global 'bootstrap' object to be ready
-    if (window.bootstrap && navbarCollapseRef.value) {
-      bsCollapse = new window.bootstrap.Collapse(navbarCollapseRef.value, {
-        toggle: false
-      });
-    }
-    document.addEventListener('click', handleClickOutside);
-  });
-
-  onUnmounted(() => {
-    document.removeEventListener('click', handleClickOutside);
-  });
-
-}
-
+onUnmounted(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
 </script>
 
 <style scoped>
-/* All styles are identical to the previous version. */
-@import '@/assets/_variables.css';
-
-/* * ===============================================
- * Navbar Custom Styles
- * ===============================================
- */
-
- .navbar-logo {
-  max-height: 40px;
-  width: auto;
-  border-radius: 8px;
-  padding: 3px;
-  background-color: white;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.navbar-custom {
-  background-color: var(--color-primary);
-  box-shadow: var(--primary-shadow);
-  padding-top: var(--spacing-sm);
-  padding-bottom: var(--spacing-sm);
-}
-
-.navbar-brand img {
-  max-height: 40px; /* Adjust this value as needed for your desired height */
-  width: auto;     /* Maintain aspect ratio */
-  border-radius: 8px; /* Subtle roundness. Adjust for more or less. */
-  padding: 3px; /* A little padding inside the rounded border if desired */
-  background-color: white; /* Explicitly set a white background */
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Optional: subtle shadow for definition */
-}
-
-.nav-link {
-  color: rgba(255, 255, 255, 0.85);
-  font-family: var(--font-family-body);
-  font-weight: var(--font-weight-normal);
-  transition: var(--transition-default);
-  margin-right: var(--spacing-sm);
-  border-bottom: 3px solid transparent;
-  padding-bottom: calc(0.5rem - 3px);
-}
-
-.nav-link:hover,
-.nav-link:focus {
-  color: var(--color-text-light);
-  border-bottom-color: transparent;
-}
-
-.nav-link.NuxtLink-exact-active {
-  color: var(--color-text-light);
-  font-weight: var(--font-weight-bold);
-  border-bottom-color: var(--color-secondary);
-}
-
-/* --- CTAs & Toggles --- */
-.btn-brand-secondary {
-  background-color: var(--color-secondary);
-  color: var(--color-primary);
-  border: 1px solid var(--color-secondary);
-  font-weight: var(--font-weight-bold);
-  transition: var(--transition-default);
-}
-
-.btn-brand-secondary:hover {
-  background-color: transparent;
-  color: var(--color-secondary);
-  border-color: var(--color-secondary);
-}
-
-.btn-language-toggle {
-  color: var(--color-text-light);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  transition: var(--transition-default);
-}
-
-.btn-language-toggle:hover {
-  color: var(--color-primary);
-  background-color: var(--color-text-light);
-  border-color: var(--color-text-light);
-}
-
-/* --- Mobile Toggler Icon --- */
-.navbar-toggler {
-  border-color: rgba(255, 255, 255, 0.2);
-}
-
-/* .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.85%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%svg%3e");
-} */
-
-/* --- Spacing on Mobile --- */
-@media (max-width: 991.98px) {
-  .navbar-cta-group {
-    padding-top: var(--spacing-md);
-    padding-bottom: var(--spacing-sm);
-    align-items: flex-start !important;
-    flex-direction: column;
-    gap: var(--spacing-md);
-  }
-
-  .nav-link {
-    padding-bottom: 0.5rem;
-    border-bottom: none;
-  }
-
-  .nav-link.NuxtLink--active {
-    color: var(--color-secondary);
-    border-bottom: none;
-  }
+.router-link-exact-active {
+  @apply text-secondary font-bold;
 }
 </style>
