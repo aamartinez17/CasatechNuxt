@@ -69,7 +69,7 @@
             </li>
           </ul>
 
-          <NuxtLink to="/services" class="text-interactive hover:text-interactive-hover font-bold inline-flex items-center transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded w-max mt-auto">
+          <NuxtLink to="/managed-it-infrastructure" class="text-interactive hover:text-interactive-hover font-bold inline-flex items-center transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded w-max mt-auto">
             Explore IT Services 
             <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </NuxtLink>
@@ -112,7 +112,7 @@
             </li>
           </ul>
 
-          <NuxtLink to="/services" class="text-interactive hover:text-interactive-hover font-bold inline-flex items-center transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded w-max mt-auto">
+          <NuxtLink to="/web-design" class="text-interactive hover:text-interactive-hover font-bold inline-flex items-center transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded w-max mt-auto">
             Explore Web Solutions 
             <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </NuxtLink>

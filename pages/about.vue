@@ -1,5 +1,5 @@
 <template>
-  <article class="pt-24 pb-16 bg-bg-light lg:mt-12">
+  <article class="pt-24 pb-16 bg-bg-light lg:mt-12 overflow-hidden">
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20" 
              v-motion-fade-visible>
       <span class="text-cta font-heading font-bold tracking-widest uppercase text-sm mb-4 block">

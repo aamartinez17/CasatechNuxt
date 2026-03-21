@@ -1,133 +1,111 @@
 <template>
-  <div class="privacy-view">
-    <PageHeader 
-      title="Privacy Policy" 
-      subtitle="How we protect your data and your rights."
-      backgroundImage="/images/servicesview-header.png" 
-    />
+  <article class="pt-32 pb-24 bg-bg-light min-h-screen">
+    <!-- Header Section -->
+    <header class="max-w-3xl mx-auto px-6 mb-12 text-center" v-motion-fade>
+      <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-text-heading mb-4">
+        Privacy Policy
+      </h1>
+      <p class="text-text-secondary font-medium uppercase tracking-widest text-sm">
+        Effective Date: March 20, 2026
+      </p>
+      <div class="mt-6 h-1 w-20 bg-secondary mx-auto rounded-full"></div>
+    </header>
 
-    <section class="page-section">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-10">
-            <div class="privacy-content">
-              <p class="text-muted mb-4">Last Updated: January 10, 2026</p>
+    <!-- Content Section -->
+    <section class="max-w-3xl mx-auto px-6 prose prose-slate prose-lg">
+      <div class="bg-white p-8 md:p-12 rounded-2xl shadow-soft border border-gray-100">
+        
+        <p class="text-text-body leading-relaxed mb-8">
+          At <strong class="text-text-primary">Casatech LLC</strong>, your privacy and corporate data security are our top priorities. This policy outlines how we handle information for our clients and partners seeking <strong>Secure Web Development in New Haven</strong> and professional <strong>B2B Tech Support Data Privacy</strong>.
+        </p>
 
-              <h3>1. Introduction</h3>
-              <p>Casatech LLC ("we," "us," or "our") respects your privacy and is committed to protecting it through our compliance with this policy. This policy describes the types of information we may collect from you or that you may provide when you visit the website <strong>casatechllc.com</strong> and our practices for collecting, using, maintaining, protected, and disclosing that information.</p>
+        <h2 class="text-2xl font-heading font-bold text-text-heading mt-10 mb-4">1. Information We Collect</h2>
+        <p class="text-text-body mb-6">
+          To provide high-tier <strong>IT Consultant Privacy Policy CT</strong> compliant services, we collect minimal, high-intent business information via our contact and audit request forms, including:
+        </p>
+        <ul class="list-disc pl-6 space-y-2 text-text-body mb-8">
+          <li>Full Name and Professional Title</li>
+          <li>Company Name and Industry Type</li>
+          <li>Corporate Email Address</li>
+          <li>Business Phone Number</li>
+          <li>Specific Technical Project or Infrastructure Requirements</li>
+        </ul>
 
-              <h3>2. Information We Collect</h3>
-              <p>We collect information that you voluntarily provide to us, including:</p>
-              <ul>
-                <li><strong>Personal Information:</strong> Name, email address, phone number, and business name when you fill out our contact forms.</li>
-                <li><strong>Technical Data:</strong> IP address, browser type, and operating system (via standard web logs and Google reCAPTCHA).</li>
-              </ul>
-
-              <h3>3. Use of Your Information</h3>
-              <p>We use information that we collect about you or that you provide to us, including any personal information:</p>
-              <ul>
-                <li>To provide you with information, products, or services that you request from us.</li>
-                <li>To fulfill any other purpose for which you provide it (e.g., IT support or web design consultation).</li>
-                <li>To notify you about changes to our services.</li>
-              </ul>
-
-              <h3>4. SMS/Text Messaging Terms & Conditions</h3>
-              <p>
-                By providing your phone number and agreeing to receive texts, you consent to receive text messages from Casatech LLC, from 203-884-8244 regarding account notification, customer care, delivery notification. Consent is not a condition of purchase. Message frequency varies. Message & data rates may apply. You can reply STOP to unsubscribe at any time or HELP for assistance. You can also contact us at 540-746-5700 or info@casatechllc.com. Mobile opt-in information is never shared with third parties.
-              </p>
-              
-              <p><strong>Message Types:</strong> We send the following types of messages: <strong>Account Notifications</strong>, <strong>Customer Care</strong>, and <strong>Delivery Notifications</strong>. You may receive <strong>account alerts</strong>, <strong>promotional offers</strong>, and <strong>customer service</strong> messages.</p>
-              <ul>
-                <li><strong>Account Notifications:</strong> Project milestones, invoice reminders, and support ticket updates.</li>
-                <li><strong>Customer Care:</strong> Answers to your technical questions and scheduling coordination.</li>
-                <li><strong>Delivery Notifications:</strong> Updates on the completion and delivery of digital assets.</li>
-                </ul>
-                <ul>
-                <li><strong>Opt-In:</strong> You can opt-in to this service at any time by texting <strong>START</strong>.</li>
-                
-                <li><strong>Opt-Out:</strong> You can cancel the SMS service at any time. Just text <strong>STOP</strong> or <strong>CANCEL</strong>. After you send one of these messages to us, we will send you an SMS message to confirm that you have been unsubscribed. After this, you will no longer receive SMS messages from us. If you want to join again, just sign up as you did the first time and we will start sending SMS messages to you again.</li>
-                
-                <li><strong>Help Instructions:</strong> Text <strong>HELP</strong> for assistance. If you are experiencing issues with the messaging program you can reply with the keyword <strong>HELP</strong> for more assistance, or you can get help directly at info@casatechllc.com.</li>
-                
-                <li><strong>Carriers:</strong> Carriers are not liable for delayed or undelivered messages.</li>
-                <li><strong>Rates:</strong> Message and data rates may apply for any messages sent to you from us and to us from you.</li>
-              </ul>
-
-              <div class="alert alert-secondary mt-4">
-                <strong><i class="fas fa-shield-alt me-2"></i> Privacy of Mobile Information</strong><br>
-                We do not transfer any consumer data to external organizations under any circumstances. Your mobile information will not be shared with third parties/affiliates for marketing/promotional purposes.
-              </div>
-
-              <h3>5. Data Sharing</h3>
-              <ul>
-                <li>
-                  <strong>Customer data is not shared with 3rd parties</strong> for promotional or marketing purposes
-                </li>
-                <li>
-                  Mobile opt-in and consent are <strong>never shared</strong> with anyone for any purpose. Any information sharing that may be mentioned elsewhere in this policy excludes mobile opt-in data.
-                </li>
-              </ul>
-
-              <h3>6. Cookies and Tracking Technologies</h3>
-              <p>We use cookies and similar tracking technologies to track the activity on our service and hold certain information.</p>
-              <ul>
-                <li><strong>Essential Cookies:</strong> We use local storage to save your language preference (English/Spanish) and your cookie consent status.</li>
-                <li><strong>Security Cookies:</strong> We use Google reCAPTCHA to protect our forms from spam. Google reCAPTCHA sets a necessary cookie to function.</li>
-              </ul>
-
-              <h3>7. Data Security</h3>
-              <p>We have implemented measures designed to secure your personal information from accidental loss and from unauthorized access, use, alteration, and disclosure. All information you provide to us is stored on secure servers behind firewalls.</p>
-
-              <h3>8. Contact Information</h3>
-              <p>If you have any questions or wish to contact us regarding your information or this policy, please email us at info@casatechllc.com or call (203) 884-8244.</p>
-              <p>
-                <strong>Casatech LLC</strong><br>
-                Email: <a href="mailto:info@casatechllc.com">info@casatechllc.com</a><br>
-                Phone: <a href="tel:203-884-8244">(203) 884-8244</a>
-              </p>
-
-            </div>
-          </div>
+        <h2 class="text-2xl font-heading font-bold text-text-heading mt-10 mb-4">2. How We Use Your Information (Phone & SMS Clause)</h2>
+        <div class="bg-bg-light p-6 rounded-xl border-l-4 border-cta mb-8">
+          <p class="text-text-body font-medium leading-relaxed italic">
+            "By submitting a contact form or requesting a technical audit on this website, you provide explicit consent for Casatech LLC to use your provided phone number to contact you via voice calls or SMS text messages. This communication is strictly limited to scheduling audits, providing technical support updates, responding to service inquiries, and project coordination. Standard message and data rates may apply."
+          </p>
         </div>
+
+        <h2 class="text-2xl font-heading font-bold text-text-heading mt-10 mb-4">3. Absolute "Zero Data Sharing" Guarantee</h2>
+        <p class="text-text-primary font-bold mb-6">
+          We do not sell, rent, trade, or otherwise share your personal or corporate data with any third parties under any circumstances.
+        </p>
+        <p class="text-text-body mb-8">
+          Your information is never provided to third-party marketers, list brokers, or external agencies. All data remains within the secure Casatech LLC infrastructure for the sole purpose of fulfilling our professional engagement with your business.
+        </p>
+
+        <h2 class="text-2xl font-heading font-bold text-text-heading mt-10 mb-4">4. Data Security & Infrastructure</h2>
+        <p class="text-text-body mb-8">
+          We utilize enterprise-grade encryption and secure cloud infrastructure to protect your data from unauthorized access. As a technical consultancy, we apply the same rigorous security standards to our own internal data that we recommend to our clients.
+        </p>
+
+        <h2 class="text-2xl font-heading font-bold text-text-heading mt-10 mb-4">5. Your Rights & Data Control</h2>
+        <p class="text-text-body mb-10">
+          You may opt-out of SMS communications at any time by replying "STOP" to any message received. To request the complete deletion of your data from our active systems, please contact us directly at the information provided below.
+        </p>
+
+        <!-- Contact Block -->
+        <footer class="pt-8 border-t border-gray-100 space-y-4">
+          <h3 class="text-xl font-heading font-bold text-text-heading">Privacy Inquiries</h3>
+          <div class="flex flex-col space-y-2">
+            <a href="mailto:info@casatechllc.com" class="text-secondary font-bold hover:underline">info@casatechllc.com</a>
+            <a href="tel:2038848244" class="text-text-primary font-bold hover:text-secondary transition-colors">(203) 884-8244</a>
+          </div>
+          <p class="text-sm text-text-muted italic pt-4">
+            Casatech LLC | New Haven, CT & Harrisonburg, VA
+          </p>
+        </footer>
       </div>
     </section>
-  </div>
+
+    <!-- Simple Navigation Back -->
+    <div class="max-w-3xl mx-auto px-6 mt-12 text-center">
+      <NuxtLink to="/" class="text-text-secondary hover:text-primary font-bold transition-colors">
+        ← Return to Homepage
+      </NuxtLink>
+    </div>
+  </article>
 </template>
 
 <script setup>
-import { computed } from 'vue';
-import { usePageMeta } from '@/composables/usePageMeta.js';
-
-// Define static meta tags for this page
-const pageMeta = computed(() => ({
-  title: 'Privacy Policy | Casatech LLC',
-  description: 'Privacy Policy and Terms of Service for Casatech LLC. Learn how we handle your data and SMS consent.',
-  path: '/privacy-policy',
-  image: '/images/casatechllc-og-image.png'
-}));
-
-usePageMeta(pageMeta);
+// SEO Metadata for the Privacy Page
+useHead({
+  title: 'Privacy Policy | Casatech LLC - B2B Data Security New Haven',
+  meta: [
+    { 
+      name: 'description', 
+      content: 'Casatech LLC Privacy Policy. We maintain a strict zero-data-sharing policy. Learn how we protect your corporate information and handle SMS/Phone consent.' 
+    },
+    { name: 'robots', content: 'noindex, follow' } // Legal pages often benefit from noindex to focus SEO on service pages
+  ]
+})
 </script>
 
 <style scoped>
-
-.page-section {
-  padding: var(--spacing-xl) 0;
+/* Scanned Typography Optimization */
+.prose {
+  color: var(--color-text-body);
+  max-width: none;
 }
 
-.privacy-content h3 {
-  color: var(--color-primary);
-  font-family: var(--font-family-headings);
-  font-weight: 700;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
+.prose h2 {
+  color: var(--color-text-heading);
+  letter-spacing: -0.025em;
 }
 
-.privacy-content ul {
-  margin-bottom: 1.5rem;
-}
-
-.privacy-content li {
-  margin-bottom: 0.5rem;
+.shadow-soft {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
 }
 </style>

@@ -47,7 +47,7 @@
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/blog" class="text-sm text-muted hover:text-secondary transition-fast">
+              <NuxtLink to="/article" class="text-sm text-muted hover:text-secondary transition-fast">
                 B2B Local SEO
               </NuxtLink>
             </li>

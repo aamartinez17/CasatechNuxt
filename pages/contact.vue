@@ -1,6 +1,6 @@
 <template>
   <!-- Full-height landing page structure to eliminate site-wide distractions -->
-  <article class="min-h-screen grid grid-cols-1 lg:grid-cols-12 bg-bg-light">
+  <article class="min-h-screen grid grid-cols-1 lg:grid-cols-12 bg-bg-light mt-12">
     
     <!-- LEFT COLUMN: Trust, Authority & Brand Narrative -->
     <section class="lg:col-span-5 bg-bg-dark p-8 md:p-16 lg:p-24 flex flex-col justify-between relative overflow-hidden">
@@ -15,7 +15,7 @@
 
         <!-- FIXED: Changed 'Let's Scale Your' to text-white for maximum contrast -->
         <h1 class="text-4xl md:text-5xl font-heading font-extrabold mb-6 leading-tight text-slate-100">
-          Let’s Scale Your <br />
+          Let's Scale Your <br />
           <span class="text-secondary">Digital Infrastructure.</span>
         </h1>
         

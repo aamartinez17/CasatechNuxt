@@ -51,5 +51,19 @@ export default {
       }
     },
   },
+  safelist: [
+    'border-gray-300',
+    'bg-orange-500',
+    'hover:bg-orange-600',
+    'text-slate-300',
+    'bg-slate-900',
+    'bg-gray-50',
+    'bg-blue-50/30',
+    'border-gray-300',
+    'p-4',
+    'text-slate-900',
+    'text-slate-700',
+    'bg-orange-600',
+  ],
   plugins: [],
 }

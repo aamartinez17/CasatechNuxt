@@ -133,7 +133,7 @@
             :visible-once="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 25, delay: 400 } }"
             class="flex flex-col space-y-6"
           >
-            <NuxtLink to="/blog/boost-online-presence" class="group block">
+            <NuxtLink to="/article/boost-online-presence" class="group block">
               <h4 class="text-primary font-bold leading-snug group-hover:text-interactive transition-fast mb-2">
                 Boost Your Online Presence: Expert insights on SEO and IT solutions.
               </h4>
@@ -144,7 +144,7 @@
 
             <div class="w-full h-px bg-gray-200"></div>
 
-            <NuxtLink to="/blog/seo-essentials" class="group block">
+            <NuxtLink to="/article/seo-essentials" class="group block">
               <h4 class="text-primary font-bold leading-snug group-hover:text-interactive transition-fast mb-2">
                 Featured: SEO Essentials for Local Businesses.
               </h4>

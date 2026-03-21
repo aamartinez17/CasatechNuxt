@@ -42,7 +42,7 @@
           </NuxtLink>
         </li>
         <li>
-          <NuxtLink to="/web-app" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
+          <NuxtLink to="/web-applications" class="text-text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
             Custom Web Apps
           </NuxtLink>
         </li>
@@ -105,7 +105,7 @@
               </NuxtLink>
             </li>
             <li>
-              <NuxtLink to="/web-app" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
+              <NuxtLink to="/web-applications" @click="closeMenu" class="block py-3 text-text-main font-medium hover:text-secondary border-b border-gray-100">
                 Custom Web Apps
               </NuxtLink>
             </li>

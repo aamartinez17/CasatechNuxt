@@ -190,9 +190,9 @@ const pageMeta = computed(() => ({
 usePageMeta(pageMeta);
 
 // --- ADD DYNAMIC PATHS FOR SIDEBAR ---
-const workspacePath = computed(() => ('/blog/google-workspace-vs-gmail'));
-const voipPath = computed(() => ('/blog/what-is-voip-for-business'));
-const techEssentialsPath = computed(() => ('/blog/5-tech-essentials-for-your-startup'));
+const workspacePath = computed(() => ('/article/google-workspace-vs-gmail'));
+const voipPath = computed(() => ('/article/what-is-voip-for-business'));
+const techEssentialsPath = computed(() => ('/article/5-tech-essentials-for-your-startup'));
 // const contactPath = computed(() => ('/contact'));
 const startupTechPath = computed(() => ('/services/startup-tech'));
 

@@ -1,6 +1,6 @@
 import { fileURLToPath, URL } from 'node:url'
 // Note: Ensure this path is correct for Nuxt 4 (usually root or ./assets/...)
-import { allPosts } from './assets/data/BlogData.js'
+import { allPosts } from './assets/data/ArticleData.js'
 
 export default defineNuxtConfig({
   // 1. THE NUXT 4 FIX: Tells Nuxt to use the modern engine behaviors

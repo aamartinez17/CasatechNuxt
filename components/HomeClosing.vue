@@ -132,7 +132,7 @@ const toggleFaq = (index) => {
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible-once="{ opacity: 1, y: 0, transition: { delay: 200 } }"
-          class="text-on-dark font-heading font-bold text-3xl md:text-5xl mb-6"
+          class="text-on-dark/10 font-heading font-bold text-3xl md:text-5xl mb-6"
         >
           Ready to Eliminate Tech Bottlenecks?
         </h2>
@@ -141,7 +141,7 @@ const toggleFaq = (index) => {
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible-once="{ opacity: 1, y: 0, transition: { delay: 300 } }"
-          class="text-on-dark/80 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          class="text-slate-500 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
         >
           Join dozens of New Haven businesses scaling with our dual-threat IT and Web solutions. Experience zero downtime and 100% accountability.
         </p>
