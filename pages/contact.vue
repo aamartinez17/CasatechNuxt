@@ -97,11 +97,20 @@
 
         <!-- TAB 2: Form Capture -->
         <form v-else 
-              name="contact" 
-              @submit.prevent="handleSubmit" 
-              v-motion-slide-right 
-              class="space-y-6">
-          
+          name="contact" 
+          method="POST"
+          data-netlify="true"
+          data-netlify-honeypot="bot-field"
+          @submit.prevent="handleSubmit" 
+          v-motion-slide-right 
+          class="space-y-6">
+        
+          <input type="hidden" name="form-name" value="contact" />
+
+          <p class="hidden" aria-hidden="true">
+            <label>Don’t fill this out if you're human: <input name="bot-field" v-model="formData.botField" /></label>
+          </p>
+
           <div class="text-center mb-8">
             <h2 class="text-2xl font-heading font-bold text-heading">Request Information</h2>
             <p class="text-secondary">We typically respond within 1 business hour.</p>
@@ -152,10 +161,10 @@
               v-model="formData.interest"
               class="w-full p-4 bg-bg-light border border-slate-200 rounded-lg focus:ring-2 focus:ring-secondary outline-none appearance-none transition-all"
             >
-              <option value="managed_it">Managed IT & Infrastructure</option>
-              <option value="web_dev">Custom Web Development (Vue.js)</option>
-              <option value="cloud">Cloud Integration</option>
-              <option value="other">Other Technical Consulting</option>
+              <option value="Managed_It">Managed IT & Infrastructure</option>
+              <option value="Web_Development">Custom Web Development (Vue.js)</option>
+              <option value="Cloud_Integration">Cloud Integration</option>
+              <option value="Technical_Consulting">Other Technical Consulting</option>
             </select>
           </div>
 
@@ -173,8 +182,12 @@
           <button 
             type="submit" 
             :disabled="isSubmitting"
-            class="w-full bg-cta hover:bg-cta-hover text-white font-heading font-bold py-4 rounded-lg shadow-soft transform transition active:scale-95 disabled:opacity-50"
+            class="w-full bg-cta hover:bg-cta-hover text-white font-heading font-bold py-4 rounded-lg shadow-soft flex items-center justify-center transition active:scale-95 disabled:opacity-50"
           >
+            <svg v-if="isSubmitting" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
             {{ isSubmitting ? 'Sending Request...' : 'Send Message' }}
           </button>
           
@@ -190,13 +203,14 @@
 
 <script setup>
 import { ref, reactive } from 'vue';
+const router = useRouter();
 
 // Define layout: custom-empty (no main navbar/footer to maximize CRO)
 definePageMeta({
   layout: false
 });
 
-const activeTab = ref('calendar'); // Default to high-intent action
+const activeTab = ref('message'); // Default to high-intent action
 const isSubmitting = ref(false);
 
 const formData = reactive({
@@ -204,16 +218,34 @@ const formData = reactive({
   email: '',
   company: '',
   interest: 'managed_it',
-  message: ''
+  message: '',
+  botField: ''
 });
 
 const handleSubmit = async () => {
   isSubmitting.value = true;
-  // Netlify form submission or API logic here
-  setTimeout(() => {
+  
+  try {
+    const response = await fetch('/.netlify/functions/send-emails', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData)
+    });
+
+    if (response.ok) {
+      // Small delay so the spinner feels "real" to the user
+      setTimeout(() => {
+        router.push('/thank-you');
+      }, 500);
+    } else {
+      throw new Error('Network response was not ok');
+    }
+  } catch (error) {
+    console.error('Submission error:', error);
+    alert('Oops! There was an error sending your message. Please try again or call us directly.');
+  } finally {
     isSubmitting.value = false;
-    // router.push('/thank-you')
-  }, 1500);
+  }
 };
 
 // SEO Head setup

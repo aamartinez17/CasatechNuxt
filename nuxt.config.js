@@ -26,7 +26,6 @@ export default defineNuxtConfig({
   vite: {
     optimizeDeps: {
       include: ['@vueuse/motion', '@vueuse/core', '@vueuse/shared'],
-      exclude: ['vue3-recaptcha-v2']
     },
     server: {
       // Helps Vite 7 find linked modules in Windows/OneDrive environments
@@ -53,9 +52,4 @@ export default defineNuxtConfig({
 
   // Rest of your config
   sitemap: { hostname: 'https://casatechllc.com' },
-  runtimeConfig: {
-    public: {
-      recaptchaSiteKey: process.env.VITE_RECAPTCHA_SITE_KEY 
-    }
-  }
 })
