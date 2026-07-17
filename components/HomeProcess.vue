@@ -4,7 +4,7 @@
     Psychological Goal: Reduce perceived risk through a structured, 3-step mental model.
     Styling: Full-width background using our core neutral (bg-bg-light) to break up the page visually.
   -->
-  <section class="bg-bg-light py-24 border-t border-gray-200">
+  <section class="py-24 border-t-4 border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Section Header -->

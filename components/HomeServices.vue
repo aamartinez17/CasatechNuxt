@@ -1,5 +1,5 @@
 <template>
-  <section class="bg-white">
+  <section class="">
     <!-- 
       PART 2: THE CORE SERVICES MATRIX 
       Psychological Goal: Reduce cognitive load by bucketing complex IT into two highly scannable cards.

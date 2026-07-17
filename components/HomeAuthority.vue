@@ -4,7 +4,7 @@
     Semantic <section> for technical SEO. 
     bg-white creates a crisp contrast against the previous gray section.
   -->
-  <section class="bg-white py-24 border-t border-gray-200">
+  <section class="py-24 border-4 border-gray-200">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       
       <!-- Asymmetrical 2-Column Grid (65% / 35% on lg screens) -->

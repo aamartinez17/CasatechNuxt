@@ -16,6 +16,7 @@ export default {
         'cta-hover': 'var(--color-cta-hover)',
         'bg-light': 'var(--color-bg-light)',
         'bg-dark': 'var(--color-bg-dark)',
+        accent: 'rgb(var(--color-cta-rgb) / <alpha-value>)',
       },
       textColor: {
         body: 'var(--text-body)',

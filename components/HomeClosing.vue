@@ -63,7 +63,7 @@ const faqs = [
 
 <template>
   <div>
-    <section class="bg-white py-24 border-t border-gray-100">
+    <section class="py-24 border-t-4 border-gray-100">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div 

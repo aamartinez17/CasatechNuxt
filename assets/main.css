@@ -9,11 +9,10 @@
 @layer base {
   :root {
     /* Core Brand Colors */
-
-    --color-primary-rgb: 11 57 84;     /* #0B3954 */
-    --color-secondary-rgb: 0 119 182;  /* #0077B6 */
-    --color-cta-rgb: 249 115 22;      /* #F97316 */
-    --text-on-dark-rgb: 248 250 252;  /* #F8FAFC */
+    --color-primary-rgb: 11 45 84;     /* #0B3954 (Deep Navy) */
+    --color-secondary-rgb: 0 119 182;  /* #0077B6 (Vibrant Blue) */
+    --color-cta-rgb: 249 115 22;       /* #F97316 (Orange) */
+    --text-on-dark-rgb: 248 250 252;   /* #F8FAFC (Slate Light) */
 
     --color-primary: rgb(var(--color-primary-rgb)); 
     --color-secondary: rgb(var(--color-secondary-rgb)); 
@@ -21,30 +20,28 @@
     /* Conversion Color */
     --color-cta: rgb(var(--color-cta-rgb)); 
     --color-cta-hover: #EA580C;
+
+    --color-accent: var(--color-cta);
     
-    /* Neutral Palette */
+    /* Neutral Palette & Core Backgrounds */
     --color-bg-dark: #0F172A;
     --color-bg-light: #F8FAFC;
-    --color-text-main: #334155;
-    --color-text-heading: #0F172A;
-    --color-text-light: #F8FAFC; 
 
-    /* Core Text Hierarchy (Slate Scale for Cognitive Ease) */
-    --text-primary: #0F172A;   /* Deep Slate: For H1-H6 headings. Commands immediate attention. */
-    --text-secondary: #475569; /* Medium Slate: For subheadings, form labels, and metadata. */
-    --text-body: #334155;      /* Base Slate: For all paragraph text. Reduces eye strain compared to pure black. */
-    --text-muted: #94A3B8;     /* Light Slate: For placeholders, footer links, and disabled states. */
-    --text-heading: #0F172A;
+    /* Core Text Hierarchy */
+    --text-primary: #0F172A;   /* Deep Slate: For H1-H6 headings */
+    --text-secondary: #475569; /* Medium Slate: For subheadings, form labels */
+    --text-body: #334155;      /* Base Slate: For body text */
+    --text-muted: #94A3B8;     /* Light Slate: For placeholders, disabled states */
     
     /* Interactive & State Text */
-    --text-interactive: rgb(var(--color-secondary-rgb)); /* Maps to your #0077B6 Cyan for inline links. */
-    --text-interactive-hover: var(--color-primary); /* Maps to Deep Navy for hover states. */
-    --text-on-dark: rgb(var(--text-on-dark-rgb));   /* Crisp Off-White: For text sitting on Deep Navy backgrounds. */
-    --text-on-cta: #FFFFFF;    /* Pure White: For text inside your Orange conversion buttons. */
+    --text-interactive: var(--color-secondary);
+    --text-interactive-hover: var(--color-primary);
+    --text-on-dark: rgb(var(--text-on-dark-rgb));
+    --text-on-cta: #FFFFFF;
 
-    /* Functional Text (Crucial for B2B Forms & Trust) */
-    --text-error: #DC2626;     /* Accessible Red: For form validation and required fields. */
-    --text-success: #16A34A;   /* Accessible Green: For successful form submissions and system status. */
+    /* Functional Text (Forms & Status) */
+    --text-error: #DC2626;
+    --text-success: #16A34A;
 
     /* Typography System */
     --font-family-body: 'Inter', system-ui, -apple-system, sans-serif;
@@ -64,7 +61,7 @@
   /* Apply Global Typography & Backgrounds */
   body {
     background-color: var(--color-bg-light);
-    color: var(--color-text-main);
+    color: var(--text-body);
     font-family: var(--font-family-body);
     font-size: var(--font-size-base);
     line-height: 1.6;
@@ -72,7 +69,7 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: var(--color-text-heading);
+    color: var(--text-primary);
     font-weight: 700; 
     font-family: var(--font-family-headings);
     line-height: 1.2;
@@ -84,4 +81,113 @@
     outline-offset: 2px;
     transition: outline var(--transition-fast);
   }
+}
+
+@layer utilities {
+  /* 
+    Light Scrolling Background Keyframes
+    Morphic pastel ambient glows designed for high-contrast light backgrounds
+  */
+  @keyframes scroll-mesh {
+    /* 0% (Top of Page): Soft, airy Secondary Blue in the bottom-right */
+    0% {
+      transform: translate(25%, 25%) scale(1);
+      background-image: radial-gradient(circle at center, rgba(7, 79, 117, 0.4) 0%, transparent 30%);
+    }
+    /* 50% (Mid-Scroll): Deep Navy mixing with a warm Accent hint in the top-middle */
+    50% {
+      transform: translate(0%, -25%) scale(1.2);
+      background-image: radial-gradient(circle at center, rgba(11, 133, 204, 0.4) 0%, transparent 30%);
+    }
+    /* 100% (Bottom of Page): Soft warm Orange Accent settling in the bottom-left */
+    100% {
+      transform: translate(-25%, 25%) scale(1.1);
+      background-image: radial-gradient(circle at center, rgba(11, 133, 204, 0.4) 0%, transparent 30%);
+    }
+  }
+
+  /* Keep your scroll binder active */
+  .animate-scroll-bg {
+    animation: scroll-mesh auto linear both;
+    animation-timeline: scroll(root);
+  }
+
+
+
+  /* Brand Gradient Class: Smooth flow from Deep Navy to Vibrant Blue */
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  }
+
+  /* Brand Gradient Text Class: Clips the gradient to the text fill */
+  .text-brand-gradient {
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .border-gradient-top::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 6px; /* Controls how thin/thick the bar is */
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-cta) 100%);
+    z-index: 10;
+  }
+
+  .border-gradient-bottom::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-cta) 100%);
+    z-index: 10;
+  }
+
+  /* 
+    2. Full Outer Border-Card Gradient (Wraps the entire card frame)
+  */
+  /* 1. Register the custom property so the browser knows how to animate the angle */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.card-gradient-border {
+  /* Keep your exact working setup */
+  border: 3px solid transparent !important;
+  border-radius: 1.5rem !important;
+
+  /* Use the animated --border-angle variable in the border gradient */
+  background-image: 
+    linear-gradient(#0b2d54, #23a8dc), 
+    linear-gradient(var(--border-angle), var(--color-primary) 0%, var(--color-secondary) 30%, var(--color-accent) 100%) !important;
+
+  background-clip: padding-box, border-box !important;
+  background-origin: padding-box, border-box !important;
+
+  /* Run the GPU-friendly angle animation continuously */
+  animation: rotate-gradient 4s linear infinite !important;
+}
+
+/* Smooth rotation keyframes using the registered property */
+@keyframes rotate-gradient {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+/* Force disable pseudo-elements so they don't break the background-clip */
+.card-gradient-border::before,
+.card-gradient-border::after {
+  display: none !important;
+  content: none !important;
+}
+
 }

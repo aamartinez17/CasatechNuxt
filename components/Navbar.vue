@@ -1,136 +1,122 @@
 <template>
-  <!-- Semantic HTML5 header for SEO -->
-  <header class="fixed top-0 w-full z-50 flex flex-col shadow-soft bg-bg-light">
+  <!-- Semantic Header -->
+  <header class="fixed top-0 w-full z-50 flex flex-col shadow-sm bg-white/80 backdrop-blur-md border-b border-gray-100">
     
-    <!-- Top Bar (Eyebrow) -->
-    <div class="bg-bg-dark text-slate-400 text-sm py-2 px-4 sm:px-6 lg:px-8 hidden sm:flex justify-between items-center">
-      <div class="font-body font-medium tracking-wide">
-        Bilingual IT Support: English/Español | Serving New Haven & Beyond
+    <!-- Top Bar (Eyebrow Banner) -->
+    <div class="bg-primary text-slate-300 text-xs sm:text-sm py-2 px-4 sm:px-6 lg:px-8 hidden sm:flex justify-between items-center">
+      <div class="font-body font-medium tracking-wide flex items-center gap-2">
+        <span class="inline-block w-2 h-2 rounded-full bg-secondary animate-pulse"></span>
+        Let's build something beautiful together | Now welcoming new design partners
       </div>
-      <div class="flex items-center space-x-4">
+      <div class="flex items-center">
         <a href="tel:2038848244" 
-           class="font-bold hover:text-secondary transition-fast focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
-           title="New Haven, CT Tech Support">
+           class="font-bold text-white hover:text-secondary transition-colors flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded p-1"
+           title="Call Casatech">
+          <font-awesome-icon icon="fa-solid fa-phone" class="text-xs" />
           (203) 884-8244
         </a>
       </div>
     </div>
 
-    <!-- Main Navigation -->
-    <nav ref="navbarRef" class="bg-bg-light px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center border-b border-gray-200">
+    <!-- Main Navigation Bar -->
+    <nav ref="navbarRef" class="px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center relative z-50">
       
-      <!-- Logo -->
+      <!-- Logo Container -->
       <NuxtLink to="/" 
-                class="flex-shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
-                title="Casatech LLC - Enterprise Web Development"
+                class="flex-shrink-0 transition-transform hover:scale-[1.02] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded"
+                title="Casatech LLC - Custom Web Design"
                 @click="closeMenu">
-        <img src="/logos/casatech-logo-white-bg.png" 
-             alt="Casatech LLC - Managed IT Services New Haven" 
-             class="h-10 w-auto rounded-md shadow-sm p-1 bg-white">
+        <img src="/logos/casatech-transparent-bg.png" 
+             alt="Casatech LLC Logo" 
+             class="h-9 w-auto">
       </NuxtLink>
 
-      <!-- Desktop Links (Optimized spacing for more items) -->
-      <ul class="hidden lg:flex space-x-6 xl:space-x-8 items-center m-0 p-0">
-        <li>
-          <NuxtLink to="/web-design" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            Web Design
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/managed-it-infrastructure" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            Managed IT
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/web-applications" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            Custom Web Apps
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/insights" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            Insights
-          </NuxtLink>
-        </li>
-        <li>
-          <NuxtLink to="/about" class="text-main font-body font-medium hover:text-secondary transition-fast rounded px-1">
-            About
+      <!-- Desktop Links (Modularly Rendered) -->
+      <ul class="hidden lg:flex space-x-8 items-center m-0 p-0">
+        <li v-for="link in navLinks" :key="link.path">
+          <NuxtLink :to="link.path" class="nav-desktop-link group">
+            <font-awesome-icon :icon="link.icon" class="nav-icon mr-1.5 opacity-60 group-hover:text-secondary transition-colors" />
+            {{ link.label }}
           </NuxtLink>
         </li>
       </ul>
 
-      <!-- Desktop CTA -->
+      <!-- Desktop Conversion Call-to-Action -->
       <div class="hidden lg:block">
         <NuxtLink to="/contact" 
-                  class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-2.5 px-5 rounded shadow-soft transition-fast">
-          Book an IT Audit
+                  class="group inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-heading font-bold py-2.5 px-6 rounded shadow-soft transition-all duration-200 hover:-translate-y-0.5">
+          Get Started
+          <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-xs transform group-hover:translate-x-1 transition-transform" />
         </NuxtLink>
       </div>
 
-      <!-- Mobile Hamburger Toggle -->
+      <!-- Mobile Hamburger Button -->
       <button @click.stop="toggleMenu"
               type="button" 
-              class="lg:hidden text-main hover:text-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded p-2"
+              class="lg:hidden text-primary hover:text-secondary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta rounded p-2 transition-colors relative z-50"
               aria-controls="mobile-menu" 
               :aria-expanded="isMenuOpen.toString()">
         <span class="sr-only">Open main menu</span>
-        <svg v-if="!isMenuOpen" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-        </svg>
-        <svg v-else class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-        </svg>
+        <font-awesome-icon :icon="isMenuOpen ? 'fa-solid fa-times' : 'fa-solid fa-bars'" class="h-6 w-6" />
       </button>
     </nav>
 
-    <!-- Mobile Menu Drawer -->
+    <!-- Slide-in Mobile Drawer Overlay -->
     <ClientOnly>
-      <div v-if="isMenuOpen" 
-          v-motion="'slide-in-top'"
-          id="mobile-menu"
-          class="lg:hidden origin-top bg-bg-light border-b border-gray-200 shadow-hover absolute w-full top-full left-0 flex flex-col z-40">
-          <div class="p-4 border-b border-gray-200 bg-gray-50 flex flex-col gap-3">
-            <a href="tel:2038848244" class="text-heading font-bold text-lg text-center py-2 border border-gray-300 rounded hover:bg-gray-100 transition-fast">
-              📞 (203) 884-8244
-            </a>
-            <NuxtLink to="/contact" @click="closeMenu" class="bg-cta hover:bg-cta-hover text-white text-center font-heading font-bold py-3 rounded shadow-soft transition-fast">
-              Book an IT Audit
-            </NuxtLink>
-          </div>
+      <!-- Backdrop Shadow -->
+      <div 
+        v-if="isMenuOpen" 
+        class="lg:hidden fixed inset-0 bg-black/40 backdrop-blur-sm z-40 transition-opacity duration-300"
+        @click="closeMenu"
+      ></div>
 
-          <ul class="flex flex-col px-4 py-2 space-y-1 m-0">
-            <li>
-              <NuxtLink to="/web-design" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
-                Web Design
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/managed-it-infrastructure" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
-                Managed IT
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/web-applications" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
-                Custom Web Apps
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/insights" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary border-b border-gray-100">
-                Insights
-              </NuxtLink>
-            </li>
-            <li>
-              <NuxtLink to="/about" @click="closeMenu" class="block py-3 text-main font-medium hover:text-secondary">
-                About Casatech
-              </NuxtLink>
-            </li>
-          </ul>
+      <!-- Drawer Panel -->
+      <div 
+        id="mobile-menu"
+        class="lg:hidden fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl border-l border-gray-100 z-40 flex flex-col p-6 transition-transform duration-300 transform"
+        :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
+      >
+        <!-- Top gap pushing items below mobile header bar layout height -->
+        <div class="h-16"></div>
+
+        <!-- Phone & Primary CTAs inside Drawer -->
+        <div class="flex flex-col gap-3 mb-6">
+          <a href="tel:2038848244" class="text-primary font-bold text-center py-2.5 border border-gray-200 rounded-lg hover:bg-gray-50 transition-colors flex items-center justify-center gap-2">
+            <font-awesome-icon icon="fa-solid fa-phone" class="text-secondary" />
+            (203) 884-8244
+          </a>
+          <NuxtLink to="/contact" @click="closeMenu" class="bg-cta hover:bg-cta-hover text-white text-center font-heading font-bold py-3 rounded-lg shadow-soft transition-colors">
+            Start A Design Project
+          </NuxtLink>
         </div>
+
+        <hr class="border-gray-100 mb-6" />
+
+        <!-- Mobile Links (Rendered Modularly) -->
+        <ul class="flex flex-col space-y-2 m-0 p-0 overflow-y-auto flex-1">
+          <li v-for="link in navLinks" :key="link.path">
+            <NuxtLink :to="link.path" @click="closeMenu" class="mobile-nav-link">
+              <font-awesome-icon :icon="link.icon" class="text-secondary w-5" />
+              {{ link.label }}
+            </NuxtLink>
+          </li>
+        </ul>
+      </div>
     </ClientOnly>
   </header>
 </template>
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
+
+// 1. Modular Navigation Links (Easily update, add, or swap pages here!)
+const navLinks = [
+  { label: 'Home', path: '/', icon: 'fa-solid fa-palette' },
+  { label: 'Services', path: '/web-design', icon: 'fa-solid fa-laptop-code' },
+  { label: 'Portfolio', path: '/portfolio', icon: 'fa-solid fa-folder-open' },
+  { label: 'About', path: '/about', icon: 'fa-solid fa-user' },
+  { label: 'Insights', path: '/insights', icon: 'fa-solid fa-book-open' },
+];
 
 const isMenuOpen = ref(false);
 const navbarRef = ref(null);
@@ -143,26 +129,39 @@ const closeMenu = () => {
   isMenuOpen.value = false;
 };
 
-const handleClickOutside = (event) => {
-  if (!isMenuOpen.value) return;
-  const nav = navbarRef.value;
-  const menu = document.getElementById('mobile-menu');
-  if (nav && !nav.contains(event.target) && (!menu || !menu.contains(event.target))) {
+// Auto-close side drawer on window resize if layout becomes desktop width
+const handleResize = () => {
+  if (window.innerWidth >= 1024) {
     closeMenu();
   }
 };
 
 onMounted(() => {
-  document.addEventListener('click', handleClickOutside);
+  window.addEventListener('resize', handleResize);
 });
 
 onUnmounted(() => {
-  document.removeEventListener('click', handleClickOutside);
+  window.removeEventListener('resize', handleResize);
 });
 </script>
 
 <style scoped>
+/* Scoped classes to keep layout lightweight */
+.nav-desktop-link {
+  @apply text-slate-600 font-body font-semibold hover:text-secondary transition-colors duration-200 py-2 px-1 text-sm xl:text-base flex items-center;
+}
+
+/* Active Class Highlight (Applied automatically by NuxtLink router match) */
 .router-link-exact-active {
   @apply text-secondary font-bold;
+}
+
+.mobile-nav-link {
+  @apply flex items-center gap-3 py-3 px-4 text-slate-700 font-medium hover:bg-slate-50 hover:text-secondary rounded-lg transition-colors;
+}
+
+/* Specific active styling for Mobile link states */
+.mobile-nav-link.router-link-exact-active {
+  @apply bg-slate-50 text-secondary font-semibold;
 }
 </style>

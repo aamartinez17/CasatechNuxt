@@ -19,7 +19,8 @@ export default defineNuxtConfig({
 
   css: [
     './assets/main.css', 
-    'swiper/css/bundle'
+    'swiper/css/bundle',
+    '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
   // 3. VITE 7 OPTIMIZATION (Crucial for entry.js errors)
@@ -37,7 +38,14 @@ export default defineNuxtConfig({
 
   // 4. NUXT 4 TRANSPILATION
   build: {
-    transpile: ['@vueuse/motion', '@vueuse/core', '@vueuse/shared']
+    transpile: [
+      '@vueuse/motion', 
+      '@vueuse/core', 
+      '@vueuse/shared',
+      '@fortawesome/vue-fontawesome',
+      '@fortawesome/fontawesome-svg-core',
+      '@fortawesome/free-solid-svg-icons'
+    ]
   },
 
   // 5. MOTION DEFAULTS
