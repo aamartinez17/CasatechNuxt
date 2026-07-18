@@ -97,26 +97,32 @@
       </div>
     </section>
 
-    <!-- SECTION 4: THE STRATEGIC BILINGUAL ADVANTAGE -->
-    <section class="bg-slate-950 py-24 overflow-hidden relative">
-      <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(var(--color-secondary) 1px, transparent 1px); background-size: 40px 40px;"></div>
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-        <div class="max-w-2xl">
-          <span class="text-accent text-xs font-bold uppercase tracking-widest">Global Reach, Local Impact</span>
-          <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mt-2 mb-6">The Bilingual Design Advantage</h2>
-          <p class="text-slate-300 text-lg leading-relaxed">
-            We don't just hand over code and disappear. Because your target audience and internal teams might be diverse, we build complete 
-            <strong>bilingual (English/Español) web architectures</strong>. We also provide custom video onboarding in both languages, 
-            empowering every member of your staff to easily manage content and process incoming website sales.
-          </p>
-        </div>
-        <!-- Utilized your newly validated card gradient border utility class! -->
-        <div class="card-gradient-border p-8 backdrop-blur-sm">
-          <span class="block text-accent font-bold text-sm uppercase mb-2">Alex Martinez</span>
-          <span class="block text-white text-xs tracking-widest opacity-60">Creative Web Architect</span>
-        </div>
+    <!-- SECTION 4: THE LAUNCH & TRAINING ADVANTAGE -->
+<section class="bg-slate-950 py-24 overflow-hidden relative">
+  <div class="absolute inset-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(var(--color-secondary) 1px, transparent 1px); background-size: 40px 40px;"></div>
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
+    
+    <div class="max-w-2xl">
+      <span class="text-accent text-xs font-bold uppercase tracking-widest">End-to-End Partnership</span>
+      <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mt-2 mb-6">The Seamless Handoff Advantage</h2>
+      <p class="text-slate-300 text-lg leading-relaxed">
+        We don't just hand over a set of keys and disappear. Once your platform goes live, We ensure your staff is fully 
+        confident managing content, reviewing analytics, and processing incoming website sales without needing a 
+        developer for every small update.
+      </p>
+    </div>
+
+    <!-- Right Badge: Replaced personal name with studio handoff indicator -->
+    <div class="card-gradient-border p-8 backdrop-blur-sm min-w-[240px] text-center md:text-left">
+      <div class="flex items-center justify-center md:justify-start gap-2 text-accent font-bold text-sm uppercase tracking-wider mb-2">
+        <font-awesome-icon icon="fa-solid fa-circle-check" class="animate-pulse" />
+        Zero-Friction Handoff
       </div>
-    </section>
+      <span class="block text-white text-xs tracking-widest uppercase opacity-60">Full Post-Launch Support</span>
+    </div>
+
+  </div>
+</section>
 
     <!-- SECTION 5: FAQs (SEO Accordion) -->
     <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
