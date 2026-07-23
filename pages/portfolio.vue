@@ -95,13 +95,13 @@
               </p>
 
               <!-- Render Additional Attached Links -->
-              <div v-if="project.extraLinks && project.extraLinks.length > 0" class="flex flex-wrap gap-2 pt-3 border-t border-gray-100 mb-3">
+              <div v-if="project.extraLinks && project.extraLinks.length > 0" class="flex flex-wrap gap-3 pt-3 border-t border-gray-100 mb-3">
                 <a
                   v-for="link in project.extraLinks"
                   :key="link.id"
                   :href="link.url.startsWith('http') ? link.url : `https://${link.url}`"
                   target="_blank"
-                  class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1.5"
+                  class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-[0.5]"
                 >
                   <font-awesome-icon 
                     v-if="link.icon_slug" 
