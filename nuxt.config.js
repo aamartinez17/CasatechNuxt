@@ -11,7 +11,11 @@ export default defineNuxtConfig({
       supabaseUrl: process.env.SUPABASE_URL || 'https://ggfnaxteqqcsmybodusd.supabase.co',
       supabaseKey: process.env.SUPABASE_KEY || '', // Your public anon key
       tenantId: process.env.NUXT_PUBLIC_TENANT_ID || ''
-    }
+    },
+    
+    routeRules: {
+    '/portfolio': { ssr: false } // Renders portfolio client-side, skipping prerender errors
+  }
   },
 
   // 2. NUXT 4 ALIASING

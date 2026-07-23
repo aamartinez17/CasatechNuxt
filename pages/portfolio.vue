@@ -44,87 +44,97 @@
         Failed to load live portfolio items. Please refresh or try again later.
       </div>
 
-      <!-- Animated Responsive Project Grid -->
-      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-        <article 
-          v-for="(project, index) in filteredProjects" 
-          :key="project.id"
-          v-motion
-          :initial="{ opacity: 0, y: 30 }"
-          :enter="{ opacity: 1, y: 0, transition: { delay: index * 100, type: 'spring', stiffness: 100 } }"
-          class="group bg-white rounded-2xl border border-gray-100 shadow-soft overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
-        >
-          <!-- Modern Image Showcase Container -->
-          <div class="relative overflow-hidden aspect-[4/3] bg-slate-100 border-b border-gray-50">
-            <img 
-              :src="project.imageUrl || '/images/project-placeholder.png'" 
-              :alt="project.title"
-              class="w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-700 ease-out"
-              loading="lazy"
-            />
-            <!-- Dark Overlay Fade on Hover with Primary Action Link -->
-            <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
-              <a 
-                v-if="project.projectUrl" 
-                :href="project.projectUrl.startsWith('http') ? project.projectUrl : `https://${project.projectUrl}`" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                class="bg-white text-primary font-heading font-bold py-2.5 px-5 rounded-lg shadow-lg hover:bg-secondary hover:text-white transition-colors flex items-center gap-2 text-sm"
-              >
-                Launch Live Site
-                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-xs" />
-              </a>
+      <!-- Animated Responsive Project Grid Wrapped in ClientOnly -->
+      <ClientOnly>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <article 
+            v-for="(project, index) in filteredProjects" 
+            :key="project.id"
+            v-motion
+            :initial="{ opacity: 0, y: 30 }"
+            :enter="{ opacity: 1, y: 0, transition: { delay: index * 100, type: 'spring', stiffness: 100 } }"
+            class="group bg-white rounded-2xl border border-gray-100 shadow-soft overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
+          >
+            <!-- Modern Image Showcase Container -->
+            <div class="relative overflow-hidden aspect-[4/3] bg-slate-100 border-b border-gray-50">
+              <img 
+                :src="project.imageUrl || '/images/project-placeholder.png'" 
+                :alt="project.title"
+                class="w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-700 ease-out"
+                loading="lazy"
+              />
+              <!-- Dark Overlay Fade on Hover with Primary Action Link -->
+              <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
+                <a 
+                  v-if="project.projectUrl" 
+                  :href="project.projectUrl.startsWith('http') ? project.projectUrl : `https://${project.projectUrl}`" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  class="bg-white text-primary font-heading font-bold py-2.5 px-5 rounded-lg shadow-lg hover:bg-secondary hover:text-white transition-colors flex items-center gap-2 text-sm"
+                >
+                  Launch Live Site
+                  <!-- 🌟 Fixed FontAwesome icon string syntax -->
+                  <font-awesome-icon icon="arrow-up-right-from-square" class="text-xs" />
+                </a>
+              </div>
             </div>
+
+            <!-- Card Info Body -->
+            <div class="p-6 flex flex-col flex-1">
+              <div class="flex items-center gap-2 mb-3">
+                <span class="text-[10px] font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-2.5 py-0.5 rounded-full">
+                  {{ project.category }}
+                </span>
+              </div>
+              
+              <h3 class="text-primary font-heading font-bold text-xl mb-2 group-hover:text-secondary transition-colors">
+                {{ project.title }}
+              </h3>
+              
+              <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
+                {{ project.description }}
+              </p>
+
+              <!-- Render Additional Attached Links if defined -->
+              <div v-if="project.extraLinks && project.extraLinks.length > 0" class="flex flex-wrap gap-2 pt-3 border-t border-gray-100 mb-3">
+                <a
+                  v-for="link in project.extraLinks"
+                  :key="link.id"
+                  :href="link.url.startsWith('http') ? link.url : `https://${link.url}`"
+                  target="_blank"
+                  class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1"
+                >
+                  <font-awesome-icon 
+                    v-if="link.icon_slug" 
+                    :icon="isBrandIcon(link.icon_slug) ? ['fab', link.icon_slug] : ['fas', link.icon_slug]" 
+                    class="text-xs" 
+                  />
+                  <!-- 🌟 Fixed fallback FontAwesome icon string syntax -->
+                  <font-awesome-icon 
+                    v-else 
+                    icon="link" 
+                    class="text-xs" 
+                  />
+                  <span>{{ link.name }}</span>
+                </a>
+              </div>
+
+              <!-- Tech Badges -->
+              <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-50 text-xs font-mono text-slate-400">
+                <span v-for="tag in project.tags" :key="tag">
+                  #{{ tag.toLowerCase().replace(/\s+/g, '') }}
+                </span>
+              </div>
+            </div>
+          </article>
+        </div>
+
+        <template #fallback>
+          <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 animate-pulse">
+            <div v-for="i in 6" :key="i" class="h-80 bg-slate-100 rounded-2xl border border-gray-100"></div>
           </div>
-
-          <!-- Card Info Body -->
-          <div class="p-6 flex flex-col flex-1">
-            <div class="flex items-center gap-2 mb-3">
-              <span class="text-[10px] font-bold uppercase tracking-wider text-secondary bg-secondary/10 px-2.5 py-0.5 rounded-full">
-                {{ project.category }}
-              </span>
-            </div>
-            
-            <h3 class="text-primary font-heading font-bold text-xl mb-2 group-hover:text-secondary transition-colors">
-              {{ project.title }}
-            </h3>
-            
-            <p class="text-slate-600 text-sm leading-relaxed mb-6 flex-1">
-              {{ project.description }}
-            </p>
-
-            <!-- Render Additional Attached Links if defined -->
-            <div v-if="project.extraLinks && project.extraLinks.length > 0" class="flex flex-wrap gap-2 pt-3 border-t border-gray-100 mb-3">
-              <a
-                v-for="link in project.extraLinks"
-                :key="link.id"
-                :href="link.url.startsWith('http') ? link.url : `https://${link.url}`"
-                target="_blank"
-                class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1"
-              >
-                <font-awesome-icon 
-                  v-if="link.icon_slug" 
-                  :icon="isBrandIcon(link.icon_slug) ? ['fab', link.icon_slug] : ['fas', link.icon_slug]" 
-                  class="text-xs" 
-                />
-                <font-awesome-icon 
-                  v-else 
-                  icon="fa-solid fa-link" 
-                  class="text-xs" 
-                />
-                <span>{{ link.name }}</span>
-              </a>
-            </div>
-
-            <!-- Tech Badges -->
-            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-50 text-xs font-mono text-slate-400">
-              <span v-for="tag in project.tags" :key="tag">
-                #{{ tag.toLowerCase().replace(/\s+/g, '') }}
-              </span>
-            </div>
-          </div>
-        </article>
-      </div>
+        </template>
+      </ClientOnly>
     </section>
 
     <!-- Partner Trust Wall Section -->
@@ -155,23 +165,23 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { createClient } from '@supabase/supabase-js'; // 🌟 Direct SDK import
+import { createClient } from '@supabase/supabase-js';
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
 
 const clientLogos = ref(logoData);
 const activeFilter = ref('all');
 
 const isBrandIcon = (slug) => {
-  if (!slug) return false
-  const brandList = ['instagram', 'facebook', 'twitter', 'linkedin', 'github', 'youtube', 'tiktok', 'x-twitter']
-  return brandList.includes(slug.toLowerCase())
+  if (!slug) return false;
+  const brandList = ['instagram', 'facebook', 'twitter', 'linkedin', 'github', 'youtube', 'tiktok', 'x-twitter'];
+  return brandList.includes(slug.toLowerCase());
 };
 
 // Initialize Configuration
 const config = useRuntimeConfig();
 const tenantId = config.public.tenantId;
 
-// 🌟 Instantiate Supabase directly without relying on Nuxt module auto-imports
+// Instantiate Supabase SDK
 const supabase = createClient(
   config.public.supabaseUrl,
   config.public.supabaseKey
@@ -189,7 +199,7 @@ const setFilter = (filterValue) => {
   activeFilter.value = filterValue;
 };
 
-// 🌟 Query live_web STRICTLY bounded by tenant_id
+// Query live_web strictly bounded by tenant_id
 const { data: rawWebItems, pending, error } = await useAsyncData('live-portfolio-items', async () => {
   if (!tenantId) {
     console.error('❌ Missing NUXT_PUBLIC_TENANT_ID in configuration.');
@@ -227,7 +237,7 @@ const { data: rawWebItems, pending, error } = await useAsyncData('live-portfolio
         )
       )
     `)
-    .eq('tenant_id', tenantId) // 🛡️ STRICT TENANT ISOLATION BOUNDARY
+    .eq('tenant_id', tenantId)
     .order('created_at', { ascending: false });
 
   if (error) throw error;
@@ -254,7 +264,7 @@ const allProjects = computed(() => {
     return {
       id: item.id,
       title: item.header || item.name || 'Untitled Portfolio Item',
-      description: item.body || item.description || item.subheader ||  '',
+      description: item.body || item.description || item.subheader || '',
       category: category,
       imageUrl: item.image_url || item.thumbnail_url || '',
       projectUrl: primaryLink,
