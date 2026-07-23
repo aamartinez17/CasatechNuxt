@@ -1,24 +1,25 @@
 import { fileURLToPath, URL } from 'node:url'
-// Note: Ensure this path is correct for Nuxt 4 (usually root or ./assets/...)
 import { allPosts } from './assets/data/ArticleData.js'
 
 export default defineNuxtConfig({
-  // 1. THE NUXT 4 FIX: Tells Nuxt to use the modern engine behaviors
+  // 1. Modern engine behavior
   compatibilityDate: '2026-03-20',
 
+  // 🌟 TOP-LEVEL ROUTE RULES (Tells Nuxt to skip static SSR pre-baking for /portfolio)
+  routeRules: {
+    '/portfolio': { ssr: false } // Renders client-side: fixes Netlify build AND pulls live DB data instantly on page load
+  },
+
+  // 2. RUNTIME CONFIG (Strictly for environment variables)
   runtimeConfig: {
     public: {
       supabaseUrl: process.env.SUPABASE_URL || 'https://ggfnaxteqqcsmybodusd.supabase.co',
-      supabaseKey: process.env.SUPABASE_KEY || '', // Your public anon key
+      supabaseKey: process.env.SUPABASE_KEY || '',
       tenantId: process.env.NUXT_PUBLIC_TENANT_ID || ''
-    },
-    
-    routeRules: {
-    '/portfolio': { ssr: false } // Renders portfolio client-side, skipping prerender errors
-  }
+    }
   },
 
-  // 2. NUXT 4 ALIASING
+  // 3. NUXT ALIASING
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url)),
     '~': fileURLToPath(new URL('./', import.meta.url))
@@ -35,20 +36,19 @@ export default defineNuxtConfig({
     '@fortawesome/fontawesome-svg-core/styles.css'
   ],
 
-  // 3. VITE 7 OPTIMIZATION (Crucial for entry.js errors)
+  // 4. VITE 7 OPTIMIZATION
   vite: {
     optimizeDeps: {
       include: ['@vueuse/motion', '@vueuse/core', '@vueuse/shared'],
     },
     server: {
-      // Helps Vite 7 find linked modules in Windows/OneDrive environments
       fs: {
         strict: false
       }
     }
   },
 
-  // 4. NUXT 4 TRANSPILATION
+  // 5. NUXT TRANSPILATION
   build: {
     transpile: [
       '@vueuse/motion', 
@@ -60,7 +60,7 @@ export default defineNuxtConfig({
     ]
   },
 
-  // 5. MOTION DEFAULTS
+  // 6. MOTION DEFAULTS
   motion: {
     directives: {
       'pop-in': {
@@ -70,6 +70,5 @@ export default defineNuxtConfig({
     }
   },
 
-  // Rest of your config
   sitemap: { hostname: 'https://casatechllc.com' },
 })
