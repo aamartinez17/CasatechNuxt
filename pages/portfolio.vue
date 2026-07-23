@@ -115,8 +115,8 @@
 
               <!-- Tech Badges -->
               <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-50 text-xs font-mono text-slate-400">
-                <span v-for="tag in project.tags" :key="tag">
-                  #{{ tag.toLowerCase().replace(/\s+/g, '') }}
+                <span>
+                  #{{ project.tags.toLowerCase() }}
                 </span>
               </div>
             </div>
@@ -209,7 +209,7 @@ const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-i
     supabase
       .from('live_web')
       .select(`
-        id, tenant_id, name, header, subheader, description, body, image_url, thumbnail_url, metadata,
+        id, tenant_id, name, header, subheader, description, support, body, image_url, thumbnail_url, metadata,
         web_item_types ( id, type_name ),
         web_item_link_groups (
           id,
@@ -272,7 +272,7 @@ const allProjects = computed(() => {
       category: category,
       imageUrl: item.image_url || item.thumbnail_url || '',
       projectUrl: primaryLink,
-      tags: tags,
+      tags: item.support,
       extraLinks: groupLinks.map(l => {
         const retrievedSlug = iconMap.get(l.link_type_id) || '';
         
