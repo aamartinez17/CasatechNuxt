@@ -269,7 +269,7 @@ const allProjects = computed(() => {
       id: item.id,
       title: item.header || item.name || 'Untitled Portfolio Item',
       description: item.body || item.description || item.subheader || '',
-      category: category,
+      category: item.subheader,
       imageUrl: item.image_url || item.thumbnail_url || '',
       projectUrl: primaryLink,
       tags: item.support,
