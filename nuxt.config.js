@@ -56,7 +56,8 @@ export default defineNuxtConfig({
       '@vueuse/shared',
       '@fortawesome/vue-fontawesome',
       '@fortawesome/fontawesome-svg-core',
-      '@fortawesome/free-solid-svg-icons'
+      '@fortawesome/free-solid-svg-icons',
+      '@fortawesome/free-brands-svg-icons'
     ]
   },
 

@@ -94,25 +94,21 @@
                 {{ project.description }}
               </p>
 
-              <!-- Render Additional Attached Links if defined -->
+              <!-- Render Additional Attached Links -->
               <div v-if="project.extraLinks && project.extraLinks.length > 0" class="flex flex-wrap gap-2 pt-3 border-t border-gray-100 mb-3">
                 <a
                   v-for="link in project.extraLinks"
                   :key="link.id"
                   :href="link.url.startsWith('http') ? link.url : `https://${link.url}`"
                   target="_blank"
-                  class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1"
+                  class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1.5"
                 >
                   <font-awesome-icon 
                     v-if="link.icon_slug" 
                     :icon="isBrandIcon(link.icon_slug) ? ['fab', link.icon_slug] : ['fas', link.icon_slug]" 
                     class="text-xs" 
                   />
-                  <font-awesome-icon 
-                    v-else 
-                    icon="link" 
-                    class="text-xs" 
-                  />
+                  <font-awesome-icon v-else icon="link" class="text-xs" />
                   <span>{{ link.name }}</span>
                 </a>
               </div>
@@ -135,7 +131,7 @@
       </ClientOnly>
     </section>
 
-    <!-- Partner Trust Wall Section (Wrapped in ClientOnly to prevent LogoCarousel SSR directive crashes) -->
+    <!-- Partner Trust Wall Section -->
     <section class="border-t-4 border-b border-gray-100 py-16" id="client-logos">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-10">
@@ -202,60 +198,65 @@ const setFilter = (filterValue) => {
   activeFilter.value = filterValue;
 };
 
-// Query live_web strictly bounded by tenant_id
-const { data: rawWebItems, pending, error } = await useAsyncData('live-portfolio-items', async () => {
+// 🌟 FETCH BOTH TABLES IN PARALLEL inside useAsyncData
+const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-items', async () => {
   if (!tenantId) {
     console.error('❌ Missing NUXT_PUBLIC_TENANT_ID in configuration.');
-    return [];
+    return { rawWebItems: [], iconMap: new Map() };
   }
 
-  const { data, error } = await supabase
-    .from('live_web')
-    .select(`
-      id,
-      tenant_id,
-      name,
-      header,
-      subheader,
-      description,
-      body,
-      image_url,
-      thumbnail_url,
-      alt_text,
-      metadata,
-      web_item_types (
-        id,
-        type_name
-      ),
-      web_item_link_groups (
-        id,
-        web_item_links (
+  const [webRes, typeRes] = await Promise.all([
+    supabase
+      .from('live_web')
+      .select(`
+        id, tenant_id, name, header, subheader, description, body, image_url, thumbnail_url, metadata,
+        web_item_types ( id, type_name ),
+        web_item_link_groups (
           id,
-          name,
-          description,
-          url,
-          web_item_link_types (
-            icon_slug
-          )
+          web_item_links ( id, name, description, url, link_type_id )
         )
-      )
-    `)
-    .eq('tenant_id', tenantId)
-    .order('created_at', { ascending: false });
+      `)
+      .eq('tenant_id', tenantId)
+      .order('created_at', { ascending: false }),
 
-  if (error) throw error;
-  return data || [];
+    // 🌟 Pass tenant_id to web_item_link_types as well
+    supabase
+      .from('web_item_link_types')
+      .select('id, icon_slug')
+      .eq('tenant_id', tenantId)
+  ]);
+
+  if (webRes.error) console.error('❌ live_web Query Error:', webRes.error);
+  
+  // 🔍 Check if Supabase rejected reading web_item_link_types due to RLS or permissions:
+  // if (typeRes.error) {
+  //   console.error('❌ web_item_link_types Query Error:', typeRes.error);
+  // } else {
+  //   console.log('🧪 Raw web_item_link_types data array:', typeRes.data);
+  // }
+
+  const map = new Map((typeRes.data || []).map(t => [t.id, t.icon_slug]));
+
+  return {
+    rawWebItems: webRes.data || [],
+    iconMap: map
+  };
 });
 
-// Map raw database records into UI project objects
+// Clean computed property mapping using the fetched lookup map
 const allProjects = computed(() => {
-  if (!rawWebItems.value) return [];
+  const items = asyncData.value?.rawWebItems || [];
+  const iconMap = asyncData.value?.iconMap || new Map();
 
-  return rawWebItems.value.map(item => {
-    const groupLinks = item.web_item_link_groups?.web_item_links || [];
+  return items.map(item => {
+    const rawGroups = Array.isArray(item.web_item_link_groups)
+      ? item.web_item_link_groups
+      : (item.web_item_link_groups ? [item.web_item_link_groups] : []);
+
+    const groupLinks = rawGroups.flatMap(g => g.web_item_links || []);
     const primaryLink = groupLinks[0]?.url || item.metadata?.project_url || '';
 
-    const rawType = item.subheader?.toLowerCase() || '';
+    const rawType = item.web_item_types?.type_name?.toLowerCase() || item.subheader?.toLowerCase() || '';
     let category = 'showcase';
     if (rawType.includes('commerce') || rawType.includes('shop')) category = 'e-commerce';
     if (rawType.includes('app') || rawType.includes('software')) category = 'web-app';
@@ -272,12 +273,19 @@ const allProjects = computed(() => {
       imageUrl: item.image_url || item.thumbnail_url || '',
       projectUrl: primaryLink,
       tags: tags,
-      extraLinks: groupLinks.map(l => ({
-        id: l.id,
-        name: l.name || l.description,
-        url: l.url,
-        icon_slug: l.web_item_link_types?.icon_slug || ''
-      }))
+      extraLinks: groupLinks.map(l => {
+        const retrievedSlug = iconMap.get(l.link_type_id) || '';
+        
+        // 🧪 LOG PER LINK FOR TESTING
+        // console.log(`🔗 Link [${l.name}] -> link_type_id [${l.link_type_id}] -> icon_slug:`, retrievedSlug);
+
+        return {
+          id: l.id,
+          name: l.name || l.description || 'Link',
+          url: l.url || '#',
+          icon_slug: retrievedSlug
+        };
+      })
     };
   });
 });
