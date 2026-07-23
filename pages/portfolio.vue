@@ -19,7 +19,7 @@
     <!-- Main Portfolio Gallery Section -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="portfolio-gallery">
       
-      <!-- Premium Segmented Filter Controls -->
+      <!-- Segmented Filter Controls -->
       <div class="flex flex-wrap justify-center items-center gap-2 mb-12">
         <button 
           v-for="filter in filterOptions" 
@@ -34,8 +34,18 @@
         </button>
       </div>
 
+      <!-- Loading Indicator -->
+      <div v-if="pending" class="text-center py-20 text-slate-400 font-mono text-sm animate-pulse">
+        <i class="fa-solid fa-spinner fa-spin mr-2"></i> Syncing live portfolio modules...
+      </div>
+
+      <!-- Error Toast -->
+      <div v-else-if="error" class="text-center py-12 text-red-500 font-semibold text-sm">
+        Failed to load live portfolio items. Please refresh or try again later.
+      </div>
+
       <!-- Animated Responsive Project Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      <div v-else class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         <article 
           v-for="(project, index) in filteredProjects" 
           :key="project.id"
@@ -44,7 +54,7 @@
           :enter="{ opacity: 1, y: 0, transition: { delay: index * 100, type: 'spring', stiffness: 100 } }"
           class="group bg-white rounded-2xl border border-gray-100 shadow-soft overflow-hidden flex flex-col hover:shadow-xl hover:-translate-y-1.5 transition-all duration-300"
         >
-          <!-- Modern Image Container / Showcase Technique -->
+          <!-- Modern Image Showcase Container -->
           <div class="relative overflow-hidden aspect-[4/3] bg-slate-100 border-b border-gray-50">
             <img 
               :src="project.imageUrl || '/images/project-placeholder.png'" 
@@ -52,17 +62,17 @@
               class="w-full h-full object-cover transform group-hover:scale-[1.04] transition-transform duration-700 ease-out"
               loading="lazy"
             />
-            <!-- Dark Premium Overlay Fade on Hover -->
+            <!-- Dark Overlay Fade on Hover with Primary Action Link -->
             <div class="absolute inset-0 bg-primary/40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-[2px]">
               <a 
                 v-if="project.projectUrl" 
-                :href="project.projectUrl" 
+                :href="project.projectUrl.startsWith('http') ? project.projectUrl : `https://${project.projectUrl}`" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 class="bg-white text-primary font-heading font-bold py-2.5 px-5 rounded-lg shadow-lg hover:bg-secondary hover:text-white transition-colors flex items-center gap-2 text-sm"
               >
                 Launch Live Site
-                <i class="fa-solid fa-external-link text-xs"></i>
+                <font-awesome-icon icon="fa-solid fa-arrow-up-right-from-square" class="text-xs" />
               </a>
             </div>
           </div>
@@ -83,9 +93,32 @@
               {{ project.description }}
             </p>
 
-            <!-- Render Stack Badges dynamically if defined in data, or use defaults -->
-            <div class="flex flex-wrap gap-1.5 pt-4 border-t border-gray-50 text-xs font-mono text-slate-400">
-              <span v-for="tag in project.tags || ['Vue.js', 'Tailwind CSS']" :key="tag">
+            <!-- Render Additional Attached Links if defined -->
+            <div v-if="project.extraLinks && project.extraLinks.length > 0" class="flex flex-wrap gap-2 pt-3 border-t border-gray-100 mb-3">
+              <a
+                v-for="link in project.extraLinks"
+                :key="link.id"
+                :href="link.url.startsWith('http') ? link.url : `https://${link.url}`"
+                target="_blank"
+                class="text-[11px] font-semibold text-secondary hover:underline flex items-center gap-1"
+              >
+                <font-awesome-icon 
+                  v-if="link.icon_slug" 
+                  :icon="isBrandIcon(link.icon_slug) ? ['fab', link.icon_slug] : ['fas', link.icon_slug]" 
+                  class="text-xs" 
+                />
+                <font-awesome-icon 
+                  v-else 
+                  icon="fa-solid fa-link" 
+                  class="text-xs" 
+                />
+                <span>{{ link.name }}</span>
+              </a>
+            </div>
+
+            <!-- Tech Badges -->
+            <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-50 text-xs font-mono text-slate-400">
+              <span v-for="tag in project.tags" :key="tag">
                 #{{ tag.toLowerCase().replace(/\s+/g, '') }}
               </span>
             </div>
@@ -95,7 +128,7 @@
     </section>
 
     <!-- Partner Trust Wall Section -->
-    <section class=" border-t-4 border-b border-gray-100 py-16" id="client-logos">
+    <section class="border-t-4 border-b border-gray-100 py-16" id="client-logos">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-10">
           <h2 class="text-primary font-heading font-bold text-2xl sm:text-3xl">Local Partners & Growth Allies</h2>
@@ -110,7 +143,7 @@
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-brand-gradient text-white relative overflow-hidden text-center">
       <div class="absolute -top-24 -left-24 w-72 h-72 bg-white/5 rounded-full blur-2xl"></div>
       <div class="relative z-10 max-w-2xl mx-auto">
-        <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mb-4 text-white"> Ready to Launch Yours?</h2>
+        <h2 class="font-heading font-bold text-3xl sm:text-4xl lg:text-5xl mb-4 text-white">Ready to Launch Yours?</h2>
         <p class="text-slate-200 text-lg mb-8 max-w-md mx-auto">Let's build a custom interface tailored precisely to turn your visitors into paying customers.</p>
         <NuxtLink to="/contact" class="inline-flex items-center justify-center bg-cta hover:bg-cta-hover text-white font-heading font-bold py-3.5 px-8 rounded-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:-translate-y-0.5">
           Get a Custom Design Architecture Quote
@@ -122,14 +155,29 @@
 
 <script setup>
 import { ref, computed } from 'vue';
-import { allProjects as projectData } from '@/assets/data/ProjectData.js';
+import { createClient } from '@supabase/supabase-js'; // 🌟 Direct SDK import
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
 
-const allProjects = ref(projectData);
 const clientLogos = ref(logoData);
 const activeFilter = ref('all');
 
-// Configuration Array for Quick Filter Adjustments
+const isBrandIcon = (slug) => {
+  if (!slug) return false
+  const brandList = ['instagram', 'facebook', 'twitter', 'linkedin', 'github', 'youtube', 'tiktok', 'x-twitter']
+  return brandList.includes(slug.toLowerCase())
+};
+
+// Initialize Configuration
+const config = useRuntimeConfig();
+const tenantId = config.public.tenantId;
+
+// 🌟 Instantiate Supabase directly without relying on Nuxt module auto-imports
+const supabase = createClient(
+  config.public.supabaseUrl,
+  config.public.supabaseKey
+);
+
+// Filter Controls
 const filterOptions = [
   { label: 'All Projects', value: 'all' },
   { label: 'E-Commerce', value: 'e-commerce' },
@@ -141,6 +189,86 @@ const setFilter = (filterValue) => {
   activeFilter.value = filterValue;
 };
 
+// 🌟 Query live_web STRICTLY bounded by tenant_id
+const { data: rawWebItems, pending, error } = await useAsyncData('live-portfolio-items', async () => {
+  if (!tenantId) {
+    console.error('❌ Missing NUXT_PUBLIC_TENANT_ID in configuration.');
+    return [];
+  }
+
+  const { data, error } = await supabase
+    .from('live_web')
+    .select(`
+      id,
+      tenant_id,
+      name,
+      header,
+      subheader,
+      description,
+      body,
+      image_url,
+      thumbnail_url,
+      alt_text,
+      metadata,
+      web_item_types (
+        id,
+        type_name
+      ),
+      web_item_link_groups (
+        id,
+        web_item_links (
+          id,
+          name,
+          description,
+          url,
+          web_item_link_types (
+            icon_slug
+          )
+        )
+      )
+    `)
+    .eq('tenant_id', tenantId) // 🛡️ STRICT TENANT ISOLATION BOUNDARY
+    .order('created_at', { ascending: false });
+
+  if (error) throw error;
+  return data || [];
+});
+
+// Map raw database records into UI project objects
+const allProjects = computed(() => {
+  if (!rawWebItems.value) return [];
+
+  return rawWebItems.value.map(item => {
+    const groupLinks = item.web_item_link_groups?.web_item_links || [];
+    const primaryLink = groupLinks[0]?.url || item.metadata?.project_url || '';
+
+    const rawType = item.web_item_types?.type_name?.toLowerCase() || '';
+    let category = 'showcase';
+    if (rawType.includes('commerce') || rawType.includes('shop')) category = 'e-commerce';
+    if (rawType.includes('app') || rawType.includes('software')) category = 'web-app';
+
+    const tags = Array.isArray(item.metadata?.tags) 
+      ? item.metadata.tags 
+      : ['Nuxt.js', 'Tailwind CSS'];
+
+    return {
+      id: item.id,
+      title: item.header || item.name || 'Untitled Portfolio Item',
+      description: item.body || item.description || item.subheader ||  '',
+      category: category,
+      imageUrl: item.image_url || item.thumbnail_url || '',
+      projectUrl: primaryLink,
+      tags: tags,
+      extraLinks: groupLinks.map(l => ({
+        id: l.id,
+        name: l.name || l.description,
+        url: l.url,
+        icon_slug: l.web_item_link_types?.icon_slug || ''
+      }))
+    };
+  });
+});
+
 const filteredProjects = computed(() => {
   if (activeFilter.value === 'all') {
     return allProjects.value;
@@ -148,7 +276,6 @@ const filteredProjects = computed(() => {
   return allProjects.value.filter(project => project.category === activeFilter.value);
 });
 
-// Structural page dynamic head attributes
 useHead({
   title: 'Portfolio - Casatech LLC',
   meta: [
@@ -156,10 +283,3 @@ useHead({
   ]
 });
 </script>
-
-<style scoped>
-/* High quality box shadows to use across components */
-.shadow-soft {
-  box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04), 0 2px 6px -1px rgba(15, 23, 42, 0.02);
-}
-</style>

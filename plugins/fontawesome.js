@@ -1,8 +1,9 @@
 // plugins/fontawesome.js
-import { library, config } from '@fortawesome/fontawesome-svg-core'
+import { library, config} from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
-// Import only the specific icons we need for the navbar to optimize build weight
+
+// 1. Import Solid Icons
 import { 
   faPhone, 
   faBars, 
@@ -13,17 +14,18 @@ import {
   faBookOpen, 
   faPalette,
   faArrowRight,
-  faBullseye, // <--- Add this
+  faBullseye, 
   faArrowUpRightFromSquare, 
+  faLink,
   faCubes, 
   faChevronRight, 
   faSpinner,
-  faArrowsLeftRight, // <--- Add this
+  faArrowsLeftRight, 
   faCalendarCheck, 
   faScissors, 
   faClock, 
   faWandMagicSparkles, 
-  faStar,
+  faStar, 
   faUtensils, 
   faPizzaSlice, 
   faWineGlass, 
@@ -46,51 +48,28 @@ import {
   faTruckFast
 } from '@fortawesome/free-solid-svg-icons'
 
-// Disable adding CSS automatically
-config.autoAddCss = false
+// 2. Import Brand Icons
+import { 
+  faInstagram, 
+  faFacebook, 
+  faTwitter, 
+  faLinkedin, 
+  faGithub, 
+  faYoutube, 
+  faTiktok 
+} from '@fortawesome/free-brands-svg-icons'
 
-// Add imported icons to library
+config.autoAddCss = false,
+
 library.add(
-  faPhone, 
-  faBars, 
-  faTimes, 
-  faLaptopCode, 
-  faFolderOpen, 
-  faUser, 
-  faBookOpen, 
-  faPalette,
-  faArrowRight,
-  faBullseye, // <--- Add this
-  faArrowUpRightFromSquare,
-  faCubes, 
-  faChevronRight, 
-  faSpinner,
-  faArrowsLeftRight, // <--- Add this
-  faCalendarCheck, 
-  faScissors, 
-  faClock, 
-  faWandMagicSparkles, 
-  faStar,
-  faUtensils, 
-  faPizzaSlice, 
-  faWineGlass, 
-  faMugHot, 
-  faPlateWheat,
-  faNetworkWired, 
-  faShieldHalved, 
-  faChartPie, 
-  faServer, 
-  faSitemap,
-  faUserTie, 
-  faGavel, 
-  faHouseChimney, 
-  faHeartPulse, 
-  faCertificate,
-  faBagShopping, 
-  faCartShopping, 
-  faCreditCard, 
-  faTags, 
-  faTruckFast
+  faPhone, faBars, faTimes, faLaptopCode, faFolderOpen, faUser, faBookOpen, faPalette,
+  faArrowRight, faBullseye, faArrowUpRightFromSquare, faLink, faCubes, faChevronRight,
+  faSpinner, faArrowsLeftRight, faCalendarCheck, faScissors, faClock, faWandMagicSparkles,
+  faStar, faUtensils, faPizzaSlice, faWineGlass, faMugHot, faPlateWheat, faNetworkWired,
+  faShieldHalved, faChartPie, faServer, faSitemap, faUserTie, faGavel, faHouseChimney,
+  faHeartPulse, faCertificate, faBagShopping, faCartShopping, faCreditCard, faTags, faTruckFast,
+  
+  faInstagram, faFacebook, faTwitter, faLinkedin, faGithub, faYoutube, faTiktok
 )
 
 export default defineNuxtPlugin((nuxtApp) => {

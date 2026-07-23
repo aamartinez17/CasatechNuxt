@@ -6,6 +6,14 @@ export default defineNuxtConfig({
   // 1. THE NUXT 4 FIX: Tells Nuxt to use the modern engine behaviors
   compatibilityDate: '2026-03-20',
 
+  runtimeConfig: {
+    public: {
+      supabaseUrl: process.env.SUPABASE_URL || 'https://ggfnaxteqqcsmybodusd.supabase.co',
+      supabaseKey: process.env.SUPABASE_KEY || '', // Your public anon key
+      tenantId: process.env.NUXT_PUBLIC_TENANT_ID || ''
+    }
+  },
+
   // 2. NUXT 4 ALIASING
   alias: {
     '@': fileURLToPath(new URL('./', import.meta.url)),
