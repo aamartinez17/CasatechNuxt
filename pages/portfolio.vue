@@ -73,7 +73,6 @@
                   class="bg-white text-primary font-heading font-bold py-2.5 px-5 rounded-lg shadow-lg hover:bg-secondary hover:text-white transition-colors flex items-center gap-2 text-sm"
                 >
                   Launch Live Site
-                  <!-- 🌟 Fixed FontAwesome icon string syntax -->
                   <font-awesome-icon icon="arrow-up-right-from-square" class="text-xs" />
                 </a>
               </div>
@@ -109,7 +108,6 @@
                     :icon="isBrandIcon(link.icon_slug) ? ['fab', link.icon_slug] : ['fas', link.icon_slug]" 
                     class="text-xs" 
                   />
-                  <!-- 🌟 Fixed fallback FontAwesome icon string syntax -->
                   <font-awesome-icon 
                     v-else 
                     icon="link" 
@@ -137,7 +135,7 @@
       </ClientOnly>
     </section>
 
-    <!-- Partner Trust Wall Section -->
+    <!-- Partner Trust Wall Section (Wrapped in ClientOnly to prevent LogoCarousel SSR directive crashes) -->
     <section class="border-t-4 border-b border-gray-100 py-16" id="client-logos">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-xl mx-auto mb-10">
@@ -145,7 +143,12 @@
           <p class="text-slate-500 mt-2 text-sm sm:text-base">We design web architectures that empower local business infrastructures across Connecticut.</p>
         </div>
         
-        <LogoCarousel :logos="clientLogos" />
+        <ClientOnly>
+          <LogoCarousel :logos="clientLogos" />
+          <template #fallback>
+            <div class="h-16 bg-slate-100 rounded-xl animate-pulse"></div>
+          </template>
+        </ClientOnly>
       </div>
     </section>
 
