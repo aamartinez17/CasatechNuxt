@@ -116,7 +116,7 @@
               <!-- Tech Badges -->
               <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-50 text-xs font-mono text-slate-400">
                 <span>
-                  #{{ project.tags.toLowerCase() }}
+                  {{ project.tags.toLowerCase() }}
                 </span>
               </div>
             </div>
