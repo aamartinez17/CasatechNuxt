@@ -255,7 +255,7 @@ const allProjects = computed(() => {
     const groupLinks = item.web_item_link_groups?.web_item_links || [];
     const primaryLink = groupLinks[0]?.url || item.metadata?.project_url || '';
 
-    const rawType = item.web_item_types?.type_name?.toLowerCase() || '';
+    const rawType = item.subheader?.toLowerCase() || '';
     let category = 'showcase';
     if (rawType.includes('commerce') || rawType.includes('shop')) category = 'e-commerce';
     if (rawType.includes('app') || rawType.includes('software')) category = 'web-app';
