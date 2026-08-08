@@ -6,6 +6,13 @@ export default defineNuxtConfig({
     '/portfolio': { ssr: false }
   },
 
+  nitro: {
+    prerender: {
+      ignore: ['/managed-it-infrastructure', '/services/managed-it-infrastructure'],
+      failOnError: false // Do not crash build on missing links
+    }
+  },
+
   // Explicitly mapping environment variables so localhost client hydration reads them
   runtimeConfig: {
     public: {
