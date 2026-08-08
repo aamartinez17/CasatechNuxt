@@ -116,7 +116,7 @@
               <!-- Tech Badges -->
               <div class="flex flex-wrap gap-1.5 pt-3 border-t border-gray-50 text-xs font-mono text-slate-400">
                 <span>
-                  {{ project.tags.toLowerCase() }}
+                  {{ project.tags ? project.tags.toLowerCase() : '' }}
                 </span>
               </div>
             </div>
@@ -178,13 +178,20 @@ const isBrandIcon = (slug) => {
 
 // Initialize Configuration
 const config = useRuntimeConfig();
-const tenantId = config.public.tenantId;
 
-// Instantiate Supabase SDK
-const supabase = createClient(
-  config.public.supabaseUrl,
-  config.public.supabaseKey
-);
+let supabase;
+if (import.meta.client && window._supabaseInstance) {
+  supabase = window._supabaseInstance;
+} else {
+  supabase = createClient(
+    config.public.supabaseUrl || 'https://ggfnaxteqqcsmybodusd.supabase.co',
+    config.public.supabaseKey || ''
+  );
+  if (import.meta.client) {
+    window._supabaseInstance = supabase;
+  }
+}
+const tenantId = config.public.tenantId;
 
 // Filter Controls
 const filterOptions = [
@@ -198,28 +205,42 @@ const setFilter = (filterValue) => {
   activeFilter.value = filterValue;
 };
 
-// 🌟 FETCH BOTH TABLES IN PARALLEL inside useAsyncData
+// FETCH TABLES & FILTER BY 'Profile' TYPE USING type_id AND ORDER BY seq
 const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-items', async () => {
   if (!tenantId) {
     console.error('❌ Missing NUXT_PUBLIC_TENANT_ID in configuration.');
     return { rawWebItems: [], iconMap: new Map() };
   }
 
-  const [webRes, typeRes] = await Promise.all([
+  // 1. Fetch web_item_types first to resolve the ID corresponding to 'Profile'
+  const { data: typesData, error: typesError } = await supabase
+    .from('web_item_types')
+    .select('id, type_name')
+    .eq('tenant_id', tenantId);
+
+  if (typesError) console.error('❌ web_item_types Query Error:', typesError);
+
+  // Find the type ID for 'Profile' (case-insensitive match)
+  const profileTypeObj = (typesData || []).find(
+    t => t.type_name && t.type_name.toLowerCase() === 'profile'
+  );
+  const profileTypeId = profileTypeObj?.id;
+
+  // 2. Fetch live_web items filtering on type_id and ordering by seq ascending
+  const [webRes, linkTypesRes] = await Promise.all([
     supabase
       .from('live_web')
       .select(`
-        id, tenant_id, name, header, subheader, description, support, body, image_url, thumbnail_url, metadata,
-        web_item_types ( id, type_name ),
+        id, tenant_id, type_id, seq, name, header, subheader, description, support, body, image_url, thumbnail_url, metadata,
         web_item_link_groups (
           id,
           web_item_links ( id, name, description, url, link_type_id )
         )
       `)
       .eq('tenant_id', tenantId)
-      .order('created_at', { ascending: false }),
+      .eq('type_id', profileTypeId || '')
+      .order('seq', { ascending: true }),
 
-    // 🌟 Pass tenant_id to web_item_link_types as well
     supabase
       .from('web_item_link_types')
       .select('id, icon_slug')
@@ -227,23 +248,16 @@ const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-i
   ]);
 
   if (webRes.error) console.error('❌ live_web Query Error:', webRes.error);
-  
-  // 🔍 Check if Supabase rejected reading web_item_link_types due to RLS or permissions:
-  // if (typeRes.error) {
-  //   console.error('❌ web_item_link_types Query Error:', typeRes.error);
-  // } else {
-  //   console.log('🧪 Raw web_item_link_types data array:', typeRes.data);
-  // }
 
-  const map = new Map((typeRes.data || []).map(t => [t.id, t.icon_slug]));
+  const iconMap = new Map((linkTypesRes.data || []).map(t => [t.id, t.icon_slug]));
 
   return {
     rawWebItems: webRes.data || [],
-    iconMap: map
+    iconMap
   };
 });
 
-// Clean computed property mapping using the fetched lookup map
+// Computed property mapping
 const allProjects = computed(() => {
   const items = asyncData.value?.rawWebItems || [];
   const iconMap = asyncData.value?.iconMap || new Map();
@@ -256,28 +270,22 @@ const allProjects = computed(() => {
     const groupLinks = rawGroups.flatMap(g => g.web_item_links || []);
     const primaryLink = groupLinks[0]?.url || item.metadata?.project_url || '';
 
-    const rawType = item.web_item_types?.type_name?.toLowerCase() || item.subheader?.toLowerCase() || '';
+    const rawSubheader = item.subheader?.toLowerCase() || '';
     let category = 'showcase';
-    if (rawType.includes('commerce') || rawType.includes('shop')) category = 'e-commerce';
-    if (rawType.includes('app') || rawType.includes('software')) category = 'web-app';
-
-    const tags = Array.isArray(item.metadata?.tags) 
-      ? item.metadata.tags 
-      : ['Nuxt.js', 'Tailwind CSS'];
+    if (rawSubheader.includes('commerce') || rawSubheader.includes('shop')) category = 'e-commerce';
+    if (rawSubheader.includes('app') || rawSubheader.includes('software')) category = 'web-app';
 
     return {
       id: item.id,
+      seq: item.seq,
       title: item.header || item.name || 'Untitled Portfolio Item',
       description: item.body || item.description || item.subheader || '',
-      category: item.subheader,
+      category: item.subheader || category,
       imageUrl: item.image_url || item.thumbnail_url || '',
       projectUrl: primaryLink,
-      tags: item.support,
+      tags: item.support || '',
       extraLinks: groupLinks.map(l => {
         const retrievedSlug = iconMap.get(l.link_type_id) || '';
-        
-        // 🧪 LOG PER LINK FOR TESTING
-        // console.log(`🔗 Link [${l.name}] -> link_type_id [${l.link_type_id}] -> icon_slug:`, retrievedSlug);
 
         return {
           id: l.id,

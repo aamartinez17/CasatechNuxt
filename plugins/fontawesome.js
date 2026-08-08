@@ -16,12 +16,13 @@ import {
   faBullseye, 
   faArrowUpRightFromSquare, 
   faLink,
-  faGlobe, // 🌟 Added for "globe" web link icons
+  faGlobe, 
   faCubes, 
   faChevronRight, 
   faSpinner,
   faArrowsLeftRight, 
   faCalendarCheck, 
+  faCircleCheck, // 🌟 Added for "circle-check" icon
   faScissors, 
   faClock, 
   faWandMagicSparkles, 
@@ -68,7 +69,7 @@ library.add(
   // Solid Icons
   faPhone, faBars, faTimes, faLaptopCode, faFolderOpen, faUser, faBookOpen, faPalette,
   faArrowRight, faBullseye, faArrowUpRightFromSquare, faLink, faGlobe, faCubes, faChevronRight,
-  faSpinner, faArrowsLeftRight, faCalendarCheck, faScissors, faClock, faWandMagicSparkles,
+  faSpinner, faArrowsLeftRight, faCalendarCheck, faCircleCheck, faScissors, faClock, faWandMagicSparkles,
   faStar, faUtensils, faPizzaSlice, faWineGlass, faMugHot, faPlateWheat, faNetworkWired,
   faShieldHalved, faChartPie, faServer, faSitemap, faUserTie, faGavel, faHouseChimney,
   faHeartPulse, faCertificate, faBagShopping, faCartShopping, faCreditCard, faTags, faTruckFast,

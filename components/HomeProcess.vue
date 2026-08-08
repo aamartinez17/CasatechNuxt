@@ -1,7 +1,7 @@
 <template>
   <!-- 
     ENGAGEMENT PROCESS SECTION
-    Psychological Goal: Reduce perceived risk through a structured, 3-step mental model.
+    Psychological Goal: Reduce perceived risk through a structured, 3-step mental model for web development.
     Styling: Full-width background using our core neutral (bg-bg-light) to break up the page visually.
   -->
   <section class="py-24 border-t-4 border-gray-200">
@@ -19,15 +19,15 @@
           Our Methodology
         </h3>
         
-        <!-- Headline (Local SEO Target: IT Consulting Process New Haven) -->
+        <!-- Headline -->
         <h2 
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible-once="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 250, damping: 25, delay: 100 } }"
           class="text-primary font-heading font-bold text-3xl md:text-4xl leading-tight"
-          title="IT Consulting Process New Haven"
+          title="Custom Web Development Process"
         >
-          A Frictionless Transition to Better Technology.
+          A Frictionless Path from Concept to Launch.
         </h2>
       </div>
 
@@ -37,36 +37,35 @@
       -->
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-16 relative">
         
-        <!-- STEP 1: Discovery -->
+        <!-- STEP 1: Discovery & Architecture -->
         <div 
           v-motion
           :initial="{ opacity: 0, y: 30 }"
           :visible-once="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 25, delay: 200 } }"
           class="relative bg-white border border-gray-200 rounded-lg shadow-soft hover:shadow-hover transition-fast p-8 lg:p-10 overflow-hidden flex flex-col h-full group z-10"
         >
-          <!-- Giant Background Number (Oversized typography) -->
+          <!-- Giant Background Number -->
           <span class="absolute -top-6 -right-4 text-[150px] leading-none font-heading font-bold text-muted opacity-10 pointer-events-none group-hover:scale-110 transition-transform duration-500">
             01
           </span>
           
           <div class="relative z-20 flex-grow">
             <h3 class="text-xl font-heading font-bold text-primary mb-4 pr-8">
-              Bilingual Discovery Audit
+              Strategic Discovery & Wireframing
             </h3>
             <p class="text-body leading-relaxed">
-              We conduct a thorough, English/Spanish assessment of your current IT infrastructure or web architecture to identify vulnerabilities and growth opportunities.
+              We audit your business goals, target audience, and user flows to design intuitive wireframes and outline a high-converting web architecture.
             </p>
           </div>
         </div>
 
-        <!-- STEP 2: Strategy -->
-        <!-- Local SEO Target: Enterprise Web Development Strategy -->
+        <!-- STEP 2: Full-Stack Engineering -->
         <div 
           v-motion
           :initial="{ opacity: 0, y: 30 }"
           :visible-once="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 25, delay: 350 } }"
           class="relative bg-white border border-gray-200 rounded-lg shadow-soft hover:shadow-hover transition-fast p-8 lg:p-10 overflow-hidden flex flex-col h-full group z-10"
-          title="Enterprise Web Development Strategy"
+          title="Custom Nuxt & Vue Web Development"
         >
           <span class="absolute -top-6 -right-4 text-[150px] leading-none font-heading font-bold text-muted opacity-10 pointer-events-none group-hover:scale-110 transition-transform duration-500">
             02
@@ -74,22 +73,21 @@
           
           <div class="relative z-20 flex-grow">
             <h3 class="text-xl font-heading font-bold text-primary mb-4 pr-8">
-              Custom Strategy & Architecture
+              Custom Development & Design
             </h3>
             <p class="text-body leading-relaxed">
-              Our experts engineer a scalable roadmap, whether designing high-performance Vue.js/Nuxt applications or securing your local network.
+              We build your platform using cutting-edge Vue.js, Nuxt, and Tailwind CSS frameworks, ensuring pixel-perfect responsiveness, speed, and database connectivity.
             </p>
           </div>
         </div>
 
-        <!-- STEP 3: Deployment -->
-        <!-- Local SEO Target: Connecticut Tech Onboarding -->
+        <!-- STEP 3: Launch & Handoff -->
         <div 
           v-motion
           :initial="{ opacity: 0, y: 30 }"
           :visible-once="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, damping: 25, delay: 500 } }"
           class="relative bg-white border border-gray-200 rounded-lg shadow-soft hover:shadow-hover transition-fast p-8 lg:p-10 overflow-hidden flex flex-col h-full group z-10"
-          title="Connecticut Tech Onboarding"
+          title="Seamless Web App Launch and Training"
         >
           <span class="absolute -top-6 -right-4 text-[150px] leading-none font-heading font-bold text-muted opacity-10 pointer-events-none group-hover:scale-110 transition-transform duration-500">
             03
@@ -97,10 +95,10 @@
           
           <div class="relative z-20 flex-grow">
             <h3 class="text-xl font-heading font-bold text-primary mb-4 pr-8">
-              Seamless Deployment & 24/7 Support
+              Deployment & Video Handoff
             </h3>
             <p class="text-body leading-relaxed">
-              We execute the transition with zero downtime, backed by ongoing, reliable support for your entire team.
+              We execute a zero-downtime launch, configure Technical SEO, and deliver custom video walkthroughs so your team can easily manage content and sales.
             </p>
           </div>
         </div>
@@ -111,13 +109,9 @@
 </template>
 
 <script setup>
-// Pure presentation component. 
-// No extra JavaScript required thanks to native Vue directives!
+// Pure presentation component powered by Vue & Nuxt Motion directives!
 </script>
 
 <style scoped>
-/* 
-  Empty! 
-  Relying 100% on the Tailwind utility engine mapped to your core CSS variables.
-*/
+/* Relying 100% on the Tailwind utility engine */
 </style>
