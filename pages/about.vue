@@ -42,63 +42,60 @@
       </div>
     </section>
 
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
-      <div class="grid lg:grid-cols-12 gap-12 items-start">
-        <div class="lg:col-span-5 relative" v-motion-fade-visible>
-          <div class="aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl border-8 border-white group">
-            <img 
-              src="/images/aboutview-story.png" 
-              alt="Alex Martinez - Connecticut IT Consultant & Founder of Casatech LLC"
-              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-              loading="lazy"
-            />
-          </div>
-          <div class="absolute -bottom-6 -right-6 bg-primary p-6 rounded-xl shadow-xl text-white hidden md:block">
-            <span class="block text-3xl font-bold">8+ Years</span>
-            <span class="text-xs uppercase tracking-widest opacity-80">Enterprise Experience</span>
-          </div>
+
+  <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24">
+    <div class="grid lg:grid-cols-12 gap-12 items-start">
+      <!-- Left Profile Image Block -->
+      <div class="lg:col-span-5 relative" v-motion-fade-visible>
+        <div class="aspect-square bg-gray-200 rounded-2xl overflow-hidden shadow-2xl border-8 border-white group">
+          <img 
+            src="/images/aboutview-story.png" 
+            alt="Alex Martinez - Lead Web Engineer & Founder of Casatech LLC"
+            class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+            loading="lazy"
+          />
         </div>
-
-        <div class="lg:col-span-7 space-y-6" v-motion-slide-visible-right>
-          <div class="inline-flex items-center space-x-2 text-secondary font-bold text-sm uppercase tracking-wider">
-            <span>Direct Access to Senior Expertise</span>
-          </div>
-          <h2 class="text-4xl font-heading font-bold text-heading">Alex Martinez</h2>
-          <h3 class="text-xl text-secondary font-medium italic -mt-2">Founder & Lead Technical Consultant</h3>
-          
-          <div class="prose prose-slate max-w-none text-body space-y-4">
-            <p>
-              Born in Harrisonburg, VA, and now deeply rooted in New Haven, Alex is a first-generation 
-              Mexican-American who recognized a critical market failure: smaller businesses adopt technology 
-              at a slower rate, limiting their ability to compete with corporate giants.
-            </p>
-            <p>
-              Alex founded <span class="font-bold">Casatech LLC</span> to bridge this gap. A Computer Science 
-              scholar with a <span class="text-secondary font-bold underline decoration-secondary/30">3.97 GPA</span> 
-              and over 8 years of experience in enterprise infrastructure, he provides SMEs with something 
-              unheard of in the agency world: <strong>Direct, unfiltered access to a Senior Architect.</strong>
-            </p>
-            <p>
-              When you partner with Alex, you aren't handed off to a junior account manager. You gain 
-              a strategic growth partner providing <strong>Bilingual Tech Support in New Haven</strong> and 
-              enterprise-grade solutions that were once reserved for the Fortune 500.
-            </p>
-          </div>
-
-          <div class="flex flex-wrap gap-4 pt-4">
-            <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium border border-gray-200">
-              🎓 BS Computer Science (3.97 GPA)
-            </span>
-            <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium border border-gray-200">
-              🇲🇽 Fully Bilingual (English/Español)
-            </span>
-            <span class="px-4 py-2 bg-gray-100 rounded-full text-sm font-medium border border-gray-200 text-secondary">
-              ✓ 8+ Years Enterprise IT
-            </span>
-          </div>
+        <div class="absolute -bottom-6 -right-6 bg-primary p-6 rounded-xl shadow-xl text-white hidden md:block">
+          <span class="block text-3xl font-bold">8+ Years</span>
+          <span class="text-xs uppercase tracking-widest opacity-80">Full-Stack Experience</span>
         </div>
       </div>
-    </section>
+
+      <!-- Right Bio & Value Content -->
+      <div class="lg:col-span-7 space-y-6" v-motion-slide-visible-right>
+        <div class="inline-flex items-center space-x-2 text-secondary font-bold text-sm uppercase tracking-wider">
+          <span>Direct Access to Senior Engineering</span>
+        </div>
+        <h2 class="text-4xl font-heading font-bold text-heading">Alex Martinez</h2>
+        <h3 class="text-xl text-secondary font-medium italic -mt-2">Founder & Lead Software Engineer</h3>
+        
+        <div class="prose prose-slate max-w-none text-body space-y-4">
+          <p>
+            Modern businesses often struggle to convert online visitors into paying clients because off-the-shelf site builders and bloated templates create slow, impersonal digital experiences.
+          </p>
+          <p>
+            <span class="font-bold">Casatech LLC</span> was established to give growing companies a dedicated technical advantage. Bringing over 8 years of hands-on software development and system design experience, Alex builds high-performing, custom web applications and marketing sites designed to automate business workflows and drive lead conversion.
+          </p>
+          <p>
+            When you partner with Casatech, your project is never outsourced or handed off to junior account managers. You work directly with a senior engineer focused on translating your strategic revenue goals into fast, reliable, and secure web solutions.
+          </p>
+        </div>
+
+        <!-- Key Business Differentiators -->
+        <div class="flex flex-wrap gap-4 pt-4">
+          <span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium border border-slate-200 text-slate-700">
+            ⚡ Custom Frontend & API Architectures
+          </span>
+          <span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium border border-slate-200 text-slate-700">
+            🎯 Conversion-Focused UI/UX
+          </span>
+          <span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium border border-slate-200 text-secondary font-semibold">
+            ✓ Direct Senior-Level Partnership
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
 
 
     <!-- CREDENTIALS & AUTHORITY SECTION -->
@@ -122,15 +119,15 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-8" v-motion-slide-visible-bottom>
         <div class="p-6 bg-white rounded-xl shadow-soft border-b-4 border-primary">
           <div class="text-3xl font-bold text-primary mb-1">8+ Years</div>
-          <div class="text-xs font-bold uppercase tracking-tight text-secondary">Enterprise IT & Dev</div>
+          <div class="text-xs font-bold uppercase tracking-tight text-secondary">Full-Stack Engineering</div>
         </div>
         <div class="p-6 bg-white rounded-xl shadow-soft border-b-4 border-secondary">
-          <div class="text-3xl font-bold text-primary mb-1">3.97 GPA</div>
-          <div class="text-xs font-bold uppercase tracking-tight text-secondary">CS Excellence</div>
+          <div class="text-3xl font-bold text-primary mb-1">100%</div>
+          <div class="text-xs font-bold uppercase tracking-tight text-secondary">Custom Code Architecture</div>
         </div>
         <div class="p-6 bg-white rounded-xl shadow-soft border-b-4 border-cta">
-          <div class="text-3xl font-bold text-primary mb-1">100%</div>
-          <div class="text-xs font-bold uppercase tracking-tight text-secondary">Bilingual Support</div>
+          <div class="text-3xl font-bold text-primary mb-1">&lt; 1.0s</div>
+          <div class="text-xs font-bold uppercase tracking-tight text-secondary">Target Load Times</div>
         </div>
       </div>
     </section>

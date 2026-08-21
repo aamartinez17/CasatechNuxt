@@ -6,12 +6,111 @@
 // - imageLink: URL for the post's header image
 // - date: Publish date (I'll use ISO format for easy sorting)
 // - title_en/es: English/Spanish title
-// - subtitle_en/es: English/Spanish one-liner description
-// - body_en/es: The full article content. Using HTML as a string
+// - subtitle: one-liner description
+// - body: The full article content. Using HTML as a string
 //               is the easiest way to store formatting (like <p> tags).
 // - links: Optional array of reference links
 
 export const allPosts = [
+  {
+  id: 5,
+  slug: 'stop-sharing-passwords-how-to-grant-manager-access-safely',
+  imageLink: '/images/blogview-header.png',
+  date: '2026-08-20',
+  category: 'IT Infrastructure & Security',
+  title: 'Stop Sharing Passwords: How to Safely Grant Agency Access to Your Social Media',
+  subtitle: 'Handing over primary account logins creates massive security risks. Learn how to use built-in delegation tools on Instagram, Meta, LinkedIn, and Google to manage team access safely.',
+  body: `
+    <section class="prose prose-slate max-w-none">
+      <p class="lead text-xl text-secondary mb-8">
+        When working with web developers or marketing agencies, business owners frequently want to integrate live social feeds into their website or delegate daily content management. However, a common and dangerous habit is handing over master account usernames and passwords.
+      </p>
+
+      <p>
+        Sharing direct logins creates severe security vulnerabilities, breaks two-factor authentication (2FA) workflows, and makes revoking access a nightmare if you part ways with a contractor. Modern platforms are engineered with multi-user access controls, allowing you to assign manager roles without ever revealing your primary credentials.
+      </p>
+
+      <p>
+        At Casatech LLC, we advocate for zero-trust security practices across all digital touchpoints. Here is how to delegate access safely across every major social and business network.
+      </p>
+
+      <h2 class="text-heading font-bold mt-12 mb-6">Security Comparison: Credential Sharing vs. Native Delegation</h2>
+      
+      <div class="overflow-x-auto my-8">
+        <table class="min-w-full border-collapse border border-slate-200 shadow-soft rounded-lg">
+          <thead class="bg-slate-900 text-white text-sm">
+            <tr>
+              <th class="p-4 border border-slate-300 text-left">Access Category</th>
+              <th class="p-4 border border-slate-300 text-left">Direct Password Sharing</th>
+              <th class="p-4 border border-slate-300 text-left">Native Delegation & Role Management</th>
+            </tr>
+          </thead>
+          <tbody class="text-body text-sm">
+            <tr class="bg-white">
+              <td class="p-4 border border-slate-300 font-bold">Credential Safety</td>
+              <td class="p-4 border border-slate-300 text-red-600">Master password exposed to third parties</td>
+              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Master password remains strictly private</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 border border-slate-300 font-bold">Account Offboarding</td>
+              <td class="p-4 border border-slate-300 text-red-600">Requires changing password & resetting 2FA</td>
+              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">One-click role revocation in settings</td>
+            </tr>
+            <tr class="bg-white">
+              <td class="p-4 border border-slate-300 font-bold">Audit Trail</td>
+              <td class="p-4 border border-slate-300">Impossible to trace specific user actions</td>
+              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Detailed user activity and change logs</td>
+            </tr>
+            <tr class="bg-slate-50">
+              <td class="p-4 border border-slate-300 font-bold">API Integration</td>
+              <td class="p-4 border border-slate-300">Triggers suspicious login lockouts</td>
+              <td class="p-4 border border-slate-300 bg-secondary/5 font-medium text-green-700">Secure API token authorization</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <h2 class="text-heading font-bold mt-12 mb-4">1. Meta Ecosystem: Instagram & Facebook Pages</h2>
+      <p>
+        To grant third-party agencies access to your Instagram account without sharing your password, your Instagram account must be converted to a <strong>Business Profile</strong> and set to <strong>Public</strong>.
+      </p>
+      <p>
+        Once converted and linked to your business’s Facebook Page, access is delegated via <strong>Meta Business Suite</strong> or <strong>Meta Business Manager</strong>. You simply invite the agency's business ID or email address and assign granular permissions (such as content posting, ad campaign management, or API token creation for website feed integrations).
+      </p>
+
+      <h2 class="text-heading font-bold mt-12 mb-4">2. LinkedIn Company Pages</h2>
+      <p>
+        LinkedIn cleanly separates personal user accounts from organizational pages. Never give a developer your personal LinkedIn password to manage your corporate presence.
+      </p>
+      <p>
+        Navigate to your Company Page in admin view, select <strong>Settings &gt; Manage Admins</strong>, and add the individual via their name or email profile. You can assign specific roles such as <em>Content Admin</em> or <em>Super Admin</em> based on the scope of their work.
+      </p>
+
+      <h2 class="text-heading font-bold mt-12 mb-4">3. YouTube Channels & Google Business Profile</h2>
+      <p>
+        Your primary Google and Gmail credentials control your entire corporate ecosystem. Sharing them exposes sensitive drive data, emails, and payment methods.
+      </p>
+      <p>
+        For YouTube, move your channel to a <strong>Brand Account</strong> or use <strong>YouTube Studio Permissions</strong> under <em>Settings &gt; Permissions</em> to invite users as Editors or Managers. For Google Business Profile, add agency emails directly under <em>Business Profile Settings &gt; Managers</em>. Note that Google enforces a mandatory 7-day waiting period before newly added admins can execute primary ownership transfers.
+      </p>
+
+      <h2 class="text-heading font-bold mt-12 mb-4">4. X (Formerly Twitter) Delegate Controls</h2>
+      <p>
+        X provides built-in delegation features designed specifically for teams and agencies managing multiple brands.
+      </p>
+      <p>
+        In your account settings, navigate to <strong>Settings and Privacy &gt; Security and Account Access &gt; Delegates</strong>. Simply enter the team member's @handle to invite them. They can switch directly into your account from their dashboard without ever seeing or requesting your password.
+      </p>
+    </section>
+  `,
+  ctaTitle: 'Secure Your Digital Infrastructure Today.',
+  ctaSubtitle: 'Protect your brand assets while enabling your web and marketing teams. Schedule a <strong>Digital Security & Website Integration Audit</strong> with Casatech LLC to implement proper access controls across your systems.',
+  links: [
+    { name: 'Meta Business Manager Overview', url: 'https://business.facebook.com/' },
+    { name: 'YouTube Studio Permissions Guide', url: 'https://studio.youtube.com/' },
+    { name: 'Custom Web Design & API Integrations', url: '/portfolio' }
+  ]
+},
   {
     id: 4,
     slug: 'local-seo-generative-engine-optimization',
