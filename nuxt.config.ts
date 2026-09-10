@@ -15,10 +15,13 @@ export default defineNuxtConfig({
 
   // Explicitly mapping environment variables so localhost client hydration reads them
   runtimeConfig: {
+    googleSolarApiKey: process.env.GOOGLE_SOLAR_SECRET_API_KEY,
+    geminiApiKey: process.env.GEMINI_API_KEY || '',
     public: {
       supabaseUrl: process.env.SUPABASE_URL || 'https://ggfnaxteqqcsmybodusd.supabase.co',
       supabaseKey: process.env.SUPABASE_KEY || '',
-      tenantId: process.env.NUXT_PUBLIC_TENANT_ID || ''
+      tenantId: process.env.NUXT_PUBLIC_TENANT_ID || '',
+      googleMapsApiKey: process.env.GOOGLE_MAPS_PUBLIC_API_KEY || ''
     }
   },
 

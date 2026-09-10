@@ -15,7 +15,8 @@
         </p>
       </div>
     </section>
-
+    
+    <ToolCtaBanner />
     <!-- Main Portfolio Gallery Section -->
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="portfolio-gallery">
       
@@ -166,6 +167,7 @@
 import { ref, computed } from 'vue';
 import { createClient } from '@supabase/supabase-js';
 import { clientLogos as logoData } from '@/assets/data/PartnerData.js';
+import ToolCtaBanner from '~/components/portfolio/ToolCtaBanner.vue';
 
 const clientLogos = ref(logoData);
 const activeFilter = ref('all');

@@ -22,7 +22,7 @@ import {
   faSpinner,
   faArrowsLeftRight, 
   faCalendarCheck, 
-  faCircleCheck, // 🌟 Added for "circle-check" icon
+  faCircleCheck,
   faScissors, 
   faClock, 
   faWandMagicSparkles, 
@@ -46,7 +46,9 @@ import {
   faCartShopping, 
   faCreditCard, 
   faTags, 
-  faTruckFast
+  faTruckFast,
+  faCalculator,
+  faArrowDown
 } from '@fortawesome/free-solid-svg-icons'
 
 // 2. Import Brand Icons
@@ -73,6 +75,7 @@ library.add(
   faStar, faUtensils, faPizzaSlice, faWineGlass, faMugHot, faPlateWheat, faNetworkWired,
   faShieldHalved, faChartPie, faServer, faSitemap, faUserTie, faGavel, faHouseChimney,
   faHeartPulse, faCertificate, faBagShopping, faCartShopping, faCreditCard, faTags, faTruckFast,
+  faCalculator,faArrowDown,
   
   // Brand Icons
   faInstagram, faFacebook, faTwitter, faXTwitter, faLinkedin, faGithub, faYoutube, faTiktok
