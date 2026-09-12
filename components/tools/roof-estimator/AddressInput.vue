@@ -1,52 +1,84 @@
 <template>
   <div class="space-y-4">
-    <div class="flex items-center justify-between">
-      <label class="block text-xs font-semibold uppercase tracking-wider text-slate-700">
-        Target Property Address
-      </label>
-      <span 
-        class="text-[11px] font-medium px-2.5 py-0.5 rounded-full border shadow-sm"
-        :class="apiReady 
-          ? 'text-secondary bg-secondary/10 border-secondary/30' 
-          : 'text-amber-700 bg-amber-50 border-amber-200'"
-      >
-        {{ apiReady ? '● Places Autocomplete Active' : '○ Standalone / Ready' }}
-      </span>
-    </div>
-
-    <div class="relative">
-      <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
-        <font-awesome-icon icon="globe" class="text-sm" />
+    <!-- State 1: Disabled / Maintenance Mode (Visitors) -->
+    <div 
+      v-if="!isEnabled" 
+      class="bg-slate-50/80 border border-slate-200/90 rounded-xl p-5 text-center space-y-3"
+    >
+      <div class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-secondary/10 text-secondary mb-1">
+        <font-awesome-icon icon="globe" class="text-base" />
+      </div>
+      
+      <div class="space-y-1">
+        <h4 class="text-sm font-bold text-slate-900">
+          Live Address Analysis in Private Preview
+        </h4>
+        <p class="text-xs text-slate-600 max-w-sm mx-auto leading-relaxed">
+          Custom address LiDAR analysis is currently available by appointment. Contact our team to request a full property takeoff.
+        </p>
       </div>
 
-      <input 
-        ref="inputRef"
-        v-model="internalAddress" 
-        type="text" 
-        placeholder="Enter address (e.g., 240 Whitney Ave, New Haven, CT)"
-        autocomplete="off"
-        class="w-full bg-bg-light border border-slate-300/80 focus:border-secondary focus:ring-2 focus:ring-secondary/20 rounded-xl py-3 pl-10 pr-28 text-slate-900 text-sm placeholder-slate-400 shadow-sm transition-all"
-        @keydown.enter.prevent="handleManualSubmit"
-      />
-
-      <button 
-        type="button"
-        @click="handleManualSubmit"
-        :disabled="isLoading || !internalAddress.trim()"
-        class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-cta hover:bg-cta/90 active:scale-95 disabled:opacity-50 disabled:hover:bg-cta disabled:active:scale-100 text-white text-xs font-semibold py-2 px-3.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm"
-      >
-        <font-awesome-icon 
-          :icon="isLoading ? 'spinner' : 'arrow-right'" 
-          :class="{ 'fa-spin': isLoading }" 
-          class="text-[11px]"
-        />
-        <span>Analyze</span>
-      </button>
+      <div class="pt-1">
+        <NuxtLink 
+          to="/contact" 
+          class="inline-flex items-center gap-2 bg-cta hover:bg-cta/90 active:scale-95 text-white text-xs font-semibold py-2.5 px-5 rounded-lg shadow-sm transition-all"
+        >
+          <span>Contact Us for an Estimate</span>
+          <font-awesome-icon icon="arrow-right" class="text-[11px]" />
+        </NuxtLink>
+      </div>
     </div>
 
-    <p class="text-xs text-slate-500 leading-normal">
-      Resolves parcel boundaries, rooftop coordinates, and Google Solar API LiDAR vectors.
-    </p>
+    <!-- State 2: Active Address Bar (Unlocked via Secret URL) -->
+    <template v-else>
+      <div class="flex items-center justify-between">
+        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-700">
+          Target Property Address
+        </label>
+        <span 
+          class="text-[11px] font-medium px-2.5 py-0.5 rounded-full border shadow-sm"
+          :class="apiReady 
+            ? 'text-secondary bg-secondary/10 border-secondary/30' 
+            : 'text-amber-700 bg-amber-50 border-amber-200'"
+        >
+          {{ apiReady ? '● Places Autocomplete Active' : '○ Standalone / Ready' }}
+        </span>
+      </div>
+
+      <div class="relative">
+        <div class="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+          <font-awesome-icon icon="globe" class="text-sm" />
+        </div>
+
+        <input 
+          ref="inputRef"
+          v-model="internalAddress" 
+          type="text" 
+          placeholder="Enter address (e.g., 240 Whitney Ave, New Haven, CT)"
+          autocomplete="off"
+          class="w-full bg-bg-light border border-slate-300/80 focus:border-secondary focus:ring-2 focus:ring-secondary/20 rounded-xl py-3 pl-10 pr-28 text-slate-900 text-sm placeholder-slate-400 shadow-sm transition-all"
+          @keydown.enter.prevent="handleManualSubmit"
+        />
+
+        <button 
+          type="button"
+          @click="handleManualSubmit"
+          :disabled="isLoading || !internalAddress.trim()"
+          class="absolute right-1.5 top-1/2 -translate-y-1/2 bg-cta hover:bg-cta/90 active:scale-95 disabled:opacity-50 disabled:hover:bg-cta disabled:active:scale-100 text-white text-xs font-semibold py-2 px-3.5 rounded-lg transition-all flex items-center gap-1.5 shadow-sm"
+        >
+          <font-awesome-icon 
+            :icon="isLoading ? 'spinner' : 'arrow-right'" 
+            :class="{ 'fa-spin': isLoading }" 
+            class="text-[11px]"
+          />
+          <span>Analyze</span>
+        </button>
+      </div>
+
+      <p class="text-xs text-slate-500 leading-normal">
+        Resolves parcel boundaries, rooftop coordinates, and Google Solar API LiDAR vectors.
+      </p>
+    </template>
   </div>
 </template>
 
@@ -66,10 +98,50 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'place-selected', 'submit'])
 
+const route = useRoute()
+const isEnabled = ref(false)
 const inputRef = ref(null)
 const internalAddress = ref(props.modelValue)
 const apiReady = ref(false)
 let autocompleteInstance = null
+
+// Differentiate between Persistent (Storage) vs Temporary (Session memory only)
+const checkUnlockState = () => {
+  if (!import.meta.client) return
+
+  const queryVal = String(route.query.enabled ?? route.query.enable ?? '').toLowerCase()
+  const isHashTemp = window.location.hash.toLowerCase().includes('enable')
+  const isHashDisable = window.location.hash.toLowerCase().includes('disable')
+
+  // Explicit lockout command: ?enabled=false or #disable
+  if (queryVal === 'false' || isHashDisable) {
+    localStorage.removeItem('estimator_enabled')
+    isEnabled.value = false
+    return
+  }
+
+  // 1. EXTENDED ACCESS: Query param (?enabled=true) persists across sessions
+  if (queryVal === 'true' || queryVal === '1') {
+    localStorage.setItem('estimator_enabled', 'true')
+    isEnabled.value = true
+    return
+  }
+
+  // Check if previously unlocked for extended access
+  if (localStorage.getItem('estimator_enabled') === 'true') {
+    isEnabled.value = true
+    return
+  }
+
+  // 2. TEMPORARY USE: Hash (#enable) enables for this view only (NOT saved to localStorage)
+  if (isHashTemp) {
+    isEnabled.value = true
+    return
+  }
+
+  // Default: Disabled for visitors
+  isEnabled.value = false
+}
 
 watch(() => props.modelValue, (newVal) => {
   if (newVal !== internalAddress.value) {
@@ -86,7 +158,6 @@ const handleManualSubmit = () => {
   emit('submit', internalAddress.value)
 }
 
-// Load Google Maps Bootstrap if not already loaded globally
 const ensureGoogleMapsLoaded = (apiKey) => {
   return new Promise((resolve, reject) => {
     if (window.google?.maps) {
@@ -167,21 +238,24 @@ const initAutocomplete = async () => {
 onMounted(async () => {
   if (!import.meta.client) return
 
-  const runtimeConfig = useRuntimeConfig()
-  const apiKey = runtimeConfig.public?.googleMapsApiKey || ''
+  checkUnlockState()
 
-  if (apiKey) {
-    try {
-      await ensureGoogleMapsLoaded(apiKey)
-      await initAutocomplete()
-    } catch (err) {
-      console.warn('Could not initialize Google Places Autocomplete:', err)
+  if (isEnabled.value) {
+    const runtimeConfig = useRuntimeConfig()
+    const apiKey = runtimeConfig.public?.googleMapsApiKey || ''
+
+    if (apiKey) {
+      try {
+        await ensureGoogleMapsLoaded(apiKey)
+        await initAutocomplete()
+      } catch (err) {
+        console.warn('Could not initialize Google Places Autocomplete:', err)
+      }
     }
   }
 })
 </script>
 
-<!-- Global styles to enforce visibility and styling of the injected Google dropdown -->
 <style>
 .pac-container {
   z-index: 99999 !important;
