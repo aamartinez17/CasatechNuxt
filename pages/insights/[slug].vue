@@ -1,5 +1,5 @@
 <template>
-  <article class="pb-24 bg-bg-light min-h-screen">
+  <article class="py-24 bg-bg-light min-h-screen">
     <!-- Handle 404 Case -->
     <div v-if="!article" class="max-w-3xl mx-auto px-4 text-center py-20">
       <h1 class="text-2xl font-bold text-heading">Article Not Found</h1>

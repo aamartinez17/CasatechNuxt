@@ -13,8 +13,8 @@
       <Navbar />
       
       <main class="flex-grow">
-        <!-- Global Breadcrumbs Wrapper: Full-width gradient background with centered inner content -->
-        <div v-if="route.path !== '/'" class="w-full bg-gradient-to-r from-secondary/5 via-secondary/5 to-transparent border-y border-secondary/10 -mt-2 py-1 shadow-sm">
+        <!-- Global Breadcrumbs Wrapper: Only shows on deep subroutes (path segments > 1) -->
+        <div v-if="shouldShowBreadcrumbs" class="w-full bg-gradient-to-r from-secondary/5 via-secondary/5 to-transparent border-y border-secondary/10 -mt-2 pb-1">
           <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1.5">
             <AppBreadcrumbs />
           </div>
@@ -34,4 +34,10 @@
 
 <script setup>
 const route = useRoute()
+
+// Computes true only if the path has more than one segment (e.g., /services/foo is true, but /, /about, /services are false)
+const shouldShowBreadcrumbs = computed(() => {
+  const segments = route.path.split('/').filter(Boolean)
+  return segments.length > 1
+})
 </script>
