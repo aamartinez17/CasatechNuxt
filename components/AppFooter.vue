@@ -8,7 +8,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       
       <!-- Top Section: 4-Column Grid -->
-      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-12 mb-12">
         
         <!-- Column 1: Brand & Strategic UVP -->
         <div class="flex flex-col">
@@ -27,13 +27,13 @@
         </div>
 
         <!-- Column 2: Studio Services -->
-        <nav aria-label="Footer Services">
+        <!-- <nav aria-label="Footer Services">
           <h5 class="text-sm font-semibold text-white uppercase tracking-widest mb-6">
             Services
           </h5>
           <ul class="space-y-4">
             <li>
-              <NuxtLink to="/web-design" class="text-sm text-slate-400 hover:text-secondary transition-colors">
+              <NuxtLink to="/servi" class="text-sm text-slate-400 hover:text-secondary transition-colors">
                 Custom Web Design
               </NuxtLink>
             </li>
@@ -53,10 +53,10 @@
               </NuxtLink>
             </li>
           </ul>
-        </nav>
+        </nav> -->
 
         <!-- Column 3: Studio Profile -->
-        <nav aria-label="Footer Company">
+        <!-- <nav aria-label="Footer Company">
           <h5 class="text-sm font-semibold text-white uppercase tracking-widest mb-6">
             Our Studio
           </h5>
@@ -82,7 +82,7 @@
               </NuxtLink>
             </li>
           </ul>
-        </nav>
+        </nav> -->
 
         <!-- Column 4: Local NAP Info (Optimized for Web SEO) -->
         <div>

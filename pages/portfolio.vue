@@ -1,8 +1,9 @@
 <template>
-  <div class="min-h-screen pt-20">
+  <div class="min-h-screen">
     <!-- Header Hero Section -->
-    <section class="relative overflow-hidden py-20 px-4 sm:px-6 lg:px-8 border-b-4 border-gray-100">
+    <section class="relative overflow-hidden px-4 sm:px-6 lg:px-8 border-b-4 border-gray-100 pb-16 pt-8">
       <div class="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 opacity-70"></div>
+
       <div class="max-w-5xl mx-auto text-center relative z-10">
         <span class="text-secondary uppercase tracking-widest font-bold text-xs sm:text-sm bg-secondary/10 px-3 py-1 rounded-full">
           Our Crafted Work
@@ -15,10 +16,10 @@
         </p>
       </div>
     </section>
-    
-    <ToolCtaBanner />
+
+    <ToolCtaBanner class="pt-16"/>
     <!-- Main Portfolio Gallery Section -->
-    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16" id="portfolio-gallery">
+    <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4" id="portfolio-gallery">
       
       <!-- Segmented Filter Controls -->
       <div class="flex flex-wrap justify-center items-center gap-2 mb-12">
@@ -214,7 +215,6 @@ const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-i
     return { rawWebItems: [], iconMap: new Map() };
   }
 
-  // 1. Fetch web_item_types first to resolve the ID corresponding to 'Profile'
   const { data: typesData, error: typesError } = await supabase
     .from('web_item_types')
     .select('id, type_name')
@@ -222,13 +222,11 @@ const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-i
 
   if (typesError) console.error('❌ web_item_types Query Error:', typesError);
 
-  // Find the type ID for 'Profile' (case-insensitive match)
   const profileTypeObj = (typesData || []).find(
     t => t.type_name && t.type_name.toLowerCase() === 'profile'
   );
   const profileTypeId = profileTypeObj?.id;
 
-  // 2. Fetch live_web items filtering on type_id and ordering by seq ascending
   const [webRes, linkTypesRes] = await Promise.all([
     supabase
       .from('live_web')
@@ -259,7 +257,6 @@ const { data: asyncData, pending, error } = await useAsyncData('live-portfolio-i
   };
 });
 
-// Computed property mapping
 const allProjects = computed(() => {
   const items = asyncData.value?.rawWebItems || [];
   const iconMap = asyncData.value?.iconMap || new Map();

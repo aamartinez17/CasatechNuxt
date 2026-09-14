@@ -19,6 +19,9 @@ import {
   faGlobe, 
   faCubes, 
   faChevronRight, 
+  faChevronDown, 
+  faChevronUp, 
+  faCode, 
   faSpinner,
   faArrowsLeftRight, 
   faCalendarCheck, 
@@ -48,7 +51,10 @@ import {
   faTags, 
   faTruckFast,
   faCalculator,
-  faArrowDown
+  faArrowDown,
+  faDatabase,   
+  faChartLine,
+  faPlug        // <-- Added faPlug
 } from '@fortawesome/free-solid-svg-icons'
 
 // 2. Import Brand Icons
@@ -70,12 +76,13 @@ config.autoAddCss = false
 library.add(
   // Solid Icons
   faPhone, faBars, faTimes, faLaptopCode, faFolderOpen, faUser, faBookOpen, faPalette,
-  faArrowRight, faBullseye, faArrowUpRightFromSquare, faLink, faGlobe, faCubes, faChevronRight,
+  faArrowRight, faBullseye, faArrowUpRightFromSquare, faLink, faGlobe, faCubes, 
+  faChevronRight, faChevronDown, faChevronUp, faCode, 
   faSpinner, faArrowsLeftRight, faCalendarCheck, faCircleCheck, faScissors, faClock, faWandMagicSparkles,
   faStar, faUtensils, faPizzaSlice, faWineGlass, faMugHot, faPlateWheat, faNetworkWired,
   faShieldHalved, faChartPie, faServer, faSitemap, faUserTie, faGavel, faHouseChimney,
   faHeartPulse, faCertificate, faBagShopping, faCartShopping, faCreditCard, faTags, faTruckFast,
-  faCalculator,faArrowDown,
+  faCalculator, faArrowDown, faDatabase, faChartLine, faPlug, // <-- Added faPlug here
   
   // Brand Icons
   faInstagram, faFacebook, faTwitter, faXTwitter, faLinkedin, faGithub, faYoutube, faTiktok

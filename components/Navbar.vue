@@ -128,7 +128,7 @@ import { ref, onMounted, onUnmounted } from 'vue';
 
 const navLinks = [
   { label: 'Home', path: '/', icon: 'fa-solid fa-palette' },
-  { label: 'Services', path: '/web-design', icon: 'fa-solid fa-laptop-code' },
+  { label: 'Services', path: '/services', icon: 'fa-solid fa-laptop-code' },
   { label: 'Portfolio', path: '/portfolio', icon: 'fa-solid fa-folder-open' },
   { label: 'About', path: '/about', icon: 'fa-solid fa-user' },
   { label: 'Insights', path: '/insights', icon: 'fa-solid fa-book-open' },

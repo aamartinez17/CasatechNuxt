@@ -1,6 +1,6 @@
 <template>
   <!-- Full-height landing page structure with refined aesthetic spacing -->
-  <article class="min-h-screen grid grid-cols-1 lg:grid-cols-12 bg-[#fafaf9] mt-12 selection:bg-secondary/20 selection:text-primary font-sans antialiased">
+  <article class="min-h-screen grid grid-cols-1 lg:grid-cols-12 bg-[#fafaf9] selection:bg-secondary/20 selection:text-primary font-sans antialiased">
     
     <!-- LEFT COLUMN: Bespoke Authority, Craft & Narrative -->
     <section class="lg:col-span-5 bg-[#09111e] p-8 md:p-16 lg:p-24 flex flex-col justify-between relative overflow-hidden text-slate-100 border-r border-slate-800/40">

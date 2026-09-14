@@ -4,7 +4,7 @@
     Visual Design Pivot: High-end creative agency layout with absolute background blur-balls, 
     interactive elements, and rich typography.
   -->
-  <section class="relative overflow-hidden pt-24 pb-16 sm:pt-32 sm:pb-24 lg:pb-32 min-h-[90vh] flex items-center">
+  <section class="relative overflow-hidden pb-16 sm:pb-24 lg:pb-32 min-h-[90vh] flex items-center">
     
     <!-- Dynamic Decorative Gradients (Background Blobs) -->
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 8s;"></div>

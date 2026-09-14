@@ -1,5 +1,5 @@
 <template>
-  <article class="pt-32 pb-24 bg-bg-light min-h-screen">
+  <article class="pb-24 bg-bg-light min-h-screen">
     <!-- Handle 404 Case -->
     <div v-if="!article" class="max-w-3xl mx-auto px-4 text-center py-20">
       <h1 class="text-2xl font-bold text-heading">Article Not Found</h1>
@@ -9,12 +9,6 @@
     <!-- Article Content -->
     <template v-else>
       <header class="max-w-3xl mx-auto px-4 mb-12" v-motion-fade>
-        <nav class="mb-8">
-          <NuxtLink to="/insights" class="text-secondary font-bold flex items-center gap-2 hover:translate-x-[-4px] transition-transform outline-none focus-visible:ring-2 focus-visible:ring-cta rounded">
-            <svg class="w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/></svg>
-            Back to Insights
-          </NuxtLink>
-        </nav>
 
         <h1 class="text-4xl md:text-5xl font-heading font-extrabold text-heading mb-8 leading-tight">
           {{ article.title }}
@@ -37,7 +31,7 @@
           </div>
         </div>
 
-        <!-- NEW: Conditional Featured Image Block -->
+        <!-- Conditional Featured Image Block -->
         <div v-if="article.imageLink" class="mb-12 rounded-2xl overflow-hidden shadow-xl aspect-video md:aspect-[21/9]">
           <img 
             :src="article.imageLink" 
@@ -53,27 +47,28 @@
 
         <footer class="mt-16 p-10 bg-bg-dark rounded-3xl text-center shadow-2xl relative overflow-hidden" v-motion-slide-visible-bottom>
             <div 
-            class="absolute inset-0 opacity-20" 
-            style="background-image: radial-gradient(#ff7a00 1.5px, transparent 1.5px); background-size: 30px 30px;"
+              class="absolute inset-0 opacity-20" 
+              style="background-image: radial-gradient(#ff7a00 1.5px, transparent 1.5px); background-size: 30px 30px;"
             ></div>
 
             <div class="relative z-10">
                 <h3 class="text-white text-3xl md:text-4xl font-heading font-bold mb-6 italic">
-                <span v-html="article.ctaTitle || 'Ready to Scale?'"></span>
+                  <span v-html="article.ctaTitle || 'Ready to Scale?'"></span>
                 </h3>
 
                 <p v-if="article.ctaSubtitle" class="text-slate-300 mb-10 max-w-2xl mx-auto text-lg leading-relaxed">
-                <span v-html="article.ctaSubtitle"></span>
+                  <span v-html="article.ctaSubtitle"></span>
                 </p>
 
                 <NuxtLink 
-                to="/contact" 
-                class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-5 px-12 rounded-xl text-xl inline-block shadow-lg transition-transform hover:-translate-y-1 active:scale-95 no-underline"
+                  to="/contact" 
+                  class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-5 px-12 rounded-xl text-xl inline-block shadow-lg transition-transform hover:-translate-y-1 active:scale-95 no-underline"
                 >
-                {{ article.ctaButtonText || 'Launch Your Tech Right' }}
+                  {{ article.ctaButtonText || 'Launch Your Tech Right' }}
                 </NuxtLink>
             </div>
         </footer>
+
         <!-- Render Optional Reference Links -->
         <div v-if="article.links && article.links.length > 0" class="mt-12 p-6 bg-white rounded-xl border border-gray-200">
           <h4 class="text-sm uppercase tracking-widest text-secondary mb-4 font-bold">Reference Links</h4>
@@ -107,10 +102,9 @@ const formatDate = (dateString) => {
 }
 
 if (article) {
-  // Determine structured data image (fallback to headshot if no featured image)
   const schemaImage = article.imageLink 
     ? `https://casatechllc.com${article.imageLink}` 
-    : 'https://casatechllc.com/images/alex-martinez-headshot.png';
+    : 'https://casatechllc.com/images/alex-martinez-headshot.png'
 
   useHead({
     title: `${article.title} | Casatech LLC Insights`,

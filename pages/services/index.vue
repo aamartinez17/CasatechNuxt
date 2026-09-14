@@ -1,9 +1,12 @@
 <template>
-  <article class="pt-12 bg-light overflow-hidden">
+  <article class="bg-light overflow-hidden">
     
     <!-- SECTION 1: HERO (Bespoke Interactive Playbook) -->
     <section>
-      <ServiceHero />
+      <ServicesHero />
+    </section>
+    <section>
+      <ServicesExplorer />
     </section>
 
     <!-- SECTION 2: CORE DESIGN CAPABILITIES -->
@@ -16,7 +19,7 @@
             <div class="w-12 h-12 bg-secondary/10 rounded-lg flex items-center justify-center text-secondary mb-4">
               <font-awesome-icon icon="fa-solid fa-palette" class="text-xl" />
             </div>
-            <h2 class="text-3xl font-heading font-bold text-secondary">Bespoke Design & UI/UX Artistry</h2>
+            <h2 class="text-3xl font-heading font-bold text-secondary">Custom Design & UI/UX Artistry</h2>
             <p class="text-body leading-relaxed">
               We never use slow, generic templates. Our <strong>Custom Web Design New Haven</strong> solutions utilize 
               custom Nuxt 3 architectures to deliver jaw-dropping visuals with mobile loading speeds under 1.5 seconds. 

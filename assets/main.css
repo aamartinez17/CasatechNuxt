@@ -60,7 +60,7 @@
 
   /* Apply Global Typography & Backgrounds */
   body {
-    background-color: var(--color-bg-light);
+    /* background-color: var(--color-bg-light); */
     color: var(--text-body);
     font-family: var(--font-family-body);
     font-size: var(--font-size-base);

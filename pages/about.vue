@@ -1,5 +1,6 @@
 <template>
-  <article class="pt-28 pb-16 bg-bg-light lg:mt-12 overflow-hidden">
+  <article class="pt-16 pb-16 bg-bg-light overflow-hidden">
+
     <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-20" 
              v-motion-fade-visible>
       <span class="text-cta font-heading font-bold tracking-widest uppercase text-sm mb-4 block">
@@ -92,6 +93,7 @@
           <span class="px-4 py-2 bg-slate-50 rounded-full text-sm font-medium border border-slate-200 text-secondary font-semibold">
             ✓ Direct Senior-Level Partnership
           </span>
+
         </div>
       </div>
     </div>

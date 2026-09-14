@@ -1,5 +1,7 @@
 <template>
-  <main class="sm:pt-40 pt-28 pb-24 bg-bg-light min-h-screen">
+  <main class="pt-16 pb-24 bg-bg-light min-h-screen">
+    
+
     <!-- Header Section -->
     <header class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 mb-16 text-center md:text-left" v-motion-fade>
       <h1 class="text-3xl md:text-6xl font-heading font-extrabold text-heading mb-6 tracking-tight">

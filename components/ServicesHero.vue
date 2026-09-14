@@ -1,35 +1,35 @@
 <!-- components/ServiceHero.vue -->
 <template>
-  <section 
+  <section
     v-if="activeType"
-    class="relative bg-slate-950 text-white py-20 lg:py-28 overflow-hidden min-h-[90vh] flex items-center"
+    class="relative bg-slate-950 text-white pb-20 lg:pb-28 pt-12 lg:pt-16 overflow-hidden min-h-[90vh] flex items-center"
   >
     
-    <!-- DYNAMIC BACKGROUND ICONS WITH CONSTANT FLOAT ANIMATION -->
-    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0">
-      <div 
-        v-for="(icon, index) in activeType.bgIcons" 
+    <!-- STATIC BACKGROUND ICONS (Floating animations removed to eliminate scroll stutter) -->
+    <div class="absolute inset-0 overflow-hidden pointer-events-none z-0 select-none">
+      <div
+        v-for="(icon, index) in activeType.bgIcons"
         :key="icon + index"
-        class="absolute text-secondary/15 text-8xl sm:text-9xl transition-all duration-1000 ease-in-out"
-        :class="[getIconPosition(index), getFloatAnimation(index)]"
+        class="absolute text-secondary/10 text-8xl sm:text-9xl pointer-events-none"
+        :class="getIconPosition(index)"
       >
         <font-awesome-icon :icon="icon" />
       </div>
     </div>
 
     <!-- Background Accent Glows -->
-    <div 
-      class="absolute -top-40 -right-40 w-96 h-96 rounded-full blur-3xl transition-colors duration-1000 opacity-20 z-0" 
+    <div
+      class="absolute -top-40 -right-40 w-96 h-96 rounded-full blur-3xl opacity-20 z-0 pointer-events-none"
       :class="activeType.gradient ? activeType.gradient.split(' ')[0].replace('from-', 'bg-') : 'bg-indigo-500'"
     ></div>
-    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl z-0"></div>
+    <div class="absolute -bottom-40 -left-40 w-96 h-96 bg-primary/20 rounded-full blur-3xl z-0 pointer-events-none"></div>
 
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-      
-      <!-- Section Intro Header (Now fully animated on scroll!) -->
+
+      <!-- Section Intro Header -->
       <div class="text-center max-w-3xl mx-auto mb-16 overflow-hidden">
         
-        <!-- Animated Eyebrow Badge -->
+        <!-- Eyebrow Badge -->
         <div
           v-motion
           :initial="{ opacity: 0, y: 30 }"
@@ -41,8 +41,8 @@
           </span>
         </div>
 
-        <!-- Animated Main Title -->
-        <h2 
+        <!-- Main Title -->
+        <h2
           v-motion
           :initial="{ opacity: 0, y: 40 }"
           :enter="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 120, damping: 18, delay: 250 } }"
@@ -51,8 +51,8 @@
           Web Architectures Tailored To Your Goal
         </h2>
 
-        <!-- Animated Description Paragraph -->
-        <p 
+        <!-- Description Paragraph -->
+        <p
           v-motion
           :initial="{ opacity: 0, y: 30 }"
           :enter="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 20, delay: 400 } }"
@@ -67,7 +67,7 @@
       <div class="card-gradient-border backdrop-blur-md p-6 lg:p-10 shadow-2xl relative">
         
         <!-- Mobile Swipe Hint -->
-        <div class="absolute -top-3 right-6 lg:hidden bg-slate-800 border border-slate-700 text-slate-300 text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 animate-pulse z-10">
+        <div class="absolute -top-3 right-6 lg:hidden bg-slate-800 border border-slate-700 text-slate-300 text-[10px] uppercase tracking-wider px-3 py-1 rounded-full shadow-lg flex items-center gap-1.5 z-10">
           <font-awesome-icon icon="fa-solid fa-arrows-left-right" class="text-accent" />
           Swipe to explore
         </div>
@@ -79,8 +79,8 @@
             :key="type.id"
             @click="selectType(type)"
             class="flex items-center gap-2.5 px-5 py-3 rounded-xl font-heading text-sm font-semibold whitespace-nowrap transition-all duration-300 relative group"
-            :class="activeType.id === type.id 
-              ? 'bg-gradient-to-r ' + type.gradient + ' text-white shadow-lg scale-[1.02]' 
+            :class="activeType.id === type.id
+              ? 'bg-gradient-to-r ' + type.gradient + ' text-white shadow-lg scale-[1.02]'
               : 'text-slate-400 hover:text-white hover:bg-slate-800/50'"
           >
             <font-awesome-icon :icon="type.icon" class="mr-1.5" />
@@ -94,7 +94,7 @@
           <!-- LEFT COLUMN: The Strategy Board -->
           <div class="lg:col-span-7 space-y-6">
             
-            <!-- TRANSITION ADDED: Strategy Profile Eyebrow Badge -->
+            <!-- Strategy Profile Eyebrow Badge -->
             <div class="overflow-hidden">
               <div :key="activeType.id" class="animate-base-up inline-flex items-center gap-2">
                 <span class="text-xs font-mono px-3 py-1 bg-slate-800 text-accent border border-slate-700/50 rounded-md">
@@ -131,13 +131,13 @@
               </div>
             </div>
 
-            <!-- TRANSITION ADDED: Interactive Example Link Container -->
+            <!-- Interactive Example Link Container -->
             <div class="overflow-hidden">
               <div :key="activeType.id" class="animate-base-up pt-2">
                 <div v-if="activeType.exampleUrl">
-                  <a 
-                    :href="activeType.exampleUrl" 
-                    target="_blank" 
+                  <a
+                    :href="activeType.exampleUrl"
+                    target="_blank"
                     rel="noopener noreferrer"
                     class="inline-flex items-center gap-2 text-md bg-slate-900/70 py-1 px-3 rounded-lg font-semibold text-accent hover:text-white transition-colors group"
                   >
@@ -166,8 +166,8 @@
               <!-- Dynamic Feature Loops -->
               <div class="space-y-4 overflow-hidden relative min-h-[220px]">
                 <div :key="activeType.id" class="animate-base-up space-y-4">
-                  <div 
-                    v-for="(feat, idx) in activeType.features" 
+                  <div
+                    v-for="(feat, idx) in activeType.features"
                     :key="feat.title"
                     class="flex gap-4 group"
                   >
@@ -189,8 +189,8 @@
 
               <!-- Instant Callout Anchor -->
               <div class="pt-4 border-t border-slate-800/80 mt-6">
-                <NuxtLink 
-                  to="/contact" 
+                <NuxtLink
+                  to="/contact"
                   class="flex items-center justify-between bg-slate-900 hover:bg-slate-800 border border-slate-800 hover:border-accent py-3 px-4 rounded-xl text-xs font-bold text-center transition-all duration-300 group"
                 >
                   <span class="group-hover:text-accent transition-colors">Discuss Your Project Model</span>
@@ -227,16 +227,6 @@ const getIconPosition = (index) => {
   ];
   return positions[index] || '';
 };
-
-const getFloatAnimation = (index) => {
-  const animations = [
-    'animate-float-slow',
-    'animate-float-medium',
-    'animate-float-fast',
-    'animate-float-reverse'
-  ];
-  return animations[index] || 'animate-float-slow';
-};
 </script>
 
 <style scoped>
@@ -260,37 +250,6 @@ const getFloatAnimation = (index) => {
 }
 
 .animate-base-up {
-  animation: baseUp 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-}
-
-/* CONSTANT BACKDROP FLOATING KEYFRAMES */
-@keyframes floatSlow {
-  0%, 100% { transform: translateY(0) rotate(12deg) scale(1.1); }
-  50% { transform: translateY(-15px) rotate(15deg) scale(1.12); }
-}
-@keyframes floatMedium {
-  0%, 100% { transform: translateY(0) rotate(-12deg) scale(0.95); }
-  50% { transform: translateY(-10px) rotate(-8deg) scale(0.98); }
-}
-@keyframes floatFast {
-  0%, 100% { transform: translateY(0) rotate(45deg) scale(1.25); }
-  50% { transform: translateY(-18px) rotate(40deg) scale(1.22); }
-}
-@keyframes floatReverse {
-  0%, 100% { transform: translateY(0) rotate(-6deg) scale(1); }
-  50% { transform: translateY(12px) rotate(-2deg) scale(1.03); }
-}
-
-.animate-float-slow {
-  animation: floatSlow 8s ease-in-out infinite;
-}
-.animate-float-medium {
-  animation: floatMedium 6s ease-in-out infinite;
-}
-.animate-float-fast {
-  animation: floatFast 5s ease-in-out infinite;
-}
-.animate-float-reverse {
-  animation: floatReverse 7s ease-in-out infinite;
+  animation: baseUp 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 </style>
