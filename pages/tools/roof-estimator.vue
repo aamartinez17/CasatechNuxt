@@ -17,7 +17,7 @@ useHead({
 </script>
 
 <template>
-  <main class="min-h-screen bg-slate-950 text-white mt-20 md:mt-24">
+  <main class="min-h-screen bg-slate-950 text-white">
     <ToolHero />
     <ToolArchitectureFlow />
     <RoofEstimatorWidget />

@@ -80,7 +80,6 @@ export default defineEventHandler(async (event) => {
     try {
       const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${lat},${lng}&zoom=20&size=512x512&maptype=satellite&key=${publicMapsKey}`
       
-      // If user manually oriented panorama, use heading; otherwise omit so Google aims camera directly at the coordinates
       let streetViewUrl = `https://maps.googleapis.com/maps/api/streetview?size=640x480&location=${lat},${lng}&fov=85&pitch=${pitch || 10}&key=${publicMapsKey}`
       if (heading !== undefined && heading !== null && !isNaN(Number(heading))) {
         streetViewUrl += `&heading=${Number(heading)}`
@@ -129,7 +128,6 @@ Respond ONLY with valid JSON:
         generationConfig: { responseMimeType: 'application/json' }
       }
 
-      // Dynamically test available models in prioritized order to bypass 404/503 version deprecations
       const candidateModels = [
         'gemini-2.0-flash',
         'gemini-2.0-flash-001',
@@ -167,13 +165,18 @@ Respond ONLY with valid JSON:
 
       if (rawJson) {
         const parsed = JSON.parse(rawJson)
+        
+        // --- DIAGNOSTIC TEST LOGS ---
+        console.log('🧪 [TEST LOG] Parsed Obstacles Array from JSON:', parsed.obstacles)
+        console.log('🧪 [TEST LOG] Is Array?', Array.isArray(parsed.obstacles))
+        // ----------------------------
+
         if (parsed.detectedMaterial) detectedMaterial = parsed.detectedMaterial
         if (Array.isArray(parsed.obstacles)) detectedObstacles = parsed.obstacles
         
         let stories = parseInt(parsed.estimatedStories, 10) || 2
         let height = parseFloat(parsed.buildingHeightFt) || (stories * 10)
 
-        // Safety floor: Multi-story or walkout buildings cannot have single-floor heights
         if (stories >= 2 && height < 18) {
           height = stories * 9.5
         }

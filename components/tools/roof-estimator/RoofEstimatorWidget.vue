@@ -1,222 +1,266 @@
 <template>
-  <section class="py-16 sm:py-24 bg-slate-50 text-slate-900 relative antialiased" id="live-estimator">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <section class="py-10 sm:py-14 bg-secondary/40 text-slate-100 relative antialiased min-h-[92vh] flex items-center" id="live-estimator">
+    <!-- Ambient Background Accents -->
+    <div class="absolute top-0 right-1/4 w-96 h-96 bg-secondary/15 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-sky-500/10 rounded-full blur-3xl pointer-events-none"></div>
+
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
       
-      <!-- Section Header -->
-      <div class="max-w-3xl mb-10 sm:mb-14">
-        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-100 border border-slate-200 shadow-sm text-xs font-semibold text-secondary uppercase tracking-wider mb-4">
-          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
-          Live Estimator Workspace
-        </div>
-        <h2 class="text-3xl sm:text-4xl font-bold tracking-tight text-primary mb-3">
-          Instant Roof Pitch & Surface Takeoff
-        </h2>
-        <p class="text-slate-600 text-base leading-relaxed">
-          Evaluate true 3D surface area, slope multipliers, and shingle requirements in real time. Choose a sample profile or type an address below.
-        </p>
-      </div>
-
-      <!-- Main Widget Layout Grid -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <!-- APP FRAME CONTAINER -->
+      <div class="bg-primary border border-slate-800 rounded-3xl shadow-2xl overflow-hidden flex flex-col min-h-[640px] relative">
         
-        <!-- Left Controls Column (5 cols) -->
-        <div class="lg:col-span-5 space-y-6">
-          
-          <!-- Address & Search Card -->
-          <div class="bg-primary/20 border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <AddressInput 
-              v-model="searchQuery"
-              :is-loading="isLoading"
-              @place-selected="onPlaceSelected"
-              @submit="runAnalysis"
-            />
+        <!-- TOP APP BAR -->
+        <div class="bg-slate-950/80 border-b border-slate-800/80 px-6 py-4 flex items-center justify-between backdrop-blur-md">
+          <div class="flex items-center gap-3">
+            <div class="flex items-center gap-1.5">
+              <span class="w-3 h-3 rounded-full bg-rose-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-amber-500/80"></span>
+              <span class="w-3 h-3 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <div class="h-4 w-px bg-slate-800 mx-1"></div>
+            <span class="text-xs font-mono uppercase tracking-widest text-slate-400">
+              Casatech Roof Engine // <span class="text-secondary font-bold">Step {{ currentStep }} of 3</span>
+            </span>
+          </div>
 
-            <!-- Archetype Quick Presets -->
-            <div class="mt-6 pt-5 border-t border-slate-100">
-              <span class="text-xs font-semibold uppercase tracking-wider text-slate-500 block mb-3">
-                Sample Property Benchmarks
+          <!-- Quick Action Controls -->
+          <div class="flex items-center gap-3">
+            <!-- Magnifying Glass Quick-Jump to Input View -->
+            <button 
+              v-if="currentStep !== 1"
+              type="button"
+              @click="currentStep = 1"
+              class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-medium text-secondary border border-slate-700 transition-all shadow-sm group"
+              title="Change Address / Search"
+            >
+              <font-awesome-icon icon="magnifying-glass" class="group-hover:scale-110 transition-transform" />
+              <span class="hidden sm:inline">Search Address</span>
+            </button>
+
+            <!-- Step Indicators -->
+            <div class="flex items-center gap-1.5">
+              <span 
+                v-for="s in 3" 
+                :key="s"
+                class="w-2.5 h-2.5 rounded-full transition-all duration-300"
+                :class="currentStep === s ? 'bg-secondary w-6' : 'bg-slate-800'"
+              ></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- APP CONTENT BODY -->
+        <div class="flex-1 p-6 sm:p-10 flex flex-col justify-center relative overflow-hidden">
+          
+          <!-- ANALYZING LOADING STATE OVERLAY -->
+          <div v-if="isLoading" class="absolute inset-0 bg-slate-950/90 z-30 flex flex-col items-center justify-center text-center p-6 space-y-6 backdrop-blur-xl animate-fade-in">
+            <div class="relative w-24 h-24 flex items-center justify-center">
+              <div class="absolute inset-0 rounded-full border-4 border-secondary/20 animate-ping"></div>
+              <div class="absolute inset-2 rounded-full border-4 border-t-secondary border-r-transparent border-b-transparent border-l-transparent animate-spin"></div>
+              <font-awesome-icon icon="satellite" class="text-secondary text-3xl animate-pulse" />
+            </div>
+            <div class="space-y-2">
+              <h3 class="text-lg font-heading font-bold text-white tracking-wide">
+                {{ analysisStepText }}
+              </h3>
+              <p class="text-xs font-mono text-slate-400 max-w-xs mx-auto">
+                Synthesizing satellite elevation mesh, LIDAR point cloud, and computer vision shingle classification...
+              </p>
+            </div>
+            <div class="w-full max-w-xs bg-slate-900 rounded-full h-2 overflow-hidden border border-slate-800">
+              <div class="bg-gradient-to-r from-secondary to-sky-400 h-full transition-all duration-300" :style="{ width: analysisProgress + '%' }"></div>
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- STEP 1: ADDRESS, SAMPLES & WASTE % SETUP   -->
+          <!-- ========================================== -->
+          <div v-if="currentStep === 1" class="max-w-2xl mx-auto w-full space-y-8 animate-fade-in">
+            <div class="text-center space-y-2">
+              <span class="text-xs font-mono uppercase tracking-widest text-secondary font-bold bg-secondary/10 px-3 py-1 rounded-full border border-secondary/20">
+                Property Identification
               </span>
-              <div class="flex flex-wrap gap-2">
-                <button 
-                  v-for="preset in presets" 
-                  :key="preset.id"
-                  type="button"
-                  @click="loadPreset(preset)"
-                  class="text-xs font-medium px-3.5 py-2 rounded-xl border transition-all"
-                  :class="activePresetId === preset.id 
-                    ? 'bg-secondary text-white border-primary shadow-sm' 
-                    : 'bg-slate-50 border-slate-200 text-slate-600 hover:bg-slate-100 hover:text-slate-900'"
-                >
-                  {{ preset.label }}
-                </button>
+              <h2 class="text-3xl sm:text-4xl font-heading font-bold text-white tracking-tight">
+                Enter an Address or Choose a Benchmark
+              </h2>
+              <p class="text-sm text-slate-400">
+                Select a sample roof archetype below or input any custom street address to run an instant 3D takeoff.
+              </p>
+            </div>
+
+            <!-- Address Input Card -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+              <AddressInput 
+                v-model="searchQuery"
+                :is-loading="isLoading"
+                @place-selected="onPlaceSelected"
+                @submit="runAnalysis"
+              />
+
+              <!-- Sample Benchmarks Grid -->
+              <div class="pt-5 border-t border-slate-800">
+                <span class="text-xs font-mono uppercase tracking-wider text-slate-400 block mb-3">
+                  Sample Property Benchmarks
+                </span>
+                <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5">
+                  <button 
+                    v-for="preset in presets" 
+                    :key="preset.id"
+                    type="button"
+                    @click="loadPreset(preset)"
+                    class="text-left p-3 rounded-xl border transition-all"
+                    :class="activePresetId === preset.id 
+                      ? 'bg-secondary/20 border-secondary text-white shadow-sm' 
+                      : 'bg-slate-900 border-slate-800 text-slate-300 hover:bg-slate-800/80 hover:text-white'"
+                  >
+                    <span class="font-heading font-semibold text-xs block mb-0.5">{{ preset.label.split(' ')[0] }} Roof</span>
+                    <span class="text-[10px] text-slate-400 block truncate">{{ preset.address }}</span>
+                  </button>
+                </div>
+              </div>
+
+              <!-- Contractor Waste Contingency Selection -->
+              <div class="pt-5 border-t border-slate-800 space-y-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-xs font-mono uppercase tracking-wider text-slate-400">
+                    Contractor Waste Contingency
+                  </span>
+                  <span class="text-xs font-bold text-emerald-400 bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 rounded-full">
+                    +{{ wastePercentage }}% Margin
+                  </span>
+                </div>
+
+                <div class="grid grid-cols-3 gap-2">
+                  <button 
+                    v-for="pct in [10, 15, 20]" 
+                    :key="pct"
+                    type="button"
+                    @click="wastePercentage = pct"
+                    class="py-2.5 px-2 text-xs font-semibold rounded-xl border transition-all text-center"
+                    :class="wastePercentage === pct 
+                      ? 'bg-secondary text-white border-secondary shadow-sm' 
+                      : 'bg-slate-900 text-slate-300 border-slate-800 hover:bg-slate-800'"
+                  >
+                    +{{ pct }}%
+                    <span class="block text-[9px] font-normal opacity-75 mt-0.5">
+                      {{ pct === 10 ? 'Gable' : pct === 15 ? 'Hip/Valley' : 'Complex' }}
+                    </span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>
 
-          <!-- Waste Factor Selector Card -->
-          <div class="bg-secondary/20 border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow space-y-5">
+          <!-- ========================================== -->
+          <!-- STEP 2: VISUAL PREVIEW & SPATIAL RENDER    -->
+          <!-- ========================================== -->
+          <div v-if="currentStep === 2" class="space-y-6 animate-fade-in max-w-4xl mx-auto w-full">
             <div class="flex items-center justify-between">
-              <h3 class="text-sm font-bold text-slate-900">
-                Contractor Waste Contingency
-              </h3>
-              <span class="text-xs font-bold text-emerald-700 bg-emerald-50 border border-emerald-200/80 px-2.5 py-0.5 rounded-full">
-                +{{ wastePercentage }}% Margin
-              </span>
+              <div>
+                <h3 class="text-xl font-heading font-bold text-white">Aerial & Street-View Spatial Inspection</h3>
+                <p class="text-xs text-slate-400 font-mono">{{ searchQuery }}</p>
+              </div>
+              <div class="text-right">
+                <span class="text-xs font-mono bg-secondary/10 text-secondary border border-secondary/20 px-3 py-1 rounded-lg">
+                  {{ currentData.pitchRatio || '5:12' }} Slope ({{ currentData.pitchDegrees || 21 }}°)
+                </span>
+              </div>
             </div>
 
-            <!-- Waste Buttons -->
-            <div class="grid grid-cols-3 gap-2.5">
+            <!-- Visual Component Wrapper -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-xl min-h-[420px] flex flex-col">
+              <VisualPreview 
+                :lat="currentData.lat"
+                :lng="currentData.lng"
+                :pitch-ratio="currentData.pitchRatio"
+                :pitch-degrees="currentData.pitchDegrees"
+                :facets-count="currentData.facetsCount"
+                :detected-material="currentData.detectedMaterial"
+                :building-height="currentData.buildingHeightFt"
+                :stories="currentData.estimatedStories"
+                :satellite-url="currentData.satelliteUrl || ''"
+                :street-view-url="currentData.streetViewUrl || ''"
+                @recalculate-coords="onRecalculateCoords"
+                @recalculate-heading="onRecalculateHeading"
+              />
+            </div>
+          </div>
+
+          <!-- ========================================== -->
+          <!-- STEP 3: MATHEMATICAL TAKEOFF & PRICING     -->
+          <!-- ========================================== -->
+          <div v-if="currentStep === 3" class="space-y-6 animate-fade-in max-w-4xl mx-auto w-full">
+            <div class="flex items-center justify-between">
+              <div>
+                <h3 class="text-xl font-heading font-bold text-white">Takeoff Metrics & Regional Pricing</h3>
+                <p class="text-xs text-slate-400 font-mono">Waste factor applied: +{{ wastePercentage }}%</p>
+              </div>
               <button 
-                v-for="pct in [10, 15, 20]" 
-                :key="pct"
                 type="button"
-                @click="wastePercentage = pct"
-                class="py-2.5 px-2 text-xs font-semibold rounded-xl border transition-all text-center"
-                :class="wastePercentage === pct 
-                  ? 'bg-primary text-white border-slate-900 shadow-sm' 
-                  : 'bg-white text-slate-600 border-slate-200 hover:bg-slate-50 hover:border-slate-300'"
+                @click="currentStep = 2"
+                class="text-xs font-semibold text-secondary hover:underline flex items-center gap-1"
               >
-                +{{ pct }}%
-                <span class="block text-[10px] font-normal opacity-80 mt-0.5">
-                  {{ pct === 10 ? 'Gable' : pct === 15 ? 'Hip/Valley' : 'Complex' }}
-                </span>
+                &larr; Back to Visual Preview
               </button>
             </div>
 
-            <!-- Measured Geometry Summary -->
-            <div class="pt-4 border-t border-slate-100 grid grid-cols-2 gap-3">
-              <div class="p-3.5 bg-slate-50/80 rounded-xl border border-slate-100">
-                <span class="text-slate-500 block text-[11px] font-medium">Detected Pitch</span>
-                <span class="text-slate-900 font-bold text-base mt-0.5 block">
-                  {{ currentData.pitchRatio || '7:12' }}
-                </span>
-                <span class="text-slate-500 text-[11px] block mt-0.5">
-                  {{ currentData.pitchDegrees || 30.3 }}° Slope
-                </span>
-              </div>
-              <div class="p-3.5 bg-slate-50/80 rounded-xl border border-slate-100">
-                <span class="text-slate-500 block text-[11px] font-medium">Planes & Valleys</span>
-                <span class="text-slate-900 font-bold text-base mt-0.5 block">
-                  {{ currentData.facetsCount || 2 }} Facets
-                </span>
-                <span class="text-slate-500 text-[11px] block mt-0.5">
-                  {{ currentData.valleys ?? 0 }} Valleys / {{ currentData.ridges ?? 1 }} Ridges
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- AI Vision Inspection Card -->
-          <div class="bg-cta/20 border border-slate-200/90 rounded-2xl p-6 shadow-md hover:shadow-lg transition-shadow space-y-4">
-            <div class="flex items-center justify-between">
-              <div class="flex items-center gap-2">
-                <span class="w-2 h-2 rounded-full bg-blue-500 animate-pulse"></span>
-                <h3 class="text-sm font-bold text-slate-900">
-                  AI Aerial Surface Inspection
-                </h3>
-              </div>
-              <span class="text-[11px] font-semibold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200/60">
-                Vision Model
-              </span>
-            </div>
-
-            <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 flex items-center justify-between">
-              <div>
-                <span class="text-[11px] text-slate-500 block">Identified Shingle Type</span>
-                <span class="text-sm font-bold text-slate-900">
-                  {{ currentData.detectedMaterial || 'Architectural Shingle' }}
-                </span>
-              </div>
-              <span class="text-xs font-semibold text-emerald-700 bg-emerald-50 border border-emerald-200/70 px-2 py-1 rounded-lg">
-                Verified
-              </span>
-            </div>
-
-            <div>
-              <span class="text-xs font-medium text-slate-600 block mb-2">
-                Identified Obstacles & Penetrations:
-              </span>
-              <div class="flex flex-wrap gap-2">
-                <span 
-                  v-for="(obstacle, idx) in (currentData.detectedObstacles || ['1 Chimney', '2 Plumbing Vents'])" 
-                  :key="idx"
-                  class="text-xs bg-slate-100/90 text-secondary font-medium px-2.5 py-1 rounded-lg border border-slate-200/70 inline-flex items-center gap-1.5"
-                >
-                  <span class="w-1.5 h-1.5 rounded-full bg-cta"></span>
-                  {{ obstacle }}
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <!-- Pricing Estimates Card -->
-          <div class="bg-cta border border-slate-200/90 rounded-2xl p-6 shadow-sm hover:shadow-md transition-shadow">
-            <div class="flex items-center justify-between mb-4">
-              <h3 class="text-sm font-bold text-slate-900">
-                Material & Installation Benchmark Ranges
-              </h3>
-              <span class="text-xs text-slate-500 font-medium">CT Regional Baseline</span>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-              <div class="p-4 bg-slate-50 border border-slate-200/80 rounded-xl space-y-1">
-                <span class="text-xs font-semibold text-slate-700 block">Architectural Asphalt</span>
-                <span class="text-xs text-slate-500 block">$450 – $600 / Square</span>
-                <span class="text-md font-bold text-slate-900 block pt-1">
-                  ${{ Math.round(Number(totalOrderSquares || 0) * 450).toLocaleString() }} – ${{ Math.round(Number(totalOrderSquares || 0) * 600).toLocaleString() }}
-                </span>
-              </div>
-
-              <div class="p-4 bg-blue-50/50 border border-blue-100 rounded-xl space-y-1">
-                <span class="text-xs font-semibold text-blue-900 block">Standing-Seam Metal</span>
-                <span class="text-xs text-blue-700 block">$950 – $1,300 / Square</span>
-                <span class="text-md font-bold text-blue-950 block pt-1">
-                  ${{ Math.round(Number(totalOrderSquares || 0) * 950).toLocaleString() }} – ${{ Math.round(Number(totalOrderSquares || 0) * 1300).toLocaleString() }}
-                </span>
-              </div>
+            <!-- Dimension Breakdown Table (Includes pricing and obstacles internally) -->
+            <div class="bg-slate-950 border border-slate-800 rounded-2xl overflow-hidden shadow-xl">
+              <DimensionBreakdown 
+                :ground-footprint-sq-ft="currentData.groundFootprintSqFt"
+                :true-roof-area="trueRoofArea"
+                :pitch-ratio="currentData.pitchRatio"
+                :pitch-degrees="currentData.pitchDegrees"
+                :facets-count="currentData.facetsCount"
+                :ridges="currentData.ridges"
+                :valleys="currentData.valleys"
+                :waste-percentage="wastePercentage"
+                :detected-material="currentData.detectedMaterial"
+                :obstacles="currentData.obstacles || currentData.detectedObstacles"
+                :detected-obstacles="currentData.obstacles || currentData.detectedObstacles"
+                :building-height="currentData.buildingHeightFt"
+                :stories="currentData.estimatedStories"
+              />
             </div>
           </div>
 
         </div>
 
-        <!-- Right Visual & Calculations Column (7 cols) -->
-        <div class="lg:col-span-7 space-y-6">
+        <!-- BOTTOM APP FOOTER NAVIGATION BAR -->
+        <div class="bg-slate-950/90 border-t border-slate-800 px-6 py-4 flex items-center justify-between backdrop-blur-md">
+          <button 
+            v-if="currentStep > 1"
+            type="button"
+            @click="currentStep--"
+            class="px-5 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-heading font-bold text-white transition-all flex items-center gap-2 border border-slate-700 shadow-sm"
+          >
+            <font-awesome-icon icon="arrow-left" class="text-xs" />
+            <span>Previous Step</span>
+          </button>
+          <div v-else></div> <!-- Spacer -->
+
+          <button 
+            v-if="currentStep < 3"
+            type="button"
+            @click="handleNextStep"
+            class="px-6 py-2.5 rounded-xl bg-secondary hover:bg-secondary/90 text-xs font-heading font-bold text-white transition-all flex items-center gap-2 shadow-lg shadow-secondary/20"
+          >
+            <span>{{ currentStep === 1 ? 'Run Analysis & View Visuals' : 'View Takeoff & Pricing' }}</span>
+            <font-awesome-icon icon="arrow-right" class="text-xs" />
+          </button>
           
-          <!-- Multi-Angle Visual Preview -->
-          <div class="rounded-2xl overflow-hidden shadow-sm">
-            <VisualPreview 
-              :lat="currentData.lat"
-              :lng="currentData.lng"
-              :pitch-ratio="currentData.pitchRatio"
-              :pitch-degrees="currentData.pitchDegrees"
-              :facets-count="currentData.facetsCount"
-              :detected-material="currentData.detectedMaterial"
-              :building-height="currentData.buildingHeightFt"
-              :stories="currentData.estimatedStories"
-              :satellite-url="currentData.satelliteUrl || ''"
-              :street-view-url="currentData.streetViewUrl || ''"
-              @recalculate-coords="onRecalculateCoords"
-              @recalculate-heading="onRecalculateHeading"
-            />
-          </div>
-
-          <!-- Mathematical Takeoff Table Card -->
-          <div class="rounded-2xl overflow-hidden shadow-sm">
-            <DimensionBreakdown 
-              :ground-footprint-sq-ft="currentData.groundFootprintSqFt"
-              :true-roof-area="trueRoofArea"
-              :pitch-ratio="currentData.pitchRatio"
-              :pitch-degrees="currentData.pitchDegrees"
-              :facets-count="currentData.facetsCount"
-              :ridges="currentData.ridges"
-              :valleys="currentData.valleys"
-              :waste-percentage="wastePercentage"
-            />
-          </div>
-
+          <NuxtLink 
+            v-else
+            to="/contact"
+            class="px-6 py-2.5 rounded-xl bg-cta hover:bg-cta-hover text-xs font-heading font-bold text-white transition-all flex items-center gap-2 shadow-lg"
+          >
+            <span>Request Detailed Proposal</span>
+            <font-awesome-icon icon="arrow-right" class="text-xs" />
+          </NuxtLink>
         </div>
 
       </div>
+
     </div>
   </section>
 </template>
@@ -227,8 +271,11 @@ import AddressInput from '~/components/tools/roof-estimator/AddressInput.vue'
 import VisualPreview from '~/components/tools/roof-estimator/VisualPreview.vue'
 import DimensionBreakdown from '~/components/tools/roof-estimator/DimensionBreakdown.vue'
 
+const currentStep = ref(1)
 const searchQuery = ref('16 Copper Beech Rd, Greenwich, CT 06830')
 const isLoading = ref(false)
+const analysisProgress = ref(0)
+const analysisStepText = ref('Initializing Satellite Mesh...')
 const wastePercentage = ref(15)
 const activePresetId = ref('colonial')
 
@@ -245,8 +292,9 @@ const presets = [
     ridges: 7,
     valleys: 4,
     detectedMaterial: 'Architectural Shingle',
-    detectedObstacles: ['1 Chimney', '2 AC Units', '1 plumping vent'],
-    buildingHeightFt: 24,
+    obstacles: ['Chimneys', 'Skylights', 'Plumbing Vents'],
+    detectedObstacles: ['Chimneys', 'Skylights', 'Plumbing Vents'],
+    buildingHeightFt: 20,
     estimatedStories: 2,
     lat: 41.0693,
     lng: -73.6189
@@ -263,7 +311,8 @@ const presets = [
     ridges: 1,
     valleys: 0,
     detectedMaterial: '3-Tab Shingle',
-    detectedObstacles: ['2 Plumbing Vents'],
+    obstacles: ['Plumbing Vents'],
+    detectedObstacles: ['Plumbing Vents'],
     buildingHeightFt: 10,
     estimatedStories: 1,
     lat: 41.6914,
@@ -281,7 +330,8 @@ const presets = [
     ridges: 1,
     valleys: 0,
     detectedMaterial: 'TPO Membrane',
-    detectedObstacles: ['HVAC Units', 'Plumbing Vents', 'Roof Hatch'],
+    obstacles: ['HVAC Units', 'Roof Hatch'],
+    detectedObstacles: ['HVAC Units', 'Roof Hatch'],
     buildingHeightFt: 18,
     estimatedStories: 1,
     lat: 41.2947,
@@ -294,18 +344,9 @@ const userModifiedHeading = ref(null)
 const userModifiedPitch = ref(10)
 
 const pitchMultipliers = {
-  '1:12': 1.003,
-  '2:12': 1.014,
-  '3:12': 1.031,
-  '4:12': 1.054,
-  '5:12': 1.083,
-  '6:12': 1.118,
-  '7:12': 1.158,
-  '8:12': 1.202,
-  '9:12': 1.250,
-  '10:12': 1.302,
-  '11:12': 1.357,
-  '12:12': 1.414
+  '1:12': 1.003, '2:12': 1.014, '3:12': 1.031, '4:12': 1.054,
+  '5:12': 1.083, '6:12': 1.118, '7:12': 1.158, '8:12': 1.202,
+  '9:12': 1.250, '10:12': 1.302, '11:12': 1.357, '12:12': 1.414
 }
 
 const trueRoofArea = computed(() => {
@@ -314,28 +355,55 @@ const trueRoofArea = computed(() => {
   return Math.round((currentData.value.groundFootprintSqFt || 1800) * multiplier)
 })
 
-const baseSquares = computed(() => {
-  return ((trueRoofArea.value || 0) / 100).toFixed(2)
-})
+const baseSquares = computed(() => ((trueRoofArea.value || 0) / 100).toFixed(2))
 
-const totalOrderSquares = computed(() => {
-  const base = parseFloat(baseSquares.value) || 0
-  const factor = 1 + ((wastePercentage.value || 15) / 100)
-  return (base * factor).toFixed(2)
-})
+const simulateAnalyzingSteps = () => {
+  analysisProgress.value = 15
+  analysisStepText.value = 'Locating parcel boundaries...'
+  
+  setTimeout(() => {
+    if (!isLoading.value) return
+    analysisProgress.value = 45
+    analysisStepText.value = 'Extracting LIDAR 3D elevation slope...'
+  }, 500)
+
+  setTimeout(() => {
+    if (!isLoading.value) return
+    analysisProgress.value = 75
+    analysisStepText.value = 'Classifying shingle material & penetrations...'
+  }, 1000)
+
+  setTimeout(() => {
+    if (!isLoading.value) return
+    analysisProgress.value = 95
+    analysisStepText.value = 'Computing pitch multiplier & waste geometry...'
+  }, 1500)
+}
 
 const loadPreset = (preset) => {
   activePresetId.value = preset.id
   searchQuery.value = preset.address
   userModifiedHeading.value = null
-  currentData.value = { ...preset }
+  currentData.value = {
+    ...preset,
+    obstacles: preset.obstacles || preset.detectedObstacles || [],
+    detectedObstacles: preset.detectedObstacles || preset.obstacles || []
+  }
+}
+
+const handleNextStep = async () => {
+  if (currentStep.value === 1) {
+    await runAnalysis()
+  } else {
+    currentStep.value++
+  }
 }
 
 const onPlaceSelected = async (placeData) => {
   searchQuery.value = placeData.formattedAddress
   currentData.value.lat = Number(placeData.lat)
   currentData.value.lng = Number(placeData.lng)
-  userModifiedHeading.value = null // reset so the backend uses auto-aiming toward this parcel
+  userModifiedHeading.value = null 
   await runLiveAnalysis(placeData.lat, placeData.lng, placeData.formattedAddress, null, 10)
 }
 
@@ -359,7 +427,6 @@ const onRecalculateHeading = ({ heading, pitch }) => {
   }
 }
 
-// Client-side Geocoder fallback if user clicks Analyze rather than picking from autocomplete dropdown
 const geocodeAddress = (address) => {
   return new Promise((resolve) => {
     if (!window.google?.maps?.Geocoder) {
@@ -387,7 +454,6 @@ const runAnalysis = async () => {
   let targetAddress = searchQuery.value
 
   if (searchQuery.value !== currentData.value.address) {
-    isLoading.value = true
     const geocoded = await geocodeAddress(searchQuery.value)
     if (geocoded) {
       targetLat = geocoded.lat
@@ -396,7 +462,7 @@ const runAnalysis = async () => {
       searchQuery.value = geocoded.formattedAddress
       currentData.value.lat = targetLat
       currentData.value.lng = targetLng
-      userModifiedHeading.value = null // reset for new location
+      userModifiedHeading.value = null
     }
   }
 
@@ -405,20 +471,11 @@ const runAnalysis = async () => {
 
 const runLiveAnalysis = async (lat, lng, address, heading = null, pitch = 10) => {
   isLoading.value = true
-  activePresetId.value = null
+  simulateAnalyzingSteps()
 
   try {
-    const payload = {
-      lat: Number(lat),
-      lng: Number(lng),
-      address,
-      pitch: Number(pitch) || 10
-    }
-    
-    // Only pass heading if the user manually aligned/panned the panorama
-    if (heading !== null && heading !== undefined) {
-      payload.heading = Number(heading)
-    }
+    const payload = { lat: Number(lat), lng: Number(lng), address, pitch: Number(pitch) || 10 }
+    if (heading !== null && heading !== undefined) payload.heading = Number(heading)
 
     const result = await $fetch('/api/roof-estimate', {
       method: 'POST',
@@ -426,17 +483,37 @@ const runLiveAnalysis = async (lat, lng, address, heading = null, pitch = 10) =>
     })
 
     if (result) {
-      currentData.value = {
-        ...currentData.value,
-        ...result,
-        lat: Number(result.lat || lat),
-        lng: Number(result.lng || lng)
-      }
+      setTimeout(() => {
+        // Explicitly unify obstacles from API response
+        const resolvedObstacles = result.obstacles || result.detectedObstacles || ['Plumbing Vents']
+
+        currentData.value = {
+          ...currentData.value,
+          ...result,
+          obstacles: resolvedObstacles,
+          detectedObstacles: resolvedObstacles,
+          lat: Number(result.lat || lat),
+          lng: Number(result.lng || lng)
+        }
+        isLoading.value = false
+        currentStep.value = 2 
+      }, 1600)
+    } else {
+      isLoading.value = false
     }
   } catch (error) {
     console.error('API estimation error:', error)
-  } finally {
     isLoading.value = false
   }
 }
 </script>
+
+<style scoped>
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in {
+  animation: fadeIn 0.35s ease-out forwards;
+}
+</style>

@@ -1,10 +1,11 @@
+<!-- components/tools/roof-estimator/DimensionBreakdown.vue -->
 <template>
-  <div class="bg-primary border border-slate-800 rounded-2xl p-6 shadow-xl space-y-6">
+  <div class="bg-primary border border-secondary rounded-2xl p-6 shadow-xl space-y-6">
     <!-- Header -->
     <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800/80">
       <div>
         <span class="text-[10px] font-mono text-cyan-400 uppercase tracking-widest block mb-1">
-          Formulaic Synthesis
+          Formulaic Synthesis & AI Payload Audit
         </span>
         <h3 class="text-base font-heading font-bold text-white">
           Structural Dimension & Material Breakdown
@@ -37,11 +38,11 @@
       </div>
 
       <div class="bg-secondary/5 border border-secondary/30 rounded-xl p-3.5">
-        <span class="block text-[10px] font-mono text-secondary uppercase">Base Squares</span>
-        <span class="text-lg font-bold font-heading text-secondary mt-0.5 block">
-          {{ baseSquares }}
+        <span class="block text-[10px] font-mono text-secondary uppercase">Building Profile</span>
+        <span class="text-lg font-bold font-heading text-secondary mt-0.5 block truncate">
+          {{ buildingHeight }} ft
         </span>
-        <span class="text-[10px] text-slate-400 font-mono">100 Sq Ft / Unit</span>
+        <span class="text-[10px] text-slate-400 font-mono">~{{ stories }} Stories Elevation</span>
       </div>
 
       <div class="border border-emerald-500/30 rounded-xl p-3.5 bg-emerald-500/5">
@@ -64,6 +65,40 @@
           </tr>
         </thead>
         <tbody class="divide-y divide-slate-800/60 text-slate-300">
+          
+          <!-- Classified Material Row -->
+          <tr class="hover:bg-slate-900/40 transition-colors bg-secondary/10">
+            <td class="p-3 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+              <span>Classified Roof Material</span>
+            </td>
+            <td class="p-3 text-slate-300 font-sans font-semibold">{{ detectedMaterial }}</td>
+            <td class="p-3 text-right text-secondary font-bold">AI Verified</td>
+          </tr>
+
+          <!-- Building Height & Stories Row -->
+          <tr class="hover:bg-slate-900/40 transition-colors">
+            <td class="p-3 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
+              <span>Building Height & Elevation</span>
+            </td>
+            <td class="p-3 text-slate-400">Vertical span from ground to eave</td>
+            <td class="p-3 text-right text-white font-bold">{{ buildingHeight }} ft (~{{ stories }} Stories)</td>
+          </tr>
+
+          <!-- Identified Penetrations Row -->
+          <tr class="hover:bg-slate-900/40 transition-colors">
+            <td class="p-3 flex items-center gap-2">
+              <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
+              <span>Identified Obstacles & Vents</span>
+            </td>
+            <td class="p-3 text-slate-400 font-sans text-xs">
+              {{ formattedObstacles }}
+            </td>
+            <td class="p-3 text-right text-white font-bold">Mapped</td>
+          </tr>
+
+          <!-- Pitch Ratio Row -->
           <tr class="hover:bg-slate-900/40 transition-colors">
             <td class="p-3 flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-cyan-400"></span>
@@ -73,6 +108,7 @@
             <td class="p-3 text-right text-white font-bold">{{ pitchRatio }}</td>
           </tr>
 
+          <!-- Individual Facet Planes -->
           <tr class="hover:bg-slate-900/40 transition-colors">
             <td class="p-3 flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
@@ -82,6 +118,7 @@
             <td class="p-3 text-right text-white font-bold">{{ facetsCount }} Planes</td>
           </tr>
 
+          <!-- Contingency Scrap -->
           <tr class="hover:bg-slate-900/40 transition-colors">
             <td class="p-3 flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-amber-400"></span>
@@ -91,6 +128,7 @@
             <td class="p-3 text-right text-amber-400 font-bold">+{{ wasteSquaresAdded }} Squares</td>
           </tr>
 
+          <!-- Shingle Bundle Count -->
           <tr class="hover:bg-slate-900/40 transition-colors bg-slate-900/20">
             <td class="p-3 flex items-center gap-2">
               <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
@@ -103,23 +141,42 @@
       </table>
     </div>
 
-    <!-- Mathematical Formula Transparency Note -->
-    <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
-      <div class="flex justify-between items-center text-slate-300">
-        <span>Flat Ground Footprint:</span>
-        <span class="font-bold text-white">{{ Number(groundFootprintSqFt || 0).toLocaleString() }} sq ft</span>
+    <!-- Regional Pricing & Formula Transparency Note -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+      
+      <!-- Pricing Summary Box -->
+      <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
+        <span class="text-secondary font-bold uppercase tracking-wider block mb-1 text-[10px]">Estimated Replacement Cost</span>
+        <div class="flex justify-between items-center text-slate-300">
+          <span>Architectural Asphalt:</span>
+          <span class="font-bold text-white">${{ estimatedCostAsphalt.low.toLocaleString() }} – ${{ estimatedCostAsphalt.high.toLocaleString() }}</span>
+        </div>
+        <div class="flex justify-between items-center text-sky-300">
+          <span>Standing-Seam Metal:</span>
+          <span class="font-bold text-white">${{ estimatedCostMetal.low.toLocaleString() }} – ${{ estimatedCostMetal.high.toLocaleString() }}</span>
+        </div>
+        <p class="text-[10px] text-slate-500 pt-1 leading-normal font-sans">
+          Includes material order quantity with +{{ wastePercentage }}% contingency margin for regional CT contractor labor.
+        </p>
       </div>
-      <div class="flex justify-between items-center text-cyan-400">
-        <span>Slope Factor ({{ pitchRatio }} Pitch):</span>
-        <span class="font-bold">+{{ Math.round((pitchMultiplier - 1) * 100) }}% Surface</span>
+
+      <!-- Mathematical Formula Note -->
+      <div class="p-4 bg-slate-900 rounded-xl border border-slate-800 space-y-2 text-xs font-mono">
+        <span class="text-cyan-400 font-bold uppercase tracking-wider block mb-1 text-[10px]">Takeoff Formula Transparency</span>
+        <div class="flex justify-between items-center text-slate-300">
+          <span>Flat Ground Footprint:</span>
+          <span class="font-bold text-white">{{ Number(groundFootprintSqFt || 0).toLocaleString() }} sq ft</span>
+        </div>
+        <div class="flex justify-between items-center text-cyan-400">
+          <span>Slope Factor ({{ pitchRatio }} Pitch):</span>
+          <span class="font-bold">+{{ Math.round((pitchMultiplier - 1) * 100) }}% Surface</span>
+        </div>
+        <div class="flex justify-between items-center text-emerald-400 pt-1 border-t border-slate-800">
+          <span>Actual 3D Roof Area:</span>
+          <span class="font-bold text-xs">{{ trueRoofSqFt.toLocaleString() }} sq ft</span>
+        </div>
       </div>
-      <div class="flex justify-between items-center text-emerald-400 pt-2 border-t border-slate-800">
-        <span>Actual 3D Roof Area:</span>
-        <span class="font-bold text-sm">{{ trueRoofSqFt.toLocaleString() }} sq ft</span>
-      </div>
-      <p class="text-[11px] text-slate-500 pt-1 leading-normal font-sans">
-        Standard 2D aerial maps miss the slope angle. Calculating the true 3D pitch prevents the typical 10–18% material under-ordering deficit.
-      </p>
+
     </div>
   </div>
 </template>
@@ -128,50 +185,41 @@
 import { computed } from 'vue'
 
 const props = defineProps({
-  groundFootprintSqFt: {
-    type: [Number, String],
-    default: 1850
-  },
-  trueRoofArea: {
-    type: [Number, String],
-    default: 0
-  },
-  pitchRatio: {
-    type: String,
-    default: '7:12'
-  },
-  pitchDegrees: {
-    type: [Number, String],
-    default: 30.3
-  },
-  facetsCount: {
-    type: [Number, String],
-    default: 8
-  },
-  ridges: {
-    type: [Number, String],
-    default: 3
-  },
-  valleys: {
-    type: [Number, String],
-    default: 4
-  },
-  wastePercentage: {
-    type: [Number, String],
-    default: 15
-  }
+  groundFootprintSqFt: { type: [Number, String], default: 1850 },
+  trueRoofArea: { type: [Number, String], default: 0 },
+  pitchRatio: { type: String, default: '5:12' },
+  pitchDegrees: { type: [Number, String], default: 21 },
+  facetsCount: { type: [Number, String], default: 8 },
+  ridges: { type: [Number, String], default: 3 },
+  valleys: { type: [Number, String], default: 4 },
+  wastePercentage: { type: [Number, String], default: 15 },
+  detectedMaterial: { type: String, default: 'Architectural Shingle' },
+  detectedObstacles: { type: [Array, String], default: () => [] },
+  obstacles: { type: [Array, String], default: () => [] }, // Added support for alternate prop name
+  buildingHeight: { type: [Number, String], default: 20 },
+  buildingHeightFt: { type: [Number, String], default: 0 }, // Alternate fallback
+  stories: { type: [Number, String], default: 2 },
+  estimatedStories: { type: [Number, String], default: 0 } // Alternate fallback
 })
 
-// Dynamic calculation of slope multiplier from pitchRatio (e.g., '7:12')
+// Resolve height & stories safely across variable naming conventions
+const buildingHeight = computed(() => {
+  return props.buildingHeightFt || props.buildingHeight || 20
+})
+
+const stories = computed(() => {
+  return props.estimatedStories || props.stories || 2
+})
+
+// Dynamic calculation of slope multiplier from pitchRatio
 const pitchMultiplier = computed(() => {
-  const parts = String(props.pitchRatio || '7:12').split(':')
-  if (parts.length !== 2) return 1.158
-  const rise = parseFloat(parts[0]) || 7
+  const parts = String(props.pitchRatio || '5:12').split(':')
+  if (parts.length !== 2) return 1.083
+  const rise = parseFloat(parts[0]) || 5
   const run = parseFloat(parts[1]) || 12
   return Math.sqrt(1 + Math.pow(rise / run, 2))
 })
 
-// Use trueRoofArea if explicitly supplied by parent (> 0), otherwise compute from footprint & multiplier
 const trueRoofSqFt = computed(() => {
   const passedArea = parseFloat(props.trueRoofArea)
   if (!isNaN(passedArea) && passedArea > 0) {
@@ -181,9 +229,7 @@ const trueRoofSqFt = computed(() => {
   return Math.round(footprint * pitchMultiplier.value)
 })
 
-const baseSquares = computed(() => {
-  return (trueRoofSqFt.value / 100).toFixed(2)
-})
+const baseSquares = computed(() => (trueRoofSqFt.value / 100).toFixed(2))
 
 const totalOrderSquares = computed(() => {
   const base = parseFloat(baseSquares.value) || 0
@@ -200,5 +246,33 @@ const wasteSquaresAdded = computed(() => {
 const bundleCount = computed(() => {
   const order = parseFloat(totalOrderSquares.value) || 0
   return Math.ceil(order * 3)
+})
+
+// Unifies obstacles & detectedObstacles into a clean comma-separated list
+const formattedObstacles = computed(() => {
+  // Check props.detectedObstacles first, then props.obstacles, then fall back safely
+  const rawList = (props.detectedObstacles && props.detectedObstacles.length > 0) 
+    ? props.detectedObstacles 
+    : (props.obstacles && props.obstacles.length > 0) 
+      ? props.obstacles 
+      : null
+
+  if (Array.isArray(rawList)) {
+    return rawList.join(', ')
+  }
+  if (typeof rawList === 'string' && rawList.trim().length > 0) {
+    return rawList
+  }
+  return 'No obstacles mapped'
+})
+
+const estimatedCostAsphalt = computed(() => {
+  const squares = parseFloat(totalOrderSquares.value) || 0
+  return { low: Math.round(squares * 450), high: Math.round(squares * 600) }
+})
+
+const estimatedCostMetal = computed(() => {
+  const squares = parseFloat(totalOrderSquares.value) || 0
+  return { low: Math.round(squares * 950), high: Math.round(squares * 1300) }
 })
 </script>
