@@ -2,8 +2,10 @@
   <div class="home-view">
     <HomeHero />
     <LogoCarousel :logos="clientLogos" />
-    <HomeServices />
-    <HomeProcess />
+    <HomeProfitSection />
+    <HomePortfolioCTA />
+    <!-- <HomeServices /> -->
+    <!-- <HomeProcess /> -->
     <HomeAuthority />
     <HomeClosing />
     <!-- <DiagnosticTest /> -->

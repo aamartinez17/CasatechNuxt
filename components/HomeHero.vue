@@ -1,231 +1,317 @@
-<template>
-  <!-- 
-    HERO SECTION 
-    Visual Design Pivot: High-end creative agency layout with absolute background blur-balls, 
-    interactive elements, and rich typography.
-  -->
-  <section class="relative overflow-hidden pb-16 sm:pb-24 lg:pb-32 min-h-[90vh] flex items-center">
-    
-    <!-- Dynamic Decorative Gradients (Background Blobs) -->
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" style="animation-duration: 8s;"></div>
-    <div class="absolute bottom-10 right-10 w-80 h-80 bg-secondary/15 rounded-full blur-3xl animate-pulse" style="animation-duration: 12s;"></div>
-
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative w-full z-10">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-        
-        <!-- LEFT COLUMN: Copy & Interactive Typography -->
-        <div class="max-w-2xl">
-          
-          <!-- Eyebrow with Gradient Pulse Dot -->
-          <div 
-            v-motion
-            :initial="{ opacity: 0, y: 15 }"
-            :enter="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 200, delay: 100 } }"
-            class="inline-flex items-center gap-2 mb-4"
-          >
-            <span class="relative flex h-3 w-3">
-              <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-secondary opacity-75"></span>
-              <span class="relative inline-flex rounded-full h-3 w-3 bg-secondary"></span>
-            </span>
-            <span class="text-secondary uppercase tracking-widest font-bold text-xs sm:text-sm">
-              Custom Web Design & Engineering
-            </span>
-          </div>
-
-          <!-- Headline with "Base-Up" Overflow Animation -->
-          <h1 class="text-primary font-heading font-bold text-4xl sm:text-5xl lg:text-6xl leading-[1.15] mb-6">
-            <!-- Line 1: Slid from bottom within a clipped container -->
-            <span class="block overflow-hidden pb-1">
-              <span 
-                v-motion
-                :initial="{ y: '100%' }"
-                :enter="{ y: '0%', transition: { type: 'spring', stiffness: 120, damping: 15, delay: 200 } }"
-                class="block"
-              >
-                We design digital
-              </span>
-            </span>
-            
-            <!-- Line 2: The interactive dynamic typist -->
-            <span class="block overflow-hidden py-1">
-              <span 
-                v-motion
-                :initial="{ y: '100%' }"
-                :enter="{ y: '0%', transition: { type: 'spring', stiffness: 120, damping: 15, delay: 350 } }"
-                class="block"
-              >
-                experiences for
-              </span>
-            </span>
-
-            <!-- Line 3: Dynamic Word with Accent Gradient -->
-            <span class="block overflow-hidden pt-1">
-              <span 
-                v-motion
-                :initial="{ y: '100%' }"
-                :enter="{ y: '0%', transition: { type: 'spring', stiffness: 120, damping: 15, delay: 500 } }"
-                class="inline-block text-brand-gradient min-h-[1.25em]"
-              >
-                {{ currentWord }}<span class="animate-blink font-light ml-1">|</span>
-              </span>
-            </span>
-          </h1>
-
-          <!-- Subhead: Optimized value-proposition readability -->
-          <p 
-            v-motion
-            :initial="{ opacity: 0, y: 20 }"
-            :enter="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 150, delay: 650 } }"
-            class="text-body text-lg sm:text-xl max-w-xl mb-8 leading-relaxed"
-          >
-            We turn generic websites into unique brand engines. From seamless e-commerce platforms to captivating local business showcases, Casatech LLC blends flawless frontend art with high-performance code.
-          </p>
-
-          <!-- CTA Buttons & Interactive Micro-Proof -->
-          <div 
-            v-motion
-            :initial="{ opacity: 0, y: 20 }"
-            :enter="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 150, delay: 800 } }"
-            class="flex flex-col sm:flex-row items-start sm:items-center gap-5"
-          >
-            <!-- Primary CTA with Hover Lift & Accent Pulse -->
-            <NuxtLink 
-              to="/contact" 
-              class="group relative inline-flex items-center justify-center bg-cta hover:bg-cta-hover text-on-cta font-heading font-bold py-3.5 px-8 rounded shadow-soft hover:shadow-hover transition-all duration-300 hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-cta focus-visible:ring-offset-2 overflow-hidden"
-            >
-              <span class="relative z-10 flex items-center gap-2">
-                Launch Your Project
-                <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-                </svg>
-              </span>
-              <div class="absolute inset-0 -translate-x-full group-hover:translate-x-0 bg-gradient-to-r from-secondary to-primary opacity-20 transition-transform duration-500"></div>
-            </NuxtLink>
-            
-            <!-- Secondary Portfolio CTA -->
-            <NuxtLink 
-              to="/portfolio"
-              class="font-heading font-bold py-3.5 px-6 text-primary hover:text-secondary transition-colors"
-            >
-              View Our Showcases
-            </NuxtLink>
-          </div>
-        </div>
-
-        <!-- RIGHT COLUMN: Interactive Dashboard/Visual -->
-        <div 
-          v-motion
-          :initial="{ opacity: 0, scale: 0.95, y: 30 }"
-          :enter="{ opacity: 1, scale: 1, y: 0, transition: { type: 'spring', stiffness: 100, damping: 20, delay: 900 } }"
-          class="relative lg:ml-auto w-full max-w-lg lg:max-w-none mt-12 lg:mt-0"
-        >
-          <!-- Neon Accent Ring Behind Media -->
-          <div class="absolute -inset-1.5 bg-gradient-to-r from-secondary via-primary to-cta rounded-2xl blur opacity-30 animate-spin" style="animation-duration: 20s;"></div>
-          
-          <!-- Mockup Frame Container to mimic high-end web design agency work -->
-          <div class="relative bg-white rounded-2xl shadow-2xl border border-gray-100 overflow-hidden group">
-            <!-- Browser Top Bar Accent -->
-            <div class="bg-gray-50 border-b border-gray-100 px-4 py-3 flex items-center gap-1.5">
-              <span class="w-3 h-3 rounded-full bg-red-400"></span>
-              <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
-              <span class="w-3 h-3 rounded-full bg-green-400"></span>
-              <span class="ml-4 text-xs font-mono text-slate-400 bg-gray-100 px-3 py-0.5 rounded truncate max-w-xs">casatechllc.com/projects</span>
-            </div>
-            
-            <!-- Hero Image Wrapper with zoom effect on hover -->
-            <div class="overflow-hidden aspect-video relative">
-              <img 
-                src="/images/homeview-header.png" 
-                alt="Modern interactive web engineering project by Casatech" 
-                width="800"
-                height="600"
-                loading="eager"
-                fetchpriority="high"
-                class="w-full h-full object-cover transform group-hover:scale-[1.03] transition-transform duration-700 ease-out"
-              >
-              <!-- Interactive Visual Overlay -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-6">
-                <span class="text-white text-sm font-semibold tracking-wide bg-primary/80 backdrop-blur-md px-3 py-1.5 rounded-lg">Interactive Web Design</span>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-</template>
-
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import gsap from 'gsap'
 
-// Array of words covering various industries to reach everyone
-const words = [
-  'e-commerce businesses.',
-  'local restaurants.',
-  'bold portfolios.',
-  'growth-focused startups.',
-  'creative studios.',
-  'service professionals.'
-]
+const containerRef = ref(null)
+const mousePos = ref({ x: 0, y: 0 })
+const gridRows = 5
+const gridCols = 6
+let ctx = null
 
-const currentWord = ref('')
-let wordIndex = 0
-let charIndex = 0
-let isDeleting = false
-let timer = null
+// Layer 1: Behind the squares (slower, dimmer, smaller)
+const binaryColumnsBack = ref([])
+const binaryColumnsFront = ref([])
 
-const typeSpeed = 100
-const deleteSpeed = 50
-const pauseBetweenWords = 2000
+const getGlobeWrapperStyle = (n) => {
+  const row = Math.floor((n - 1) / gridCols)
+  const col = (n - 1) % gridCols
+  
+  const xNorm = (col / (gridCols - 1)) - 0.5
+  const yNorm = (row / (gridRows - 1)) - 0.5
+  
+  const zOffset = (xNorm + yNorm) * 40
 
-const handleTyping = () => {
-  const currentFullWord = words[wordIndex]
+  return {
+    transform: `translateZ(${zOffset}px)`,
+    transformStyle: 'preserve-3d'
+  }
+}
 
-  if (!isDeleting) {
-    // Type next letter
-    currentWord.value = currentFullWord.substring(0, charIndex + 1)
-    charIndex++
-
-    if (charIndex === currentFullWord.length) {
-      // Pause at full word before deleting
-      isDeleting = true
-      timer = setTimeout(handleTyping, pauseBetweenWords)
-    } else {
-      timer = setTimeout(handleTyping, typeSpeed)
-    }
-  } else {
-    // Delete letter
-    currentWord.value = currentFullWord.substring(0, charIndex - 1)
-    charIndex--
-
-    if (charIndex === 0) {
-      isDeleting = false
-      // Move to next word in cycle
-      wordIndex = (wordIndex + 1) % words.length
-      timer = setTimeout(handleTyping, 500) // Brief pause before starting next word
-    } else {
-      timer = setTimeout(handleTyping, deleteSpeed)
-    }
+const handleMouseMove = (e) => {
+  if (!containerRef.value) return
+  const rect = containerRef.value.getBoundingClientRect()
+  mousePos.value = {
+    x: e.clientX - rect.left,
+    y: e.clientY - rect.top
   }
 }
 
 onMounted(() => {
-  handleTyping()
+  binaryColumnsBack.value = Array.from({ length: 10 }, () => ({
+    id: Math.random(),
+    chars: Array.from({ length: 25 }, () => Math.random() > 0.5 ? '1' : '0'),
+    duration: 7 + Math.random() * 5,
+    delay: -Math.random() * 8,
+    left: Math.random() * 100
+  }))
+
+  binaryColumnsFront.value = Array.from({ length: 30 }, () => ({
+    id: Math.random(),
+    chars: Array.from({ length: 30 }, () => Math.random() > 0.5 ? '1' : '0'),
+    duration: 3.5 + Math.random() * 10,
+    delay: -Math.random() * 6,
+    left: Math.random() * 100
+  }))
+
+  ctx = gsap.context(() => {
+    gsap.fromTo('.glass-tile', 
+      { opacity: 0, y: 80, scale: 0.9 },
+      {
+        opacity: 1,
+        y: 0,
+        scale: 1,
+        duration: 2.2,
+        ease: 'elastic.out(1, 0.3)',
+        stagger: {
+          amount: 1.8,
+          grid: [gridRows, gridCols],
+          from: 'start'
+        },
+        onComplete: function() {
+          gsap.set(this.targets(), { clearProps: 'transform' })
+        }
+      }
+    )
+
+    gsap.from('.hero-content-anim', {
+      y: 35,
+      opacity: 0,
+      duration: 1.1,
+      stagger: 0.2,
+      ease: 'power3.out',
+      delay: 0.4
+    })
+  }, containerRef.value)
 })
 
 onUnmounted(() => {
-  if (timer) clearTimeout(timer)
+  if (ctx) ctx.revert()
+})
+
+useHead({
+  title: 'Custom Web Design & High-Speed Web Applications | Casatech LLC',
+  meta: [
+    {
+      name: 'description',
+      content: 'High-speed custom web development by Casatech LLC. Built from the ground up for sub-second loading, clean security, and top ranking on Google and AI search engines.'
+    }
+  ]
 })
 </script>
 
+<template>
+  <div class="min-h-screen selection:bg-secondary/25 selection:text-white font-sans antialiased bg-slate-950">
+    
+    <!-- HERO HEADER WITH 3D CURVED GLOBE GRID (Bottom fade mask removed) -->
+    <section 
+      ref="containerRef"
+      @mousemove="handleMouseMove"
+      class="relative w-full min-h-screen overflow-hidden bg-slate-950 text-white flex items-center justify-center select-none pt-28 pb-20 px-4 sm:px-6 lg:px-8"
+      style="perspective: 1800px;"
+    >
+      <!-- BASE BACKDROP -->
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 pointer-events-none z-0"></div>
+
+      <!-- LAYER 1: FALLING BINARY STREAM (Behind the Squares) -->
+      <ClientOnly>
+        <div class="absolute inset-0 pointer-events-none overflow-hidden z-1">
+          <div 
+            v-for="col in binaryColumnsBack" 
+            :key="col.id"
+            class="absolute top-[-100%] font-mono text-[11px] sm:text-xs text-sky-600/30 flex flex-col items-center select-none animate-binary-fall"
+            :style="{
+              left: `${col.left}%`,
+              animationDuration: `${col.duration}s`,
+              animationDelay: `${col.delay}s`,
+              animationIterationCount: 'infinite',
+              animationTimingFunction: 'linear'
+            }"
+          >
+            <span v-for="(char, idx) in col.chars" :key="idx" class="block leading-tight py-0.5 opacity-40">
+              {{ char }}
+            </span>
+          </div>
+        </div>
+      </ClientOnly>
+
+      <!-- TRUE 3D PERSPECTIVE CURVED GLOBE GRID CONTAINER -->
+      <div class="absolute inset-0 pointer-events-none flex items-center justify-center overflow-visible z-20" style="transform-style: preserve-3d;">
+        <!-- grid-cols-2 on mobile (well-proportioned squares), sm:grid-cols-6 on desktop -->
+        <div 
+          class="absolute w-[180vw] sm:w-[160vw] h-[180vh] sm:h-[160vh] max-w-7xl grid grid-cols-3 sm:grid-cols-6 gap-6 sm:gap-12"
+          style="
+            transform: rotateX(50deg) rotateZ(-30deg) rotateY(10deg) scale(1.15);
+            transform-style: preserve-3d;
+            transform-origin: center center;
+          "
+        >
+          <div 
+            v-for="n in (gridRows * gridCols)" 
+            :key="n"
+            :style="getGlobeWrapperStyle(n)"
+            class="relative flex items-center justify-center pointer-events-none"
+          >
+            <!-- Interactive Hitbox Wrapper -->
+            <div class="absolute inset-[-12px] pointer-events-auto flex items-center justify-center cursor-pointer group">
+              <div 
+                class="glass-tile w-full h-full relative rounded-2xl sm:rounded-[2rem] bg-slate-900/85 border border-slate-700/60 backdrop-blur-xl shadow-[0_20px_45px_0_rgba(0,0,0,0.8)] overflow-hidden flex items-center justify-center p-3 transform-gpu min-h-[110px] sm:min-h-[auto]"
+                style="transform-style: preserve-3d;"
+              >
+                <!-- DYNAMIC PROJECT & BRAND IMAGE TILES -->
+                <template v-if="n === 3">
+                  <img src="/images/project-omars-new.png" alt="Omar's Project Preview" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 7">
+                  <img src="/images/refined-med-spa-hero.png" alt="Refined Med Spa Project" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 10">
+                  <img src="/images/casatechllc-og-image.png" alt="Casatech OG Blueprint" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 12">
+                  <img src="/images/new-chapter-homes-hero.png" alt="New Chapter Homes Project" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 15">
+                  <img src="/images/servicesview-it.png" alt="Services Infrastructure" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 19">
+                  <img src="/images/contactview-header.png" alt="Contact Consultation Preview" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 22">
+                  <img src="/images/homeview-header.png" alt="Home Platform Preview" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+                <template v-else-if="n === 26">
+                  <img src="/images/project-omars-new.png" alt="Omar's Project Preview" class="absolute inset-0 w-full h-full object-cover opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300 pointer-events-none" />
+                  <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent pointer-events-none"></div>
+                </template>
+
+                <!-- STANDARD GLASS TILE CONTENT -->
+                <template v-else>
+                  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 p-4 font-mono text-[11px] text-sky-300 pointer-events-none flex flex-col justify-between">
+                    <span class="text-secondary font-bold">NODE_0{{ n }} // ACTIVE</span>
+                    <div class="space-y-1.5 opacity-80">
+                      <div class="h-1 bg-secondary/60 rounded-full w-full"></div>
+                      <div class="h-1 bg-sky-400/40 rounded-full w-2/3"></div>
+                    </div>
+                  </div>
+                </template>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LAYER 2: FALLING BINARY STREAM (Between Squares and Title) -->
+      <ClientOnly>
+        <div class="absolute inset-0 pointer-events-none overflow-hidden z-25">
+          <div 
+            v-for="col in binaryColumnsFront" 
+            :key="col.id"
+            class="absolute top-[-100%] font-mono text-xs sm:text-sm text-sky-400/60 flex flex-col items-center select-none animate-binary-fall"
+            :style="{
+              left: `${col.left}%`,
+              animationDuration: `${col.duration}s`,
+              animationDelay: `${col.delay}s`,
+              animationIterationCount: 'infinite',
+              animationTimingFunction: 'linear'
+            }"
+          >
+            <span v-for="(char, idx) in col.chars" :key="idx" class="block leading-tight py-0.5 opacity-80 hover:opacity-100">
+              {{ char }}
+            </span>
+          </div>
+        </div>
+      </ClientOnly>
+
+      <!-- MOUSE SPOTLIGHT OVERLAY -->
+      <div 
+        class="absolute inset-0 pointer-events-none z-28 transition-opacity duration-75 mix-blend-screen"
+        :style="{
+          background: `radial-gradient(700px circle at ${mousePos.x}px ${mousePos.y}px, rgba(56, 189, 248, 0.22), transparent 75%)`
+        }"
+      ></div>
+
+      <!-- TEXT READABILITY VIGNETTE -->
+      <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(2,6,23,0.25)_0%,rgba(2,6,23,0.88)_100%)] pointer-events-none z-30"></div>
+
+      <!-- FOREGROUND CONTENT -->
+      <div class="relative z-40 max-w-4xl mx-auto text-center space-y-6 pointer-events-none">
+    
+
+        <!-- Main Headline -->
+        <h1 class="hero-content-anim font-heading font-extrabold text-4xl sm:text-6xl lg:text-7xl tracking-tight text-white leading-tight drop-shadow-md">
+          Custom Web Design & <br />
+          <span class="bg-gradient-to-r from-secondary via-sky-300 to-white bg-clip-text text-transparent">
+            High-Speed Web Applications.
+          </span>
+        </h1>
+
+        <!-- Plain-Language Summary Box -->
+        <div class="hero-content-anim p-6 rounded-2xl bg-white/[0.04] border border-white/10 backdrop-blur-md max-w-3xl mx-auto text-left pointer-events-auto">
+          <p class="text-base sm:text-lg text-slate-200 leading-relaxed">
+            Casatech LLC designs clean, made-to-order websites and web tools from scratch. By avoiding heavy pre-made themes and bloated plugins, we give your business an instant-loading site that looks polished, stays secure, and turns everyday visitors into paying clients.
+          </p>
+        </div>
+
+        <!-- Key Business Benefits -->
+        <div class="hero-content-anim grid grid-cols-2 sm:grid-cols-4 gap-4 pt-4 border-t border-white/10 text-xs max-w-3xl mx-auto">
+          <div>
+            <span class="block text-slate-400 uppercase font-mono mb-1">Load Time</span>
+            <span class="text-white font-semibold text-sm">Under 1 Second</span>
+          </div>
+          <div>
+            <span class="block text-slate-400 uppercase font-mono mb-1">Security</span>
+            <span class="text-secondary font-semibold text-sm">Plugin-Free Protection</span>
+          </div>
+          <div>
+            <span class="block text-slate-400 uppercase font-mono mb-1">Search Ready</span>
+            <span class="text-emerald-400 font-semibold text-sm">Built for Google & AI</span>
+          </div>
+          <div>
+            <span class="block text-slate-400 uppercase font-mono mb-1">Accessibility</span>
+            <span class="text-white font-semibold text-sm">Easy for All Users</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </div>
+</template>
+
 <style scoped>
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
+@keyframes binaryFall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
 }
 
-.animate-blink {
-  animation: blink 0.8s infinite;
+.animate-binary-fall {
+  animation-name: binaryFall;
+}
+
+.glass-tile {
+  transition: transform 1.5s cubic-bezier(0.25, 1, 0.5, 1), 
+              box-shadow 1.5s cubic-bezier(0.25, 1, 0.5, 1), 
+              border-color 1s ease;
+}
+
+.group:hover .glass-tile {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1), 
+              border-color 0.2s ease;
+  transform: translateY(-14px) translateZ(50px) scale(1.05);
+  border-color: rgba(56, 189, 248, 0.6);
+  box-shadow: 0 40px 80px 0 rgba(0, 119, 182, 0.5);
+  z-index: 50;
 }
 </style>
