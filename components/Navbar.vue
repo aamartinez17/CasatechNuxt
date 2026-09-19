@@ -1,9 +1,9 @@
 <!-- components/Navbar.vue -->
 <template>
   <div>
-    <!-- Semantic Header with Scroll Hide/Show Logic -->
+    <!-- Semantic Header with Optimized Scroll Performance -->
     <header 
-      class="fixed top-0 left-0 right-0 z-50 flex flex-col transition-transform duration-300 ease-in-out bg-white/90 backdrop-blur-md border-b border-slate-200/80 shadow-sm"
+      class="fixed top-0 left-0 right-0 z-40 flex flex-col transition-transform duration-300 ease-in-out bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm"
       :class="{ '-translate-y-full': !isNavbarVisible, 'translate-y-0': isNavbarVisible }"
     >
       
@@ -72,18 +72,18 @@
       <!-- Backdrop Shadow -->
       <div 
         v-if="isMenuOpen" 
-        class="lg:hidden fixed inset-0 bg-slate-950/50 backdrop-blur-sm z-[55] transition-opacity duration-300"
+        class="lg:hidden fixed inset-0 bg-slate-950/60 backdrop-blur-sm z-50 transition-opacity duration-300"
         @click="closeMenu"
       ></div>
 
-      <!-- Drawer Panel -->
+      <!-- Drawer Panel (Fixed z-[55] syntax) -->
       <div 
         id="mobile-menu"
-        class="lg:hidden fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl border-l border-slate-100 z-[60] flex flex-col p-6 transition-transform duration-300 transform"
+        class="lg:hidden fixed top-0 right-0 h-full w-[280px] sm:w-[320px] bg-white shadow-2xl border-l border-slate-200 z-[55] flex flex-col p-6 transition-transform duration-300 transform"
         :class="isMenuOpen ? 'translate-x-0' : 'translate-x-full'"
       >
         <!-- Drawer Header -->
-        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100">
+        <div class="flex items-center justify-between mb-6 pb-4 border-b border-slate-100 flex-shrink-0">
           <NuxtLink to="/" 
                     class="flex-shrink-0"
                     @click="closeMenu">
@@ -101,7 +101,7 @@
         </div>
 
         <!-- Phone & Primary CTAs inside Drawer -->
-        <div class="flex flex-col gap-3 mb-6">
+        <div class="flex flex-col gap-3 mb-6 flex-shrink-0">
           <a href="tel:2038848244" class="text-primary font-bold text-xs text-center py-2.5 border border-slate-200 rounded-xl hover:bg-slate-50 transition-colors flex items-center justify-center gap-2">
             <font-awesome-icon icon="fa-solid fa-phone" class="text-secondary" />
             (203) 884-8244
@@ -111,7 +111,7 @@
           </NuxtLink>
         </div>
 
-        <!-- Mobile Links -->
+        <!-- Mobile Links (Now fully visible with vertical scroll support) -->
         <ul class="flex flex-col space-y-1.5 m-0 p-0 overflow-y-auto flex-1">
           <li v-for="link in navLinks" :key="link.path">
             <NuxtLink :to="link.path" @click="closeMenu" class="mobile-nav-link">
@@ -140,23 +140,29 @@ const isMenuOpen = ref(false);
 const navbarRef = ref(null);
 const isNavbarVisible = ref(true);
 let lastScrollY = 0;
+let ticking = false;
 
 const handleScroll = () => {
-  if (!import.meta.client) return
-  const currentScrollY = window.scrollY
+  if (!import.meta.client) return;
+  
+  if (!ticking) {
+    window.requestAnimationFrame(() => {
+      const currentScrollY = window.scrollY;
 
-  // Always show navbar near the top of the page (< 40px)
-  if (currentScrollY < 40) {
-    isNavbarVisible.value = true
-  } else if (currentScrollY > lastScrollY) {
-    // Scrolling down -> Hide navbar
-    isNavbarVisible.value = false
-  } else {
-    // Scrolling up -> Show navbar
-    isNavbarVisible.value = true
+      if (currentScrollY < 40) {
+        isNavbarVisible.value = true;
+      } else if (currentScrollY > lastScrollY && currentScrollY > 100) {
+        isNavbarVisible.value = false;
+      } else {
+        isNavbarVisible.value = true;
+      }
+
+      lastScrollY = currentScrollY;
+      ticking = false;
+    });
+
+    ticking = true;
   }
-
-  lastScrollY = currentScrollY
 };
 
 const toggleMenu = () => {
@@ -177,7 +183,7 @@ onMounted(() => {
   if (import.meta.client) {
     lastScrollY = window.scrollY;
     window.addEventListener('scroll', handleScroll, { passive: true });
-    window.addEventListener('resize', handleResize);
+    window.addEventListener('resize', handleResize, { passive: true });
   }
 });
 
