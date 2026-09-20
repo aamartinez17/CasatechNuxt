@@ -133,22 +133,6 @@
       </ClientOnly>
     </section>
 
-    <!-- Partner Trust Wall Section -->
-    <section class="border-t-4 border-b border-gray-100 py-16" id="client-logos">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="text-center max-w-xl mx-auto mb-10">
-          <h2 class="text-primary font-heading font-bold text-2xl sm:text-3xl">Local Partners & Growth Allies</h2>
-          <p class="text-slate-500 mt-2 text-sm sm:text-base">We design web architectures that empower local business infrastructures across Connecticut.</p>
-        </div>
-        
-        <ClientOnly>
-          <LogoCarousel :logos="clientLogos" />
-          <template #fallback>
-            <div class="h-16 bg-slate-100 rounded-xl animate-pulse"></div>
-          </template>
-        </ClientOnly>
-      </div>
-    </section>
 
     <!-- Bottom Action Call Block -->
     <section class="py-20 px-4 sm:px-6 lg:px-8 bg-brand-gradient text-white relative overflow-hidden text-center">

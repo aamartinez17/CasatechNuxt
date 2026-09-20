@@ -29,11 +29,8 @@ export default defineNuxtConfig({
     url: 'https://casatechllc.com'
   },
 
-  modules: [
-    '@nuxtjs/sitemap',
-    '@nuxtjs/tailwindcss',
-    '@vueuse/motion/nuxt' // ✅ FIXED: Correct VueUse Motion module path
-  ],
+  modules: ['@nuxtjs/sitemap', '@nuxtjs/tailwindcss', // ✅ FIXED: Correct VueUse Motion module path
+  '@vueuse/motion/nuxt', '@nuxt/image'],
 
   css: [
     './assets/main.css', 

@@ -1,4 +1,6 @@
 <script setup>
+import { ref } from 'vue'
+
 /**
  * SEO STRATEGY: FAQ Schema Markup (JSON-LD)
  */
@@ -12,34 +14,34 @@ useHead({
         "mainEntity": [
           {
             "@type": "Question",
-            "name": "How quickly can you audit our current IT infrastructure?",
+            "name": "Why should my business choose a custom website over a pre-made template?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "We typically complete a high-level Bilingual Discovery Audit within 3-5 business days, providing a clear roadmap of vulnerabilities and growth opportunities."
+              "text": "Pre-made templates are packed with hidden code and plugins your business never uses, which slows down your site and opens security gaps. A custom-built website is tailored precisely to what your business needs, loading instantly and staying secure without breaking during updates."
             }
           },
           {
             "@type": "Question",
-            "name": "Do you provide helpdesk support in both English and Spanish?",
+            "name": "How does a faster website help me get more customers?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Yes. Our unique 'Bilingual Advantage' ensures your entire team receives expert technical support in both English and Spanish, eliminating communication barriers."
+              "text": "If a website takes more than 3 seconds to load on a smartphone, over half of visitors will leave immediately to visit a competitor. Fast-loading, responsive websites keep potential clients engaged and make it effortless for them to contact you or buy your products."
             }
           },
           {
             "@type": "Question",
-            "name": "What makes Nuxt/Vue.js better for our corporate web application?",
+            "name": "Will my website look great and work smoothly on mobile phones?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nuxt and Vue.js offer superior performance, SEO capabilities, and a modular architecture, making them the enterprise standard for scalable, high-speed B2B applications."
+              "text": "Yes. Every website we design is built mobile-first, ensuring it looks polished and functions seamlessly whether your customers open it on a smartphone, tablet, laptop, or large desktop monitor."
             }
           },
           {
             "@type": "Question",
-            "name": "Do you require long-term lock-in contracts?",
+            "name": "How long does it take to design and launch a new custom website?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "No. We believe in earning your trust every month. While we offer long-term strategic partnerships, our Managed IT and Web solutions are designed for flexibility."
+              "text": "Most small-to-midsize business websites are designed, built, and launched within a few weeks, depending on the project's features and custom quote tools needed."
             }
           }
         ]
@@ -54,30 +56,47 @@ const toggleFaq = (index) => {
 }
 
 const faqs = [
-  { q: "How quickly can you audit our current IT infrastructure?", a: "We typically complete a high-level Bilingual Discovery Audit within 3-5 business days, providing a clear roadmap of vulnerabilities and growth opportunities." },
-  { q: "Do you provide helpdesk support in both English and Spanish?", a: "Yes. Our unique 'Bilingual Advantage' ensures your entire team receives expert technical support in both English and Spanish, eliminating communication barriers." },
-  { q: "What makes Nuxt/Vue.js better for our corporate web application?", a: "Nuxt and Vue.js offer superior performance, SEO capabilities, and a modular architecture, making them the enterprise standard for scalable, high-speed B2B applications." },
-  { q: "Do you require long-term lock-in contracts?", a: "No. We believe in earning your trust every month. While we offer long-term strategic partnerships, our Managed IT and Web solutions are designed for flexibility." }
+  { 
+    q: "Why should my business choose a custom website over a pre-made template?", 
+    a: "Pre-made templates are packed with hidden code and plugins your business never uses, which slows down your site and opens security gaps. A custom-built website is tailored precisely to what your business needs, loading instantly and staying secure without breaking during updates." 
+  },
+  { 
+    q: "How does a faster website help me get more customers?", 
+    a: "If a website takes more than 3 seconds to load on a smartphone, over half of visitors will leave immediately to visit a competitor. Fast-loading, responsive websites keep potential clients engaged and make it effortless for them to contact you or buy your products." 
+  },
+  { 
+    q: "Will my website look great and work smoothly on mobile phones?", 
+    a: "Yes. Every website we design is built mobile-first, ensuring it looks polished and functions seamlessly whether your customers open it on a smartphone, tablet, laptop, or large desktop monitor." 
+  },
+  { 
+    q: "How long does it take to design and launch a new custom website?", 
+    a: "Most small-to-midsize business websites are designed, built, and launched within a few weeks, depending on the project's features and custom quote tools needed." 
+  }
 ]
 </script>
 
 <template>
   <div>
-    <section class="py-24 border-t-4 border-gray-100">
+    <!-- FAQ SECTION (Light Theme Consistent with Other Sections) -->
+    <section class="py-20 lg:py-28 bg-white text-slate-900 border-b border-slate-200">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         
         <div 
           v-motion
-          :initial="{ opacity: 0, y: 20 }"
+          :initial="{ opacity: 0, y: 15 }"
           :visible-once="{ opacity: 1, y: 0, transition: { type: 'spring', stiffness: 250, damping: 25 } }"
-          class="text-center mb-16"
+          class="text-center mb-14"
         >
-          <h2 class="text-primary font-heading font-bold text-3xl md:text-4xl">
-            Common Questions from Connecticut Businesses
+          <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/25 text-secondary text-xs font-mono uppercase tracking-widest font-semibold mb-4">
+            <span class="w-1.5 h-1.5 rounded-full bg-secondary animate-ping"></span>
+            Web Design Questions & Answers
+          </div>
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-heading font-extrabold tracking-tight text-slate-900">
+            Frequently Asked Questions About <br />
+            <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Custom Web Design
+            </span>
           </h2>
-          <p class="text-secondary mt-4 font-medium uppercase tracking-widest text-sm">
-            B2B Tech Consulting & Support
-          </p>
         </div>
 
         <div class="space-y-4">
@@ -85,24 +104,24 @@ const faqs = [
             v-for="(faq, index) in faqs" 
             :key="index"
             v-motion
-            :initial="{ opacity: 0, y: 10 }"
+            :initial="{ opacity: 0, y: 15 }"
             :visible-once="{ opacity: 1, y: 0, transition: { delay: index * 100 } }"
-            class="border border-gray-200 rounded-lg overflow-hidden transition-all duration-200"
+            class="bg-slate-50 border border-slate-200 rounded-2xl overflow-hidden shadow-sm hover:border-slate-300 transition-all duration-200"
           >
             <button 
               @click="toggleFaq(index)"
-              class="w-full flex items-center justify-between p-5 text-left bg-white hover:bg-bg-light transition-colors group"
+              class="w-full flex items-center justify-between p-6 text-left bg-transparent hover:bg-slate-100/60 transition-colors group cursor-pointer"
               :aria-expanded="activeFaq === index"
             >
-              <span class="font-bold text-primary text-lg pr-8">{{ faq.q }}</span>
-              <span class="text-secondary group-hover:text-primary transition-transform duration-300" :class="{ 'rotate-180': activeFaq === index }">
-                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+              <span class="font-heading font-bold text-slate-900 text-base sm:text-lg pr-8">{{ faq.q }}</span>
+              <span class="w-8 h-8 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-all duration-300 shrink-0" :class="{ 'rotate-180 bg-secondary text-white': activeFaq === index }">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 9l-7 7-7-7" /></svg>
               </span>
             </button>
             
             <div 
               v-show="activeFaq === index" 
-              class="px-5 pb-5 text-body leading-relaxed animate-fade-in"
+              class="px-6 pb-6 text-slate-600 text-sm sm:text-base leading-relaxed animate-fade-in border-t border-slate-100 pt-4"
             >
               {{ faq.a }}
             </div>
@@ -111,57 +130,67 @@ const faqs = [
       </div>
     </section>
 
+    <!-- FINAL CALL TO ACTION SECTION (Dark Theme Matching Hero & Profit Sections) -->
     <section 
       v-motion
       :initial="{ opacity: 0 }"
       :visible-once="{ opacity: 1, transition: { duration: 800 } }"
-      class="bg-bg-dark py-24 relative overflow-hidden"
+      class="bg-slate-950 text-white py-24 lg:py-32 relative overflow-hidden border-b border-slate-800"
     >
-      <div 
-        class="absolute inset-0 opacity-10 pointer-events-none" 
-        style="background-image: radial-gradient(var(--color-secondary) 1.5px, transparent 1.5px); background-size: 40px 40px;"
-      ></div>
+      <!-- BASE BACKDROP & AMBIENT GLOWS -->
+      <div class="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-950 to-slate-950 pointer-events-none z-0"></div>
+      <div class="absolute inset-0 opacity-10 pointer-events-none z-0" style="background-image: radial-gradient(rgba(56, 189, 248, 0.4) 1.5px, transparent 1.5px); background-size: 40px 40px;"></div>
       
-      <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10 space-y-6">
+        
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-secondary/10 border border-secondary/25 text-secondary text-xs font-mono uppercase tracking-widest font-semibold mx-auto">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          Ready to Scale
+        </div>
+
         <h2 
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible-once="{ opacity: 1, y: 0, transition: { delay: 200 } }"
-          class="text-white font-heading font-bold text-4xl md:text-6xl mb-6 leading-tight"
+          class="font-heading font-extrabold text-3xl sm:text-5xl lg:text-6xl tracking-tight text-white leading-[1.1]"
         >
-          Ready to Eliminate <span class="text-secondary italic">Tech Bottlenecks?</span>
+          Ready for a Website That <br />
+          <span class="bg-gradient-to-r from-secondary via-sky-300 to-white bg-clip-text text-transparent">
+            Actually Drives Growth?
+          </span>
         </h2>
         
         <p 
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible-once="{ opacity: 1, y: 0, transition: { delay: 300 } }"
-          class="text-slate-300 text-lg md:text-xl max-w-2xl mx-auto mb-10 leading-relaxed"
+          class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto leading-relaxed"
         >
-          Join dozens of New Haven businesses scaling with our dual-threat IT and Web solutions. Experience zero downtime and 100% accountability.
+          Let's discuss how a clean, high-speed web presence can help you win better clients and leave slow template headaches behind.
         </p>
 
         <div 
           v-motion
           :initial="{ opacity: 0, y: 20 }"
           :visible-once="{ opacity: 1, y: 0, transition: { delay: 400 } }"
-          class="flex flex-col sm:flex-row items-center justify-center gap-8"
+          class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4"
         >
           <NuxtLink 
             to="/contact" 
-            class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-5 px-10 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 text-lg w-full sm:w-auto hover:-translate-y-1 active:scale-95"
+            class="bg-cta hover:bg-cta-hover text-white font-heading font-bold py-4 px-8 rounded-xl shadow-xl hover:shadow-2xl transition-all duration-200 text-sm sm:text-base w-full sm:w-auto hover:-translate-y-0.5"
           >
-            Book Your 15-Minute Discovery Call
+            Schedule a Free Website Consultation
           </NuxtLink>
           
           <NuxtLink 
             to="/insights" 
-            class="text-white hover:text-secondary font-bold inline-flex items-center transition-colors group"
+            class="text-white hover:text-secondary font-heading font-semibold text-sm sm:text-base inline-flex items-center transition-colors group py-3 px-6"
           >
             Or view our latest Insights 
             <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
           </NuxtLink>
         </div>
+
       </div>
     </section>
   </div>

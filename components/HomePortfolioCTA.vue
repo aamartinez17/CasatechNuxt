@@ -2,78 +2,33 @@
 <template>
   <section 
     ref="sectionRef"
-    class="relative bg-transparent text-slate-900 py-32 sm:py-40 lg:py-48 overflow-hidden border-t border-b border-slate-200/60"
+    class="relative bg-transparent text-slate-900 py-24 sm:py-32 lg:py-48 overflow-hidden"
   >
-    <!-- LIGHT MODE ILLUMINATED AMBIENT GLOWS -->
-    <div class="absolute inset-0 pointer-events-none overflow-hidden z-0">
-      <div class="absolute -top-40 -left-40 w-[35rem] h-[35rem] bg-secondary/10 rounded-full blur-[160px] animate-pulse"></div>
-      <div class="absolute -bottom-40 -right-40 w-[35rem] h-[35rem] bg-primary/10 rounded-full blur-[190px]"></div>
-    </div>
-
-    <!-- ILLUMINATED FLOOR PLANE AT THE BOTTOM -->
-    <div class="absolute inset-x-0 bottom-0 h-[30rem] bg-gradient-to-t from-slate-200/60 via-slate-100/20 to-transparent pointer-events-none z-0"></div>
-
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
       <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center relative">
         
         <!-- ========================================================================= -->
-        <!-- 1. 3D ORBIT STAGE (Desktop: Left | Mobile: Background Layer Behind Text)   -->
+        <!-- 1. TEXT CONTENT & CTA (Stacked first on mobile, right column on desktop)   -->
         <!-- ========================================================================= -->
-        <div class="absolute lg:relative inset-0 lg:inset-auto lg:col-span-6 lg:col-start-1 flex items-center justify-center min-h-[520px] sm:min-h-[580px] z-0 opacity-100 pointer-events-none lg:pointer-events-auto">
-          <ClientOnly>
-            <!-- Stage Container with 3D perspective -->
-            <div 
-              ref="matrixContainerRef" 
-              class="relative w-full max-w-xl h-[520px] sm:h-[580px] flex items-center justify-center scale-90 sm:scale-100"
-              style="perspective: 1400px;"
-            >
-              
-              <!-- ANCHORED FLOOR SHADOW MARK -->
-              <div class="absolute bottom-12 w-[28rem] h-20 bg-slate-500/20 rounded-[100%] blur-3xl pointer-events-none z-0 transform translate-y-16 scale-95"></div>
-              <div class="absolute bottom-16 w-80 h-10 bg-slate-900/10 rounded-[100%] blur-xl pointer-events-none z-0 transform translate-y-16"></div>
-
-              <!-- CENTER CORE HUB -->
-              <div class="absolute z-30 w-48 sm:w-52 h-48 sm:h-52 rounded-full bg-white border border-slate-200/80 shadow-[0_30px_70px_rgba(0,0,0,0.12),0_8px_20px_rgba(0,0,0,0.06)] flex flex-col items-center justify-center text-center p-4 pointer-events-auto">
-                <img src="/logos/casatech-crop-transparent-bg.png" alt="Casatech Logo" class="w-28 sm:w-32 h-auto object-contain pointer-events-none" />
-              </div>
-
-              <!-- 3D ORBITING TECH BADGES -->
-              <div 
-                v-for="(tech, index) in techNodes" 
-                :key="index"
-                :ref="el => nodeRefs[index] = el"
-                class="tech-node absolute px-5 sm:px-6 py-3 sm:py-3.5 rounded-full bg-white/95 border border-slate-200 text-slate-800 font-mono text-xs sm:text-sm backdrop-blur-md shadow-[0_15px_35px_rgba(0,0,0,0.08)] flex items-center gap-2.5 cursor-pointer transition-colors hover:border-secondary hover:text-secondary will-change-transform pointer-events-auto"
-              >
-                <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full" :style="{ backgroundColor: tech.color }"></span>
-                <span>{{ tech.name }}</span>
-              </div>
-
-            </div>
-          </ClientOnly>
-        </div>
-
-        <!-- ========================================================================= -->
-        <!-- 2. TEXT CONTENT & CTA (Center-Justified with Translucent Mobile Backdrop)  -->
-        <!-- ========================================================================= -->
-        <div class="lg:col-span-6 lg:col-start-7 space-y-6 text-center cta-content-anim z-20 bg-white/50 sm:bg-white/60 lg:bg-transparent backdrop-blur-sm p-6 sm:p-10 lg:p-0 rounded-3xl border border-white/80 lg:border-none shadow-xl lg:shadow-none my-auto">
+        <div class="lg:col-span-6 lg:col-start-7 space-y-6 text-center lg:text-left cta-content-anim z-20 my-auto order-1 lg:order-2">
           
-          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/25 text-secondary text-xs font-mono uppercase tracking-widest font-semibold mx-auto">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/25 text-secondary text-xs font-mono uppercase tracking-widest font-semibold mx-auto lg:mx-0">
             <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
             Senior Engineering Stack
           </div>
 
-          <h2 class="text-5xl sm:text-6xl xl:text-7xl font-heading font-extrabold tracking-tight text-slate-900 leading-[1.1]">
+          <h2 class="text-4xl sm:text-5xl xl:text-7xl font-heading font-extrabold tracking-tight text-slate-300 leading-[1.1]">
             Engineered with <br />
             <span class="bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
               Modern Tech Standards.
             </span>
           </h2>
 
-          <p class="text-2xl sm:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto">
+          <p class="text-lg sm:text-xl text-slate-400 leading-relaxed max-w-xl mx-auto lg:mx-0">
             We build high-performance web applications using robust, industry-leading frameworks. Explore our proven portfolio of tailored solutions built to scale seamlessly.
           </p>
 
-          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+          <div class="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
             <NuxtLink
               to="/portfolio"
               ref="ctaButtonRef"
@@ -85,6 +40,42 @@
               <font-awesome-icon icon="arrow-right" class="text-sm transition-transform duration-300 group-hover:translate-x-1" />
             </NuxtLink>
           </div>
+        </div>
+
+        <!-- ========================================================================= -->
+        <!-- 2. 3D ORBIT STAGE (Stacked underneath on mobile, left column on desktop)   -->
+        <!-- ========================================================================= -->
+        <div class="lg:col-span-6 lg:col-start-1 flex items-center justify-center min-h-[460px] sm:min-h-[580px] z-10 order-2 lg:order-1">
+          <ClientOnly>
+            <!-- Stage Container with 3D perspective -->
+            <div 
+              ref="matrixContainerRef" 
+              class="relative w-full max-w-xl h-[460px] sm:h-[580px] flex items-center justify-center scale-85 sm:scale-100"
+              style="perspective: 1400px;"
+            >
+              
+              <!-- ANCHORED FLOOR SHADOW MARK -->
+              <div class="absolute bottom-12 w-[28rem] h-20 bg-slate-500/20 rounded-[100%] blur-3xl pointer-events-none z-0 transform translate-y-16 scale-95"></div>
+              <div class="absolute bottom-16 w-80 h-10 bg-slate-900/10 rounded-[100%] blur-xl pointer-events-none z-0 transform translate-y-16"></div>
+
+              <!-- CENTER CORE HUB -->
+              <div class="absolute z-30 w-44 sm:w-52 h-44 sm:h-52 rounded-full bg-white border border-slate-200/80 shadow-[0_30px_70px_rgba(0,0,0,0.12),0_8px_20px_rgba(0,0,0,0.06)] flex flex-col items-center justify-center text-center p-4 pointer-events-auto">
+                <img src="/logos/casatech-crop-transparent-bg.png" alt="Casatech Logo" class="w-24 sm:w-32 h-auto object-contain pointer-events-none" />
+              </div>
+
+              <!-- 3D ORBITING TECH BADGES -->
+              <div 
+                v-for="(tech, index) in techNodes" 
+                :key="index"
+                :ref="el => nodeRefs[index] = el"
+                class="tech-node absolute px-4 sm:px-6 py-2.5 sm:py-3.5 rounded-full bg-white/95 border border-slate-200 text-slate-800 font-mono text-xs sm:text-sm backdrop-blur-md shadow-[0_15px_35px_rgba(0,0,0,0.08)] flex items-center gap-2.5 cursor-pointer transition-colors hover:border-secondary hover:text-secondary will-change-transform pointer-events-auto"
+              >
+                <span class="w-2.5 sm:w-3 h-2.5 sm:h-3 rounded-full" :style="{ backgroundColor: tech.color }"></span>
+                <span>{{ tech.name }}</span>
+              </div>
+
+            </div>
+          </ClientOnly>
         </div>
 
       </div>
