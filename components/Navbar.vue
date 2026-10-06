@@ -50,7 +50,7 @@
         <div class="hidden lg:block">
           <NuxtLink to="/contact" 
                     class="group inline-flex items-center gap-2 bg-cta hover:bg-cta-hover text-white font-heading font-bold text-sm py-2 px-5 rounded-xl shadow-sm transition-all duration-200 hover:-translate-y-0.5">
-            Get Started
+            Contact Us
             <font-awesome-icon icon="fa-solid fa-arrow-right" class="text-xs transform group-hover:translate-x-1 transition-transform" />
           </NuxtLink>
         </div>
@@ -107,7 +107,7 @@
             (203) 884-8244
           </a>
           <NuxtLink to="/contact" @click="closeMenu" class="bg-cta hover:bg-cta-hover text-white text-center font-heading font-bold text-xs py-3 rounded-xl shadow-sm transition-colors">
-            Start A Design Project
+            Contact Us
           </NuxtLink>
         </div>
 
