@@ -80,6 +80,7 @@
       <div class="max-w-xl w-full mx-auto">
         
         <!-- id added for QR code direct anchor jump -->
+         <clientOnly>
         <form 
           id="contact-form"
           name="contact" 
@@ -88,7 +89,7 @@
           data-netlify-honeypot="bot-field" 
           @submit.prevent="handleSubmit" 
           v-motion-fade 
-          class="space-y-5 scroll-mt-8"
+          class="space-y-5 scroll-mt-20 lg:scroll-none"
         >
           <input type="hidden" name="form-name" value="contact" />
 
@@ -151,7 +152,6 @@
                 <option value="Database & Backend Systems">Database & Backend Systems</option>
                 <option value="IT and Infrastructure">IT and Infrastructure</option>
                 <option value="Custom Productivity / Business Tool">Custom Productivity / Business Tool</option>
-                <option value="Website Creation">Data</option>
                 <option value="Other">Other</option>
               </select>
             </div>
@@ -187,6 +187,7 @@
             No spam. We respect your privacy and respond within 24 hours.
           </p>
         </form>
+        </clientOnly>
       </div>
     </section>
   </article>

@@ -29,7 +29,7 @@
       </div>
     </div>
 
-    <!-- State 2: Active Address Bar (Unlocked via Secret URL) -->
+    <!-- State 2: Active Address Bar (Unlocked for Showcase) -->
     <template v-else>
       <div class="flex items-center justify-between">
         <label class="block text-xs font-semibold uppercase tracking-wider text-slate-700">
@@ -98,14 +98,17 @@ const props = defineProps({
 
 const emit = defineEmits(['update:modelValue', 'place-selected', 'submit'])
 
-const route = useRoute()
-const isEnabled = ref(false)
+// FOR EVENT: Set directly to true so the address bar is always active.
+// AFTER EVENT: Set back to ref(false) and re-enable checkUnlockState() below.
+const isEnabled = ref(true)
 const inputRef = ref(null)
 const internalAddress = ref(props.modelValue)
 const apiReady = ref(false)
 let autocompleteInstance = null
 
-// Differentiate between Persistent (Storage) vs Temporary (Session memory only)
+/*
+// --- UNCOMMENT THIS FUNCTION AFTER THE EVENT TO RESTORE LOCKOUT ---
+const route = useRoute()
 const checkUnlockState = () => {
   if (!import.meta.client) return
 
@@ -113,35 +116,31 @@ const checkUnlockState = () => {
   const isHashTemp = window.location.hash.toLowerCase().includes('enable')
   const isHashDisable = window.location.hash.toLowerCase().includes('disable')
 
-  // Explicit lockout command: ?enabled=false or #disable
   if (queryVal === 'false' || isHashDisable) {
     localStorage.removeItem('estimator_enabled')
     isEnabled.value = false
     return
   }
 
-  // 1. EXTENDED ACCESS: Query param (?enabled=true) persists across sessions
   if (queryVal === 'true' || queryVal === '1') {
     localStorage.setItem('estimator_enabled', 'true')
     isEnabled.value = true
     return
   }
 
-  // Check if previously unlocked for extended access
   if (localStorage.getItem('estimator_enabled') === 'true') {
     isEnabled.value = true
     return
   }
 
-  // 2. TEMPORARY USE: Hash (#enable) enables for this view only (NOT saved to localStorage)
   if (isHashTemp) {
     isEnabled.value = true
     return
   }
 
-  // Default: Disabled for visitors
   isEnabled.value = false
 }
+*/
 
 watch(() => props.modelValue, (newVal) => {
   if (newVal !== internalAddress.value) {
@@ -238,7 +237,7 @@ const initAutocomplete = async () => {
 onMounted(async () => {
   if (!import.meta.client) return
 
-  checkUnlockState()
+  // checkUnlockState() bypassed for event demo mode
 
   if (isEnabled.value) {
     const runtimeConfig = useRuntimeConfig()

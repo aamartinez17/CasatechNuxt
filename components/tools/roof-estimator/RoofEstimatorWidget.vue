@@ -50,7 +50,7 @@
         </div>
 
         <!-- APP CONTENT BODY -->
-        <div class="flex-1 p-6 sm:p-10 flex flex-col justify-center relative overflow-hidden">
+        <div id="widget" class="flex-1 p-6 sm:p-10 flex flex-col justify-center relative overflow-hidden scroll-mt-32">
           
           <!-- ANALYZING LOADING STATE OVERLAY -->
           <div v-if="isLoading" class="absolute inset-0 bg-slate-950/90 z-30 flex flex-col items-center justify-center text-center p-6 space-y-6 backdrop-blur-xl animate-fade-in">
