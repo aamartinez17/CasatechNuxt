@@ -350,7 +350,10 @@ const pitchMultipliers = {
 }
 
 const trueRoofArea = computed(() => {
+  // Check both property naming conventions to prevent undefined fallbacks
   if (currentData.value.trueRoofSqFt) return currentData.value.trueRoofSqFt
+  if (currentData.value.trueRoofArea) return currentData.value.trueRoofArea
+  
   const multiplier = pitchMultipliers[currentData.value.pitchRatio] || 1.158
   return Math.round((currentData.value.groundFootprintSqFt || 1800) * multiplier)
 })

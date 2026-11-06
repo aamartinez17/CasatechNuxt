@@ -359,15 +359,15 @@ const props = defineProps({
   },
   pitchRatio: {
     type: String,
-    default: '7:12'
+    default: '5:12'
   },
   pitchDegrees: {
     type: [String, Number],
-    default: 30.3
+    default: 21
   },
   facetsCount: {
     type: [String, Number],
-    default: 8
+    default: 1
   },
   detectedMaterial: {
     type: String,
@@ -375,11 +375,11 @@ const props = defineProps({
   },
   buildingHeight: {
     type: [Number, String],
-    default: 0
+    default: 24
   },
   stories: {
     type: [Number, String],
-    default: 0
+    default: 2
   },
   isLoading: {
     type: Boolean,

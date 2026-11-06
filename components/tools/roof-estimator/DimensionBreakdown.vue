@@ -195,23 +195,21 @@ const props = defineProps({
   wastePercentage: { type: [Number, String], default: 15 },
   detectedMaterial: { type: String, default: 'Architectural Shingle' },
   detectedObstacles: { type: [Array, String], default: () => [] },
-  obstacles: { type: [Array, String], default: () => [] }, // Added support for alternate prop name
+  obstacles: { type: [Array, String], default: () => [] },
   buildingHeight: { type: [Number, String], default: 20 },
-  buildingHeightFt: { type: [Number, String], default: 0 }, // Alternate fallback
+  buildingHeightFt: { type: [Number, String], default: 0 },
   stories: { type: [Number, String], default: 2 },
-  estimatedStories: { type: [Number, String], default: 0 } // Alternate fallback
+  estimatedStories: { type: [Number, String], default: 0 }
 })
 
-// Resolve height & stories safely across variable naming conventions
 const buildingHeight = computed(() => {
-  return props.buildingHeightFt || props.buildingHeight || 20
+  return parseFloat(props.buildingHeightFt) || parseFloat(props.buildingHeight) || 20
 })
 
 const stories = computed(() => {
-  return props.estimatedStories || props.stories || 2
+  return parseInt(props.estimatedStories) || parseInt(props.stories) || 2
 })
 
-// Dynamic calculation of slope multiplier from pitchRatio
 const pitchMultiplier = computed(() => {
   const parts = String(props.pitchRatio || '5:12').split(':')
   if (parts.length !== 2) return 1.083
@@ -248,9 +246,7 @@ const bundleCount = computed(() => {
   return Math.ceil(order * 3)
 })
 
-// Unifies obstacles & detectedObstacles into a clean comma-separated list
 const formattedObstacles = computed(() => {
-  // Check props.detectedObstacles first, then props.obstacles, then fall back safely
   const rawList = (props.detectedObstacles && props.detectedObstacles.length > 0) 
     ? props.detectedObstacles 
     : (props.obstacles && props.obstacles.length > 0) 
