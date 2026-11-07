@@ -67,7 +67,8 @@ import {
   faHollyBerry,
   faLocationDot,
   faCalendarDays,
-  faCar
+  faCar,
+  faTree
 } from '@fortawesome/free-solid-svg-icons'
 
 // 2. Import Brand Icons
@@ -99,7 +100,7 @@ library.add(
   faSatellite,faHandPointer, faMapPin, faCalendarDays,
   
   
-  faChampagneGlasses, faEnvelopeOpenText, faSnowflake, faGift, faHollyBerry, faLocationDot, faCar,
+  faChampagneGlasses, faEnvelopeOpenText, faSnowflake, faGift, faHollyBerry, faLocationDot, faCar, faTree,
   
   // Brand Icons
   faInstagram, faFacebook, faTwitter, faXTwitter, faLinkedin, faGithub, faYoutube, faTiktok
