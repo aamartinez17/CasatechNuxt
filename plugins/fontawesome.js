@@ -58,7 +58,16 @@ import {
   faMagnifyingGlass,
   faArrowLeft,
   faSatellite,
-  faHandPointer
+  faHandPointer,
+  faMapPin,
+  faChampagneGlasses,
+  faEnvelopeOpenText,
+  faSnowflake,
+  faGift,
+  faHollyBerry,
+  faLocationDot,
+  faCalendarDays,
+  faCar
 } from '@fortawesome/free-solid-svg-icons'
 
 // 2. Import Brand Icons
@@ -87,7 +96,10 @@ library.add(
   faShieldHalved, faChartPie, faServer, faSitemap, faUserTie, faGavel, faHouseChimney,
   faHeartPulse, faCertificate, faBagShopping, faCartShopping, faCreditCard, faTags, faTruckFast,
   faCalculator, faArrowDown, faDatabase, faChartLine, faPlug, faMagnifyingGlass, faArrowLeft,
-  faSatellite,faHandPointer, // <-- Added to library
+  faSatellite,faHandPointer, faMapPin, faCalendarDays,
+  
+  
+  faChampagneGlasses, faEnvelopeOpenText, faSnowflake, faGift, faHollyBerry, faLocationDot, faCar,
   
   // Brand Icons
   faInstagram, faFacebook, faTwitter, faXTwitter, faLinkedin, faGithub, faYoutube, faTiktok
