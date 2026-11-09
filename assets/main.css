@@ -6,61 +6,57 @@
 @tailwind components;
 @tailwind utilities;
 
+/* 1. Global CSS Property Registration must sit outside of layers */
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
 @layer base {
   :root {
-    /* Core Brand Colors */
-    --color-primary-rgb: 11 45 84;     /* #0B3954 (Deep Navy) */
-    --color-secondary-rgb: 0 119 182;  /* #0077B6 (Vibrant Blue) */
-    --color-cta-rgb: 249 115 22;       /* #F97316 (Orange) */
-    --text-on-dark-rgb: 248 250 252;   /* #F8FAFC (Slate Light) */
+    --color-primary-rgb: 11 45 84;     
+    --color-secondary-rgb: 0 119 182;  
+    --color-cta-rgb: 249 115 22;       
+    --text-on-dark-rgb: 248 250 252;   
 
     --color-primary: rgb(var(--color-primary-rgb)); 
     --color-secondary: rgb(var(--color-secondary-rgb)); 
     
-    /* Conversion Color */
     --color-cta: rgb(var(--color-cta-rgb)); 
     --color-cta-hover: #EA580C;
 
     --color-accent: var(--color-cta);
     
-    /* Neutral Palette & Core Backgrounds */
     --color-bg-dark: #0F172A;
     --color-bg-light: #F8FAFC;
 
-    /* Core Text Hierarchy */
-    --text-primary: #0F172A;   /* Deep Slate: For H1-H6 headings */
-    --text-secondary: #475569; /* Medium Slate: For subheadings, form labels */
-    --text-body: #334155;      /* Base Slate: For body text */
-    --text-muted: #94A3B8;     /* Light Slate: For placeholders, disabled states */
+    --text-primary: #0F172A;   
+    --text-secondary: #475569; 
+    --text-body: #334155;      
+    --text-muted: #94A3B8;     
     
-    /* Interactive & State Text */
     --text-interactive: var(--color-secondary);
     --text-interactive-hover: var(--color-primary);
     --text-on-dark: rgb(var(--text-on-dark-rgb));
     --text-on-cta: #FFFFFF;
 
-    /* Functional Text (Forms & Status) */
     --text-error: #DC2626;
     --text-success: #16A34A;
 
-    /* Typography System */
     --font-family-body: 'Inter', system-ui, -apple-system, sans-serif;
     --font-family-headings: 'Montserrat', var(--font-family-body);
     
-    /* Fluid Typography */
     --font-size-base: clamp(1rem, 0.94rem + 0.3vw, 1.125rem);
     --font-size-sm: 0.875rem;
     --font-size-lg: clamp(1.125rem, 1.05rem + 0.38vw, 1.25rem);
     --font-size-xl: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
     --font-size-2xl: clamp(1.5rem, 1.2rem + 1.5vw, 2rem);
     
-    /* Spacing & UI */
     --transition-fast: 0.2s ease-in-out;
   }
 
-  /* Apply Global Typography & Backgrounds */
   body {
-    /* background-color: var(--color-bg-light); */
     color: var(--text-body);
     font-family: var(--font-family-body);
     font-size: var(--font-size-base);
@@ -75,7 +71,6 @@
     line-height: 1.2;
   }
 
-  /* WCAG Keyboard Accessibility Focus States */
   *:focus-visible {
     outline: 2px solid var(--color-cta);
     outline-offset: 2px;
@@ -84,42 +79,30 @@
 }
 
 @layer utilities {
-  /* 
-    Light Scrolling Background Keyframes
-    Morphic pastel ambient glows designed for high-contrast light backgrounds
-  */
   @keyframes scroll-mesh {
-    /* 0% (Top of Page): Soft, airy Secondary Blue in the bottom-right */
     0% {
       transform: translate(25%, 25%) scale(1);
       background-image: radial-gradient(circle at center, rgba(7, 79, 117, 0.4) 0%, transparent 30%);
     }
-    /* 50% (Mid-Scroll): Deep Navy mixing with a warm Accent hint in the top-middle */
     50% {
       transform: translate(0%, -25%) scale(1.2);
       background-image: radial-gradient(circle at center, rgba(11, 133, 204, 0.4) 0%, transparent 30%);
     }
-    /* 100% (Bottom of Page): Soft warm Orange Accent settling in the bottom-left */
     100% {
       transform: translate(-25%, 25%) scale(1.1);
       background-image: radial-gradient(circle at center, rgba(11, 133, 204, 0.4) 0%, transparent 30%);
     }
   }
 
-  /* Keep your scroll binder active */
   .animate-scroll-bg {
-    animation: scroll-mesh auto linear both;
+    animation: scroll-mesh linear both;
     animation-timeline: scroll(root);
   }
 
-
-
-  /* Brand Gradient Class: Smooth flow from Deep Navy to Vibrant Blue */
   .bg-brand-gradient {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   }
 
-  /* Brand Gradient Text Class: Clips the gradient to the text fill */
   .text-brand-gradient {
     background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
     -webkit-background-clip: text;
@@ -133,7 +116,7 @@
     top: 0;
     left: 0;
     right: 0;
-    height: 6px; /* Controls how thin/thick the bar is */
+    height: 6px;
     background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-secondary) 50%, var(--color-cta) 100%);
     z-index: 10;
   }
@@ -149,45 +132,29 @@
     z-index: 10;
   }
 
-  /* 
-    2. Full Outer Border-Card Gradient (Wraps the entire card frame)
-  */
-  /* 1. Register the custom property so the browser knows how to animate the angle */
-@property --border-angle {
-  syntax: '<angle>';
-  initial-value: 0deg;
-  inherits: false;
-}
+  .card-gradient-border {
+    border: 3px solid transparent !important;
+    border-radius: 1.5rem !important;
 
-.card-gradient-border {
-  /* Keep your exact working setup */
-  border: 3px solid transparent !important;
-  border-radius: 1.5rem !important;
+    background-image: 
+      linear-gradient(#0b2d54, #23a8dc), 
+      linear-gradient(var(--border-angle), var(--color-primary) 0%, var(--color-secondary) 30%, var(--color-accent) 100%) !important;
 
-  /* Use the animated --border-angle variable in the border gradient */
-  background-image: 
-    linear-gradient(#0b2d54, #23a8dc), 
-    linear-gradient(var(--border-angle), var(--color-primary) 0%, var(--color-secondary) 30%, var(--color-accent) 100%) !important;
+    background-clip: padding-box, border-box !important;
+    background-origin: padding-box, border-box !important;
 
-  background-clip: padding-box, border-box !important;
-  background-origin: padding-box, border-box !important;
-
-  /* Run the GPU-friendly angle animation continuously */
-  animation: rotate-gradient 4s linear infinite !important;
-}
-
-/* Smooth rotation keyframes using the registered property */
-@keyframes rotate-gradient {
-  to {
-    --border-angle: 360deg;
+    animation: rotate-gradient 4s linear infinite !important;
   }
-}
 
-/* Force disable pseudo-elements so they don't break the background-clip */
-.card-gradient-border::before,
-.card-gradient-border::after {
-  display: none !important;
-  content: none !important;
-}
+  @keyframes rotate-gradient {
+    to {
+      --border-angle: 360deg;
+    }
+  }
 
+  .card-gradient-border::before,
+  .card-gradient-border::after {
+    display: none !important;
+    content: none !important;
+  }
 }

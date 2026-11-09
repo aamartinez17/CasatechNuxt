@@ -22,6 +22,12 @@ const dietaryNotes = ref('')
 const attending = ref('yes')
 const isSubmitted = ref(false)
 
+// Dropdown state for Event Details & Parking
+const isOpen = ref(false)
+
+// Smooth entrance mount state (starts false so browser catches initial paint)
+const isLoaded = ref(false)
+
 const handleRSVP = async () => {
   if (!guestName.value.trim()) return
   
@@ -52,6 +58,12 @@ const canvasRef = ref(null)
 let animationFrameId = null
 
 onMounted(() => {
+  // Give the browser 100ms to paint the initial opacity-0 state 
+  // before triggering the CSS transition class change
+  setTimeout(() => {
+    isLoaded.value = true
+  }, 100)
+
   const canvas = canvasRef.value
   if (!canvas) return
   const ctx = canvas.getContext('2d')
@@ -120,8 +132,11 @@ onMounted(() => {
       <div class="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-[#b30000] via-[#990000] to-[#660000]"></div>
     </div>
 
-    <!-- Main Content Container -->
-    <div class="relative z-20 max-w-7xl mx-auto px-4 w-full flex-grow flex flex-col items-center justify-center">
+    <!-- Main Content Container with Smooth CSS Fade & Slide Entrance -->
+    <div 
+      class="relative z-20 max-w-7xl mx-auto px-4 w-full flex-grow flex flex-col items-center justify-center transition-all duration-1000 ease-out transform"
+      :class="isLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'"
+    >
       
       <!-- Gold Border Outer Card with Festive Forest Green Inner Contrast -->
       <div class="w-full bg-[#133020] text-[#fbf8ef] rounded-2xl p-5 sm:p-8 lg:p-8 shadow-[0_25px_60px_rgba(0,0,0,0.5)] border-4 border-[#d4af37] relative overflow-hidden ring-1 ring-black/20">
@@ -182,30 +197,44 @@ onMounted(() => {
               </div>
             </div>
 
-            <!-- THOUGHTFUL MESSAGE & DETAILS SECTION WITH PARKING -->
-            <div id="details" class="bg-[#0d2115]/80 p-3 rounded-xl border border-[#d4af37]/40 text-xs text-[#fbf8ef] space-y-1.5 leading-relaxed font-serif">
-              <p class="text-[#ffd700] font-bold font-sans uppercase tracking-wider text-[11px] flex items-center gap-1.5">
-                <font-awesome-icon icon="solid fa-holly-berry" class="text-red-500" /> Event Details & Parking Guidelines
-              </p>
+            <!-- EVENT DETAILS & PARKING GUIDELINES (DROPDOWN ACCORDION) -->
+            <div id="details" class="bg-[#0d2115]/80 rounded-xl border border-[#d4af37]/40 overflow-hidden text-xs text-[#fbf8ef]">
+              <button 
+                @click="isOpen = !isOpen"
+                class="w-full p-3 flex items-center justify-between font-serif text-left focus:outline-none hover:bg-[#0d2115] transition-colors cursor-pointer"
+              >
+                <span class="text-[#ffd700] font-bold font-sans uppercase tracking-wider text-[11px] flex items-center gap-1.5">
+                  <font-awesome-icon icon="solid fa-holly-berry" class="text-red-500" /> Event Details & Parking Guidelines
+                </span>
+                <font-awesome-icon 
+                  :icon="isOpen ? 'solid fa-chevron-up' : 'solid fa-chevron-down'" 
+                  class="text-[#ffd700] transition-transform duration-300" 
+                />
+              </button>
 
-
-              <p class="italic text-[11px] sm:text-xs">
-                "As the year winds down and the winter snow settles in, there is nothing quite like gathering by the fire with the people who mean the most. We invite you to join us for an evening filled with laughter, great conversations, delicious food, and holiday warmth!"
-              </p>
-              
-              <!-- Parking Instructions -->
-              <div class="bg-[#133020]/90 p-2 rounded-lg border border-[#d4af37]/20 text-[11px] font-sans space-y-1 text-slate-200">
-                <p class="font-bold text-[#ffd700] flex items-center gap-1">
-                  <font-awesome-icon icon="solid fa-car" /> Parking Instructions:
+              <div v-show="isOpen" class="p-3 pt-0 space-y-2 leading-relaxed font-serif border-t border-[#234e35]/60 mt-1">
+                <p class="italic text-[11px] sm:text-xs text-[#fff8dc] font-sans pt-2">
+                  "Merry Christmas everyone! I hope you all have a wonderful time. -Alex (Finnegan ShellCrest)"
                 </p>
-                <p>• You are welcome to park in the <strong>driveway or on the grass</strong>.</p>
-                <p>• Please <strong>avoid parking on the road</strong>.</p>
-                <p>• Neighbor is not home and you are welcome to park there, but <em>only as a last option</em> — please call before parking there.</p>
-              </div>
 
-              <div class="pt-1 text-[11px] font-mono text-[#8fa89b] flex flex-wrap gap-x-4 gap-y-1 justify-between border-t border-[#234e35] mt-1 pt-1">
-                <span><font-awesome-icon icon="solid fa-map-pin" class="mr-1 text-[#ffd700]" /> <a href="https://maps.google.com/?q=358+Gravel+St,+Meriden,+CT+06450" target="_blank" class="text-[#ffd700] underline">358 Gravel St, Meriden, CT 06450</a></span>
-                <span><font-awesome-icon icon="solid fa-phone" class="mr-1 text-[#ffd700]" /> <a href="tel:5708319060" class="text-[#ffd700] underline">570-831-9060</a></span>
+                <p class="italic text-[11px] sm:text-xs">
+                  "As the year winds down and the winter snow settles in, there is nothing quite like gathering by the fire with the people who mean the most. We invite you to join us for an evening filled with laughter, great conversations, delicious food, and holiday warmth!"
+                </p>
+                
+                <!-- Parking Instructions -->
+                <div class="bg-[#133020]/90 p-2 rounded-lg border border-[#d4af37]/20 text-[11px] font-sans space-y-1 text-slate-200">
+                  <p class="font-bold text-[#ffd700] flex items-center gap-1">
+                    <font-awesome-icon icon="solid fa-car" /> Parking Instructions:
+                  </p>
+                  <p>• You are welcome to park in the <strong>driveway or on the grass</strong>.</p>
+                  <p>• Please <strong>avoid parking on the road</strong>.</p>
+                  <p>• Neighbor is not home and you are welcome to park there, but <em>only as a last option</em> — please call before parking there.</p>
+                </div>
+
+                <div class="pt-1 text-[11px] font-mono text-[#8fa89b] flex flex-wrap gap-x-4 gap-y-1 justify-between border-t border-[#234e35] mt-1 pt-1">
+                  <span><font-awesome-icon icon="solid fa-map-pin" class="mr-1 text-[#ffd700]" /> <a href="https://maps.google.com/?q=358+Gravel+St,+Meriden,+CT+06450" target="_blank" class="text-[#ffd700] underline">358 Gravel St, Meriden, CT 06450</a></span>
+                  <span><font-awesome-icon icon="solid fa-phone" class="mr-1 text-[#ffd700]" /> <a href="tel:5708319060" class="text-[#ffd700] underline">570-831-9060</a></span>
+                </div>
               </div>
             </div>
 
@@ -221,7 +250,7 @@ onMounted(() => {
               </p>
             </div>
 
-            <!-- RSVP FORM SECTION -->
+<!-- RSVP FORM SECTION -->
             <div class="bg-[#fcf9f2] text-[#133020] p-4 sm:p-5 rounded-xl border border-[#d4af37] shadow-xl">
               <div v-if="!isSubmitted">
                 <h3 class="text-base sm:text-lg font-bold font-serif text-[#133020] mb-2 text-center">
@@ -341,7 +370,7 @@ onMounted(() => {
                 -Alex (Finnegan ShellCrest)
               </p>
               <div class="text-[9px] text-[#ffd700]/70 font-mono">
-                Check out some of my other work at my website <a href="https://casatechllc.com/projects" target="_blank" class="underline hover:text-[#ffd700]">casatechllc.com/projects</a>
+                Check out some of my other work at my website <a href="https://casatechllc.com/portfolio" target="_blank" class="underline hover:text-[#ffd700]">casatechllc.com/portfolio</a>
               </div>
             </div>
 
